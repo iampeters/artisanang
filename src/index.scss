@@ -1,0 +1,43 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import './variables/colors.scss';
+@import './styles/styles.scss';
+@import './styles/font-face.scss';
+@import './styles/colors.scss';
+@import './styles/layout.scss';
+@import './styles/responsive.scss';
+
+* {
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+a {
+  text-decoration: none;
+  color: #747474;
+
+  &:hover {
+    text-decoration: none;
+    color: #747474;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'ProductSansRegular', 'Roboto' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  overflow: hidden;
+  // background-color: #f3fafb;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  color: #ff3d71;
+}
+
+.MuiAppBar-colorPrimary {
+  background-color: #fff !important;
+  // background-color: #974578 !important;
+}
