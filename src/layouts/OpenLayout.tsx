@@ -1,24 +1,52 @@
 import React from 'react'
+import { Route, Switch, useHistory } from 'react-router-dom'
+import IndexPage from '../routes/IndexPage'
+import { useSelector } from 'react-redux';
+import OpenAppBar from '../components/AppBar';
+import ErrorPage from '../routes/ErrorPage';
+import SignIn from '../routes/SignIn';
+import SignUp from '../routes/SignUp';
+import ForgotPassword from '../routes/ForgotPassword';
 
 export default function OpenLayout() {
+  const auth = useSelector((state: any) => state.auth);
+  const history = useHistory();
+
+  React.useEffect(() => {
+    if (auth) {
+      history.push('/dashboard');
+      return;
+    }
+  })
+
   return (
     <div>
-      <header className='bg-color'>
-        <div className="container">
-          <div className="row">
-            <h3 className="p-2" style={styles.header}>Artisana</h3>
-          </div>
-        </div>
-      </header>
+
+      <OpenAppBar />
 
       <div className="container-fluid bg-light">
         <div className="row content" style={styles.content}>
-          <div className="col-md-12 border-right bg-color" style={styles.section}></div>
-          <div className="col-md-12 border-right bg-white" style={styles.section}></div>
-          <div className="col-md-12 border-right bg-light" style={styles.section}></div>
-          <div className="col-md-12 border-right bg-white" style={styles.section}></div>
-          <div className="col-md-12 border-right bg-light" style={styles.section}></div>
-          <div className="col-md-12 border-right bg-dark" style={styles.section}></div>
+
+          <Switch>
+            <Route exact strict path='/'>
+              <IndexPage />
+            </Route>
+
+            <Route exact strict path='/sign-in'>
+              <SignIn />
+            </Route>
+
+            <Route exact strict path='/sign-up'>
+              <SignUp />
+            </Route>
+            <Route exact strict path='/forgot-password'>
+              <ForgotPassword />
+            </Route>
+
+            <Route exact strict path='*'>
+              <ErrorPage />
+            </Route>
+          </Switch>
         </div>
       </div>
     </div>

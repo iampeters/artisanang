@@ -1,8 +1,8 @@
 import React from 'react'
-import PrimarySearchAppBar from '../components/Header'
+import SecuredAppBar from '../components/Header'
 import { useSelector } from 'react-redux';
 import Nav from '../components/Nav';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Dashboard from '../routes/Dashboard';
 import Jobs from '../routes/Jobs';
 import MyArtisans from '../routes/MyArtisans';
@@ -17,13 +17,21 @@ import MessageDetails from '../routes/MessageDetails';
 import Messages from '../routes/Messages';
 
 export default function SecuredLayout() {
-
+  const auth = useSelector((state: any) => state.auth);
   const menuToggle = useSelector((state: any) => state.menu);
+  const history = useHistory();
+
+
+  React.useEffect(() => {
+    if (!auth) {
+      history.push('/');
+    }
+  })
 
   return (
     <div>
       {/* header */}
-      <PrimarySearchAppBar />
+      <SecuredAppBar />
 
       <div className="container-fluid">
         <div className="row">
@@ -104,6 +112,7 @@ const styles = {
   sideBar: {},
   content: {
     marginTop: 30,
-    overflow: 'auto'
+    overflow: 'auto',
+    paddingRight: 30
   }
 }

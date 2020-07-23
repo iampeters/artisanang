@@ -22,6 +22,9 @@ export interface Theme {
   onSurface?: string;
   onBackground?: string;
   variant?: string;
+  facebook?: string;
+  google?: string;
+  apple?: string;
   fonts?: {
     Roboto?: string;
     RobotoMedium?: string;
@@ -45,4 +48,28 @@ export interface Artisans {
   rating: number;
   specialization: any;
   imageUrl: any;
+  address: any;
+}
+
+export interface Reducers {
+  auth: boolean;
+  theme: string
+  loading: boolean;
+  menu: string;
+  user: any;
+  tokens: any;
+  login: any;
+}
+
+export interface User {
+  user: {
+    firstname: string;
+    lastname: string;
+    lastLogin: string;
+    _id: string;
+    email: string;
+    phoneNumber: string;
+    address: string;
+    imageUrl: string;
+  },
 }

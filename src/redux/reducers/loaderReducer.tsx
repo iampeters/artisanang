@@ -1,6 +1,6 @@
-export const loaderReducer = (state = { isLoading: false }, action: any) => {
+export const loaderReducer = (state = false, action: any) => {
   switch (action.type) {
-    case 'LOADER': {
+    case 'LOADING': {
       return action.payload;
     }
 

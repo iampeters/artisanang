@@ -9,6 +9,7 @@
 * {
   box-sizing: border-box;
   outline: none !important;
+  // font-family: ProductSansRegular !important;
 }
 
 a {
@@ -23,10 +24,10 @@ a {
 
 body {
   margin: 0;
-  font-family: 'ProductSansRegular', 'Roboto' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: ProductSansRegular !important;
   overflow: hidden;
   // background-color: #f3fafb;
 }
@@ -37,7 +38,15 @@ code {
   color: #ff3d71;
 }
 
-.MuiAppBar-colorPrimary {
-  background-color: #fff !important;
-  // background-color: #974578 !important;
+.MuiButton-root {
+  font-family: 'ProductSansRegular';
+  font-size: 1.01rem !important;
+  text-transform: capitalize !important;
+
+}
+
+.artisanList {
+  .MuiListItem-button {
+    background: white;
+  }
 }

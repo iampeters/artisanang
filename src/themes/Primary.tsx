@@ -21,6 +21,9 @@ const PrimaryTheme: Theme = {
   onSurface: '#000',
   onPrimary: '#fff',
   borderColor: '#f0f3f5',
+  google: '#ea4335',
+  facebook: '#1877f2',
+  apple: '#282828',
   onSecondary: '#000',
   fonts: {
     Roboto: 'Roboto',

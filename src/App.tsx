@@ -4,14 +4,19 @@ import OpenLayout from './layouts/OpenLayout';
 import SecuredLayout from './layouts/SecuredLayout';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import { SnackbarProvider } from 'notistack';
 
 function App() {
-  const auth = useSelector((state: any) => state.auth);
+  let auth = useSelector((state: any) => state.auth);
+  if (auth === null) {
+    auth = false;
+  }
 
   return (
     <Router>
-      {auth ? <SecuredLayout /> : <OpenLayout />}
+      <SnackbarProvider maxSnack={2} anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}>
+        {auth ? <SecuredLayout /> : <OpenLayout />}
+      </SnackbarProvider>
     </Router>
   );
 }

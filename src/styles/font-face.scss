@@ -1,24 +1,27 @@
 @font-face {
   font-family: 'ProductSansRegular';
-  src: local('ProductSans-Regular'), ('./fonts/ProductSans-Regular.ttf');
+  src: local('ProductSans-Regular'), url('../fonts/ProductSans-Regular.ttf'),
+    url('../fonts/ProductSans-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'ProductSansBold';
-  src: local('ProductSans-Bold'), ('./fonts/ProductSans-Bold.ttf');
+  font-weight: 600;
+  src: local('ProductSans-Bold'), url('../fonts/ProductSans-Bold.ttf');
 }
 
 @font-face {
   font-family: 'ProductSansMedium';
-  src: local('ProductSans-Medium'), ('./fonts/ProductSans-Medium.ttf');
+  font-weight: 700;
+  src: local('ProductSans-Medium'), url('../fonts/ProductSans-Medium.ttf');
 }
 
 @font-face {
   font-family: 'Roboto';
-  src: local('Roboto'), ('./fonts/Roboto.ttf');
+  src: local('Roboto'), url('../fonts/Roboto.ttf');
 }
 
 @font-face {
   font-family: 'RobotoMedium';
-  src: local('Roboto_medium'), ('./fonts/Roboto_medium.ttf');
+  src: local('Roboto_medium'), url('../fonts/Roboto_medium.ttf');
 }
