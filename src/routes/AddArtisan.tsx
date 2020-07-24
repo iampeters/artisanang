@@ -18,7 +18,6 @@ export default function AddArtisan() {
   const { enqueueSnackbar } = useSnackbar();
   const user = useSelector((state: Reducers) => state.user);
   const file = useSelector((state: Reducers) => state.file);
-  const tokens = useSelector((state: Reducers) => state.tokens);
   const [imageUrl, setImageUrl]: any = React.useState('/add-user.png');
   const dispatch = useDispatch();
   const alert = useSelector((state: Reducers) => state.alert);
@@ -38,6 +37,9 @@ export default function AddArtisan() {
   const [state, setState]: any = React.useState('');
   const [country, setCountry]: any = React.useState('');
   const [submitted, setSubmitted] = React.useState(false);
+
+  const RAND_NUM = Math.floor(Math.random() * 1234567890);
+
 
   const validateEmail = (text: string) => {
     // email pattern
@@ -108,7 +110,7 @@ export default function AddArtisan() {
       country: country
     };
 
-    dispatch(createArtisan(artisan, tokens));
+    dispatch(createArtisan(artisan));
   }
 
   React.useEffect(() => {
@@ -154,7 +156,8 @@ export default function AddArtisan() {
     let fd = new FormData();
     if (pic) {
       fd.append('imageUrl', pic)
-      dispatch(fileUpload(fd, tokens))
+      fd.append('code', `${RAND_NUM}`)
+      dispatch(fileUpload(fd))
       dispatch({
         type: 'LOADING',
         payload: true

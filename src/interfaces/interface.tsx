@@ -48,7 +48,7 @@ export interface Artisans {
   rating?: number;
   specialization: any;
   imageUrl: any;
-  address: any;
+  address?: any;
   state?: any;
   country?: any;
 
@@ -63,15 +63,13 @@ export interface Reducers {
   tokens: Tokens;
   login: any;
   alert: any;
-  artisan: any;
+  artisan: PaginatedResponse;
   file: ResponseDetails;
 }
-
 
 export interface Tokens {
   auth_token: string;
   refresh_token: string
-
 }
 
 export interface User {
@@ -88,9 +86,11 @@ export interface User {
 }
 
 export interface Pagination {
-  page: number;
-  pageSize: number;
-  whereCondition: any;
+  page?: number;
+  pageSize?: number;
+  whereCondition?: any;
+  total?: number;
+  onChange?: any;
 }
 
 export interface ResponseDetails {

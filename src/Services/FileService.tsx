@@ -5,17 +5,17 @@ import { TokenValidator } from './TokenValidator';
 export default class FileService {
 
   config = API.configuration + 'fileUpload';
-
+  tokens: any | Tokens
   constructor() {
-    TokenValidator();
+    this.tokens = TokenValidator();
   }
 
-  async fileUpload(data: FormData, tokens: Tokens) {
+  async fileUpload(data: FormData) {
     try {
       let response = await fetch(this.config, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${tokens.auth_token}`
+          'Authorization': `Bearer ${this.tokens.auth_token}`
         },
         body: data,
       });

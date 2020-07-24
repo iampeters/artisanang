@@ -1,4 +1,4 @@
-export const artisanReducer = (state = [], action: any) => {
+export const artisanReducer = (state = {}, action: any) => {
   switch (action.type) {
     case 'CREATE_ARTISAN': {
       return action.payload;

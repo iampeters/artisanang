@@ -45,6 +45,8 @@ export function TokenValidator() {
 
         });
     };
+  } else {
+    return tokens
   }
 
   async function refreshToken(tokens: Tokens) {

@@ -3,8 +3,8 @@ import { Pagination, Artisans, ResponseDetails, PaginatedResponse, Tokens } from
 import { Dispatch } from 'redux';
 
 
-export const createArtisan = (state: Artisans, tokens: Tokens) => {
-  const api = new ArtisanService().createArtisan(state, tokens);
+export const createArtisan = (state: Artisans) => {
+  const api = new ArtisanService().createArtisan(state);
 
   return (dispatch: Dispatch) => {
     api
@@ -44,8 +44,8 @@ export const createArtisan = (state: Artisans, tokens: Tokens) => {
   };
 };
 
-export const getArtisans = (state: Pagination, tokens: Tokens) => {
-  const api = new ArtisanService().getArtisans(state, tokens);
+export const getArtisans = (state: Pagination) => {
+  const api = new ArtisanService().getArtisans(state);
 
   return (dispatch: Dispatch) => {
     api

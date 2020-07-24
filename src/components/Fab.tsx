@@ -23,9 +23,9 @@ export default function FloatingActionButtons(props: any) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root + ' mb-3'}>
       <Fab style={{background: PrimaryTheme.primary}} color='secondary' aria-label="add" variant='extended' onClick={props.onClick}>
-        <Icon style={{color: PrimaryTheme.white, marginRight: 5}}>person_add</Icon> <Typography> Artisan</Typography>
+        <Icon style={{color: PrimaryTheme.white, marginRight: 5}}>person_add</Icon> <Typography className='text-capitalize'> Artisan</Typography>
       </Fab>
       {/* <Fab color="secondary" aria-label="edit">
         <EditIcon />
