@@ -189,7 +189,7 @@ export default function Register() {
         });
         setSubmitted(false);
       } else {
-        window.location.pathname = '/dashboard';
+        window.location.pathname = '/artisans';
       }
     }
   }, [dispatch, enqueueSnackbar, loginResponse]);
@@ -320,7 +320,7 @@ export default function Register() {
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="sign-in" variant="body2">
-                Already have an account? Sign in
+                Already a user? Sign in
               </Link>
             </Grid>
           </Grid>

@@ -1,0 +1,13 @@
+$primary: #974578;
+
+.Mui-focused {
+  color: $primary !important;
+}
+
+.MuiOutlinedInput-root .Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: $primary;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: $primary !important;
+}

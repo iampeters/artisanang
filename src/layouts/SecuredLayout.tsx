@@ -15,8 +15,15 @@ import Notifications from '../routes/Notifications';
 import NotificationDetails from '../routes/NotificationDetails';
 import MessageDetails from '../routes/MessageDetails';
 import Messages from '../routes/Messages';
+import AddArtisan from '../routes/AddArtisan';
+import PrimaryTheme from '../themes/Primary';
+import { Backdrop, makeStyles, Theme, createStyles } from '@material-ui/core';
+import Spinner from '../components/Spinner';
+import { Reducers } from '../interfaces/interface';
 
 export default function SecuredLayout() {
+  const classes = useStyles();
+  const loading = useSelector((state: Reducers) => state.loading)
   const auth = useSelector((state: any) => state.auth);
   const menuToggle = useSelector((state: any) => state.menu);
   const history = useHistory();
@@ -35,16 +42,16 @@ export default function SecuredLayout() {
 
       <div className="container-fluid">
         <div className="row">
-          <div className="col-3 bg-light" style={{ ...styles.sideBar, display: menuToggle }}>
-            <div className="col-md-12 sideBar p-3 bg-white">
+          <div className="col-3" style={{ display: menuToggle, position: 'relative', }}>
+            <div className="col-md-3 sideBar p-0 bg-white">
               <Nav />
             </div>
           </div>
 
-          <div className="col ml-auto bg-light p-0">
+          <div className="col ml-auto p-0" style={{ backgroundColor: PrimaryTheme.background }}>
             <div className="col-md-12 content" style={{ ...styles.content, }}>
               <Switch>
-                <Route exact strict path='/dashboard'>
+                <Route exact strict path='/artisans'>
                   <Dashboard />
                 </Route>
 
@@ -54,6 +61,14 @@ export default function SecuredLayout() {
 
                 <Route exact strict path='/my-artisans'>
                   <MyArtisans />
+                </Route>
+
+                <Route exact strict path='/artisans/details/:id'>
+                  <ArtisanDetails />
+                </Route>
+
+                <Route exact strict path='/artisans/add'>
+                  <AddArtisan />
                 </Route>
 
                 <Route exact strict path='/my-reviews'>
@@ -66,10 +81,6 @@ export default function SecuredLayout() {
 
                 <Route exact strict path='/settings'>
                   <Settings />
-                </Route>
-
-                <Route exact strict path='/artisans/:id'>
-                  <ArtisanDetails />
                 </Route>
 
                 <Route exact strict path='/notifications'>
@@ -95,6 +106,10 @@ export default function SecuredLayout() {
             </div>
           </div>
 
+          <Backdrop className={classes.backdrop} open={loading}>
+            <Spinner />
+          </Backdrop>
+
         </div>
       </div>
     </div>
@@ -109,10 +124,27 @@ const styles = {
     height: 70,
     borderRadius: 50
   },
-  sideBar: {},
+  sideBar: {
+  },
   content: {
-    marginTop: 30,
-    overflow: 'auto',
+    marginTop: 100,
+    // overflow: 'auto',
     paddingRight: 30
-  }
+  },
 }
+
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    }, option: {
+      fontSize: 15,
+      '& > span': {
+        marginRight: 10,
+        fontSize: 18,
+      },
+    },
+  }),
+);

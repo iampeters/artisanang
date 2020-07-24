@@ -1,8 +1,10 @@
 const API_URL = {
 	// identity: `http://localhost:5000/api/identity/`,
 	identity: `https://sandbox.artisana.ng/api/identity/`,
-	configuration: `https://sandbox.artisana.ng/api/configuration/`,
-	artisans: `https://sandbox.artisana.ng/api/artisans/`,
+	configuration: `http://localhost:5000/api/configuration/`,
+	// configuration: `https://sandbox.artisana.ng/api/configuration/`,
+	// artisans: `https://sandbox.artisana.ng/api/artisans/`,
+	artisans: `http://localhost:5000/api/artisans/`,
 	jobs: `https://sandbox.artisana.ng/api/jobs/`,
 	reviews: `https://sandbox.artisana.ng/api/reviews/`,
 	users: `https://sandbox.artisana.ng/api/users/`,

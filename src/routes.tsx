@@ -1,8 +1,8 @@
 export const Routes = [
   {
-    name: 'Dashboard',
+    name: 'Artisans',
     icon: 'explore',
-    path: '/dashboard'
+    path: '/artisans'
   },
   {
     name: 'My Artisans',

@@ -7,6 +7,7 @@ import ErrorPage from '../routes/ErrorPage';
 import SignIn from '../routes/SignIn';
 import SignUp from '../routes/SignUp';
 import ForgotPassword from '../routes/ForgotPassword';
+import PrimaryTheme from '../themes/Primary';
 
 export default function OpenLayout() {
   const auth = useSelector((state: any) => state.auth);
@@ -24,7 +25,7 @@ export default function OpenLayout() {
 
       <OpenAppBar />
 
-      <div className="container-fluid bg-light">
+      <div className="container-fluid" style={{ backgroundColor: PrimaryTheme.background }}>
         <div className="row content" style={styles.content}>
 
           <Switch>
@@ -36,7 +37,7 @@ export default function OpenLayout() {
               <SignIn />
             </Route>
 
-            <Route exact strict path='/sign-up'>
+            <Route exact strict path='/join'>
               <SignUp />
             </Route>
             <Route exact strict path='/forgot-password'>

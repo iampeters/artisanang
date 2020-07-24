@@ -45,10 +45,13 @@ export interface Routes {
 export interface Artisans {
   firstname: string;
   lastname: string;
-  rating: number;
+  rating?: number;
   specialization: any;
   imageUrl: any;
   address: any;
+  state?: any;
+  country?: any;
+
 }
 
 export interface Reducers {
@@ -57,8 +60,18 @@ export interface Reducers {
   loading: boolean;
   menu: string;
   user: any;
-  tokens: any;
+  tokens: Tokens;
   login: any;
+  alert: any;
+  artisan: any;
+  file: ResponseDetails;
+}
+
+
+export interface Tokens {
+  auth_token: string;
+  refresh_token: string
+
 }
 
 export interface User {
@@ -73,3 +86,24 @@ export interface User {
     imageUrl: string;
   },
 }
+
+export interface Pagination {
+  page: number;
+  pageSize: number;
+  whereCondition: any;
+}
+
+export interface ResponseDetails {
+  hasErrors: boolean;
+  hasResults: boolean;
+  successful: boolean;
+  result: any,
+}
+
+export interface PaginatedResponse {
+  hasErrors: boolean;
+  hasResults: boolean;
+  successful: boolean;
+  items: Array<any>;
+  total: number;
+};

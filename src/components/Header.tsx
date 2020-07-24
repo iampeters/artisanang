@@ -146,7 +146,7 @@ export default function SecuredAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem onClick={() => handleNavigation('messages')}>
+      <MenuItem onClick={() => handleNavigation('/messages')}>
         <IconButton aria-label="show 4 new mails" color="inherit" >
           <Badge badgeContent={messageCount} color="secondary">
             <MailIcon />
@@ -154,7 +154,7 @@ export default function SecuredAppBar() {
         </IconButton>
         <p  className="mb-0">Messages</p>
       </MenuItem>
-      <MenuItem onClick={() => handleNavigation('notifications')}>
+      <MenuItem onClick={() => handleNavigation('/notifications')}>
         <IconButton aria-label="show 11 new notifications" color="inherit" >
           <Badge badgeContent={notificationCount} color="secondary">
             <NotificationsIcon />
@@ -173,7 +173,7 @@ export default function SecuredAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{backgroundColor: PrimaryTheme.white}}>
+      <AppBar position="fixed" style={{backgroundColor: PrimaryTheme.white}} elevation={0} className='box-shadow border-bottom'>
         <Toolbar>
           <IconButton
             edge="start"
@@ -204,13 +204,13 @@ export default function SecuredAppBar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
 
-            <IconButton aria-label="show 4 new mails" color="inherit" onClick={() => handleNavigation('messages')}>
+            <IconButton aria-label="show 4 new mails" color="inherit" onClick={() => handleNavigation('/messages')}>
               <Badge badgeContent={messageCount} color="secondary" >
                 <MailIcon style={{ color: PrimaryTheme.icon }} />
               </Badge>
             </IconButton>
 
-            <IconButton aria-label="show 17 new notifications" color="inherit" onClick={() => handleNavigation('notifications')}>
+            <IconButton aria-label="show 17 new notifications" color="inherit" onClick={() => handleNavigation('/notifications')}>
               <Badge badgeContent={notificationCount} color="secondary">
                 <NotificationsIcon style={{ color: PrimaryTheme.icon }} />
               </Badge>

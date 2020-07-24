@@ -4,6 +4,7 @@
 @import './styles/font-face.scss';
 @import './styles/colors.scss';
 @import './styles/layout.scss';
+@import './styles/reset.scss';
 @import './styles/responsive.scss';
 
 * {
@@ -23,13 +24,14 @@ a {
 }
 
 body {
+  height: 100vh;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   font-family: ProductSansRegular !important;
-  overflow: hidden;
-  // background-color: #f3fafb;
+  // overflow: hidden;
+  background-color: #f3fbfc !important;
 }
 
 code {

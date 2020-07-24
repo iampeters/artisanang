@@ -2,8 +2,14 @@ import React from 'react'
 import ArtisanList from '../components/ArtisanList';
 import SearchBar from '../components/SearchBar';
 import FloatingActionButtons from '../components/Fab';
+import { useHistory } from 'react-router-dom';
 
 export default function Dashboard() {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/artisans/add')
+  }
 
   return (
     <div className='animated fadeIn'>
@@ -28,8 +34,8 @@ export default function Dashboard() {
           address='No. 23 Golden street, Ikeja' />
       </div>
 
-      <div style={{ ...styles.fab, position: 'absolute' }}>
-        <FloatingActionButtons/>
+      <div style={{ ...styles.fab, position: 'fixed' }}>
+        <FloatingActionButtons onClick={handleClick} />
       </div>
     </div>
   )

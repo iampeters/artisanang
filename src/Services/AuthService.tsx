@@ -1,8 +1,11 @@
-// import db from '../../db/';
 import API from '../APIs/Apis';
+import { TokenValidator } from './TokenValidator';
+import { Tokens } from '../interfaces/interface';
 
 export default class AuthService {
-  // constructor() {}
+  constructor() {
+    TokenValidator();
+  }
 
   token = API.identity + 'token';
   socialAuthentication = API.social + 'auth';

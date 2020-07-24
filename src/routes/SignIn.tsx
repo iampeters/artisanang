@@ -165,7 +165,7 @@ export default function Login() {
         // stop spinner
         handleClose();
 
-        window.location.pathname = '/dashboard';
+        window.location.pathname = '/artisans';
       }
     }
   }, [dispatch, enqueueSnackbar, loginResponse]);
@@ -233,18 +233,18 @@ export default function Login() {
             </Button>
 
             <Grid container>
-              <Grid item xs>
+              <Grid item xs className='mb-1'>
                 <Link href='forgot-password' variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
-              <Grid item>
-                <Link href='sign-up' variant="body2">
-                  {"Don't have an account? Sign Up"}
+              <Grid item className='mb-1'>
+                <Link href='join' variant="body2">
+                  {"Don't have an account? Create account"}
                 </Link>
               </Grid>
             </Grid>
-            <div className='text-center pt-4 row justify-content-center align-items-center'>
+            <div className='text-center pt-2 row justify-content-center align-items-center'>
               <hr className='w-25' />
               <h6>Or use social account</h6>
               <hr className='w-25' />

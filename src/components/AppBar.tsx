@@ -4,12 +4,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { useSelector, useDispatch } from 'react-redux';
 import { menuToggle } from '../redux/Actions/themeActions';
@@ -28,8 +25,6 @@ export default function OpenAppBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const messageCount = React.useState(1)[0];
-  const notificationCount = React.useState(1)[0];
 
 
   const handleMobileMenuClose = () => {
@@ -79,22 +74,29 @@ export default function OpenAppBar() {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      // style={{width: 100}}
     >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={messageCount} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
+      <MenuItem style={{
+        fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+      }}>
+        <p className="mb-0">About</p>
       </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={notificationCount} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
+      <MenuItem style={{
+        fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+      }}>
+        <p className="mb-0">FAQs</p>
+      </MenuItem>
+      <MenuItem onClick={() => handleNavigation('sign-in')}
+        style={{
+          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        }}>
+        <p className="mb-0">Sign In</p>
+      </MenuItem>
+      <MenuItem onClick={() => handleNavigation('join')}
+        style={{
+          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        }}>
+        <p className="mb-0">Join</p>
       </MenuItem>
     </Menu>
   );
@@ -146,7 +148,7 @@ export default function OpenAppBar() {
             <Button color="inherit" style={{
               color: PrimaryTheme.white,
               fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-            }} onClick={() => handleNavigation('sign-up')}>Sign Up</Button>
+            }} onClick={() => handleNavigation('join')}>Join</Button>
 
           </div>
 

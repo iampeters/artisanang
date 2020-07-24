@@ -8,6 +8,11 @@ export default function Settings() {
     sessionStorage.removeItem('auth');
 
     dispatch({
+      type: 'LOADING',
+      payload: true
+    })
+
+    dispatch({
       type: "USER",
       payload: {}
     })

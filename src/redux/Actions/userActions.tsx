@@ -12,7 +12,7 @@ export const logout = () => {
       type: 'IS_LOGGED_IN',
       payload: { isAuthenticated: false },
     });
-  };
+  }
 };
 
 export const login = (state: any) => {
@@ -66,9 +66,7 @@ export const login = (state: any) => {
 };
 
 export const socialAuth = (state: any) => {
-  const authService = new AuthService();
-
-  const api = authService.socialAuth(state);
+  const api = new AuthService().socialAuth(state);
 
   return (dispatch: any) => {
     api
@@ -111,6 +109,12 @@ export const socialAuth = (state: any) => {
             successful: false,
           },
         });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
       });
   };
 };
@@ -162,6 +166,12 @@ export const signUp = (state: any) => {
             successful: false,
           },
         });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
       });
   };
 };
