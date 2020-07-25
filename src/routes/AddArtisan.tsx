@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import PrimaryTheme from '../themes/Primary';
-import { Reducers } from '../interfaces/interface';
+import { Reducers, CountryType } from '../interfaces/interface';
 import Avatar from '@material-ui/core/Avatar';
 import { useSelector, useDispatch } from 'react-redux';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -461,10 +461,3 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
-
-
-interface CountryType {
-  code: string;
-  label: string;
-  phone: string;
-}

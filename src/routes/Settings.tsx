@@ -6,6 +6,7 @@ export default function Settings() {
 
   const handleSignOut = () => {
     sessionStorage.removeItem('auth');
+    localStorage.clear();
 
     dispatch({
       type: 'LOADING',

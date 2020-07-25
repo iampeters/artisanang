@@ -5,6 +5,7 @@ export interface Theme {
   dark: string;
   light: string;
   icon: string;
+  appBar: string;
   secondary?: string;
   border?: string;
   danger?: string;
@@ -24,6 +25,7 @@ export interface Theme {
   variant?: string;
   facebook?: string;
   google?: string;
+  rating?: string;
   apple?: string;
   fonts?: {
     Roboto?: string;
@@ -35,6 +37,12 @@ export interface Theme {
   };
 }
 
+export interface CountryType {
+  code: string;
+  label: string;
+  phone: string;
+}
+
 export interface Routes {
   name: string;
   icon: string;
@@ -43,15 +51,27 @@ export interface Routes {
 }
 
 export interface Artisans {
-  firstname: string;
-  lastname: string;
+  firstname?: string;
+  lastname?: string;
   rating?: number;
-  specialization: any;
-  imageUrl: any;
-  address?: any;
-  state?: any;
-  country?: any;
+  specialization?: string;
+  imageUrl?: string;
+  address?: string;
+  state?: string;
+  country?: string;
+  onClick?: any;
+  _id?: string;
+  businessName?: string;
+  RCNumber?: string;
+  NIN?: string;
+}
 
+export interface Reviews {
+  title: string;
+  description: string;
+  rating: number;
+  artisanId: string;
+  reviewId: string;
 }
 
 export interface Reducers {
@@ -63,7 +83,7 @@ export interface Reducers {
   tokens: Tokens;
   login: any;
   alert: any;
-  artisan: PaginatedResponse;
+  artisan: ResponseDetails;
   file: ResponseDetails;
 }
 
@@ -82,7 +102,7 @@ export interface User {
     phoneNumber: string;
     address: string;
     imageUrl: string;
-  },
+  };
 }
 
 export interface Pagination {
@@ -94,16 +114,19 @@ export interface Pagination {
 }
 
 export interface ResponseDetails {
-  hasErrors: boolean;
-  hasResults: boolean;
-  successful: boolean;
-  result: any,
+  hasErrors?: boolean;
+  hasResults?: boolean;
+  successful?: boolean;
+  result?: any,
+  items?: Array<any>;
+  total?: number;
 }
 
-export interface PaginatedResponse {
-  hasErrors: boolean;
-  hasResults: boolean;
-  successful: boolean;
-  items: Array<any>;
-  total: number;
-};
+export interface Search {
+  onChange: any;
+  value: string;
+}
+
+export interface Ratings {
+  rating: number | undefined;
+}

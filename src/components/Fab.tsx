@@ -5,7 +5,6 @@ import Icon from '@material-ui/core/Icon';
 import PrimaryTheme from '../themes/Primary';
 import { Typography } from '@material-ui/core';
 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -25,18 +24,8 @@ export default function FloatingActionButtons(props: any) {
   return (
     <div className={classes.root + ' mb-3'}>
       <Fab style={{background: PrimaryTheme.primary}} color='secondary' aria-label="add" variant='extended' onClick={props.onClick}>
-        <Icon style={{color: PrimaryTheme.white, marginRight: 5}}>person_add</Icon> <Typography className='text-capitalize'> Artisan</Typography>
+        <Icon style={{color: PrimaryTheme.white, marginRight: 5}}>{props.IconName}</Icon> <Typography className='text-capitalize'> {props.IconText}</Typography>
       </Fab>
-      {/* <Fab color="secondary" aria-label="edit">
-        <EditIcon />
-      </Fab>
-      <Fab variant="extended">
-        <NavigationIcon className={classes.extendedIcon} />
-        Navigate
-      </Fab>
-      <Fab disabled aria-label="like">
-        <FavoriteIcon />
-      </Fab> */}
     </div>
   );
 }

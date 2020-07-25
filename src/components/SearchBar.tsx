@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Icon from '@material-ui/core/Icon';
 import PrimaryTheme from '../themes/Primary';
+import { Search } from '../interfaces/interface';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function SearchBar() {
+export default function SearchBar(props: Search) {
   const classes = useStyles();
 
   return (
@@ -42,7 +43,10 @@ export default function SearchBar() {
       <InputBase
         className={classes.input}
         placeholder="Search for Artisans and Specialization"
-        inputProps={{ 'aria-label': 'search google maps' }}
+        inputProps={{ 'aria-label': 'Search for Artisans and Specialization' }}
+        value={props.value}
+        onChange={props.onChange}
+        
       />
       <IconButton type="submit" className={classes.iconButton} aria-label="search">
         <SearchIcon />

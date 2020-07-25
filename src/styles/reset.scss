@@ -11,3 +11,15 @@ $primary: #974578;
 .MuiOutlinedInput-notchedOutline {
   border-color: $primary !important;
 }
+
+button {
+  font-family: ProductSansRegular !important;
+  outline: none !important;
+}
+
+.btn {
+  &:focus {
+    outline: 0;
+    box-shadow: none !important;
+  }
+}

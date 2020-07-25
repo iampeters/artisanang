@@ -2,8 +2,9 @@ import { Theme } from "../interfaces/interface";
 
 const PrimaryTheme: Theme = {
   primary: '#974578',
+  appBar: '#67164c',
   variant: '#c973a7',
-  dark: '#282828',
+  dark: '#747474',
   light: 'gray',
   icon: '#974578',
   info: '#0095ff',
@@ -14,6 +15,7 @@ const PrimaryTheme: Theme = {
   warn: '#ffc107',
   black: '#000000',
   active: '#974578',
+  danger: '#ff3d71',
   text: '#282828',
   surface: '#f0f3f5',
   secondary: '#b79cff',
@@ -25,6 +27,7 @@ const PrimaryTheme: Theme = {
   facebook: '#1877f2',
   apple: '#282828',
   onSecondary: '#000',
+  rating: '#ffb400',
   fonts: {
     Roboto: 'Roboto',
     RobotoMedium: 'RobotoMedium',

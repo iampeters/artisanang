@@ -32,7 +32,25 @@ export default class AuthService {
   async getArtisans(data: Pagination) {
     try {
       let response = await fetch(
-        this.artisans + `all/?page=${data.page}/pageSize=${data.pageSize}/whereCondition=${data.whereCondition}`,
+        this.artisans + `all/?page=${data.page}&&pageSize=${data.pageSize}&&whereCondition=${data.whereCondition}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.tokens.auth_token}`
+          }
+        });
+
+      return await response.json();
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getArtisanDetails(data: string) {
+    try {
+      let response = await fetch(
+        this.artisans + `${data}`,
         {
           method: 'GET',
           headers: {

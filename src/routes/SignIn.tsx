@@ -162,10 +162,13 @@ export default function Login() {
 
         setSubmitted(false);
       } else {
-        // stop spinner
-        handleClose();
 
-        window.location.pathname = '/artisans';
+        setTimeout(() => {
+          // stop spinner
+          handleClose();
+
+          window.location.pathname = '/artisans';
+        }, 1000);
       }
     }
   }, [dispatch, enqueueSnackbar, loginResponse]);
@@ -173,13 +176,13 @@ export default function Login() {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={false} sm={4} md={7} className={classes.image + ' background-image'} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}>
             Sign in
           </Typography>
 
@@ -224,10 +227,10 @@ export default function Login() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
               className={classes.submit}
               onClick={handleSubmit}
               disabled={!isEmailValid || !isPasswordValid || submitted}
+              style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
             >
               Sign In
             </Button>
@@ -269,7 +272,7 @@ export default function Login() {
                   size="small"
                   className={classes.button + ' col mt-2'}
                   onClick={handleFacebookAuth}
-                  style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white }}
+                  style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white, }}
                 >
                   <FontAwesomeIcon icon={faFacebook} className='mr-2' />
                   Facebook</Button>
@@ -297,11 +300,12 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     // backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
+    // backgroundRepeat: 'r',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    // backgroundSize: 'cover',
+    // backgroundPosition: 'center',
+
   },
   paper: {
     margin: theme.spacing(8, 10),

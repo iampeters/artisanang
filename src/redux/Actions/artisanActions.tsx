@@ -1,5 +1,5 @@
 import ArtisanService from '../../Services/ArtisanService';
-import { Pagination, Artisans, ResponseDetails, PaginatedResponse, Tokens } from '../../interfaces/interface';
+import { Pagination, Artisans, ResponseDetails } from '../../interfaces/interface';
 import { Dispatch } from 'redux';
 
 
@@ -49,10 +49,47 @@ export const getArtisans = (state: Pagination) => {
 
   return (dispatch: Dispatch) => {
     api
-      .then((res: PaginatedResponse) => {
+      .then((res: ResponseDetails) => {
         if (res.successful) {
           dispatch({
             type: 'GET_ARTISANS',
+            payload: res,
+          });
+        } else {
+          dispatch({
+            type: 'ALERT',
+            payload: res,
+          });
+        }
+      })
+      .catch(() => {
+        // send err to application
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
+      });
+  };
+};
+
+export const getArtisanDetails = (id: string) => {
+  const api = new ArtisanService().getArtisanDetails(id);
+
+  return (dispatch: Dispatch) => {
+    api
+      .then((res: ResponseDetails) => {
+        if (res.successful) {
+          dispatch({
+            type: 'GET_ARTISAN',
             payload: res,
           });
         } else {

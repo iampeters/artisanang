@@ -14,7 +14,7 @@ const useStylesFacebook = makeStyles((theme: Theme) =>
       color: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
     },
     top: {
-      color: PrimaryTheme.primary,
+      color: PrimaryTheme.appBar,
       animationDuration: '550ms',
       position: 'absolute',
       left: 0,

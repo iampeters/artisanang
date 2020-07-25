@@ -182,9 +182,9 @@ export default function SecuredAppBar() {
             aria-label="open drawer"
             onClick={() => handleMenuToggle(menu)}
           >
-            <MenuIcon style={{ color: PrimaryTheme.primary }} />
+            <MenuIcon style={{ color: PrimaryTheme.appBar }} />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.primary }}>
+          <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.appBar }}>
             Artisana
           </Typography>
           {/* <div className={classes.search}>

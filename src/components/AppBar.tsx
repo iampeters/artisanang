@@ -103,7 +103,7 @@ export default function OpenAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{ backgroundColor: PrimaryTheme.primary }}>
+      <AppBar position="static" style={{ backgroundColor: PrimaryTheme.appBar }}>
         <Toolbar>
           <IconButton
             edge="start"

@@ -15,14 +15,14 @@ export default function Nav() {
 
   return (
     <div className="col-md-12 border-right h-inherit" style={{ overflowY: "auto" }}>
-      <div className="col-md-12 p-2 text-center">
+      <div className="col-md-12 p-2 mt-3 text-center">
         <Avatar
           className={classes.large + ' mr-auto ml-auto'}
           alt={`${user.firstname} ${user.lastname}`}
           src={user.imageUrl} />
       </div>
-      <div className="col-md-12 p-2 text-center border-radius bg-light">
-        <h5 className='mb-0' style={{ color: PrimaryTheme.dark }}>
+      <div className="col-md-12 p-2 text-center border-radius">
+        <h5 className='mb-0' style={{ color: PrimaryTheme.appBar }}>
           {`${user.firstname} ${user.lastname}`}
         </h5>
         <h6 className='small' style={{ color: PrimaryTheme.light }}>{user.email}</h6>

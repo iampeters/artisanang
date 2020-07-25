@@ -32,6 +32,8 @@ body {
   font-family: ProductSansRegular !important;
   // overflow: hidden;
   background-color: #f3fbfc !important;
+  background-image: url('/layout_pattern.png'),
+  linear-gradient(226deg, #f3fbfc 48%, #f3fbfc 100%) !important;
 }
 
 code {

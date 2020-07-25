@@ -129,7 +129,7 @@ const styles = {
   content: {
     marginTop: 100,
     // overflow: 'auto',
-    paddingRight: 30
+    // paddingRight: 30
   },
 }
 
