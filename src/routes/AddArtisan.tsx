@@ -43,7 +43,7 @@ export default function AddArtisan() {
 
   const validateEmail = (text: string) => {
     // email pattern
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     if (!reg.test(text)) {
       setEmailValid(false);
       setEmail(text.toLowerCase());
