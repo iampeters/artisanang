@@ -12,8 +12,13 @@
 
 @font-face {
   font-family: 'ProductSansMedium';
-  font-weight: 700;
+  font-weight: 500;
   src: local('ProductSans-Medium'), url('../fonts/ProductSans-Medium.ttf');
+}
+@font-face {
+  font-family: 'ProductSansLight';
+  font-weight: 300;
+  src: local('ProductSans-Light'), url('../fonts/ProductSans-Light.ttf');
 }
 
 @font-face {

@@ -59,6 +59,7 @@ export interface Artisans {
   address?: string;
   state?: string;
   country?: string;
+  reviews?: any;
   onClick?: any;
   _id?: string;
   businessName?: string;
@@ -67,11 +68,15 @@ export interface Artisans {
 }
 
 export interface Reviews {
-  title: string;
-  description: string;
-  rating: number;
-  artisanId: string;
-  reviewId: string;
+  title?: string;
+  description?: string;
+  rating?: any;
+  reviews?: any;
+  artisanId?: string;
+  reviewId?: string;
+  userId?: any;
+  _id?: any;
+  onClick?: any;
 }
 
 export interface Reducers {
@@ -79,12 +84,14 @@ export interface Reducers {
   theme: string
   loading: boolean;
   menu: string;
-  user: any;
+  user: User;
   tokens: Tokens;
   login: any;
   alert: any;
   artisan: ResponseDetails;
   file: ResponseDetails;
+  reviews: ResponseDetails
+  jobs: ResponseDetails
 }
 
 export interface Tokens {
@@ -93,24 +100,26 @@ export interface Tokens {
 }
 
 export interface User {
-  user: {
-    firstname: string;
-    lastname: string;
-    lastLogin: string;
-    _id: string;
-    email: string;
-    phoneNumber: string;
-    address: string;
-    imageUrl: string;
-  };
+  firstname?: string;
+  lastname?: string;
+  lastLogin?: string;
+  createdOn?: string;
+  _id?: string;
+  email?: string;
+  phoneNumber?: string;
+  address?: string;
+  imageUrl?: string;
+  state?: string;
+  country?: string;
 }
 
 export interface Pagination {
-  page?: number;
-  pageSize?: number;
+  page?: any | number;
+  pageSize?: any | number;
   whereCondition?: any;
-  total?: number;
+  total?: any | number;
   onChange?: any;
+  onPageSizeChange?: any;
 }
 
 export interface ResponseDetails {
@@ -119,14 +128,15 @@ export interface ResponseDetails {
   successful?: boolean;
   result?: any,
   items?: Array<any>;
-  total?: number;
+  total?: any | number;
 }
 
 export interface Search {
   onChange: any;
   value: string;
+  placeholder?: string;
 }
 
 export interface Ratings {
-  rating: number | undefined;
+  rating: any;
 }

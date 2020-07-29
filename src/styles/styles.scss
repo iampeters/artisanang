@@ -59,6 +59,7 @@
 
 .h-inherit {
   height: inherit;
+  min-height: inherit;
 }
 
 .border-right {
@@ -82,5 +83,25 @@
 }
 
 .hero {
-  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
+  height: auto;
+}
+
+.btn-purple {
+  color: #fff;
+  background-color: #67164c;
+  border-color: #67164c;
+
+  &:hover {
+    color: #fff;
+    background-color: #58073d;
+    border-color: #61023c;
+  }
+}
+
+.hero-image {
+  background-image: url('/work.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

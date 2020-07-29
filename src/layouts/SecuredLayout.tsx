@@ -20,6 +20,10 @@ import PrimaryTheme from '../themes/Primary';
 import { Backdrop, makeStyles, Theme, createStyles } from '@material-ui/core';
 import Spinner from '../components/Spinner';
 import { Reducers } from '../interfaces/interface';
+import NetworkFailed from '../routes/NetworkFailed';
+import AddReview from '../routes/AddReview';
+import ReviewDetails from '../routes/ReviewDetails';
+import EditProfile from '../routes/EditProfile';
 
 export default function SecuredLayout() {
   const classes = useStyles();
@@ -71,12 +75,24 @@ export default function SecuredLayout() {
                   <AddArtisan />
                 </Route>
 
-                <Route exact strict path='/my-reviews'>
+                <Route exact strict path='/reviews'>
                   <MyReviews />
+                </Route>
+
+                <Route exact strict path='/reviews/add/:id'>
+                  <AddReview />
+                </Route>
+
+                <Route exact strict path='/reviews/details/:id'>
+                  <ReviewDetails />
                 </Route>
 
                 <Route exact strict path='/profile'>
                   <Profile />
+                </Route>
+
+                <Route exact strict path='/profile/edit'>
+                  <EditProfile />
                 </Route>
 
                 <Route exact strict path='/settings'>
@@ -97,6 +113,10 @@ export default function SecuredLayout() {
 
                 <Route exact strict path='/messages'>
                   <Messages />
+                </Route>
+
+                <Route exact strict path='/networkError'>
+                  <NetworkFailed />
                 </Route>
 
                 <Route exact strict path='*'>

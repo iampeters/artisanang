@@ -20,8 +20,6 @@ import PrimaryTheme from '../themes/Primary';
 import { Reducers } from '../interfaces/interface';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, socialAuth } from '../redux/Actions/userActions';
-import Spinner from '../components/Spinner';
-import Backdrop from '@material-ui/core/Backdrop';
 import firebase, { FacebookAuth, GoogleAuth } from '../firebase/FirebaseConfig';
 
 export default function Login() {
@@ -34,15 +32,6 @@ export default function Login() {
   const [isEmailValid, setEmailValid]: any = React.useState(null);
   const [isPasswordValid, setPasswordValid]: any = React.useState(null);
   const [submitted, setSubmitted] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleToggle = () => {
-    setOpen(!open);
-  };
 
   const validateEmail = (text: string) => {
     // email pattern
@@ -68,7 +57,7 @@ export default function Login() {
 
   const handleGoogleAuth = () => {
     // open spinner
-    handleToggle();
+  
     firebase.auth().signInWithPopup(GoogleAuth)
       .then(function (result: any) {
         const name = result.user.displayName.split(' ');
@@ -83,8 +72,6 @@ export default function Login() {
         dispatch(socialAuth(user));
 
       }).catch(function (error) {
-        // close spinner
-        handleClose();
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -99,7 +86,7 @@ export default function Login() {
 
   const handleFacebookAuth = () => {
     // open spinner
-    handleToggle();
+  
     firebase.auth().signInWithPopup(FacebookAuth)
       .then(function (result: any) {
         const name = result.user.displayName.split(' ');
@@ -115,7 +102,7 @@ export default function Login() {
 
       }).catch(function (error) {
         // close spinner
-        handleClose();
+        
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -130,7 +117,7 @@ export default function Login() {
 
   const handleSubmit = (e: any) => {
     // open spinner
-    handleToggle();
+  
 
     e.preventDefault();
 
@@ -152,21 +139,23 @@ export default function Login() {
       if (!loginResponse.successful) {
         // display error message
         enqueueSnackbar(loginResponse.message, { variant: "error" });
-        // stop spinner
-        handleClose();
-
         dispatch({
           type: 'AUTHENTICATE',
           payload: {}
         });
 
+        dispatch({
+          type: 'LOADING',
+          payload: false
+        })
+
         setSubmitted(false);
       } else {
-
         setTimeout(() => {
-          // stop spinner
-          handleClose();
-
+          dispatch({
+            type: 'LOADING',
+            payload: false
+          })
           window.location.pathname = '/artisans';
         }, 1000);
       }
@@ -174,10 +163,17 @@ export default function Login() {
   }, [dispatch, enqueueSnackbar, loginResponse]);
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid container component="main" className={classes.root + ' bg-white'}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image + ' background-image'} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + ' background-image bg-white position: relative'} >
+        <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
+          <div className="col-md-12 pt-5">
+            <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Welcome back!</h1>
+            <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Sign in to your account to continue... </h5>
+          </div>
+        </div>
+      </Grid>
+      <Grid item xs={12} sm={12} md={6} lg={5} component={Paper} elevation={0} square className='border'>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -196,7 +192,7 @@ export default function Login() {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
+              // autoFocus
               value={email}
               onChange={e => validateEmail(e.target.value)}
               error={!isEmailValid && isEmailValid !== null}
@@ -242,7 +238,7 @@ export default function Login() {
                 </Link>
               </Grid>
               <Grid item className='mb-1'>
-                <Link href='join' variant="body2">
+                <Link href='get-started' variant="body2">
                   {"Don't have an account? Create account"}
                 </Link>
               </Grid>
@@ -282,11 +278,6 @@ export default function Login() {
             <Box mt={5}>
               <Copyright />
             </Box>
-
-            {/* backdrop */}
-            <Backdrop className={classes.backdrop} open={open}>
-              <Spinner />
-            </Backdrop>
           </form>
         </div>
       </Grid>

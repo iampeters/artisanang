@@ -23,17 +23,16 @@ a {
   }
 }
 
-body {
-  height: 100vh;
+body, html {
+  height: 100%;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   font-family: ProductSansRegular !important;
-  // overflow: hidden;
-  background-color: #f3fbfc !important;
+  background-color: #fff !important;
   background-image: url('/layout_pattern.png'),
-  linear-gradient(226deg, #f3fbfc 48%, #f3fbfc 100%) !important;
+  linear-gradient(226deg, #fff 48%, #fff 100%) !important;
 }
 
 code {
@@ -43,7 +42,7 @@ code {
 }
 
 .MuiButton-root {
-  font-family: 'ProductSansRegular';
+  font-family: 'ProductSansRegular', 'ProductSansLight', 'ProductSansMedium';
   font-size: 1.01rem !important;
   text-transform: capitalize !important;
 

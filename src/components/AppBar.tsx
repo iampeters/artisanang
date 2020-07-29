@@ -6,21 +6,17 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { useSelector, useDispatch } from 'react-redux';
-import { menuToggle } from '../redux/Actions/themeActions';
 import PrimaryTheme from '../themes/Primary';
 import { useHistory, NavLink } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import { Avatar } from '@material-ui/core';
 
 
 export default function OpenAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-  const menu = useSelector((state: any) => state.menu);
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const isMenuOpen = Boolean(anchorEl);
@@ -40,9 +36,6 @@ export default function OpenAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const handleMenuToggle = (value: any) => {
-    value === 'none' ? dispatch(menuToggle('inline-block')) : dispatch(menuToggle('none'))
-  };
 
   const handleNavigation = (route: string) => {
     history.push(route)
@@ -70,98 +63,141 @@ export default function OpenAppBar() {
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       id={mobileMenuId}
-      keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-      // style={{width: 100}}
+    // style={{width: 100}}
     >
       <MenuItem style={{
-        fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
+        fontSize: 15,
+      }}>
+        <p className="mb-0">How it works</p>
+      </MenuItem>
+      <MenuItem style={{
+        fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
+        fontSize: 15,
       }}>
         <p className="mb-0">About</p>
       </MenuItem>
       <MenuItem style={{
         fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        color: PrimaryTheme.primary,
+        fontSize: 15,
       }}>
         <p className="mb-0">FAQs</p>
       </MenuItem>
       <MenuItem onClick={() => handleNavigation('sign-in')}
         style={{
           fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+          color: PrimaryTheme.primary,
         }}>
-        <p className="mb-0">Sign In</p>
+        {/* <p className="mb-0">
+          Sign In</p> */}
+        <button className="btn btn-white p-0 " style={{
+          color: PrimaryTheme.primary,
+          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        }} onClick={() => handleNavigation('sign-in')}>
+          <div className="row m-0 align-items-center">
+            <svg width="1em" height="1.1em" viewBox="0 0 16 16" className="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            </svg>
+            <span className='ml-1'>Sign in</span>
+          </div>
+        </button>
       </MenuItem>
-      <MenuItem onClick={() => handleNavigation('join')}
+      <MenuItem onClick={() => handleNavigation('get-started')}
         style={{
           fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
         }}>
-        <p className="mb-0">Join</p>
+        {/* <p className="mb-0">Get Started</p> */}
+        <button className='btn btn-purple pr-4 pl-4 badge-pill' style={{
+          fontWeight: 300,
+          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        }} onClick={() => handleNavigation('get-started')} >Get Started</button>
       </MenuItem>
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{ backgroundColor: PrimaryTheme.appBar }}>
+      <AppBar position="static" style={{ backgroundColor: PrimaryTheme.white }} elevation={0}>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton + ' d-md-none'}
-            color="inherit"
-            aria-label="open drawer"
-            onClick={() => handleMenuToggle(menu)}
-            style={{ color: PrimaryTheme.white }}
-          >
-            <MenuIcon style={{ color: PrimaryTheme.white }} />
-          </IconButton>
+          <div className="container">
+            <div className="row justify-content-center align-items-center">
+              {/* <IconButton
+                edge="start"
+                className={classes.menuButton + ' d-md-none'}
+                color="inherit"
+                aria-label="open drawer"
+                onClick={() => handleMenuToggle(menu)}
+                style={{ color: PrimaryTheme.appBar }}
+              >
+                <MenuIcon style={{ color: PrimaryTheme.appBar }} />
+              </IconButton> */}
 
-          <NavLink to='/'>
-            <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular, fontWeight: 600 }}>
-              Artisana
-          </Typography>
-          </NavLink>
+              <NavLink to='/'>
+                <div className="row m-0 justify-content-center align-items-center">
+                  <Avatar src={'/logo.png'} className='mr-1 justify-content-center align-items-center' />
+                  <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.primary, fontFamily: PrimaryTheme.fonts?.ProductSansRegular, fontWeight: 600 }}>
+                    Artisana</Typography>
+                </div>
+              </NavLink>
 
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
+              <div className={classes.grow} />
+              <div className={classes.sectionDesktop}>
 
-            <Button color="inherit" style={{
-              color: PrimaryTheme.white,
-              fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-            }}>About</Button>
+                <button className="btn btn-white" style={{
+                  color: PrimaryTheme.primary,
+                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                }}>How it works</button>
 
-            <Button color="inherit" style={{
-              color: PrimaryTheme.white,
-              fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-            }}>faqs</Button>
+                <button className="btn btn-white" style={{
+                  color: PrimaryTheme.primary,
+                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                }}>About</button>
 
-            <Button color="inherit" style={{
-              color: PrimaryTheme.white,
-              fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-            }}>Support</Button>
+                <button className="btn btn-white" style={{
+                  color: PrimaryTheme.primary,
+                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                }}>FAQs</button>
 
-            <Button color="inherit" style={{
-              color: PrimaryTheme.white,
-              fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-            }} onClick={() => handleNavigation('sign-in')}>Sign in</Button>
+                <button className="btn btn-white" style={{
+                  color: PrimaryTheme.primary,
+                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                }}>Support</button>
 
-            <Button color="inherit" style={{
-              color: PrimaryTheme.white,
-              fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-            }} onClick={() => handleNavigation('join')}>Join</Button>
+                <button className="btn btn-white" style={{
+                  color: PrimaryTheme.primary,
+                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                }} onClick={() => handleNavigation('/sign-in')}>
+                  <div className="row m-0 align-items-center">
+                    <svg width="1em" height="1.1em" viewBox="0 0 16 16" className="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    </svg>
+                    <span className='ml-1'>Sign in</span>
+                  </div>
+                </button>
 
-          </div>
+                <button className='btn btn-purple pr-4 pl-4 badge-pill' style={{
+                  fontWeight: 300,
+                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                }} onClick={() => handleNavigation('/get-started')} >Get Started</button>
+              </div>
 
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                  style={{ color: PrimaryTheme.primary }}
+                >
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </div>
           </div>
         </Toolbar>
       </AppBar>
@@ -182,7 +218,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
-      display: 'none',
+      // display: 'none',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
       },

@@ -13,64 +13,28 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import PrimaryTheme from '../themes/Primary';
-import Copyright from '../components/Copyright';
-import { useDispatch, useSelector } from 'react-redux';
-import { forgotPassword } from '../redux/Actions/userActions';
-import { Reducers } from '../interfaces/interface';
-import { useSnackbar } from 'notistack';
 
-export default function ForgotPassword() {
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://artisana.ng/" target="_blank" rel='noopener noreferer'>
+        Artisana NG
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+
+export default function ResetPassword() {
   const classes = useStyles();
   const history = useHistory();
-  const dispatch = useDispatch();
-  const { enqueueSnackbar } = useSnackbar();
-  const alert = useSelector((state: Reducers) => state.alert);
-
-  const [email, setEmail]: any = React.useState('');
-  const [isEmailValid, setEmailValid]: any = React.useState(null);
-  const [submitted, setSubmitted] = React.useState(false);
-
-  const validateEmail = (text: string) => {
-    // email pattern
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!reg.test(text)) {
-      setEmailValid(false);
-      setEmail(text.toLowerCase());
-    } else {
-      setEmailValid(true);
-      setEmail(text);
-    }
-  };
 
   const handleNavigation = (route: string) => {
     history.push(route)
   }
-
-  const handleSubmit = (e: any) => {
-    // open spinner
-    dispatch({
-      type: 'LOADING',
-      payload: true
-    })
-    setSubmitted(true);
-    e.preventDefault();
-
-    dispatch(forgotPassword({ email }));
-  };
-
-  React.useEffect(() => {
-    if (Object.entries(alert).length !== 0) {
-      if (!alert.successful) {
-        // display error message
-        enqueueSnackbar(alert.message, { variant: "error" });
-
-        setSubmitted(false);
-      } else {
-        enqueueSnackbar(alert.message, { variant: "success" });
-        setSubmitted(false);
-      }
-    }
-  }, [dispatch, enqueueSnackbar, alert]);
 
   return (
     <Grid container component="main" className={classes.root + ' bg-white'}>
@@ -78,8 +42,8 @@ export default function ForgotPassword() {
       <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + '  bg-white position: relative'} >
         <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
           <div className="col-md-12 pt-5">
-            <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Forgot your password?</h1>
-            <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Don't worry we got your back...</h5>
+            <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Reset your password?</h1>
+            <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Your online security is our top priority...</h5>
           </div>
         </div>
       </Grid>
@@ -89,25 +53,21 @@ export default function ForgotPassword() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Forgot password?
+            Reset password
           </Typography>
 
           <form className={classes.form} noValidate>
             <TextField
               variant="outlined"
+              margin="normal"
               required
               fullWidth
               id="email"
               label="Email Address"
               name="email"
               autoComplete="email"
-              value={email}
-              onChange={e => validateEmail(e.target.value)}
-              error={!isEmailValid && isEmailValid !== null}
-              helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
-              disabled={submitted}
+            // autoFocus
             />
-
             <Button
               type="submit"
               fullWidth
@@ -115,29 +75,17 @@ export default function ForgotPassword() {
               color="primary"
               className={classes.submit}
               style={{ background: PrimaryTheme.appBar, color: PrimaryTheme.white, }}
-              disabled={
-                !isEmailValid ||
-                submitted
-              }
-              onClick={handleSubmit}
             >
-              Remind me
+              Reset
             </Button>
 
-            <Grid container>
-              <Grid item>
-                <Link href="sign-in" onClick={() => handleNavigation("sign-in")} variant="body2">
-                  {"Remembered password? Sign In"}
-                </Link>
-              </Grid>
-            </Grid>
             <Box mt={5}>
               <Copyright />
             </Box>
           </form>
         </div>
       </Grid>
-    </Grid >
+    </Grid>
   );
 }
 
@@ -147,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(/forgot-password.png)',
+    backgroundImage: 'url(/security.png)',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'left center',
     backgroundSize: '100% auto',

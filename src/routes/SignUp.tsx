@@ -217,7 +217,7 @@ export default function Register() {
                 fullWidth
                 id="firstName"
                 label="First Name"
-                autoFocus
+                // autoFocus
                 value={firstname}
                 onChange={e => validateName(e.target.value, 'firstname')}
                 disabled={submitted}

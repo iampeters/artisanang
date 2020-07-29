@@ -11,7 +11,7 @@ const PrimaryTheme: Theme = {
   purple: '#816dff',
   success: '#00d68f',
   white: '#ffffff',
-  background: '#f3fbfc',
+  background: '#ffffff',
   warn: '#ffc107',
   black: '#000000',
   active: '#974578',

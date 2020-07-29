@@ -42,13 +42,13 @@ export default function SearchBar(props: Search) {
       </IconButton>
       <InputBase
         className={classes.input}
-        placeholder="Search for Artisans and Specialization"
-        inputProps={{ 'aria-label': 'Search for Artisans and Specialization' }}
+        placeholder={props.placeholder}
+        inputProps={{ 'aria-label': props.placeholder }}
         value={props.value}
         onChange={props.onChange}
-        
+        onSubmit={props.onChange}
       />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+      <IconButton type="submit" onClick={props.onChange} className={classes.iconButton} aria-label="search">
         <SearchIcon />
       </IconButton>
       <Divider className={classes.divider} orientation="vertical" />

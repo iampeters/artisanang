@@ -5,6 +5,7 @@ import { authReducer, userReducer, tokenReducer, loginReducer } from './userRedu
 import { artisanReducer } from './artisanReducer';
 import { alertReducer } from './alertReducer';
 import { fileReducer } from './fileReducer';
+import { reviewReducer } from './reviewReducer';
 
 const rootReducer = combineReducers({
   theme: themeReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   login: loginReducer,
   artisan: artisanReducer,
   alert: alertReducer,
-  file: fileReducer
+  file: fileReducer,
+  reviews: reviewReducer
 });
 
 export default rootReducer;

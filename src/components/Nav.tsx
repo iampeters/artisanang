@@ -6,12 +6,12 @@ import List from './List';
 import { Routes } from '../routes'
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { User } from '../interfaces/interface';
+import { Reducers } from '../interfaces/interface';
 
 export default function Nav() {
   const classes = useStyles();
   const location = useLocation();
-  const user = useSelector((state: User) => state.user);
+  const user = useSelector((state: Reducers) => state.user);
 
   return (
     <div className="col-md-12 border-right h-inherit" style={{ overflowY: "auto" }}>

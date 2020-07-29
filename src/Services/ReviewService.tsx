@@ -1,5 +1,5 @@
 import API from '../APIs/Apis';
-import { Pagination, Artisans, Tokens, Reviews } from '../interfaces/interface';
+import { Pagination, Tokens, Reviews } from '../interfaces/interface';
 import { TokenValidator } from './TokenValidator';
 
 export default class AuthService {

@@ -17,7 +17,7 @@ export const Routes = [
   {
     name: 'My Reviews',
     icon: 'star',
-    path: '/my-reviews'
+    path: '/reviews'
   },
   {
     name: 'Profile',

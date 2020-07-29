@@ -34,7 +34,7 @@ export default function ArtisanList(props: Artisans) {
             <div className={" pt-2 text-center"}>
               <h4 className=''>{props.rating}</h4>
               <CustomizedRatings rating={props.rating} />
-              <p className="small mb-1">Based on 34 ratings</p>
+              <p className="small mb-1">Based on {props.reviews} reviews</p>
             </div>
           </div>
         </div>

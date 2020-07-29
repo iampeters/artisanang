@@ -1,7 +1,7 @@
 .content {
   // height: calc(100vh - 64px);
   // margin-top: 64px;
-  margin-bottom: 80px;
+  // margin-bottom: 80px;
 }
 
 .sideBar {
@@ -13,9 +13,12 @@
 }
 
 .background-image {
-  background-image: url('/layout_pattern.png'),
-  linear-gradient(226deg, #282828 48%, #121212 100%) !important;
-  background-repeat: repeat;
+  background-image: url('/login.png'),
+  linear-gradient(226deg, #fff 48%, #fff 100%) !important;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% auto;
+  background-color: #fff;
 }
 
 // 
