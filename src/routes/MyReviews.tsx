@@ -1,7 +1,7 @@
 import React from 'react'
 import PrimaryTheme from '../themes/Primary'
 import Placeholder from '../components/Skeleton';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { useDispatch, useSelector } from 'react-redux';
 import { Reducers, Reviews } from '../interfaces/interface';
@@ -20,7 +20,6 @@ export default function MyReviews() {
 
   const [page, setPage] = React.useState(0)
   const [pageSize, setPageSize] = React.useState(25)
-
 
   let reviewList: any = reviews.items && reviews.items;
 

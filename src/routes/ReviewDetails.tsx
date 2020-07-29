@@ -2,14 +2,14 @@ import React from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { useDispatch, useSelector } from 'react-redux';
-import { Reducers, Artisans, Reviews } from '../interfaces/interface';
-import { makeStyles, createStyles, Theme, List, ListItem, ListItemAvatar, Avatar, ListItemText, Typography, Divider, Button, Icon } from '@material-ui/core';
+import { Reducers } from '../interfaces/interface';
+import { makeStyles, createStyles, Theme, List, ListItem, ListItemAvatar, Avatar, ListItemText, Button, Icon } from '@material-ui/core';
 import PrimaryTheme from '../themes/Primary';
 import CustomizedRatings from '../components/Ratings';
 import { getReviewDetails } from '../redux/Actions/reviewAction';
 import Placeholder from '../components/Skeleton';
 
-export default function ReviewDetails(props: Reviews) {
+export default function ReviewDetails() {
   const classes = useStyles();
   const params: any = useParams();
   const { enqueueSnackbar } = useSnackbar();

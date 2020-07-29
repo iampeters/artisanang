@@ -20,8 +20,6 @@ import { Reducers } from '../interfaces/interface';
 import { useSelector, useDispatch } from 'react-redux';
 import { useSnackbar } from 'notistack';
 import { socialAuth, signUp } from '../redux/Actions/userActions';
-import Spinner from '../components/Spinner';
-import Backdrop from '@material-ui/core/Backdrop';
 import firebase, { FacebookAuth, GoogleAuth } from '../firebase/FirebaseConfig';
 
 
@@ -35,18 +33,10 @@ export default function Register() {
   const [lastnameValid, setLastnameValid]: any = React.useState(null)
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  const loginResponse = useSelector((state: Reducers) => state.login);
+  const alert = useSelector((state: Reducers) => state.alert);
   const [isEmailValid, setEmailValid]: any = React.useState(null);
   const [isPasswordValid, setPasswordValid]: any = React.useState(null);
   const [submitted, setSubmitted] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleToggle = () => {
-    setOpen(!open);
-  };
 
   const validateEmail = (text: string) => {
     // email pattern
@@ -61,8 +51,10 @@ export default function Register() {
   };
 
   const handleGoogleAuth = () => {
-    // open spinner
-    handleToggle();
+    dispatch({
+      type: 'LOADING',
+      payload: true
+    });
     firebase.auth().signInWithPopup(GoogleAuth)
       .then(function (result: any) {
         const name = result.user.displayName.split(' ');
@@ -78,7 +70,10 @@ export default function Register() {
 
       }).catch(function (error) {
         // close spinner
-        handleClose();
+        dispatch({
+          type: 'LOADING',
+          payload: false
+        });
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -93,7 +88,10 @@ export default function Register() {
 
   const handleFacebookAuth = () => {
     // open spinner
-    handleToggle();
+    dispatch({
+      type: 'LOADING',
+      payload: true
+    });
     firebase.auth().signInWithPopup(FacebookAuth)
       .then(function (result: any) {
         const name = result.user.displayName.split(' ');
@@ -109,7 +107,10 @@ export default function Register() {
 
       }).catch(function (error) {
         // close spinner
-        handleClose();
+        dispatch({
+          type: 'LOADING',
+          payload: false
+        });
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -161,7 +162,10 @@ export default function Register() {
 
   const handleSubmit = (e: any) => {
     // open spinner
-    handleToggle();
+    dispatch({
+      type: 'LOADING',
+      payload: true
+    });
     setSubmitted(true);
     e.preventDefault();
 
@@ -176,15 +180,18 @@ export default function Register() {
   };
 
   React.useEffect(() => {
-    if (Object.entries(loginResponse).length !== 0) {
-      if (!loginResponse.successful) {
+    if (Object.entries(alert).length !== 0) {
+      if (!alert.successful) {
         // display error message
-        enqueueSnackbar(loginResponse.message, { variant: "error" });
+        enqueueSnackbar(alert.message, { variant: "error" });
         // stop spinner
-        handleClose()
+        dispatch({
+          type: 'LOADING',
+          payload: false
+        });
 
         dispatch({
-          type: 'AUTHENTICATE',
+          type: 'ALERT',
           payload: {}
         });
         setSubmitted(false);
@@ -192,7 +199,7 @@ export default function Register() {
         window.location.pathname = '/artisans';
       }
     }
-  }, [dispatch, enqueueSnackbar, loginResponse]);
+  }, [dispatch, enqueueSnackbar, alert]);
 
 
   return (
@@ -312,7 +319,8 @@ export default function Register() {
               !lastnameValid ||
               !firstnameValid ||
               !isPasswordValid ||
-              submitted}
+              submitted
+            }
             onClick={handleSubmit}
           >
             Sign Up with email
@@ -358,10 +366,6 @@ export default function Register() {
           </div>
 
         </form>
-        {/* backdrop */}
-        <Backdrop className={classes.backdrop} open={open}>
-          <Spinner />
-        </Backdrop>
       </div>
       <Box mt={5}>
         <Copyright />

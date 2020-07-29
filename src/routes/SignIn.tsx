@@ -28,7 +28,7 @@ export default function Login() {
   const { enqueueSnackbar } = useSnackbar();
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  const loginResponse = useSelector((state: Reducers) => state.login);
+  const alert = useSelector((state: Reducers) => state.alert);
   const [isEmailValid, setEmailValid]: any = React.useState(null);
   const [isPasswordValid, setPasswordValid]: any = React.useState(null);
   const [submitted, setSubmitted] = React.useState(false);
@@ -57,7 +57,10 @@ export default function Login() {
 
   const handleGoogleAuth = () => {
     // open spinner
-  
+    dispatch({
+      type: 'LOADING',
+      payload: true
+    });
     firebase.auth().signInWithPopup(GoogleAuth)
       .then(function (result: any) {
         const name = result.user.displayName.split(' ');
@@ -86,7 +89,10 @@ export default function Login() {
 
   const handleFacebookAuth = () => {
     // open spinner
-  
+    dispatch({
+      type: 'LOADING',
+      payload: true
+    });
     firebase.auth().signInWithPopup(FacebookAuth)
       .then(function (result: any) {
         const name = result.user.displayName.split(' ');
@@ -102,7 +108,7 @@ export default function Login() {
 
       }).catch(function (error) {
         // close spinner
-        
+
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -117,7 +123,10 @@ export default function Login() {
 
   const handleSubmit = (e: any) => {
     // open spinner
-  
+    dispatch({
+      type: 'LOADING',
+      payload: true
+    });
 
     e.preventDefault();
 
@@ -135,12 +144,12 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (Object.entries(loginResponse).length !== 0) {
-      if (!loginResponse.successful) {
+    if (Object.entries(alert).length !== 0) {
+      if (!alert.successful) {
         // display error message
-        enqueueSnackbar(loginResponse.message, { variant: "error" });
+        enqueueSnackbar(alert.message, { variant: "error" });
         dispatch({
-          type: 'AUTHENTICATE',
+          type: 'ALERT',
           payload: {}
         });
 
@@ -160,7 +169,7 @@ export default function Login() {
         }, 1000);
       }
     }
-  }, [dispatch, enqueueSnackbar, loginResponse]);
+  }, [dispatch, enqueueSnackbar, alert]);
 
   return (
     <Grid container component="main" className={classes.root + ' bg-white'}>

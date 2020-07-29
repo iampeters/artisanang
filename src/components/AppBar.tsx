@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { useSelector, useDispatch } from 'react-redux';
 import PrimaryTheme from '../themes/Primary';
 import { useHistory, NavLink } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';

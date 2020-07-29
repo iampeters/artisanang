@@ -40,7 +40,7 @@ export const login = (state: any) => {
           });
           // send response to login screen
           dispatch({
-            type: 'AUTHENTICATE',
+            type: 'ALERT',
             payload: {
               successful: true,
               message: 'Logged in successfully.',
@@ -48,7 +48,7 @@ export const login = (state: any) => {
           });
         } else {
           dispatch({
-            type: 'AUTHENTICATE',
+            type: 'ALERT',
             payload: res,
           });
         }
@@ -56,7 +56,7 @@ export const login = (state: any) => {
       .catch(() => {
         // send err to application
         dispatch({
-          type: 'AUTHENTICATE',
+          type: 'ALERT',
           payload: {
             message: 'Network request failed',
             successful: false,
@@ -88,7 +88,7 @@ export const socialAuth = (state: any) => {
           });
           // send response to login screen
           dispatch({
-            type: 'AUTHENTICATE',
+            type: 'ALERT',
             payload: {
               successful: true,
               message: 'Logged in successfully.',
@@ -96,7 +96,7 @@ export const socialAuth = (state: any) => {
           });
         } else {
           dispatch({
-            type: 'AUTHENTICATE',
+            type: 'ALERT',
             payload: res,
           });
         }
@@ -104,7 +104,7 @@ export const socialAuth = (state: any) => {
       .catch(() => {
         // send err to application
         dispatch({
-          type: 'AUTHENTICATE',
+          type: 'ALERT',
           payload: {
             message: 'Network request failed',
             successful: false,
