@@ -44,4 +44,4 @@ jobs:
         # Local directory
         localDir: ./build # optional, default is .
         # Remote directory
-        remoteDir: /publi_html/test # optional, default is .
+        remoteDir: /public_html/test # optional, default is .
