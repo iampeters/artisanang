@@ -9,6 +9,7 @@ import { useSnackbar } from 'notistack';
 import { getArtisans } from '../redux/Actions/artisanActions';
 import PaginationControlled from '../components/Pagination';
 import Placeholder from '../components/Skeleton';
+import PrimaryTheme from '../themes/Primary';
 
 export default function Dashboard() {
   const history = useHistory();
@@ -134,7 +135,14 @@ export default function Dashboard() {
 
       <div style={{ ...styles.fab, position: 'fixed' }}>
         <div className="row m-0 justify-content-end align-items-center">
-          <FloatingActionButtons marginRight={5} IconName="add" IconText="Add Artisan" variant="extended" onClick={handleClick} />
+          <FloatingActionButtons
+            marginRight={5}
+            IconName="add"
+            IconText="Add Artisan"
+            variant="extended"
+            onClick={handleClick}
+            customColor={PrimaryTheme.warn}
+            IconColor={PrimaryTheme.black} />
         </div>
       </div>
     </div>

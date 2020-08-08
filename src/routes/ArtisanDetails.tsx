@@ -186,10 +186,10 @@ export default function ArtisanDetails() {
                 {/* <div className="col-md-12 p-0">
                   <p className='small mb-1' style={{ color: PrimaryTheme.dark }}>Business Information</p>
                 </div> */}
-                <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.smallCard + " p-4 border-radius-bottom-left box-shadow"}>
-                  <h4 style={{ color: PrimaryTheme.light }} >{data.businessName}</h4>
-                  <h6 className='text-white'>RC 37463</h6>
-                  <h6 className='text-white small mb-0'>{data.specialization}</h6>
+                <div style={{ backgroundColor: PrimaryTheme.white, }} className={classes.smallCard + " p-4 border-radius-bottom-left box-shadow"}>
+                  <h4 className='text-dark' >{data.businessName}</h4>
+                  <h6 className='text-light'>{data.RCNumber ? data.RCNumber : 'N/A'}</h6>
+                  <h6 className='text-light mb-0'>{data.specialization}</h6>
                 </div>
               </div>
 
@@ -197,10 +197,10 @@ export default function ArtisanDetails() {
                 {/* <div className="col-md-12 p-0">
                   <p className='small mb-1' style={{ color: PrimaryTheme.dark }}>Rating</p>
                 </div> */}
-                <div style={{ backgroundColor: PrimaryTheme.purple, }} className={classes.smallCard + " p-4 border-radius-bottom-right box-shadow text-center"}>
-                  <h4 style={{ color: PrimaryTheme.light }}>{data.rating}</h4>
+                <div style={{ backgroundColor: PrimaryTheme.white, }} className={classes.smallCard + " p-4 border-radius-bottom-right box-shadow text-center"}>
+                  <h4 className='text-dark'>{data.rating}</h4>
                   <CustomizedRatings rating={data.rating} />
-                  <p className="small mb-1" style={{ color: PrimaryTheme.white }}>Based on {data.reviews} reviews</p>
+                  <p className="text-dark mb-1" style={{ color: PrimaryTheme.white }}>Based on {data.reviews} reviews</p>
                 </div>
 
               </div>
@@ -246,7 +246,7 @@ export default function ArtisanDetails() {
 
       <div className={classes.fab} style={{ position: 'fixed' }}>
         <div className="row m-0 justify-content-end align-items-center">
-          <FloatingActionButtons marginRight={5} IconName="edit" IconText="Write review" variant="extended" onClick={handleClick} />
+          <FloatingActionButtons marginRight={5} customColor={PrimaryTheme.warn} IconName="edit" IconText="Write review" variant="extended" onClick={handleClick} IconColor={PrimaryTheme.black} />
         </div>
       </div>
 

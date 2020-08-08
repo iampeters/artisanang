@@ -14,11 +14,11 @@ export const Routes = [
     icon: 'face',
     path: '/my-artisans'
   },
-  {
-    name: 'My Jobs',
-    icon: 'business_center',
-    path: '/my-jobs'
-  },
+  // {
+  //   name: 'My Jobs',
+  //   icon: 'business_center',
+  //   path: '/my-jobs'
+  // },
   {
     name: 'My Reviews',
     icon: 'star',

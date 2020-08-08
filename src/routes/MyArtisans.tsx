@@ -146,7 +146,14 @@ export default function MyArtisans() {
 
       <div style={{ ...styles.fab, position: 'fixed' }}>
         <div className="row m-0 justify-content-end align-items-center">
-          <FloatingActionButtons marginRight={5} IconName="add" IconText="Add Artisan" variant="extended" onClick={handleClick} />
+          <FloatingActionButtons
+            marginRight={5}
+            IconName="add"
+            IconText="Add Artisan"
+            variant="extended"
+            onClick={handleClick}
+            customColor={PrimaryTheme.warn}
+            IconColor={PrimaryTheme.black} />
         </div>
       </div>
     </div>
