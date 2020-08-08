@@ -1,9 +1,11 @@
 export interface Theme {
   text: string;
+  textPrimary: string;
   background: string;
   primary: string;
   dark: string;
   light: string;
+  transparent: string;
   icon: string;
   appBar: string;
   secondary?: string;
@@ -34,6 +36,11 @@ export interface Theme {
     ProductSansBold?: string;
     ProductSansLight?: string;
     ProductSansMedium?: string;
+    LemonadaMedium?: string;
+    LemonadaBold?: string;
+    LemonadaLight?: string;
+    LemonadaSemiBold?: string;
+    LemonadaRegular?: string;
   };
 }
 
@@ -47,13 +54,17 @@ export interface Routes {
   name: string;
   icon: string;
   color: any;
-  path: any;
+  path?: any;
+  button?: any;
+  className?: any;
 }
 
 export interface Artisans {
   firstname?: string;
   lastname?: string;
   rating?: number;
+  phoneNumber?: string;
+  email?: string;
   specialization?: string;
   imageUrl?: string;
   address?: string;

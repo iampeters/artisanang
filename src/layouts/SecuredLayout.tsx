@@ -24,6 +24,7 @@ import NetworkFailed from '../routes/NetworkFailed';
 import AddReview from '../routes/AddReview';
 import ReviewDetails from '../routes/ReviewDetails';
 import EditProfile from '../routes/EditProfile';
+import Home from '../routes/Home';
 
 export default function SecuredLayout() {
   const classes = useStyles();
@@ -46,15 +47,19 @@ export default function SecuredLayout() {
 
       <div className="container-fluid">
         <div className="row">
-          <div className="col-3" style={{ display: menuToggle, position: 'relative', }}>
+          <div className={"col-3 d-none " + menuToggle} style={{ position: 'relative', }}>
             <div className="col-md-3 sideBar p-0 bg-white">
               <Nav />
             </div>
           </div>
 
-          <div className="col ml-auto p-0" style={{ backgroundColor: PrimaryTheme.background }}>
+          <div className="col ml-auto" style={{ backgroundColor: PrimaryTheme.background }}>
             <div className="col-md-12 content" style={{ ...styles.content, }}>
               <Switch>
+                <Route exact strict path='/home'>
+                  <Home />
+                </Route>
+
                 <Route exact strict path='/artisans'>
                   <Dashboard />
                 </Route>

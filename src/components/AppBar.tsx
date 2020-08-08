@@ -146,17 +146,17 @@ export default function OpenAppBar() {
               <div className={classes.grow} />
               <div className={classes.sectionDesktop}>
 
-                <button className="btn btn-white" style={{
+                {/* <button className="btn btn-white" style={{
                   color: PrimaryTheme.primary,
                   fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-                }}>How it works</button>
+                }}>How it works</button> */}
 
-                <button className="btn btn-white" style={{
+                <button className="btn btn-white" onClick={() => handleNavigation('/about')} style={{
                   color: PrimaryTheme.primary,
                   fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
                 }}>About</button>
 
-                <button className="btn btn-white" style={{
+                <button className="btn btn-white" onClick={() => handleNavigation('/faqs')} style={{
                   color: PrimaryTheme.primary,
                   fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
                 }}>FAQs</button>

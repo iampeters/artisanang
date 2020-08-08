@@ -9,7 +9,7 @@ export default function Placeholder(props: Skeleton) {
         width={props.width}
         height={props.height}
         animation={props.animation}
-        className={props.classes} />
+        className={props.className} />
     </div>
   );
 }
@@ -19,5 +19,5 @@ interface Skeleton {
   width: number | string | undefined;
   height: number | string | undefined;
   animation: false | "wave" | "pulse" | undefined;
-  classes: string;
+  className: string;
 }

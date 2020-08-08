@@ -30,3 +30,32 @@
   font-family: 'RobotoMedium';
   src: local('Roboto_medium'), url('../fonts/Roboto_medium.ttf');
 }
+
+@font-face {
+  font-family: 'LemonadaMedium';
+  font-weight: 400;
+  src: local('Lemonada-Medium'), url('../fonts/Lemonada-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'LemonadaRegular';
+  src: local('Lemonada-Regular'), url('../fonts/Lemonada-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'LemonadaLight';
+  src: local('Lemonada-Light'), url('../fonts/Lemonada-Light.ttf');
+}
+
+
+@font-face {
+  font-family: 'LemonadaBold';
+  font-weight: 600;
+  src: local('Lemonada-Bold'), url('../fonts/Lemonada-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'LemonadaSemiBold';
+  font-weight: 500;
+  src: local('Lemonada-SemiBold'), url('../fonts/Lemonada-SemiBold.ttf');
+}

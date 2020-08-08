@@ -1,17 +1,22 @@
 export const Routes = [
   {
+    name: 'Home',
+    icon: 'home',
+    path: '/home'
+  },
+  {
     name: 'Artisans',
-    icon: 'explore',
+    icon: 'face',
     path: '/artisans'
   },
   {
     name: 'My Artisans',
-    icon: 'people',
+    icon: 'face',
     path: '/my-artisans'
   },
   {
     name: 'My Jobs',
-    icon: 'work',
+    icon: 'business_center',
     path: '/my-jobs'
   },
   {
@@ -20,13 +25,8 @@ export const Routes = [
     path: '/reviews'
   },
   {
-    name: 'Profile',
+    name: 'Account',
     icon: 'person',
     path: '/profile'
-  },
-  {
-    name: 'Settings',
-    icon: 'settings',
-    path: '/settings'
   },
 ]

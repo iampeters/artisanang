@@ -18,14 +18,26 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function FloatingActionButtons(props: any) {
+export default function FloatingActionButtons(props: FABProps) {
   const classes = useStyles();
 
   return (
     <div className={classes.root + ' mb-3'}>
-      <Fab style={{background: PrimaryTheme.primary}} color='secondary' aria-label="add" variant='extended' onClick={props.onClick}>
-        <Icon style={{color: PrimaryTheme.white, marginRight: 5}}>{props.IconName}</Icon> <Typography className='text-capitalize'> {props.IconText}</Typography>
+      <Fab style={{ background: props.customColor }} color={props.color} aria-label={props.label} variant={props.variant} onClick={props.onClick}>
+        <Icon style={{ color: props.IconColor, marginRight: props.marginRight }}>{props.IconName}</Icon> <Typography className='text-capitalize'> {props.IconText}</Typography>
       </Fab>
     </div>
   );
+}
+
+interface FABProps {
+  variant: "round" | "extended" | undefined;
+  label?: string;
+  onClick?: any;
+  IconName: string;
+  color?: "inherit" | "default" | "primary" | "secondary" | undefined;
+  IconText?: string;
+  customColor?: string;
+  IconColor?: string;
+  marginRight?: number;
 }

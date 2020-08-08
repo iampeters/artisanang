@@ -109,8 +109,8 @@ export default function ReviewDetails() {
         ) : (
             <React.Fragment>
               <div className="col-md-12 p-0 text-center">
-                <Placeholder variant="text" width={'100%'} height={90} animation='wave' classes="display-inline" />
-                <Placeholder variant="text" width={'100%'} height={90} animation='pulse' classes="display-inline" />
+                <Placeholder variant="text" width={'100%'} height={90} animation='wave' className="display-inline" />
+                <Placeholder variant="text" width={'100%'} height={90} animation='pulse' className="display-inline" />
               </div>
             </React.Fragment>
           )}

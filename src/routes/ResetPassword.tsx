@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -17,6 +16,8 @@ import { useSnackbar } from 'notistack';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetPassword } from '../redux/Actions/userActions';
 import { Reducers } from '../interfaces/interface';
+import { decode } from 'jsonwebtoken';
+
 
 export default function ResetPassword() {
   const classes = useStyles();
@@ -56,6 +57,16 @@ export default function ResetPassword() {
     }
   }
 
+  React.useEffect(() => {
+    if (params.token) {
+      let decoded: any = decode(params.token);
+      if (!decoded) history.push('/unauthorized');
+      if (Date.now() >= decoded.exp * 1000) history.push('/unauthorized');
+    } else {
+      history.push('/unauthorized');
+    }
+  })
+
   const handleSubmit = (e: any) => {
     // open spinner
     dispatch({
@@ -84,13 +95,14 @@ export default function ResetPassword() {
           history.push('/networkError');
         }
 
+        setSubmitted(false);
+
         dispatch({
           type: 'ALERT',
           payload: {}
         });
 
       } else {
-
         enqueueSnackbar(alert.message, { variant: "success" });
 
         setTimeout(() => {
@@ -106,82 +118,88 @@ export default function ResetPassword() {
   }, [dispatch, enqueueSnackbar, alert, history]);
 
   return (
-    <Grid container component="main" className={classes.root + ' bg-white'}>
-      <CssBaseline />
-      <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + '  bg-white position: relative'} >
-        <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
-          <div className="col-md-12 pt-5">
-            <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Reset your password</h1>
-            <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Your online security is our top priority...</h5>
-          </div>
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={12} md={6} lg={5} component={Paper} elevation={0} square className='border'>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Reset password
+    <div className="bg-white">
+      <div className="container">
+        <div className="row">
+          <Grid container component="main" className={classes.root + ' bg-white'}>
+            <CssBaseline />
+            <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + '  bg-white position: relative'} >
+              <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
+                <div className="col-md-12 pt-5">
+                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Reset your password</h1>
+                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Your online security is our top priority...</h5>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={5} component={Paper} elevation={0} square className='border'>
+              <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                  <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                  Reset password
           </Typography>
 
-          <form className={classes.form}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              value={password}
-              onChange={e => validatePassword(e.target.value)}
-              disabled={submitted}
-              error={!isPasswordValid && isPasswordValid !== null}
-              helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
-            />
+                <form className={classes.form}>
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={e => validatePassword(e.target.value)}
+                    disabled={submitted}
+                    error={!isPasswordValid && isPasswordValid !== null}
+                    helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
+                  />
 
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="confirmPassword"
-              label="Confirm Password"
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={e => comparePassword(e.target.value)}
-              disabled={submitted}
-              error={!passwordMatch && passwordMatch !== null}
-              helperText={!passwordMatch && passwordMatch !== null && 'Password does not match'}
-            />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type="password"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    onChange={e => comparePassword(e.target.value)}
+                    disabled={submitted}
+                    error={!passwordMatch && passwordMatch !== null}
+                    helperText={!passwordMatch && passwordMatch !== null && 'Password does not match'}
+                  />
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              style={{ background: PrimaryTheme.appBar, color: PrimaryTheme.white, }}
-              disabled={
-                !isPasswordValid ||
-                !passwordMatch ||
-                submitted
-              }
-              onClick={handleSubmit}
-            >
-              Reset
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                    style={{ background: PrimaryTheme.appBar, color: PrimaryTheme.white, }}
+                    disabled={
+                      !isPasswordValid ||
+                      !passwordMatch ||
+                      submitted
+                    }
+                    onClick={handleSubmit}
+                  >
+                    Reset
             </Button>
 
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
+                  <Box mt={5}>
+                    <Copyright color='textSecondary' />
+                  </Box>
+                </form>
+              </div>
+            </Grid>
+          </Grid>
         </div>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 }
 
@@ -201,7 +219,7 @@ const useStyles = makeStyles((theme) => ({
     // backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 10),
+    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

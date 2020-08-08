@@ -203,7 +203,8 @@ export default function Register() {
 
 
   return (
-    <Container component="main" maxWidth="xs" className='bg-white'>
+   <div className="bg-white">
+      <Container component="main" maxWidth="xs" className='bg-white'>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -368,9 +369,10 @@ export default function Register() {
         </form>
       </div>
       <Box mt={5}>
-        <Copyright />
+        <Copyright color='textSecondary' />
       </Box>
     </Container>
+   </div>
   );
 }
 

@@ -182,9 +182,9 @@ export default function AddReview() {
           </React.Fragment>
         ) : (
             <React.Fragment>
-              <Placeholder variant="circle" width={120} height={120} animation='pulse' classes="mr-auto ml-auto mb-1" />
-              <Placeholder variant="text" width={150} height={15} animation='wave' classes="mr-auto ml-auto mb-1" />
-              <Placeholder variant="text" width={120} height={15} animation='wave' classes="mr-auto ml-auto mb-3" />
+              <Placeholder variant="circle" width={120} height={120} animation='pulse' className="mr-auto ml-auto mb-1" />
+              <Placeholder variant="text" width={150} height={15} animation='wave' className="mr-auto ml-auto mb-1" />
+              <Placeholder variant="text" width={120} height={15} animation='wave' className="mr-auto ml-auto mb-3" />
             </React.Fragment>
           )}
       </div>

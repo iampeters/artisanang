@@ -24,8 +24,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function NestedList(props: Routes) {
   const classes = useStyles();
-  // const [open, setOpen] = React.useState(true);
-
 
   return (
     <List
@@ -34,12 +32,11 @@ export default function NestedList(props: Routes) {
       className={classes.root}
     >
       <NavLink to={props.path}>
-
-        <ListItem button>
+        <ListItem button={props.button} className={props.className} style={{transition: 'all .25s'}}>
           <ListItemIcon>
             <Icon style={{ color: props.color }}>{props.icon}</Icon>
           </ListItemIcon>
-          <ListItemText primary={props.name} style={{ color: props.color }} />
+          <ListItemText primary={props.name} style={{ color: props.color, fontWeight: 'bold' }} />
         </ListItem>
       </NavLink>
     </List>

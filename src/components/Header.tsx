@@ -16,6 +16,8 @@ import { menuToggle } from '../redux/Actions/themeActions';
 import PrimaryTheme from '../themes/Primary';
 import { useHistory } from 'react-router-dom';
 import { Icon } from '@material-ui/core';
+import SwipeableTemporaryDrawer from './Drawer';
+import Nav from './Nav';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -96,7 +98,21 @@ export default function SecuredAppBar() {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const messageCount = React.useState(1)[0];
   const notificationCount = React.useState(1)[0];
+  const [state, setState] = React.useState(false);
 
+
+  const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+
+    setState(!state);
+  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -112,7 +128,7 @@ export default function SecuredAppBar() {
   };
 
   const handleMenuToggle = (value: any) => {
-    value === 'none' ? dispatch(menuToggle('inline-block')) : dispatch(menuToggle('none'))
+    value === 'none' ? dispatch(menuToggle('d-md-inline-block')) : dispatch(menuToggle('none'))
   };
 
   const handleNavigation = (route: string) => {
@@ -152,7 +168,7 @@ export default function SecuredAppBar() {
             <MailIcon />
           </Badge>
         </IconButton>
-        <p  className="mb-0">Messages</p>
+        <p className="mb-0">Messages</p>
       </MenuItem>
       <MenuItem onClick={() => handleNavigation('/notifications')}>
         <IconButton aria-label="show 11 new notifications" color="inherit" >
@@ -160,7 +176,7 @@ export default function SecuredAppBar() {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p  className="mb-0">Notifications</p>
+        <p className="mb-0">Notifications</p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -173,17 +189,28 @@ export default function SecuredAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="fixed" style={{backgroundColor: PrimaryTheme.white}} elevation={0} className='box-shadow border-bottom'>
+      <AppBar position="fixed" style={{ backgroundColor: PrimaryTheme.white }} elevation={0} className='box-shadow border-bottom'>
         <Toolbar>
           <IconButton
             edge="start"
-            className={classes.menuButton}
+            className={classes.menuButton + ' d-none d-md-inline-block'}
             color="inherit"
             aria-label="open drawer"
             onClick={() => handleMenuToggle(menu)}
           >
             <MenuIcon style={{ color: PrimaryTheme.appBar }} />
           </IconButton>
+
+          <IconButton
+            edge="start"
+            className={classes.menuButton + ' d-inline-block d-md-none'}
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer}
+          >
+            <MenuIcon style={{ color: PrimaryTheme.appBar }} />
+          </IconButton>
+
           <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.appBar }}>
             Artisana
           </Typography>
@@ -226,13 +253,18 @@ export default function SecuredAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon style={{color: PrimaryTheme.icon}} />
+              <MoreIcon style={{ color: PrimaryTheme.icon }} />
             </IconButton>
           </div>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+
+      {/* Drawer */}
+      <SwipeableTemporaryDrawer anchor='left' state={state} toggleDrawer={toggleDrawer}>
+        <Nav />
+      </SwipeableTemporaryDrawer>
     </div>
   );
 }

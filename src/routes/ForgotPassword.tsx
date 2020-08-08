@@ -73,71 +73,77 @@ export default function ForgotPassword() {
   }, [dispatch, enqueueSnackbar, alert]);
 
   return (
-    <Grid container component="main" className={classes.root + ' bg-white'}>
-      <CssBaseline />
-      <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + '  bg-white position: relative'} >
-        <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
-          <div className="col-md-12 pt-5">
-            <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Forgot your password?</h1>
-            <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Don't worry we got your back...</h5>
-          </div>
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={12} md={6} lg={5} component={Paper} elevation={0} square className='border'>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Forgot password?
+    <div className="bg-white">
+      <div className="container">
+        <div className="row">
+          <Grid container component="main" className={classes.root + ' bg-white'}>
+            <CssBaseline />
+            <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + '  bg-white position: relative'} >
+              <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
+                <div className="col-md-12 pt-5">
+                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Forgot your password?</h1>
+                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Don't worry we got your back...</h5>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={5} component={Paper} elevation={0} square className='border'>
+              <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                  <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                  Forgot password?
           </Typography>
 
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              value={email}
-              onChange={e => validateEmail(e.target.value)}
-              error={!isEmailValid && isEmailValid !== null}
-              helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
-              disabled={submitted}
-            />
+                <form className={classes.form} noValidate>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={e => validateEmail(e.target.value)}
+                    error={!isEmailValid && isEmailValid !== null}
+                    helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
+                    disabled={submitted}
+                  />
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              style={{ background: PrimaryTheme.appBar, color: PrimaryTheme.white, }}
-              disabled={
-                !isEmailValid ||
-                submitted
-              }
-              onClick={handleSubmit}
-            >
-              Remind me
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                    style={{ background: PrimaryTheme.appBar, color: PrimaryTheme.white, }}
+                    disabled={
+                      !isEmailValid ||
+                      submitted
+                    }
+                    onClick={handleSubmit}
+                  >
+                    Remind me
             </Button>
 
-            <Grid container>
-              <Grid item>
-                <Link href="sign-in" onClick={() => handleNavigation("sign-in")} variant="body2">
-                  {"Remembered password? Sign In"}
-                </Link>
-              </Grid>
+                  <Grid container>
+                    <Grid item>
+                      <Link href="sign-in" onClick={() => handleNavigation("sign-in")} variant="body2">
+                        {"Remembered password? Sign In"}
+                      </Link>
+                    </Grid>
+                  </Grid>
+                  <Box mt={5}>
+                    <Copyright color='textSecondary' />
+                  </Box>
+                </form>
+              </div>
             </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
+          </Grid >
         </div>
-      </Grid>
-    </Grid >
+      </div>
+    </div>
   );
 }
 
@@ -157,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
     // backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 10),
+    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

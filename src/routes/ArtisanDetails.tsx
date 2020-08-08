@@ -14,6 +14,7 @@ import PaginationControlled from '../components/Pagination';
 import FloatingActionButtons from '../components/Fab';
 import { getReviews } from '../redux/Actions/reviewAction';
 import Placeholder from '../components/Skeleton';
+import AlertDialogSlide from '../components/Share';
 
 export default function ArtisanDetails() {
   const classes = useStyles();
@@ -31,6 +32,15 @@ export default function ArtisanDetails() {
 
   const [page, setPage] = React.useState(0)
   const [pageSize, setPageSize] = React.useState(25)
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   let filter: Reviews = {};
   let paginationConfig = {
@@ -102,7 +112,7 @@ export default function ArtisanDetails() {
 
   return (
     <div className='animated fadeIn'>
-      <div className="col-md-9 col-lg-7 ml-auto mr-auto p-0 mb-5">
+      <div className="col-md-10 ml-auto mr-auto p-0 mb-5">
         {data ? (
           <div>
             <Avatar
@@ -124,8 +134,11 @@ export default function ArtisanDetails() {
                   className={classes.button}
                   color="inherit"
                   aria-label="Call Artisan"
+                  href={`tel:${data.phoneNumber}`}
+                  rel='noreferer'
+                  target='_blank'
                 >
-                  <Icon style={{ color: PrimaryTheme.primary, fontSize: 30 }} >local_phone</Icon>
+                  <Icon style={{ color: PrimaryTheme.success, fontSize: 30 }} >local_phone</Icon>
                 </IconButton>
               </Tooltip>
 
@@ -135,31 +148,35 @@ export default function ArtisanDetails() {
                   className={classes.button}
                   color="inherit"
                   aria-label="Email Artisan"
+                  href={`mailto:${data.email}`}
+                  rel='noreferer'
+                  target='_blank'
                 >
 
-                  <Icon style={{ color: PrimaryTheme.primary, fontSize: 30 }} >email</Icon>
+                  <Icon style={{ color: PrimaryTheme.info, fontSize: 30 }} >email</Icon>
                 </IconButton>
               </Tooltip>
 
-              <Tooltip title="Report Artisan" aria-label="report">
+              {/* <Tooltip title="Report Artisan" aria-label="report">
                 <IconButton
                   edge="start"
                   className={classes.button}
                   color="inherit"
                   aria-label="Report"
                 >
-                  <Icon style={{ color: PrimaryTheme.primary, fontSize: 30 }} >report</Icon>
+                  <Icon style={{ color: PrimaryTheme.danger, fontSize: 30 }} >report</Icon>
                 </IconButton>
-              </Tooltip>
+              </Tooltip> */}
 
-              <Tooltip title="Share" aria-label="report">
+              <Tooltip title="Share" aria-label="share">
                 <IconButton
                   edge="start"
                   className={classes.button}
                   color="inherit"
                   aria-label="Share"
+                  onClick={handleClickOpen}
                 >
-                  <Icon style={{ color: PrimaryTheme.primary, fontSize: 30 }} >share</Icon>
+                  <Icon style={{ color: PrimaryTheme.facebook, fontSize: 30 }} >share</Icon>
                 </IconButton>
               </Tooltip>
 
@@ -169,10 +186,10 @@ export default function ArtisanDetails() {
                 {/* <div className="col-md-12 p-0">
                   <p className='small mb-1' style={{ color: PrimaryTheme.dark }}>Business Information</p>
                 </div> */}
-                <div className={classes.smallCard + " p-4 bg-white border-radius box-shadow"}>
-                  <h4 className=''>{data.businessName}</h4>
-                  <h6 className='text-light'>RC 37463</h6>
-                  <h6 className='text-light small mb-0'>{data.specialization}</h6>
+                <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.smallCard + " p-4 border-radius-bottom-left box-shadow"}>
+                  <h4 style={{ color: PrimaryTheme.light }} >{data.businessName}</h4>
+                  <h6 className='text-white'>RC 37463</h6>
+                  <h6 className='text-white small mb-0'>{data.specialization}</h6>
                 </div>
               </div>
 
@@ -180,10 +197,10 @@ export default function ArtisanDetails() {
                 {/* <div className="col-md-12 p-0">
                   <p className='small mb-1' style={{ color: PrimaryTheme.dark }}>Rating</p>
                 </div> */}
-                <div className={classes.smallCard + " p-4 bg-white border-radius box-shadow text-center"}>
-                  <h4 className=''>{data.rating}</h4>
+                <div style={{ backgroundColor: PrimaryTheme.purple, }} className={classes.smallCard + " p-4 border-radius-bottom-right box-shadow text-center"}>
+                  <h4 style={{ color: PrimaryTheme.light }}>{data.rating}</h4>
                   <CustomizedRatings rating={data.rating} />
-                  <p className="small mb-1">Based on {data.reviews} reviews</p>
+                  <p className="small mb-1" style={{ color: PrimaryTheme.white }}>Based on {data.reviews} reviews</p>
                 </div>
 
               </div>
@@ -206,20 +223,20 @@ export default function ArtisanDetails() {
 
         ) : (
             <React.Fragment>
-              <Placeholder variant="circle" width={120} height={120} animation='pulse' classes="mr-auto ml-auto mb-1" />
-              <Placeholder variant="text" width={150} height={15} animation='wave' classes="mr-auto ml-auto mb-1" />
-              <Placeholder variant="text" width={120} height={15} animation='wave' classes="mr-auto ml-auto mb-3" />
+              <Placeholder variant="circle" width={120} height={120} animation='pulse' className="mr-auto ml-auto mb-1" />
+              <Placeholder variant="text" width={150} height={15} animation='wave' className="mr-auto ml-auto mb-1" />
+              <Placeholder variant="text" width={120} height={15} animation='wave' className="mr-auto ml-auto mb-3" />
 
               <div className="row m-0">
                 <div className="col-md-6">
-                  <Placeholder variant="text" width={'100%'} height={150} animation='wave' classes="mr-auto ml-auto" />
+                  <Placeholder variant="text" width={'100%'} height={150} animation='wave' className="mr-auto ml-auto" />
                 </div>
                 <div className="col-md-6">
-                  <Placeholder variant="text" width={'100%'} height={150} animation='wave' classes="mr-auto ml-auto" />
+                  <Placeholder variant="text" width={'100%'} height={150} animation='wave' className="mr-auto ml-auto" />
                 </div>
 
                 <div className="col-md-12">
-                  <Placeholder variant="text" width={'100%'} height={200} animation='wave' classes="mr-auto ml-auto" />
+                  <Placeholder variant="text" width={'100%'} height={200} animation='wave' className="mr-auto ml-auto" />
                 </div>
               </div>
             </React.Fragment>
@@ -229,9 +246,12 @@ export default function ArtisanDetails() {
 
       <div className={classes.fab} style={{ position: 'fixed' }}>
         <div className="row m-0 justify-content-end align-items-center">
-          <FloatingActionButtons IconName="edit" IconText="Write review" onClick={handleClick} />
+          <FloatingActionButtons marginRight={5} IconName="edit" IconText="Write review" variant="extended" onClick={handleClick} />
         </div>
       </div>
+
+      {/* modal */}
+      <AlertDialogSlide onClose={handleClose} open={open} title="Artisana Nigeria" />
     </div>
   )
 }
@@ -266,7 +286,12 @@ const useStyles = makeStyles((theme: Theme) =>
       width: theme.spacing(6),
       height: theme.spacing(6),
     }, smallCard: {
-      minHeight: 146
+      minHeight: 146,
+      backgroundImage: 'url(/bg.png)',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'right center',
+      color: 'white',
     }, fab: {
       bottom: 0,
       right: 20,

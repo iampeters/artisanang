@@ -341,3 +341,43 @@ export const resetPassword = (data: any) => {
       });
   };
 };
+
+export const updateAccount = (data: any) => {
+  const api = new AuthService().updateUser(data);
+
+  return (dispatch: any) => {
+    api
+      .then((res: ResponseDetails) => {
+        if (res.successful) {
+          dispatch({
+            type: 'ALERT',
+            payload: {
+              message: 'Account updated successfully',
+              successful: true,
+            }
+          });
+        } else {
+          dispatch({
+            type: 'ALERT',
+            payload: res,
+          });
+        }
+      })
+      .catch(() => {
+        // send err to application
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
+      });
+  };
+};

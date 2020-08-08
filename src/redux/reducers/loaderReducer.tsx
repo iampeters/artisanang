@@ -9,7 +9,7 @@ export const loaderReducer = (state = false, action: any) => {
   }
 };
 
-export const menuReducer = (state = 'inline-block' , action: any) => {
+export const menuReducer = (state = 'd-md-inline-block' , action: any) => {
   switch (action.type) {
     case 'TOGGLE_MENU': {
       return action.payload;

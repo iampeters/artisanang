@@ -96,7 +96,7 @@ export default function Dashboard() {
           <SearchBar onChange={(e: any) => setSearch(e.target.value)} value={search} placeholder='Search for Artisans and Specialization' />
         ) : (
             <React.Fragment>
-              <Placeholder variant="text" width={'100%'} height={90} animation='pulse' classes="display-inline" />
+              <Placeholder variant="text" width={'100%'} height={90} animation='pulse' className="display-inline" />
             </React.Fragment>
           )}
       </div>
@@ -124,9 +124,9 @@ export default function Dashboard() {
         })) : (
             <React.Fragment>
               <div className="col-md-12 p-0 text-center">
-                <Placeholder variant="text" width={'100%'} height={90} animation='wave' classes="display-inline" />
-                <Placeholder variant="text" width={'100%'} height={90} animation='pulse' classes="display-inline" />
-                <Placeholder variant="text" width={'100%'} height={90} animation='wave' classes="display-inline" />
+                <Placeholder variant="text" width={'100%'} height={90} animation='wave' className="display-inline" />
+                <Placeholder variant="text" width={'100%'} height={90} animation='pulse' className="display-inline" />
+                <Placeholder variant="text" width={'100%'} height={90} animation='wave' className="display-inline" />
               </div>
             </React.Fragment>
           )}
@@ -134,7 +134,7 @@ export default function Dashboard() {
 
       <div style={{ ...styles.fab, position: 'fixed' }}>
         <div className="row m-0 justify-content-end align-items-center">
-          <FloatingActionButtons IconName="add" IconText="Add Artisan" onClick={handleClick} />
+          <FloatingActionButtons marginRight={5} IconName="add" IconText="Add Artisan" variant="extended" onClick={handleClick} />
         </div>
       </div>
     </div>

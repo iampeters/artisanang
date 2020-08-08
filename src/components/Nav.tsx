@@ -25,11 +25,11 @@ export default function Nav() {
         <h5 className='mb-0' style={{ color: PrimaryTheme.appBar }}>
           {`${user.firstname} ${user.lastname}`}
         </h5>
-        <h6 className='small' style={{ color: PrimaryTheme.light }}>{user.email}</h6>
+        {/* <h6 className='small' style={{ color: PrimaryTheme.light }}>{user.email}</h6> */}
       </div>
 
       <div className="col-md-12 p-2 text-center">
-        {Routes.map((route, index) => <List key={index} icon={route.icon} path={route.path} color={location.pathname === route.path && PrimaryTheme.active} name={route.name} />)}
+        {Routes.map((route, index) => <List key={index} button={false} icon={route.icon} path={route.path} color={location.pathname === route.path && PrimaryTheme.white} name={route.name} className={location.pathname === route.path ? 'Nav-Active' : null} />)}
       </div>
     </div>
   )

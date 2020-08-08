@@ -165,132 +165,138 @@ export default function Login() {
             type: 'LOADING',
             payload: false
           })
-          window.location.pathname = '/artisans';
+          window.location.pathname = '/home';
         }, 1000);
       }
     }
   }, [dispatch, enqueueSnackbar, alert]);
 
   return (
-    <Grid container component="main" className={classes.root + ' bg-white'}>
-      <CssBaseline />
-      <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + ' background-image bg-white position: relative'} >
-        <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
-          <div className="col-md-12 pt-5">
-            <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Welcome back!</h1>
-            <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Sign in to your account to continue... </h5>
-          </div>
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={12} md={6} lg={5} component={Paper} elevation={0} square className='border'>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}>
-            Sign in
+    <div className="bg-white">
+      <div className="container">
+        <div className="row">
+          <Grid container component="main" className={classes.root + ' bg-white'}>
+            <CssBaseline />
+            <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + ' background-image bg-white position: relative'} >
+              <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
+                <div className="col-md-12 pt-5">
+                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Welcome back!</h1>
+                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Sign in to your account to continue... </h5>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={5} component={Paper} elevation={0} square className='border'>
+              <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                  <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}>
+                  Sign in
           </Typography>
 
-          <form className={classes.form}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              // autoFocus
-              value={email}
-              onChange={e => validateEmail(e.target.value)}
-              error={!isEmailValid && isEmailValid !== null}
-              helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
-              disabled={submitted}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={e => validatePassword(e.target.value)}
-              disabled={submitted}
-              error={!isPasswordValid && isPasswordValid !== null}
-              helperText={!isPasswordValid && isPasswordValid !== null && 'Password field is required'}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              className={classes.submit}
-              onClick={handleSubmit}
-              disabled={!isEmailValid || !isPasswordValid || submitted}
-              style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
-            >
-              Sign In
+                <form className={classes.form}>
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    // autoFocus
+                    value={email}
+                    onChange={e => validateEmail(e.target.value)}
+                    error={!isEmailValid && isEmailValid !== null}
+                    helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
+                    disabled={submitted}
+                  />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    value={password}
+                    onChange={e => validatePassword(e.target.value)}
+                    disabled={submitted}
+                    error={!isPasswordValid && isPasswordValid !== null}
+                    helperText={!isPasswordValid && isPasswordValid !== null && 'Password field is required'}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    className={classes.submit}
+                    onClick={handleSubmit}
+                    disabled={!isEmailValid || !isPasswordValid || submitted}
+                    style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
+                  >
+                    Sign In
             </Button>
 
-            <Grid container>
-              <Grid item xs className='mb-1'>
-                <Link href='forgot-password' variant="body2">
-                  Forgot password?
+                  <Grid container>
+                    <Grid item xs className='mb-1'>
+                      <Link href='forgot-password' variant="body2">
+                        Forgot password?
                 </Link>
-              </Grid>
-              <Grid item className='mb-1'>
-                <Link href='get-started' variant="body2">
-                  {"Don't have an account? Create account"}
-                </Link>
-              </Grid>
-            </Grid>
-            <div className='text-center pt-2 row justify-content-center align-items-center'>
-              <hr className='w-25' />
-              <h6>Or use social account</h6>
-              <hr className='w-25' />
-            </div>
+                    </Grid>
+                    <Grid item className='mb-1'>
+                      <Link href='get-started' variant="body2">
+                        {"Don't have an account? Create account"}
+                      </Link>
+                    </Grid>
+                  </Grid>
+                  <div className='text-center pt-2 row justify-content-center align-items-center'>
+                    <hr className='w-25' />
+                    <h6>Or use social account</h6>
+                    <hr className='w-25' />
+                  </div>
 
-            <div className="row">
-              <div className="col-md-6">
-                <Button
-                  variant="outlined"
-                  size="small"
-                  fullWidth
-                  className={classes.button + ' col mt-2'}
-                  onClick={handleGoogleAuth}
-                  style={{ background: PrimaryTheme.google, color: PrimaryTheme.white }}
-                > <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Google
+                  <div className="row">
+                    <div className="col-md-6">
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        fullWidth
+                        className={classes.button + ' col mt-2'}
+                        onClick={handleGoogleAuth}
+                        style={{ background: PrimaryTheme.google, color: PrimaryTheme.white }}
+                      > <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Google
                 </Button>
-              </div>
+                    </div>
 
-              <div className="col-md-6">
-                <Button
-                  variant="outlined"
-                  size="small"
-                  className={classes.button + ' col mt-2'}
-                  onClick={handleFacebookAuth}
-                  style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white, }}
-                >
-                  <FontAwesomeIcon icon={faFacebook} className='mr-2' />
+                    <div className="col-md-6">
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        className={classes.button + ' col mt-2'}
+                        onClick={handleFacebookAuth}
+                        style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white, }}
+                      >
+                        <FontAwesomeIcon icon={faFacebook} className='mr-2' />
                   Facebook</Button>
-              </div>
-            </div>
+                    </div>
+                  </div>
 
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
+                  <Box mt={5}>
+                    <Copyright color='textSecondary' />
+                  </Box>
+                </form>
+              </div>
+            </Grid>
+          </Grid>
         </div>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 }
 
@@ -308,7 +314,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   paper: {
-    margin: theme.spacing(8, 10),
+    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
