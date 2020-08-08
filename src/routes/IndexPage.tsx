@@ -8,6 +8,7 @@ import How from '../components/How';
 import GetStarted from '../components/GetStarted';
 import HowItWorks from '../components/HowItWorks';
 import { Link, Element } from 'react-scroll';
+import Slideshow from '../components/Slider';
 
 
 export default function IndexPage() {
@@ -99,7 +100,9 @@ export default function IndexPage() {
                 </div>
               </div>
               <div className="col-md-6 hero-image">
-                <div className="position-relative" style={styles.section}></div>
+                <div className="position-relative" style={styles.section}>
+                  <Slideshow />
+                </div>
               </div>
             </div>
           </div>
