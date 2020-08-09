@@ -83,7 +83,20 @@ export default function Login() {
         // The firebase.auth.AuthCredential type that was used.
         const credential = error.credential;
 
-        console.log(errorCode, errorMessage, email, credential)
+        console.log(errorCode, errorMessage, email, credential);
+
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+
+        dispatch({
+          type: 'LOADING',
+          payload: false
+        });
       });
   };
 
@@ -117,7 +130,19 @@ export default function Login() {
         // The firebase.auth.AuthCredential type that was used.
         const credential = error.credential;
 
-        console.log(errorCode, errorMessage, email, credential)
+        console.log(errorCode, errorMessage, email, credential);
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+
+        dispatch({
+          type: 'LOADING',
+          payload: false
+        });
       });
   };
 
