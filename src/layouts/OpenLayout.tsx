@@ -84,7 +84,7 @@ export default function OpenLayout() {
           <Spinner />
         </Backdrop>
 
-        <Link
+        {/* <Link
           to='top'
           spy={true}
           smooth={true}
@@ -99,7 +99,7 @@ export default function OpenLayout() {
           }}>
             <FloatingActionButtons marginRight={0} IconColor={PrimaryTheme.appBar} customColor={PrimaryTheme.white} color="primary" IconName="keyboard_arrow_up" variant="round" />
           </div>
-        </Link>
+        </Link> */}
       </div>
     </div>
   )
