@@ -33,8 +33,8 @@ export default function SecuredAppBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const messageCount = React.useState(1)[0];
-  const notificationCount = React.useState(1)[0];
+  const messageCount = React.useState(0)[0];
+  const notificationCount = React.useState(0)[0];
 
   const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
@@ -115,12 +115,6 @@ export default function SecuredAppBar() {
           </Badge>
         </IconButton>
         <p className="mb-0">Notifications</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Icon >exit_to_app</Icon>
-        </IconButton>
-        <p className="mb-0">Logout</p>
       </MenuItem>
     </Menu>
   );
