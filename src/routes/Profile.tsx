@@ -188,36 +188,6 @@ export default function Profile() {
             </div>
 
             <div className="row mt-4">
-              <div className="col-md-4">
-                <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
-                  <List onClick={toggleDrawer}>
-                    <div className="row m-0 justify-content-start align-items-center">
-                      <Icon style={{ color: PrimaryTheme.black, marginRight: 5 }}>admin_panel_settings</Icon>
-                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 14 }}>Profile Settings
-                      </span>
-                    </div>
-                  </List>
-                </div>
-
-                <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
-                  <List onClick={toggleChangePasswordDrawer}>
-                    <div className="row m-0 justify-content-start align-items-center">
-                      <Icon style={{ color: PrimaryTheme.black, marginRight: 5 }}>lock</Icon>
-                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 14 }}>Change Password
-                      </span>
-                    </div>
-                  </List>
-                </div>
-
-                <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
-                  <List onClick={handleSignOut}>
-                    <div className="row m-0 justify-content-start align-items-center">
-                      <Icon style={{ color: PrimaryTheme.danger, marginRight: 5 }}>power_settings_new</Icon>
-                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, color: PrimaryTheme.danger, fontSize: 14 }}>Log Out</span>
-                    </div>
-                  </List>
-                </div>
-              </div>
 
               <div className="col-md-8">
                 <div className="col-md-12 p-0">
@@ -280,6 +250,37 @@ export default function Profile() {
                     </div> */}
 
                   </div>
+                </div>
+              </div>
+
+              <div className="col-md-4">
+                <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
+                  <List onClick={toggleDrawer}>
+                    <div className="row m-0 justify-content-start align-items-center">
+                      <Icon style={{ color: PrimaryTheme.black, marginRight: 5 }}>admin_panel_settings</Icon>
+                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 14 }}>Profile Settings
+                      </span>
+                    </div>
+                  </List>
+                </div>
+
+                <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
+                  <List onClick={toggleChangePasswordDrawer}>
+                    <div className="row m-0 justify-content-start align-items-center">
+                      <Icon style={{ color: PrimaryTheme.black, marginRight: 5 }}>lock</Icon>
+                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 14 }}>Change Password
+                      </span>
+                    </div>
+                  </List>
+                </div>
+
+                <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
+                  <List onClick={handleSignOut}>
+                    <div className="row m-0 justify-content-start align-items-center">
+                      <Icon style={{ color: PrimaryTheme.danger, marginRight: 5 }}>power_settings_new</Icon>
+                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, color: PrimaryTheme.danger, fontSize: 14 }}>Log Out</span>
+                    </div>
+                  </List>
                 </div>
               </div>
             </div>

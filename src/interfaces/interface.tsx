@@ -95,6 +95,7 @@ export interface Reducers {
   theme: string
   loading: boolean;
   menu: string;
+  navBar: boolean;
   user: User;
   tokens: Tokens;
   login: any;

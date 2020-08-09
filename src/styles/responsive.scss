@@ -2,28 +2,53 @@
 // No media query for `xs` since this is the default in Bootstrap
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   .profile-edit-drawer {
     width: 100vw;
+  }
+
+  .MuiDrawer-paperAnchorLeft,
+  .MuiDrawer-paper {
+    width: 85% !important;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .Nav-Active {
+    transition: .25s !important;
+    background-color: #67164c !important;
+    border-radius: 1.5rem 1.5rem 1.5rem 0 !important;
+    width: 85% !important;
+    transform: translate(10px);
+    // transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
   }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .profile-edit-drawer {
     width: 100vw;
+  }
+
+  .MuiDrawer-paperAnchorLeft,
+  .MuiDrawer-paper {
+    width: 85% !important;
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@media (max-width: 992px) {
   .profile-edit-drawer {
     width: 400px;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
   .profile-edit-drawer {
     width: 400px;
   }

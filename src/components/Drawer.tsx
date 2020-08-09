@@ -12,6 +12,7 @@ export default function SwipeableTemporaryDrawer(props: DrawerProps | any | bool
           open={props.state}
           onClose={props.toggleDrawer}
           onOpen={props.toggleDrawer}
+          className="drawer"
         >
           {props.children}
         </SwipeableDrawer>

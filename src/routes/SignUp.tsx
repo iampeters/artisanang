@@ -29,6 +29,8 @@ export default function Register() {
   const { enqueueSnackbar } = useSnackbar();
   const [firstname, setFirstname] = React.useState('')
   const [firstnameValid, setFirstnameValid]: any = React.useState(null)
+  const [phoneNumber, setPhoneNumber] = React.useState('')
+  const [phoneNumberValid, setPhoneNumberValid]: any = React.useState(null)
   const [lastname, setLastname] = React.useState('')
   const [lastnameValid, setLastnameValid]: any = React.useState(null)
   const [email, setEmail] = React.useState('')
@@ -47,6 +49,18 @@ export default function Register() {
     } else {
       setEmailValid(true);
       setEmail(text);
+    }
+  };
+
+  const validatePhoneNumber = (text: string) => {
+    // email pattern
+    let reg = /^[0-9]{11,11}$/;
+    if (!reg.test(text)) {
+      setPhoneNumberValid(false);
+      setPhoneNumber(text.toLowerCase());
+    } else {
+      setPhoneNumberValid(true);
+      setPhoneNumber(text);
     }
   };
 
@@ -173,7 +187,8 @@ export default function Register() {
       firstname,
       lastname,
       password,
-      email
+      email,
+      phoneNumber
     }
 
     dispatch(signUp(user))
@@ -184,107 +199,132 @@ export default function Register() {
       if (!alert.successful) {
         // display error message
         enqueueSnackbar(alert.message, { variant: "error" });
-        // stop spinner
-        dispatch({
-          type: 'LOADING',
-          payload: false
-        });
-
         dispatch({
           type: 'ALERT',
           payload: {}
         });
+
+        dispatch({
+          type: 'LOADING',
+          payload: false
+        })
+
         setSubmitted(false);
       } else {
-        window.location.pathname = '/artisans';
+        setTimeout(() => {
+          dispatch({
+            type: 'LOADING',
+            payload: false
+          })
+          window.location.pathname = '/home';
+        }, 1000);
       }
     }
   }, [dispatch, enqueueSnackbar, alert]);
 
 
   return (
-   <div className="bg-white">
+    <div className="bg-white">
       <Container component="main" maxWidth="xs" className='bg-white'>
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
         </Typography>
 
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                // autoFocus
-                value={firstname}
-                onChange={e => validateName(e.target.value, 'firstname')}
-                disabled={submitted}
-                error={!firstnameValid && firstnameValid !== null}
-                helperText={!firstnameValid && firstnameValid !== null && 'Only alphabets allowed.'}
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="fname"
+                  name="firstName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  // autoFocus
+                  value={firstname}
+                  onChange={e => validateName(e.target.value, 'firstname')}
+                  disabled={submitted}
+                  error={!firstnameValid && firstnameValid !== null}
+                  helperText={!firstnameValid && firstnameValid !== null && 'Only alphabets allowed.'}
 
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                value={lastname}
-                onChange={e => validateName(e.target.value, 'lastname')}
-                disabled={submitted}
-                error={!lastnameValid && lastnameValid !== null}
-                helperText={!lastnameValid && lastnameValid !== null && 'Only alphabets allowed.'}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                value={email}
-                onChange={e => validateEmail(e.target.value)}
-                error={!isEmailValid && isEmailValid !== null}
-                helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
-                disabled={submitted}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                value={password}
-                onChange={e => validatePassword(e.target.value)}
-                disabled={submitted}
-                error={!isPasswordValid && isPasswordValid !== null}
-                helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
-              />
-            </Grid>
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="lname"
+                  value={lastname}
+                  onChange={e => validateName(e.target.value, 'lastname')}
+                  disabled={submitted}
+                  error={!lastnameValid && lastnameValid !== null}
+                  helperText={!lastnameValid && lastnameValid !== null && 'Only alphabets allowed.'}
+                />
+              </Grid>
 
-            {/* <Grid item xs={12}>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={e => validateEmail(e.target.value)}
+                  error={!isEmailValid && isEmailValid !== null}
+                  helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
+                  disabled={submitted}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="phoneNumber"
+                  label="Phone Number"
+                  name="phoneNumber"
+                  autoComplete="phoneNumber"
+                  value={phoneNumber}
+                  onChange={e => validatePhoneNumber(e.target.value)}
+                  error={!phoneNumberValid && phoneNumberValid !== null}
+                  helperText={!phoneNumberValid && phoneNumberValid !== null && 'Invalid Phone Number'}
+                  disabled={submitted}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  value={password}
+                  onChange={e => validatePassword(e.target.value)}
+                  disabled={submitted}
+                  error={!isPasswordValid && isPasswordValid !== null}
+                  helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
+                />
+              </Grid>
+
+              {/* <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -301,78 +341,78 @@ export default function Register() {
                 helperText={confirmPassword !== password && confirmPassword !== '' && 'Password does not match'}
               />
             </Grid> */}
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="By clicking the Sign Up button, you agree to our terms and conditions."
-              />
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="By clicking the Sign Up button, you agree to our terms and conditions."
+                />
+              </Grid>
             </Grid>
-          </Grid>
 
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            disabled={
-              !isEmailValid ||
-              !lastnameValid ||
-              !firstnameValid ||
-              !isPasswordValid ||
-              submitted
-            }
-            onClick={handleSubmit}
-          >
-            Sign Up with email
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              disabled={
+                !isEmailValid ||
+                !lastnameValid ||
+                !firstnameValid ||
+                !isPasswordValid ||
+                submitted
+              }
+              onClick={handleSubmit}
+            >
+              Sign Up with email
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="sign-in" variant="body2">
-                Already a user? Sign in
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="sign-in" variant="body2">
+                  Already a user? Sign in
               </Link>
+              </Grid>
             </Grid>
-          </Grid>
 
-          <div className='text-center pt-4 row justify-content-center align-items-center'>
-            <hr className='w-25' />
-            <h6>Or use social account</h6>
-            <hr className='w-25' />
-          </div>
+            <div className='text-center pt-4 row justify-content-center align-items-center'>
+              <hr className='w-25' />
+              <h6>Or use social account</h6>
+              <hr className='w-25' />
+            </div>
 
-          <div className="row">
-            <div className="col-md-6">
-              <Button
-                variant="outlined"
-                size="small"
-                fullWidth
-                className={classes.button + ' col mt-2'}
-                onClick={handleGoogleAuth}
-                style={{ background: PrimaryTheme.google, color: PrimaryTheme.white }}
-              > <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Google
+            <div className="row">
+              <div className="col-md-6">
+                <Button
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                  className={classes.button + ' col mt-2'}
+                  onClick={handleGoogleAuth}
+                  style={{ background: PrimaryTheme.google, color: PrimaryTheme.white }}
+                > <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Google
                 </Button>
-            </div>
+              </div>
 
-            <div className="col-md-6">
-              <Button
-                variant="outlined"
-                size="small"
-                className={classes.button + ' col mt-2'}
-                onClick={handleFacebookAuth}
-                style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white }}
-              >
-                <FontAwesomeIcon icon={faFacebook} className='mr-2' />
+              <div className="col-md-6">
+                <Button
+                  variant="outlined"
+                  size="small"
+                  className={classes.button + ' col mt-2'}
+                  onClick={handleFacebookAuth}
+                  style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white }}
+                >
+                  <FontAwesomeIcon icon={faFacebook} className='mr-2' />
                   Facebook</Button>
+              </div>
             </div>
-          </div>
 
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright color='textSecondary' />
-      </Box>
-    </Container>
-   </div>
+          </form>
+        </div>
+        <Box mt={5}>
+          <Copyright color='textSecondary' />
+        </Box>
+      </Container>
+    </div>
   );
 }
 

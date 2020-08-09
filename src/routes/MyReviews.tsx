@@ -44,7 +44,7 @@ export default function MyReviews() {
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(getReviews(paginationConfig))
+    dispatch(getReviews(paginationConfig));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, page])
 
@@ -82,11 +82,14 @@ export default function MyReviews() {
       <div className="col-md-9 col-lg-7 ml-auto mr-auto p-0 mb-5">
         {reviewList ? (
           <div className="p-1 bg-white border-radius box-shadow">
-            {reviewList?.map((review: Reviews, index: number) => {
+            {reviewList.length !== 0 && reviewList?.map((review: Reviews, index: number) => {
               return (
                 <ReviewItemsList title={review.title} description={review.description} userId={review.userId} key={index} rating={review.rating} onClick={() => navigate(`/reviews/details/${review._id}`)} />
               )
             })}
+
+            {reviewList.length === 0 && <p className='text-center mt-3 text-light'>You have no reviews yet.</p>}
+
             {/* pagination component */}
             {reviews.total > pageSize && <PaginationControlled onPageSizeChange={handlePageSizeChange} onChange={handleChange} page={page} total={reviews.total && reviews.total} pageSize={pageSize} />}
           </div>

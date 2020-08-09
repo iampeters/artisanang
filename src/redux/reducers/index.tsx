@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { themeReducer } from './themeReducer';
-import { loaderReducer, menuReducer } from './loaderReducer';
+import { loaderReducer, menuReducer, navBarReducer } from './loaderReducer';
 import { authReducer, userReducer, tokenReducer, loginReducer } from './userReducer';
 import { artisanReducer } from './artisanReducer';
 import { alertReducer } from './alertReducer';
@@ -18,7 +18,8 @@ const rootReducer = combineReducers({
   artisan: artisanReducer,
   alert: alertReducer,
   file: fileReducer,
-  reviews: reviewReducer
+  reviews: reviewReducer,
+  navBar: navBarReducer
 });
 
 export default rootReducer;

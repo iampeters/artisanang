@@ -145,7 +145,7 @@ export const signUp = (state: any) => {
           });
           // send response to login screen
           dispatch({
-            type: 'AUTHENTICATE',
+            type: 'ALERT',
             payload: {
               successful: true,
               message: 'Logged in successfully.',
@@ -153,7 +153,7 @@ export const signUp = (state: any) => {
           });
         } else {
           dispatch({
-            type: 'AUTHENTICATE',
+            type: 'ALERT',
             payload: res,
           });
         }
@@ -161,18 +161,12 @@ export const signUp = (state: any) => {
       .catch(() => {
         // send err to application
         dispatch({
-          type: 'AUTHENTICATE',
+          type: 'ALERT',
           payload: {
             message: 'Network request failed',
             successful: false,
           },
         });
-      }).finally(() => {
-        dispatch({
-          type: 'LOADING',
-          payload: false,
-        });
-
       });
   };
 };

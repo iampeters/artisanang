@@ -8,9 +8,8 @@ export default function Home() {
 
   return (
     <div style={{
-      background: PrimaryTheme.background,
       minHeight: `calc(100vh - 130px)`,
-      backgroundImage: 'url("/user-2.jpg")',
+      // backgroundImage: 'url("/user-2.jpg")',
       backgroundColor: PrimaryTheme.background,
       // backgroundPosition: 'top right',
       backgroundSize: 'cover',
@@ -18,8 +17,9 @@ export default function Home() {
       overflow: 'hidden'
     }} className='animated fadeIn'>
       <div className="row m-0 h-inherit">
-        <div className="col-md-6 p-5" style={{ background: PrimaryTheme.transparent }}>
-          <h1 className='display-4 mt-5 animated fadeInDown' style={{
+
+        <div className="col-md-6 p-2" style={{ background: PrimaryTheme.transparent }}>
+          <h1 className='display-4 animated fadeInDown' style={{
             fontFamily: PrimaryTheme.fonts?.ProductSansBold,
             color: PrimaryTheme.appBar
           }}>Become a</h1>
@@ -47,15 +47,16 @@ export default function Home() {
           }}><b>₦50,000</b> worth of work tools.</h4>
 
           <div className="form-group mt-4 animated fadeInUp">
-            <button className='btn badge-pill btn-warning btn-lg w-50'
+            <button className='btn badge-pill btn-warning btn-lg pl-3 pr-3'
               style={{
                 backgroundColor: PrimaryTheme.warn
               }}
               onClick={() => history.push('/artisans/add')}
             >
               <div className="row m-0 justify-content-around align-items-center">
-                <span  style={{
-                  fontFamily: PrimaryTheme.fonts?.ProductSansBold
+                <span style={{
+                  fontFamily: PrimaryTheme.fonts?.ProductSansBold,
+                  marginRight: 10,
                 }}>Get started</span>
                 <Icon className='animated fadeInLeft infinite'>arrow_right_alt</Icon>
               </div>
@@ -63,11 +64,13 @@ export default function Home() {
           </div>
 
         </div>
-        <div className="col-md-6" style={{
-          // background: 'url("/hero-desktop.jpg")',
-          // backgroundPosition: 'top center',
-          // backgroundSize: 'contain',
-          // backgroundRepeat: 'no-repeat'
+        <div className="col-md-6 d-none d-md-inline" style={{
+           backgroundImage: 'url("/user.jpg")',
+           backgroundColor: PrimaryTheme.background,
+           backgroundPosition: 'top center',
+           backgroundSize: 'cover',
+           backgroundRepeat: 'no-repeat',
+           overflow: 'hidden'
         }}>
           {/* // TODO - add slider */}
         </div>

@@ -70,20 +70,14 @@ export default function OpenAppBar() {
       <MenuItem style={{
         fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
         fontSize: 15,
-      }}>
-        <p className="mb-0">How it works</p>
-      </MenuItem>
-      <MenuItem style={{
-        fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
-        fontSize: 15,
-      }}>
+      }} onClick={() => handleNavigation('about')}>
         <p className="mb-0">About</p>
       </MenuItem>
       <MenuItem style={{
         fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
         color: PrimaryTheme.primary,
         fontSize: 15,
-      }}>
+      }} onClick={() => handleNavigation('faqs')}>
         <p className="mb-0">FAQs</p>
       </MenuItem>
       <MenuItem onClick={() => handleNavigation('sign-in')}
@@ -205,8 +199,6 @@ export default function OpenAppBar() {
     </div>
   );
 }
-
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

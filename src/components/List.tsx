@@ -5,8 +5,49 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Icon from '@material-ui/core/Icon';
-import { Routes } from '../interfaces/interface';
+import { Routes, Reducers } from '../interfaces/interface';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+export default function NestedList(props: Routes) {
+  const classes = useStyles();
+  const nav = useSelector((state: Reducers) => state.navBar);
+  const dispatch = useDispatch();
+
+
+  const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+    dispatch({
+      type: 'TOGGLE_NAVBAR',
+      payload: !nav
+    })
+  };
+
+  return (
+    <List
+      component="nav"
+      aria-labelledby="nested-list-subheader"
+      className={classes.root}
+      onClick={toggleDrawer}
+    >
+      <NavLink to={props.path}>
+        <ListItem button={props.button} className={props.className} style={{ transition: 'all .25s' }}>
+          <ListItemIcon>
+            <Icon style={{ color: props.color }}>{props.icon}</Icon>
+          </ListItemIcon>
+          <ListItemText primary={props.name} style={{ color: props.color, fontWeight: 'bold' }} />
+        </ListItem>
+      </NavLink>
+    </List>
+  );
+}
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -21,24 +62,3 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
-
-export default function NestedList(props: Routes) {
-  const classes = useStyles();
-
-  return (
-    <List
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      className={classes.root}
-    >
-      <NavLink to={props.path}>
-        <ListItem button={props.button} className={props.className} style={{transition: 'all .25s'}}>
-          <ListItemIcon>
-            <Icon style={{ color: props.color }}>{props.icon}</Icon>
-          </ListItemIcon>
-          <ListItemText primary={props.name} style={{ color: props.color, fontWeight: 'bold' }} />
-        </ListItem>
-      </NavLink>
-    </List>
-  );
-}

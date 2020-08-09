@@ -25,7 +25,7 @@ export default function FloatingActionButtons(props: FABProps) {
     <div className={classes.root + ' mb-3'}>
       <Fab style={{ background: props.customColor }} color={props.color} aria-label={props.label} variant={props.variant} onClick={props.onClick}>
         <Icon style={{ color: props.IconColor, marginRight: props.marginRight }}>{props.IconName}</Icon>
-        <Typography className='text-capitalize'> {props.IconText}</Typography>
+        <Typography className='text-capitalize' style={{color: props.IconColor}}> {props.IconText}</Typography>
       </Fab>
     </div>
   );

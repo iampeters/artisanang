@@ -98,12 +98,12 @@ export default function MyArtisans() {
 
   return (
     <div className='animated fadeIn'>
-      <div className='col-md-12'>
+      <div className='col-md-12 p-0'>
         <h4 className='mb-0' style={{ color: PrimaryTheme.appBar }}>My Artisans</h4>
         <p className="small text-light">Here is a list of all your artisans so far.</p>
       </div>
 
-      <div className="col-md-9 col-lg-7 ml-auto mr-auto p-0 mb-3 searchBar">
+      <div className="col-md-9 col-lg-8 ml-auto mr-auto p-0 mb-3 searchBar">
         {artisans.items ? (
           <SearchBar onChange={(e: any) => handleSearch(e)} value={search} placeholder='Search Artisans' />
         ) : (
@@ -113,10 +113,11 @@ export default function MyArtisans() {
           )}
       </div>
 
-      <div className="col-md-9 col-lg-7 ml-auto mr-auto p-0 mb-5">
-        {artisans.items ? (artisans.items.map((item: Artisans, key) => {
-          return (
-            <React.Fragment key={key}>
+      <div className="col-md-9 col-lg-8 ml-auto mr-auto p-0 mb-5">
+        {artisans.items ? (
+          <React.Fragment>
+            {artisans.items?.length !== 0 && artisans.items.map((item: Artisans, key) =>
+
               <ArtisanList
                 firstname={item.firstname}
                 lastname={item.lastname}
@@ -127,13 +128,22 @@ export default function MyArtisans() {
                 state={item.state}
                 country={item.country}
                 onClick={() => navigate(`/artisans/details/${item._id}`)}
+                key={key}
               />
 
-              {/* pagination component */}
-              {artisans.total > pageSize && <PaginationControlled onChange={handleChange} onPageSizeChange={handlePageSizeChange} page={page} total={artisans.total && artisans.total} pageSize={pageSize} />}
-            </React.Fragment>
-          )
-        })) : (
+            )}
+
+            {artisans.items?.length === 0 &&
+              <div className='col-md-12 text-center'>
+                <p className='text-center mt-3 text-light'>You have not added any artisan</p>
+                <button className='btn btn-color' onClick={handleClick}>+ Add Artisan</button>
+              </div>
+            }
+
+            {/* pagination component */}
+            {artisans.total > pageSize && <PaginationControlled onChange={handleChange} onPageSizeChange={handlePageSizeChange} page={page} total={artisans.total && artisans.total} pageSize={pageSize} />}
+          </React.Fragment>
+        ) : (
             <React.Fragment>
               <div className="col-md-12 p-0 text-center">
                 <Placeholder variant="text" width={'100%'} height={90} animation='wave' className="display-inline" />
@@ -152,8 +162,8 @@ export default function MyArtisans() {
             IconText="Add Artisan"
             variant="extended"
             onClick={handleClick}
-            customColor={PrimaryTheme.warn}
-            IconColor={PrimaryTheme.black} />
+            customColor={PrimaryTheme.primary}
+            IconColor={PrimaryTheme.white} />
         </div>
       </div>
     </div>
