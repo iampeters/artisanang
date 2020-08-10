@@ -241,7 +241,7 @@ export default function Register() {
             payload: false
           })
           window.location.pathname = '/home';
-        }, 1000);
+        }, 3000);
       }
     }
   }, [dispatch, enqueueSnackbar, alert]);
