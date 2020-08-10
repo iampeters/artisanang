@@ -5,15 +5,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Icon from '@material-ui/core/Icon';
-import { Routes, Reducers } from '../interfaces/interface';
+import { Routes } from '../interfaces/interface';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export default function NestedList(props: Routes) {
   const classes = useStyles();
-  const nav = useSelector((state: Reducers) => state.navBar);
   const dispatch = useDispatch();
-
 
   const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
@@ -26,7 +24,7 @@ export default function NestedList(props: Routes) {
     }
     dispatch({
       type: 'TOGGLE_NAVBAR',
-      payload: !nav
+      payload: false
     })
   };
 
