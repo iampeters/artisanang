@@ -4,7 +4,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import PrimaryTheme from '../themes/Primary';
 import List from './List';
 import { Routes } from '../routes'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Reducers } from '../interfaces/interface';
 
@@ -12,14 +12,16 @@ export default function Nav() {
   const classes = useStyles();
   const location = useLocation();
   const user = useSelector((state: Reducers) => state.user);
+  const history = useHistory();
 
   return (
     <div className="col-md-12 border-right h-inherit" style={{ overflowY: "auto" }}>
       <div className="col-md-12 p-2 mt-3 text-center">
         <Avatar
-          className={classes.large + ' mr-auto ml-auto'}
+          className={classes.large + ' mr-auto ml-auto pointer'}
           alt={`${user.firstname} ${user.lastname}`}
-          src={user.imageUrl} />
+          src={user.imageUrl}
+          onClick={() => history.push('/profile')} />
       </div>
       <div className="col-md-12 p-2 text-center border-radius">
         <h5 className='mb-0' style={{ color: PrimaryTheme.appBar }}>
