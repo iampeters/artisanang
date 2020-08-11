@@ -7,9 +7,12 @@
     width: 100vw;
   }
 
-  .MuiDrawer-paperAnchorLeft,
-  .MuiDrawer-paper {
-    width: 85% !important;
+  .MuiDrawer-paperAnchorLeft {
+    width: 70% !important;
+  }
+
+  .MuiDrawer-paperAnchorRight {
+    width: 100%;
   }
 
   .display-4 {
@@ -34,9 +37,12 @@
     width: 100vw;
   }
 
-  .MuiDrawer-paperAnchorLeft,
-  .MuiDrawer-paper {
-    width: 85% !important;
+  .MuiDrawer-paperAnchorLeft {
+    width: 70% !important;
+  }
+
+  .MuiDrawer-paperAnchorRight {
+    width: 100%;
   }
 }
 

@@ -20,6 +20,21 @@ export default function ChangePassword() {
   const [confirmPassword, setConfirmPassword]: any = React.useState('');
   const [submitted, setSubmitted] = React.useState(false);
 
+  const toggleChangePasswordDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+    dispatch({
+      type: 'TOGGLE_PASSWORD_DRAWER',
+      payload: false
+    });
+  };
+
   const validatePassword = (text: any) => {
     let reg = /(?=.*\d)(?=.*[a-z]*[A-Z]).{6,}/;
     // min 6 chars
@@ -80,7 +95,18 @@ export default function ChangePassword() {
 
   return (
     <div className='animated fadeIn profile-edit-drawer'>
-      <h6 className='display-5 mb-3 mt-3 p-3 text-center text-bold' style={{ color: PrimaryTheme.appBar }}>Change Password</h6>
+      <div className="row m-0 justify-content-center align-items-center">
+        <div className="col-6">
+          <h6 className='display-5 mb-3 pt-3 pb-3 mt-3 text-center text-bold' style={{ color: PrimaryTheme.appBar }}>Change Password</h6>
+        </div>
+        <div className="col-6 text-right">
+          <Icon onClick={toggleChangePasswordDrawer} style={{
+            color: PrimaryTheme.danger,
+            cursor: 'pointer'
+          }}>close</Icon>
+        </div>
+
+      </div>
 
       <div className="col-md-12 ml-auto mr-auto p-3">
 

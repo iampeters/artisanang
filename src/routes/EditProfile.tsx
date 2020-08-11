@@ -1,6 +1,6 @@
 import React from 'react'
 import PrimaryTheme from '../themes/Primary'
-import { Avatar, makeStyles, createStyles, Theme } from '@material-ui/core';
+import { Avatar, makeStyles, createStyles, Theme, Icon } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { Reducers } from '../interfaces/interface';
 import { fileUpload } from '../redux/Actions/fileAction';
@@ -41,6 +41,22 @@ export default function EditProfile() {
 
     }
   }
+
+  const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+
+    dispatch({
+      type: 'TOGGLE_PROFILE_DRAWER',
+      payload: false
+    });
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -89,105 +105,116 @@ export default function EditProfile() {
 
   return (
     <div className='animated fadeIn profile-edit-drawer'>
-      <h6 className='display-5 mb-3 p-3 mt-3 text-center text-bold' style={{ color: PrimaryTheme.appBar }}>Profile Settings</h6>
+      <div className="row m-0 justify-content-center align-items-center">
+        <div className="col-6">
+          <h6 className='display-5 mb-3 pt-3 pb-3 mt-3 text-center text-bold' style={{ color: PrimaryTheme.appBar }}>Profile Settings</h6>
+        </div>
+        <div className="col-6 text-right">
+          <Icon onClick={toggleDrawer} style={{
+            color: PrimaryTheme.danger,
+            cursor: 'pointer'
+          }}>close</Icon>
+        </div>
 
-    <div className="col-md-12 ml-auto mr-auto p-3">
-
-      <div className="form-group text-center">
-        <label htmlFor="file" className=' pointer'>
-          <Avatar
-            className={classes.large + ' mb-1'}
-            alt={`${user.firstname} ${user.lastname}`}
-            src={imageUrl} />  <span className='text-gray-700 text-bold text-xs'>Click to change</span>
-        </label>
-        <input type="file" id='file' name='file' disabled={submitted} onChange={handleFile} className='d-none' />
       </div>
 
-      <form noValidate>
-        <div className="form-group mb-3">
-          <label htmlFor="firstName" className='text-gray-700 text-xs text-bold'>First Name</label>
-          <input
-            type="text"
-            name='firstName'
-            id='firstName'
-            className='w-100 outline-none'
-            style={styles.input}
-            defaultValue={firstname}
-            onChange={e => setFirstname(e.target.value)}
-          />
+      <div className="col-md-12 ml-auto mr-auto p-3">
+
+        <div className="form-group text-center">
+          <label htmlFor="file" className=' pointer'>
+            <Avatar
+              className={classes.large + ' mb-1'}
+              alt={`${user.firstname} ${user.lastname}`}
+              src={imageUrl} />  <span className='text-gray-700 text-bold text-xs'>Click to change</span>
+          </label>
+          <input type="file" id='file' name='file' disabled={submitted} onChange={handleFile} className='d-none' />
         </div>
 
-        <div className="form-group mb-3">
-          <label htmlFor="lastName" className='text-gray-700 text-xs text-bold'>Last Name</label>
-          <input
-            type="text"
-            name='lastName'
-            id='lastName'
-            className='w-100 outline-none'
-            style={styles.input}
-            defaultValue={lastname}
-            onChange={e => setLastname(e.target.value)}
-          />
-        </div>
+        <form noValidate>
+          <div className="form-group mb-3">
+            <label htmlFor="firstName" className='text-gray-700 text-xs text-bold'>First Name</label>
+            <input
+              type="text"
+              name='firstName'
+              id='firstName'
+              className='w-100 outline-none'
+              style={styles.input}
+              defaultValue={firstname}
+              onChange={e => setFirstname(e.target.value)}
+            />
+          </div>
 
-        <div className="form-group mb-3">
-          <label htmlFor="email" className='text-gray-700 text-xs text-bold'>Email Address</label>
-          <input
-            type="email"
-            name='email'
-            id='email'
-            className='w-100 outline-none'
-            style={styles.input}
-            defaultValue={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="lastName" className='text-gray-700 text-xs text-bold'>Last Name</label>
+            <input
+              type="text"
+              name='lastName'
+              id='lastName'
+              className='w-100 outline-none'
+              style={styles.input}
+              defaultValue={lastname}
+              onChange={e => setLastname(e.target.value)}
+            />
+          </div>
 
-        <div className="form-group mb-3">
-          <label htmlFor="phoneNumber" className='text-gray-700 text-xs text-bold'>Phone Number</label>
-          <input
-            type="tel"
-            name='phoneNumber'
-            id='phoneNumber'
-            className='w-100 outline-none'
-            style={styles.input}
-            defaultValue={phoneNumber}
-            onChange={e => setPhoneNumber(e.target.value)}
-          />
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="email" className='text-gray-700 text-xs text-bold'>Email Address</label>
+            <input
+              type="email"
+              name='email'
+              id='email'
+              className='w-100 outline-none'
+              style={styles.input}
+              defaultValue={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+          </div>
 
-        <div className="form-group mb-3">
-          <label htmlFor="state" className='text-gray-700 text-xs text-bold'>State</label>
-          <input
-            type="text"
-            name='state'
-            id='state'
-            className='w-100 outline-none'
-            style={styles.input}
-            defaultValue={state}
-            onChange={e => setState(e.target.value)}
-          />
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="phoneNumber" className='text-gray-700 text-xs text-bold'>Phone Number</label>
+            <input
+              type="tel"
+              name='phoneNumber'
+              id='phoneNumber'
+              className='w-100 outline-none'
+              style={styles.input}
+              defaultValue={phoneNumber}
+              onChange={e => setPhoneNumber(e.target.value)}
+            />
+          </div>
 
-        <div className="form-group mb-3">
-          <label htmlFor="country" className='text-gray-700 text-xs text-bold'>Country</label>
-          <input
-            type="text"
-            name='country'
-            id='country'
-            className='w-100 outline-none'
-            style={styles.input}
-            defaultValue={country}
-            onChange={e => setCountry(e.target.value)}
-          />
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="state" className='text-gray-700 text-xs text-bold'>State</label>
+            <input
+              type="text"
+              name='state'
+              id='state'
+              className='w-100 outline-none'
+              style={styles.input}
+              defaultValue={state}
+              onChange={e => setState(e.target.value)}
+            />
+          </div>
 
-        <div className="form-group mb-3">
-          <button type='submit' className='btn  btn-md btn-purple border-0 w-100' style={{ ...styles.button, color: PrimaryTheme.white }} onClick={handleSubmit}>Update Profile</button>
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="country" className='text-gray-700 text-xs text-bold'>Country</label>
+            <input
+              type="text"
+              name='country'
+              id='country'
+              className='w-100 outline-none'
+              style={styles.input}
+              defaultValue={country}
+              onChange={e => setCountry(e.target.value)}
+            />
+          </div>
 
-      </form>
-    </div>
+          <div className="form-group mb-3">
+            <button type='submit' className='btn  btn-md btn-purple border-0 w-100' style={{ ...styles.button, color: PrimaryTheme.white }} onClick={handleSubmit}>Update Profile</button>
+          </div>
+
+        </form>
+      </div>
     </div >
   )
 }

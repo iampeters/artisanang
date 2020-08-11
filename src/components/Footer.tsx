@@ -1,6 +1,5 @@
 import React from 'react'
 import PrimaryTheme from '../themes/Primary'
-import { Avatar } from '@material-ui/core'
 import { FacebookIcon, TwitterIcon } from 'react-share'
 import Copyright from './Copyright'
 import Link from '@material-ui/core/Link';

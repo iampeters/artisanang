@@ -94,7 +94,9 @@ export interface Reducers {
   auth: boolean;
   theme: string
   loading: boolean;
+  profileEditDrawer: boolean;
   menu: string;
+  changePasswordDrawer: boolean;
   navBar: boolean;
   user: User;
   tokens: Tokens;

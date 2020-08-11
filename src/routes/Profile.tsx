@@ -26,9 +26,8 @@ export default function Profile() {
   const user = useSelector((state: Reducers) => state.user);
   const reviews = useSelector((state: Reducers) => state.reviews);
   const alert = useSelector((state: Reducers) => state.alert);
-
-  const [state, setState] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
+  const editProfileDrawer = useSelector((state: Reducers) => state.profileEditDrawer);
+  const changePasswordDrawer = useSelector((state: Reducers) => state.changePasswordDrawer);
 
   let filter: any = {};
   let paginationConfig = {
@@ -74,7 +73,10 @@ export default function Profile() {
       return;
     }
 
-    setState(!state);
+    dispatch({
+      type: 'TOGGLE_PROFILE_DRAWER',
+      payload: !editProfileDrawer
+    });
   };
 
   const toggleChangePasswordDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -86,8 +88,10 @@ export default function Profile() {
     ) {
       return;
     }
-
-    setOpen(!open);
+    dispatch({
+      type: 'TOGGLE_PASSWORD_DRAWER',
+      payload: !changePasswordDrawer
+    });
   };
 
 
@@ -285,12 +289,12 @@ export default function Profile() {
               </div>
             </div>
             {/*Profile Drawer */}
-            <SwipeableTemporaryDrawer anchor='right' state={state} toggleDrawer={toggleDrawer}>
+            <SwipeableTemporaryDrawer anchor='right' state={editProfileDrawer} toggleDrawer={toggleDrawer}>
               <EditProfile />
             </SwipeableTemporaryDrawer>
 
             {/*Change Password Drawer */}
-            <SwipeableTemporaryDrawer anchor='right' state={open} toggleDrawer={toggleChangePasswordDrawer}>
+            <SwipeableTemporaryDrawer anchor='right' state={changePasswordDrawer} toggleDrawer={toggleChangePasswordDrawer}>
               <ChangePassword />
             </SwipeableTemporaryDrawer>
           </div>

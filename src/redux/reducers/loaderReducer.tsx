@@ -31,3 +31,27 @@ export const navBarReducer = (state = false , action: any) => {
   }
 };
 
+
+export const changePasswordReducer = (state = false , action: any) => {
+  switch (action.type) {
+    case 'TOGGLE_PASSWORD_DRAWER': {
+      return action.payload;
+    }
+
+    default:
+      return state;
+  }
+};
+
+
+export const profileEditReducer = (state = false , action: any) => {
+  switch (action.type) {
+    case 'TOGGLE_PROFILE_DRAWER': {
+      return action.payload;
+    }
+
+    default:
+      return state;
+  }
+};
+

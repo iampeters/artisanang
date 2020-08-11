@@ -15,7 +15,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { menuToggle } from '../redux/Actions/themeActions';
 import PrimaryTheme from '../themes/Primary';
 import { useHistory } from 'react-router-dom';
-import { Icon } from '@material-ui/core';
 import SwipeableTemporaryDrawer from './Drawer';
 import Nav from './Nav';
 import { Reducers } from '../interfaces/interface';

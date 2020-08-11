@@ -14,8 +14,8 @@ import Spinner from '../components/Spinner';
 import { makeStyles, createStyles, Theme } from '@material-ui/core';
 import { Reducers } from '../interfaces/interface';
 import Unauthorized from '../routes/Unauthorized';
-import { Link, Element } from 'react-scroll';
-import FloatingActionButtons from '../components/Fab';
+import { Element } from 'react-scroll';
+// import FloatingActionButtons from '../components/Fab';
 import AboutUs from '../routes/AboutUs';
 import FAQs from '../routes/FAQs';
 
