@@ -2,7 +2,6 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
-import PrimaryTheme from '../themes/Primary';
 import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>

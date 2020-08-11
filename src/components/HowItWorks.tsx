@@ -1,7 +1,6 @@
 import React from 'react'
 import PrimaryTheme from '../themes/Primary'
 import Hero from './Hero'
-import { Icon } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 
 export default function HowItWorks() {

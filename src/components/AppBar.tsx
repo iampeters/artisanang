@@ -70,9 +70,17 @@ export default function OpenAppBar() {
       <MenuItem style={{
         fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
         fontSize: 15,
+      }} onClick={() => handleNavigation('/')}>
+        <p className="mb-0">Home</p>
+      </MenuItem>
+
+      <MenuItem style={{
+        fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
+        fontSize: 15,
       }} onClick={() => handleNavigation('about')}>
         <p className="mb-0">About</p>
       </MenuItem>
+
       <MenuItem style={{
         fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
         color: PrimaryTheme.primary,
@@ -140,10 +148,10 @@ export default function OpenAppBar() {
               <div className={classes.grow} />
               <div className={classes.sectionDesktop}>
 
-                {/* <button className="btn btn-white" style={{
+                <button className="btn btn-white" onClick={() => handleNavigation('/')} style={{
                   color: PrimaryTheme.primary,
                   fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-                }}>How it works</button> */}
+                }}>Home</button>
 
                 <button className="btn btn-white" onClick={() => handleNavigation('/about')} style={{
                   color: PrimaryTheme.primary,
