@@ -35,7 +35,7 @@ export default function Home() {
                 color: 'white',
                 borderRadius: '10px 10px 0 0'
               }}>
-                {/* <h4>Regular</h4> */}
+                <h4>Add Artisan</h4>
               </div>
             </div>
             <div className="col-md-12 pt-4" style={{
@@ -66,7 +66,7 @@ export default function Home() {
                     <span style={{
                       fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
                       marginRight: 10,
-                    }}>Add Artisan</span>
+                    }}>Get Started</span>
                     <Icon className='animated fadeInLeft infinite'>arrow_right_alt</Icon>
                   </div>
                 </button>
@@ -91,7 +91,7 @@ export default function Home() {
                 borderRadius: '10px 10px 0 0'
 
               }}>
-                {/* <h4>Premium</h4> */}
+                <h4>Premium</h4>
               </div>
             </div>
             <div className="col-md-12 pt-3" style={{
