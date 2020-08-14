@@ -59,3 +59,26 @@
   font-weight: 500;
   src: local('Lemonada-SemiBold'), url('../fonts/Lemonada-SemiBold.ttf');
 }
+
+@font-face {
+  font-family: 'RubikMedium';
+  font-weight: 400;
+  src: local('Rubik-Medium'), url('../fonts/Rubik-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'RubikRegular';
+  src: local('Rubik-Regular'), url('../fonts/Rubik-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'RubikLight';
+  src: local('Rubik-Light'), url('../fonts/Rubik-Light.ttf');
+}
+
+
+@font-face {
+  font-family: 'RubikBold';
+  font-weight: 600;
+  src: local('Rubik-Bold'), url('../fonts/Rubik-Bold.ttf');
+}

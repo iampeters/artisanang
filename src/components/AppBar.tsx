@@ -163,10 +163,10 @@ export default function OpenAppBar() {
                   fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
                 }}>FAQs</button>
 
-                <button className="btn btn-white" style={{
+                {/* <button className="btn btn-white" style={{
                   color: PrimaryTheme.primary,
                   fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-                }}>Support</button>
+                }}>Support</button> */}
 
                 <button className="btn btn-white" style={{
                   color: PrimaryTheme.primary,

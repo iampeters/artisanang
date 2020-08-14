@@ -171,7 +171,9 @@ export default function AddArtisan() {
       <div className="col-md-12 ml-auto mr-auto mb-5 border-radius">
         <div className="row m-0">
           <div className="col-md-12 ml-auto mr-auto mb-3 text-center">
-            <h4 className='text-left text-color'> Add Artisan <Icon>star</Icon></h4>
+            <h4 className='text-left text-color' style={{
+              fontFamily: PrimaryTheme.fonts?.RubikMedium
+            }}> Add Artisan <Icon>star</Icon></h4>
             <label htmlFor="file" className=' pointer'>
               <Avatar
                 className={classes.large + ' mr-auto ml-auto mb-1'}
@@ -187,7 +189,9 @@ export default function AddArtisan() {
             <form className={classes.root} noValidate autoComplete="off">
               <div className="row m-0 w-100">
                 <div className="col-md-12">
-                  <p className='small'>Basic information</p>
+                  <p className='small' style={{
+                    fontFamily: PrimaryTheme.fonts?.RubikMedium
+                  }}>Basic information</p>
                 </div>
 
                 <div className="form-group col-sm-6">
@@ -200,7 +204,6 @@ export default function AddArtisan() {
                     id="firstName"
                     label="First Name"
                     inputMode='text'
-                    autoFocus
                     value={firstname}
                     onChange={e => validateName(e.target.value, 'firstname')}
                     disabled={submitted}
@@ -279,7 +282,9 @@ export default function AddArtisan() {
                 </div>
 
                 <div className="col-md-12">
-                  <p className='small'>Business Information (Optional)</p>
+                  <p className='small' style={{
+                    fontFamily: PrimaryTheme.fonts?.RubikMedium
+                  }}>Business Information (Optional)</p>
                 </div>
 
                 <div className="form-group col-sm-6">
@@ -311,7 +316,9 @@ export default function AddArtisan() {
                 </div>
 
                 <div className="col-md-12">
-                  <p className='small'>Artisan Location</p>
+                  <p className='small' style={{
+                    fontFamily: PrimaryTheme.fonts?.RubikMedium
+                  }}>Artisan Location</p>
                 </div>
 
                 <div className="form-group col-12">

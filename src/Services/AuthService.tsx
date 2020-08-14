@@ -14,7 +14,6 @@ export default class AuthService {
   constructor() {
     this.authToken = TokenValidator();
   }
-  // updateUserDetails = API.users + 'update';
 
   async login(data: any) {
     try {
@@ -147,6 +146,6 @@ export default class AuthService {
       throw err;
     }
   }
-  
+
 
 }

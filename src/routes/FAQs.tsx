@@ -24,7 +24,7 @@ export default function FAQs() {
               <h2 style={{
                 color: PrimaryTheme.white,
                 textAlign: 'center',
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular
+                fontFamily: PrimaryTheme.fonts?.RubikBold
               }}>Frequently Asked Questions</h2>
 
             </div>

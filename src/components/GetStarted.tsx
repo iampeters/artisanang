@@ -13,7 +13,7 @@ export default function GetStarted() {
         <div className="row">
           <div className="col-md-12">
             <h3 className='text-center' style={{
-              // color: PrimaryTheme.white
+              fontFamily: PrimaryTheme.fonts?.RubikMedium,
             }}>Available in stores</h3>
             <p className='text-center'>
               Download Artisana app now and tell your friends about it

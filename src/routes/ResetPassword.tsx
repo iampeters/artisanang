@@ -124,7 +124,11 @@ export default function ResetPassword() {
           <Grid container component="main" className={classes.root + ' bg-white'}>
             <CssBaseline />
             <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + '  bg-white position: relative'} >
-              <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
+              <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100" style={{
+                backgroundColor: 'rgba(255,255,255, .65)',
+                paddingBottom: 50,
+                height: '100vh'
+              }}>
                 <div className="col-md-12 pt-5">
                   <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Reset your password</h1>
                   <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Your online security is our top priority...</h5>
@@ -209,14 +213,12 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(/security.png)',
+    backgroundImage: 'url("/images/wood-worker.jpg")',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'left center',
-    backgroundSize: '100% auto',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    // backgroundSize: 'cover',
-    // backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   },
   paper: {
     margin: theme.spacing(8, 4),

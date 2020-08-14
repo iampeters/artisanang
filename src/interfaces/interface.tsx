@@ -6,6 +6,7 @@ export interface Theme {
   dark: string;
   light: string;
   transparent: string;
+  transparentSurface: string;
   icon: string;
   appBar: string;
   secondary?: string;
@@ -41,6 +42,11 @@ export interface Theme {
     LemonadaLight?: string;
     LemonadaSemiBold?: string;
     LemonadaRegular?: string;
+    RubikRegular?: string;
+    RubikMedium?: string;
+    RubikLight?: string;
+    RubikItalic?: string;
+    RubikBold?: string;
   };
 }
 
@@ -61,6 +67,7 @@ export interface Routes {
 
 export interface Artisans {
   firstname?: string;
+  name?: string;
   lastname?: string;
   rating?: number;
   phoneNumber?: string;
@@ -146,7 +153,8 @@ export interface ResponseDetails {
 }
 
 export interface Search {
-  onChange: any;
+  onChange?: any;
+  onClick?: any;
   value: string;
   placeholder?: string;
 }

@@ -17,7 +17,7 @@ export default function How() {
           <div className="row">
             <div className="col-md-12 text-center">
               <h4 className='mb-3' style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.RubikMedium,
                 color: PrimaryTheme.white
               }}>How it works</h4>
             </div>
@@ -25,7 +25,7 @@ export default function How() {
             <div className="col-md-6 col-lg-3 text-white text-center mb-3">
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.RubikMedium,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -77,7 +77,7 @@ export default function How() {
                 <div className="row m-0 justify-content-between align-items-center">
                   <span className='mr-3'>Sign In</span>
                   <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    <path fillRule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
                   </svg>
                 </div>
               </button>

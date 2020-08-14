@@ -23,7 +23,7 @@ export default function AboutUs() {
               <h2 style={{
                 color: PrimaryTheme.white,
                 textAlign: 'center',
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular
+                fontFamily: PrimaryTheme.fonts?.RubikBold
               }}>About us</h2>
 
               <p className="text-center col-md-6 ml-auto mr-auto" style={{

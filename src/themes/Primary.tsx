@@ -8,6 +8,7 @@ const PrimaryTheme: Theme = {
   dark: '#747474',
   light: '#f7f7f7',
   transparent: 'transparent',
+  transparentSurface: 'rgb(255 255 255 / 85%)',
   icon: '#974578',
   info: '#0095ff',
   purple: '#673AB7',
@@ -42,6 +43,11 @@ const PrimaryTheme: Theme = {
     LemonadaLight: 'LemonadaLight',
     LemonadaSemiBold: 'LemonadaSemiBold',
     LemonadaRegular: 'LemonadaRegular',
+    RubikRegular: "RubikRegular",
+    RubikMedium: "RubikMedium",
+    RubikLight: "RubikLight",
+    RubikItalic: "RubikItalic",
+    RubikBold: "RubikBold",
   },
 }
 

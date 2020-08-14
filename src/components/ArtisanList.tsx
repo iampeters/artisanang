@@ -22,7 +22,10 @@ export default function ArtisanList(props: Artisans) {
                 <Avatar className={classes.large} alt={`${props.firstname} ${props.lastname}`} src={props.imageUrl} />
               </div>
               <div className="col-9">
-                <h4 className='mb-0' style={{ color: PrimaryTheme.appBar }}>{`${props.firstname} ${props.lastname}`}</h4>
+                <h4 className='mb-0' style={{
+                  color: PrimaryTheme.appBar,
+                  fontFamily: PrimaryTheme.fonts?.RubikMedium
+                }}>{`${props.firstname} ${props.lastname}`}</h4>
                 <span className='text-light note small'>{props.specialization}</span>
                 <div className='text-light note small'>{`${props.state}, ${props.country}`}</div>
               </div>
@@ -32,7 +35,9 @@ export default function ArtisanList(props: Artisans) {
           <div className="col-4 d-none d-sm-inline-block" style={{ ...styles.sectionHeight }}>
 
             <div className={" pt-2 text-center"}>
-              <h4 className=''>{props.rating}</h4>
+              <h4 style={{
+                fontFamily: PrimaryTheme.fonts?.RubikMedium
+              }}>{props.rating}</h4>
               <CustomizedRatings rating={props.rating} />
               <p className="small mb-1">Based on {props.reviews} reviews</p>
             </div>

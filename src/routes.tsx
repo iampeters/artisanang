@@ -21,7 +21,7 @@ export const Routes = [
   // },
   {
     name: 'My Reviews',
-    icon: 'star',
+    icon: 'star-half',
     path: '/reviews'
   },
   {

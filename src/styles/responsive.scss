@@ -1,10 +1,32 @@
+
+
+@media (max-width: 1100px) {
+  .profile-edit-drawer {
+    width: 400px;
+  }
+
+  .MuiDrawer-paperAnchorRight {
+    width: 417px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {
+  .profile-edit-drawer {
+    width: 400px;
+  }
+  .MuiDrawer-paperAnchorRight {
+    width: 417px;
+  }
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) {
   .profile-edit-drawer {
-    width: 100vw;
+    width: 100% !important;
   }
 
   .MuiDrawer-paperAnchorLeft {
@@ -12,7 +34,7 @@
   }
 
   .MuiDrawer-paperAnchorRight {
-    width: 100%;
+    width: 100% !important;
   }
 
   .display-4 {
@@ -34,7 +56,7 @@
 // Medium devices (tablets, 768px and up)
 @media (max-width: 768px) {
   .profile-edit-drawer {
-    width: 100vw;
+    width: 100% !important;
   }
 
   .MuiDrawer-paperAnchorLeft {
@@ -42,7 +64,7 @@
   }
 
   .MuiDrawer-paperAnchorRight {
-    width: 100%;
+    width: 100% !important;
   }
 }
 
@@ -51,11 +73,8 @@
   .profile-edit-drawer {
     width: 400px;
   }
-}
 
-// Extra large devices (large desktops, 1200px and up)
-@media (max-width: 1200px) {
-  .profile-edit-drawer {
-    width: 400px;
+  .MuiDrawer-paperAnchorRight {
+    width: 417px;
   }
 }

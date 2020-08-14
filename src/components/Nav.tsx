@@ -24,7 +24,7 @@ export default function Nav() {
           onClick={() => history.push('/profile')} />
       </div>
       <div className="col-md-12 p-2 text-center border-radius">
-        <h5 className='mb-0' style={{ color: PrimaryTheme.appBar }}>
+        <h5 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikBold }}>
           {`${user.firstname} ${user.lastname}`}
         </h5>
         {/* <h6 className='small' style={{ color: PrimaryTheme.light }}>{user.email}</h6> */}

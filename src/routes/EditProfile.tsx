@@ -107,7 +107,7 @@ export default function EditProfile() {
     <div className='animated fadeIn profile-edit-drawer'>
       <div className="row m-0 justify-content-center align-items-center">
         <div className="col-6">
-          <h6 className='display-5 mb-3 pt-3 pb-3 mt-3 text-center text-bold' style={{ color: PrimaryTheme.appBar }}>Profile Settings</h6>
+          <h6 className='display-5 mb-3 pt-3 pb-3 mt-3 text-center text-bold' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Profile Settings</h6>
         </div>
         <div className="col-6 text-right">
           <Icon onClick={toggleDrawer} style={{

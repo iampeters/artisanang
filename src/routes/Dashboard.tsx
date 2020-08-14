@@ -10,6 +10,7 @@ import { getArtisans } from '../redux/Actions/artisanActions';
 import PaginationControlled from '../components/Pagination';
 import Placeholder from '../components/Skeleton';
 import PrimaryTheme from '../themes/Primary';
+import { Icon } from '@material-ui/core';
 
 export default function Dashboard() {
   const history = useHistory();
@@ -33,16 +34,30 @@ export default function Dashboard() {
   const handleClick = () => {
     history.push('/artisans/add')
   }
+  const handleRefresh = () => {
+    dispatch({
+      type: 'LOADING',
+      payload: true
+    })
+    dispatch(getArtisans(paginationConfig));
+  }
 
   const navigate = (route: string) => {
     history.push(route)
   }
 
+  const handleSearch = () => {
+    if (search.length !== 0) {
+      filter.name = search.trim();
+      paginationConfig.whereCondition = JSON.stringify(filter)
+
+      dispatch(getArtisans(paginationConfig));
+    }
+  }
+
   React.useEffect(() => {
-    if (search.length >= 5) {
-      // filter.firstname = search.trim();
-      // filter.lastname = search.trim();
-      filter.specialization = search.trim();
+    if (search.length >= 4) {
+      filter.name = search.trim();
       paginationConfig.whereCondition = JSON.stringify(filter)
 
       dispatch(getArtisans(paginationConfig));
@@ -92,9 +107,29 @@ export default function Dashboard() {
 
   return (
     <div className='animated fadeIn'>
+      <div className='col-md-12 p-0'>
+        <div className="row m-0">
+          <div className="col-md-8">
+            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Artisans</h4>
+            <p className="small text-light">Here is a list of all artisans so far.</p>
+          </div>
+
+          <div className="col-md-4 text-right">
+            <button className='btn btn-color btn-sm' type="reset" onClick={handleRefresh}>
+              <div className="row m-0 justify-content-between align-items-center">
+                <Icon style={{
+                  fontSize: 18
+                }}>refresh</Icon>
+                <span>Reload</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="col-md-9 col-lg-8 ml-auto mr-auto p-0 mb-3 searchBar">
         {artisans.items ? (
-          <SearchBar onChange={(e: any) => setSearch(e.target.value)} value={search} placeholder='Search for Artisans and Specialization' />
+          <SearchBar onClick={handleSearch} onChange={(e: any) => setSearch(e.target.value)} value={search} placeholder='Search for Artisans' />
         ) : (
             <React.Fragment>
               <Placeholder variant="text" width={'100%'} height={90} animation='pulse' className="display-inline" />

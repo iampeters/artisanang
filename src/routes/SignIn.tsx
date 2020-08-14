@@ -200,13 +200,17 @@ export default function Login() {
     <div className="bg-white">
       <div className="container">
         <div className="row">
-          <Grid container component="main" className={classes.root + ' bg-white'}>
+          <Grid container component="main" className={classes.root + ' bg-white'} >
             <CssBaseline />
-            <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + ' background-image bg-white position: relative'} >
-              <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100">
+            <Grid item xs={false} sm={false} md={6} lg={7} className={classes.image + ' bg-white position: relative'} >
+              <div className="row h-inherit m-0 justify-content-center align-items-center d-md-inline-block d-none w-100 " style={{
+                backgroundColor: 'rgba(255,255,255, .65)',
+                paddingBottom: 50,
+                height: '100vh'
+              }}>
                 <div className="col-md-12 pt-5">
-                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Welcome back!</h1>
-                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Sign in to your account to continue... </h5>
+                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.RubikBold }} >Welcome back!</h1>
+                  <h5 className="display-5 mb-3" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}>Sign in to your account to continue... </h5>
                 </div>
               </div>
             </Grid>
@@ -215,9 +219,11 @@ export default function Login() {
                 <Avatar className={classes.avatar}>
                   <LockOutlinedIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}>
+                <Typography component="h1" variant="h5" style={{
+                  fontFamily: PrimaryTheme.fonts?.RubikBold
+                }}>
                   Sign in
-          </Typography>
+                 </Typography>
 
                 <form className={classes.form}>
                   <TextField
@@ -330,12 +336,12 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    // backgroundImage: 'url(https://source.unsplash.com/random)',
-    // backgroundRepeat: 'r',
+    backgroundImage: 'url("/images/user.jpg")',
+    backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    // backgroundSize: 'cover',
-    // backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
 
   },
   paper: {

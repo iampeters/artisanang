@@ -8,6 +8,7 @@ import Icon from '@material-ui/core/Icon';
 import { Routes } from '../interfaces/interface';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import PrimaryTheme from '../themes/Primary';
 
 export default function NestedList(props: Routes) {
   const classes = useStyles();
@@ -40,7 +41,7 @@ export default function NestedList(props: Routes) {
           <ListItemIcon>
             <Icon style={{ color: props.color }}>{props.icon}</Icon>
           </ListItemIcon>
-          <ListItemText primary={props.name} style={{ color: props.color, fontWeight: 'bold' }} />
+          <ListItemText disableTypography primary={props.name} style={{ color: props.color, fontFamily: PrimaryTheme.fonts?.ProductSansBold }} />
         </ListItem>
       </NavLink>
     </List>

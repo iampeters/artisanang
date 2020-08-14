@@ -248,14 +248,30 @@ export default function Register() {
 
 
   return (
-    <div className="bg-white">
-      <Container component="main" maxWidth="xs" className='bg-white'>
+    <div style={{
+      backgroundColor: PrimaryTheme.white,
+      backgroundImage: "url('/images/engineers.jpg')",
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'left center',
+      backgroundSize: '100%',
+
+      // marginTop: -64,
+      minHeight: 'calc(100% - 64px)',
+      padding: 10,
+    }}>
+      <Container component="main" maxWidth="xs" style={{
+        backgroundColor: PrimaryTheme.transparentSurface,
+        //  paddingTop: 5,
+        paddingBottom: 10,
+      }} >
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" style={{
+            fontFamily: PrimaryTheme.fonts?.RubikBold
+          }}>
             Sign up
         </Typography>
 
@@ -432,7 +448,7 @@ export default function Register() {
 
           </form>
         </div>
-        <Box mt={5}>
+        <Box mt={3}>
           <Copyright color='textSecondary' />
         </Box>
       </Container>
@@ -443,7 +459,7 @@ export default function Register() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -454,7 +470,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),

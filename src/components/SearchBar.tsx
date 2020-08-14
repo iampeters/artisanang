@@ -48,7 +48,7 @@ export default function SearchBar(props: Search) {
         onChange={props.onChange}
         onSubmit={props.onChange}
       />
-      <IconButton type="submit" onClick={props.onChange} className={classes.iconButton} aria-label="search">
+      <IconButton type="button" onClick={props.onClick} className={classes.iconButton} aria-label="search">
         <SearchIcon />
       </IconButton>
       <Divider className={classes.divider} orientation="vertical" />
