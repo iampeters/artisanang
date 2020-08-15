@@ -81,7 +81,7 @@ export default function Home() {
 
         </div>
 
-        <div className="col-md-6 col-lg-4mb-3" style={{ background: PrimaryTheme.transparent }}>
+        <div className="col-md-6 col-lg-4 mb-3" style={{ background: PrimaryTheme.transparent }}>
           <div className="row m-0">
             <div className="col-md-12 p-0">
               <div className="p-4" style={{
