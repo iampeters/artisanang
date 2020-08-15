@@ -20,11 +20,11 @@ export default function GetStarted() {
             </p>
 
             <div className="col-md-4 ml-auto mr-auto p-0">
-              <a className='mr-1' href='#'>
+              <a className='mr-1' href='https://artisana.ng' target='_blank' rel="noopener noreferrer">
                 <img src={'/google-play.png'} alt="Google Play store" width='45%' className='img-responsive' />
               </a>
 
-              <a className='' href='#' >
+              <a className='' href='https://artisana.ng' target='_blank' rel="noopener noreferrer">
                 <img src={'/apple-store.png'} alt="Google Play store" width='45%' className='img-responsive' />
 
               </a>
