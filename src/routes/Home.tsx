@@ -43,10 +43,15 @@ export default function Home() {
               borderBottomLeftRadius: 5,
               borderBottomRightRadius: 5
             }}>
+              <h3 className='display-5 animated fadeInDown' style={{
+                fontFamily: PrimaryTheme.fonts?.RubikBold,
+                color: PrimaryTheme.appBar
+              }}>Before giving out that job</h3>
+
               <h5 className='display-5 animated fadeInDown' style={{
                 fontFamily: PrimaryTheme.fonts?.RubikRegular,
                 color: PrimaryTheme.black
-              }}>Before giving out that job, take a few seconds to add that artisan on Artisana</h5>
+              }}>Take a few seconds to add that artisan on Artisana</h5>
 
               <h5 className='display-5 animated fadeIn slow mt-3' style={{
                 fontFamily: PrimaryTheme.fonts?.RubikRegular,
@@ -99,22 +104,22 @@ export default function Home() {
               borderBottomLeftRadius: 5,
               borderBottomRightRadius: 5
             }}>
-              <h2 className='display-5 animated fadeInDown' style={{
+              <h3 className='display-5 animated fadeInDown' style={{
                 fontFamily: PrimaryTheme.fonts?.RubikBold,
                 color: PrimaryTheme.appBar
-              }}>Become a</h2>
+              }}>Become a</h3>
               <h3 className='display-5 animated fadeIn slow'
                 style={{
                   fontFamily: PrimaryTheme.fonts?.LemonadaMedium,
                   color: PrimaryTheme.black
                 }}><b>Premium User</b></h3>
-              <h2 className='display-5 animated fadeIn slow'
+              <h3 className='display-5 animated fadeIn slow'
                 style={{
                   fontFamily: PrimaryTheme.fonts?.RubikBold,
                   color: PrimaryTheme.appBar,
                   // backgroundColor: PrimaryTheme.white,
                 }}
-              >for free now</h2>
+              >for free now</h3>
               <h5 className='display-5 animated fadeIn slow mt-3' style={{
                 fontFamily: PrimaryTheme.fonts?.RubikRegular,
                 color: PrimaryTheme.black,
