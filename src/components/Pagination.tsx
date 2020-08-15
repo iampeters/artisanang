@@ -18,7 +18,7 @@ export default function PaginationControlled(props: PaginationProps) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root + ' pl-0'}>
       {/* <Pagination count={props.total} page={props.page} onChange={props.onChange} /> */}
       <TablePagination
         component="div"
@@ -28,6 +28,7 @@ export default function PaginationControlled(props: PaginationProps) {
         rowsPerPage={props.pageSize}
         rowsPerPageOptions={[5, 10, 25, 50, 100, 200, 500]}
         onChangeRowsPerPage={props.onPageSizeChange}
+        className="p-0"
       />
     </div>
   );

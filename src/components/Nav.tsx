@@ -5,7 +5,7 @@ import PrimaryTheme from '../themes/Primary';
 import List from './List';
 import { Routes } from '../routes'
 import { useLocation, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Reducers } from '../interfaces/interface';
 
 export default function Nav() {
@@ -13,6 +13,24 @@ export default function Nav() {
   const location = useLocation();
   const user = useSelector((state: Reducers) => state.user);
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+    dispatch({
+      type: 'TOGGLE_NAVBAR',
+      payload: false
+    })
+
+    history.push('/profile')
+  };
 
   return (
     <div className="col-md-12 border-right h-inherit" style={{ overflowY: "auto" }}>
@@ -21,7 +39,7 @@ export default function Nav() {
           className={classes.large + ' mr-auto ml-auto pointer'}
           alt={`${user.firstname} ${user.lastname}`}
           src={user.imageUrl}
-          onClick={() => history.push('/profile')} />
+          onClick={toggleDrawer} />
       </div>
       <div className="col-md-12 p-2 text-center border-radius">
         <h5 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikBold }}>

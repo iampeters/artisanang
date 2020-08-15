@@ -19,7 +19,7 @@ export default function MyReviews() {
   const user = useSelector((state: Reducers) => state.user);
 
   const [page, setPage] = React.useState(0)
-  const [pageSize, setPageSize] = React.useState(25)
+  const [pageSize, setPageSize] = React.useState(5)
 
   let reviewList: any = reviews.items && reviews.items;
 
@@ -74,25 +74,27 @@ export default function MyReviews() {
 
   return (
     <div className='animated fadeIn'>
-      <div className='col-md-12'>
+      <div className='col-md-12 p-0'>
         <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Reviews</h4>
         <p className="small text-light">Here is a list of all your reviews so far.</p>
       </div>
 
       <div className="col-md-9 col-lg-7 ml-auto mr-auto p-0 mb-5">
         {reviewList ? (
-          <div className="p-1 bg-white border-radius box-shadow">
-            {reviewList.length !== 0 && reviewList?.map((review: Reviews, index: number) => {
-              return (
-                <ReviewItemsList title={review.title} description={review.description} userId={review.userId} key={index} rating={review.rating} onClick={() => navigate(`/reviews/details/${review._id}`)} />
-              )
-            })}
+          <React.Fragment>
+            <div className="p-1 bg-white border-radius box-shadow">
+              {reviewList.length !== 0 && reviewList?.map((review: Reviews, index: number) => {
+                return (
+                  <ReviewItemsList title={review.title} description={review.description} userId={review.userId} key={index} rating={review.rating} onClick={() => navigate(`/reviews/details/${review._id}`)} />
+                )
+              })}
 
-            {reviewList.length === 0 && <p className='text-center mt-3 text-light'>You have no reviews yet.</p>}
+              {reviewList.length === 0 && <p className='text-center mt-3 text-light'>You have no reviews yet.</p>}
 
-            {/* pagination component */}
+
+            </div>
             {reviews.total > pageSize && <PaginationControlled onPageSizeChange={handlePageSizeChange} onChange={handleChange} page={page} total={reviews.total && reviews.total} pageSize={pageSize} />}
-          </div>
+          </React.Fragment>
         ) : (
             <React.Fragment>
               <div className="col-md-12 p-0 text-center">

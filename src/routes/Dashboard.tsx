@@ -108,19 +108,18 @@ export default function Dashboard() {
   return (
     <div className='animated fadeIn'>
       <div className='col-md-12 p-0'>
-        <div className="row m-0">
-          <div className="col-md-8">
+        <div className="row">
+          <div className="col-8">
             <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Artisans</h4>
             <p className="small text-light">Here is a list of all artisans so far.</p>
           </div>
 
-          <div className="col-md-4 text-right">
-            <button className='btn btn-color btn-sm' type="reset" onClick={handleRefresh}>
+          <div className="col-4 text-right">
+            <button className='btn btn-color btn-sm' type="reset" onClick={handleRefresh} title="Reload">
               <div className="row m-0 justify-content-between align-items-center">
                 <Icon style={{
-                  fontSize: 18
+                  fontSize: 20
                 }}>refresh</Icon>
-                <span>Reload</span>
               </div>
             </button>
           </div>

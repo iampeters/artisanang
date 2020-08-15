@@ -1,5 +1,5 @@
-// const host = 'http://localhost:5000/';
-const host = 'https://sandbox.artisana.ng/';
+const host = 'http://localhost:5000/';
+// const host = 'https://sandbox.artisana.ng/';
 const API_URL = {
 	// identity: `${host}api/identity/`,
 	identity: `${host}api/identity/`,

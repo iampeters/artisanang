@@ -21,7 +21,7 @@ export default function Home() {
         <div className="col-lg-4 d-none d-lg-inline p-0">
         </div>
 
-        <div className="col-md-6 col-lg-4 " style={{ background: PrimaryTheme.transparent }}>
+        <div className="col-md-6 col-lg-4 mb-3" style={{ background: PrimaryTheme.transparent }}>
           <div className="row m-0">
             <div className="col-md-12 p-0">
               <div className="p-4" style={{
@@ -81,7 +81,7 @@ export default function Home() {
 
         </div>
 
-        <div className="col-md-6 col-lg-4" style={{ background: PrimaryTheme.transparent }}>
+        <div className="col-md-6 col-lg-4mb-3" style={{ background: PrimaryTheme.transparent }}>
           <div className="row m-0">
             <div className="col-md-12 p-0">
               <div className="p-4" style={{
