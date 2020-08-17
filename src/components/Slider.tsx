@@ -22,7 +22,7 @@ export default function Slideshow() {
                 paddingTop: 10,
                 textAlign: 'center',
                 marginBottom: 0,
-              }}>Add Artisans</h5>
+              }}>Sign Up Easily</h5>
               <p style={{
                 fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
                 textAlign: 'center',
