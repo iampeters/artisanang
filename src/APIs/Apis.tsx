@@ -1,17 +1,17 @@
 // const host = 'http://localhost:5000/';
-const host = 'https://sandbox.artisana.ng/';
+// const host = 'https://sandbox.artisana.ng/';
 const API_URL = {
 	// identity: `${host}api/identity/`,
-	identity: `${host}api/identity/`,
-	configuration: `${host}api/configuration/`,
-	// configuration: `${host}api/configuration/`,
-	// artisans: `${host}api/artisans/`,
-	artisans: `${host}api/artisans/`,
-	jobs: `${host}api/jobs/`,
-	reviews: `${host}api/reviews/`,
-	users: `${host}api/users/`,
-	// social: `${host}api/social/`,
-	social: `${host}api/social/`,
+	identity: `${process.env.REACT_APP_HOST}api/identity/`,
+	configuration: `${process.env.REACT_APP_HOST}api/configuration/`,
+	// configuration: `${process.env.REACT_APP_HOST}api/configuration/`,
+	// artisans: `${process.env.REACT_APP_HOST}api/artisans/`,
+	artisans: `${process.env.REACT_APP_HOST}api/artisans/`,
+	jobs: `${process.env.REACT_APP_HOST}api/jobs/`,
+	reviews: `${process.env.REACT_APP_HOST}api/reviews/`,
+	users: `${process.env.REACT_APP_HOST}api/users/`,
+	// social: `${process.env.REACT_APP_HOST}api/social/`,
+	social: `${process.env.REACT_APP_HOST}api/social/`,
 };
 
 export default API_URL;
