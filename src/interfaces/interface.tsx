@@ -69,7 +69,7 @@ export interface Artisans {
   firstname?: string;
   name?: string;
   lastname?: string;
-  rating?: number;
+  rating?: number | any;
   phoneNumber?: string;
   email?: string;
   specialization?: string;

@@ -6,14 +6,14 @@ export const Routes = [
   },
   {
     name: 'Artisans',
-    icon: 'face',
+    icon: 'group',
     path: '/artisans'
   },
-  {
-    name: 'My Artisans',
-    icon: 'face',
-    path: '/my-artisans'
-  },
+  // {
+  //   name: 'My Artisans',
+  //   icon: 'face',
+  //   path: '/my-artisans'
+  // },
   // {
   //   name: 'My Jobs',
   //   icon: 'business_center',

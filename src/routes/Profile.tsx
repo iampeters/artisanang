@@ -142,9 +142,8 @@ export default function Profile() {
         {user ? (
           <div>
             <div className="row mt-4">
-              <div className="col-md-4 mb-3">
-                <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center pointer"} onClick={() => navigate(`/my-artisans`)}>
-                  {/* row */}
+              {/* <div className="col-md-4 mb-3">
+                <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center pointer"}>
                   <div className="row m-0 justify-content-center align-items-center">
                     <div className="col-3">
                       <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>face</Icon>
@@ -155,9 +154,9 @@ export default function Profile() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="col-md-4 mb-3">
+              <div className="col-md-6 mb-3">
                 <div style={{ backgroundColor: PrimaryTheme.purple }} className={classes.card + " p-3 border-radius box-shadow text-center pointer"} onClick={() => navigate(`/reviews`)}>
                   {/* row */}
                   <div className="row m-0 justify-content-center align-items-center">
@@ -173,7 +172,7 @@ export default function Profile() {
 
               </div>
 
-              <div className="col-md-4 mb-3">
+              <div className="col-md-6 mb-3">
                 <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center pointer border-radius-bottom-left"} onClick={() => navigate(`/my-jobs`)}>
 
                   {/* row */}
@@ -275,7 +274,7 @@ export default function Profile() {
                 <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
                   <List onClick={toggleDrawer}>
                     <div className="row m-0 justify-content-start align-items-center">
-                      <Icon style={{ color: PrimaryTheme.black, marginRight: 5 }}>admin_panel_settings</Icon>
+                      <Icon style={{ color: PrimaryTheme.appBar, marginRight: 5 }}>admin_panel_settings</Icon>
                       <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 16 }}>Profile Settings
                       </span>
                     </div>
@@ -285,7 +284,7 @@ export default function Profile() {
                 <div className="border-radius-bottom-left border overflow-hidden p-2 pl-3 pr-3 mb-3 pointer">
                   <List onClick={toggleChangePasswordDrawer}>
                     <div className="row m-0 justify-content-start align-items-center">
-                      <Icon style={{ color: PrimaryTheme.black, marginRight: 5 }}>lock</Icon>
+                      <Icon style={{ color: PrimaryTheme.appBar, marginRight: 5 }}>lock</Icon>
                       <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 16 }}>Change Password
                       </span>
                     </div>

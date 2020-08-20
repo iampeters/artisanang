@@ -85,7 +85,7 @@ export default function MyReviews() {
             <div className="p-1 bg-white border-radius box-shadow">
               {reviewList.length !== 0 && reviewList?.map((review: Reviews, index: number) => {
                 return (
-                  <ReviewItemsList title={review.title} description={review.description} userId={review.userId} key={index} rating={review.rating} onClick={() => navigate(`/reviews/details/${review._id}`)} />
+                  <ReviewItemsList title={review.title} description={review.description} userId={review.userId} key={index} rating={review.rating} onClick={() => navigate(`/reviews/details/${review._id}/${review.artisanId}`)} />
                 )
               })}
 

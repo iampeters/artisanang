@@ -12,7 +12,7 @@ const PrimaryTheme: Theme = {
   icon: '#974578',
   info: '#0095ff',
   purple: '#673AB7',
-  success: '#00d68f',
+  success: '#28a745',
   white: '#ffffff',
   background: '#f7f7f7',
   warn: '#F8B51F',

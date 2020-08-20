@@ -68,9 +68,9 @@ export default function SecuredLayout() {
                   <Jobs />
                 </Route>
 
-                <Route exact strict path='/my-artisans'>
+                {/* <Route exact strict path='/my-artisans'>
                   <MyArtisans />
-                </Route>
+                </Route> */}
 
                 <Route exact strict path='/artisans/details/:id'>
                   <ArtisanDetails />
@@ -88,7 +88,7 @@ export default function SecuredLayout() {
                   <AddReview />
                 </Route>
 
-                <Route exact strict path='/reviews/details/:id'>
+                <Route exact strict path='/reviews/details/:id/:artId'>
                   <ReviewDetails />
                 </Route>
 

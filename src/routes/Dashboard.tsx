@@ -186,8 +186,8 @@ export default function Dashboard() {
             IconText="Add Artisan"
             variant="extended"
             onClick={handleClick}
-            customColor={PrimaryTheme.primary}
-            IconColor={PrimaryTheme.white} />
+            customColor={PrimaryTheme.warn}
+            IconColor={PrimaryTheme.black} />
         </div>
       </div>
     </div>

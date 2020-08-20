@@ -3,7 +3,7 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import { Artisans } from '../interfaces/interface';
 import PrimaryTheme from '../themes/Primary';
-import { List, ListItem } from '@material-ui/core';
+import { List, ListItem, Icon } from '@material-ui/core';
 import CustomizedRatings from './Ratings';
 
 
@@ -25,7 +25,18 @@ export default function ArtisanList(props: Artisans) {
                 <h4 className='mb-0' style={{
                   color: PrimaryTheme.appBar,
                   fontFamily: PrimaryTheme.fonts?.RubikMedium
-                }}>{`${props.firstname} ${props.lastname}`}</h4>
+                }}>
+                  <div className="row m-0 justify-content-start align-items-center">
+                    <span className="mr-1">{`${props.firstname} ${props.lastname}`} </span>
+                    {props.rating > 0 ? (
+                      <React.Fragment>
+                        <svg width=".7em" height=".7em" viewBox="0 0 16 16" className="bi bi-patch-check-fll" fill={PrimaryTheme.success} xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984a.5.5 0 0 0-.708-.708L7 8.793 5.854 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                        </svg>
+                      </React.Fragment>
+                    ) : null}
+                  </div>
+                </h4>
                 <span className='text-light note small'>{props.specialization}</span>
                 <div className='text-light note small'>{`${props.state}, ${props.country}`}</div>
               </div>

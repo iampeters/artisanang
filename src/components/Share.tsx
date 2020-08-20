@@ -47,6 +47,7 @@ export default function AlertDialogSlide(props: Modal) {
               url={shareUrl}
               title={props.title}
               className="d-inline-block mr-1"
+
             >
               <TwitterIcon size={32} round />
             </TwitterShareButton>
@@ -55,6 +56,8 @@ export default function AlertDialogSlide(props: Modal) {
               url={shareUrl}
               title={props.title}
               className="d-inline-block mr-1"
+              quote={props.description}
+              hashtag="artisana"
             >
               <FacebookIcon size={32} round />
             </FacebookShareButton>
@@ -63,14 +66,16 @@ export default function AlertDialogSlide(props: Modal) {
               url={shareUrl}
               title={props.title}
               className="d-inline-block mr-1"
+              summary={props.description}
             >
               <LinkedinIcon size={32} round />
             </LinkedinShareButton>
 
             <WhatsappShareButton
               url={shareUrl}
-              title={props.title}
+              title={`${props.title} | ${props.description}`}
               className="d-inline-block mr-1"
+
             >
               <WhatsappIcon size={32} round />
             </WhatsappShareButton>
@@ -92,5 +97,6 @@ interface Modal {
   onClose: any;
   onOpen?: any;
   title?: string;
+  description?: string;
   open: boolean;
 }

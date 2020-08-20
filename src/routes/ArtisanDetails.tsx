@@ -121,7 +121,19 @@ export default function ArtisanDetails() {
               src={data.imageUrl} />
 
             <div className="col-md-12">
-              <h5 className='text-center mt-3 mb-0' style={{ color: PrimaryTheme.appBar }}>{`${data.firstname} ${data.lastname}`}</h5>
+              <h5 className='text-center mt-3 mb-0' style={{ color: PrimaryTheme.appBar }}>
+
+                <div className="row m-0 justify-content-center align-items-center">
+                  <span className="mr-1">{`${data.firstname} ${data.lastname}`} </span>
+                  {data.rating > 0 ? (
+                    <React.Fragment>
+                      <svg width=".7em" height=".7em" viewBox="0 0 16 16" className="bi bi-patch-check-fll" fill={PrimaryTheme.success} xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984a.5.5 0 0 0-.708-.708L7 8.793 5.854 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                      </svg>
+                    </React.Fragment>
+                  ) : null}
+                </div>
+              </h5>
               <p className='text-center note small text-light mb-0'>{data.address}</p>
               <p className='text-center note small text-light mb-0'>{data.state}, {data.country}</p>
             </div>
@@ -168,7 +180,7 @@ export default function ArtisanDetails() {
                 </IconButton>
               </Tooltip> */}
 
-              <Tooltip title="Share" aria-label="share">
+              {/* <Tooltip title="Share" aria-label="share">
                 <IconButton
                   edge="start"
                   className={classes.button}
@@ -178,7 +190,7 @@ export default function ArtisanDetails() {
                 >
                   <Icon style={{ color: PrimaryTheme.facebook, fontSize: 30 }} >share</Icon>
                 </IconButton>
-              </Tooltip>
+              </Tooltip> */}
 
             </div>
             <div className="row m-0 mt-4">
@@ -210,7 +222,7 @@ export default function ArtisanDetails() {
                 <div className="p-1 bg-white border-radius box-shadow">
                   {reviewList?.map((review: Reviews, index) => {
                     return (
-                      <ReviewItemsList title={review.title} description={review.description} userId={review.userId} key={index} rating={review.rating} onClick={() => navigate(`/reviews/details/${review._id}`)} />
+                      <ReviewItemsList title={review.title} description={review.description} userId={review.userId} key={index} rating={review.rating} onClick={() => navigate(`/reviews/details/${review._id}/${review.artisanId}`)} />
                     )
                   })}
                 </div>
