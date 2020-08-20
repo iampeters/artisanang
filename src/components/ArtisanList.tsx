@@ -50,7 +50,7 @@ export default function ArtisanList(props: Artisans) {
                 fontFamily: PrimaryTheme.fonts?.RubikMedium
               }}>{props.rating}</h4>
               <CustomizedRatings rating={props.rating} />
-              <p className="small mb-1">Based on {props.reviews} reviews</p>
+              <p className="small mb-1">Based on {props.reviews} review(s)</p>
             </div>
           </div>
         </div>
