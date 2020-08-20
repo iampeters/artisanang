@@ -5,7 +5,6 @@ import Nav from '../components/Nav';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import Dashboard from '../routes/Dashboard';
 import Jobs from '../routes/Jobs';
-import MyArtisans from '../routes/MyArtisans';
 import MyReviews from '../routes/MyReviews';
 import Profile from '../routes/Profile';
 import Settings from '../routes/Settings';

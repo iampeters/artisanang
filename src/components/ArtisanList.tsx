@@ -3,7 +3,7 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import { Artisans } from '../interfaces/interface';
 import PrimaryTheme from '../themes/Primary';
-import { List, ListItem, Icon } from '@material-ui/core';
+import { List, ListItem } from '@material-ui/core';
 import CustomizedRatings from './Ratings';
 
 

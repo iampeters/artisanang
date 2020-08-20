@@ -22,7 +22,6 @@ export default function Profile() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const artisan = useSelector((state: Reducers) => state.artisan);
   const user = useSelector((state: Reducers) => state.user);
   const reviews = useSelector((state: Reducers) => state.reviews);
   const alert = useSelector((state: Reducers) => state.alert);
