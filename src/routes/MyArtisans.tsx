@@ -25,7 +25,7 @@ export default function MyArtisans() {
   const [pageSize, setPageSize] = React.useState(25)
   const [search, setSearch] = React.useState('');
 
-  let filter: any = { userId: user._id };
+  let filter: any = { createdBy: user._id };
   let paginationConfig = {
     page,
     pageSize,

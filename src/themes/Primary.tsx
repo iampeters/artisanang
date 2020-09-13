@@ -49,6 +49,13 @@ const PrimaryTheme: Theme = {
     RubikItalic: "RubikItalic",
     RubikBold: "RubikBold",
   },
+  fontSizes: {
+    heading: 36,
+    title: 26,
+    body: 18,
+    subtitle: 20,
+    small: 16
+  }
 }
 
 export default PrimaryTheme;

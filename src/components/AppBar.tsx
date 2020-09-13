@@ -103,20 +103,33 @@ export default function OpenAppBar() {
             <svg width="1em" height="1.1em" viewBox="0 0 16 16" className="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
             </svg>
-            <span className='ml-1'>Sign in</span>
+            <span className='ml-1'>Sign In</span>
           </div>
         </button>
       </MenuItem>
+
       <MenuItem onClick={() => handleNavigation('get-started')}
         style={{
           fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
         }}>
         {/* <p className="mb-0">Get Started</p> */}
-        <button className='btn btn-purple pr-4 pl-4 badge-pill' style={{
+        <button className='btn btn-appBar pr-4 pl-4 badge-pill' style={{
           fontWeight: 300,
           fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-        }} onClick={() => handleNavigation('get-started')} >Get Started</button>
+        }} onClick={() => handleNavigation('get-started')} >Join as User</button>
       </MenuItem>
+
+      <MenuItem onClick={() => handleNavigation('get-started')}
+        style={{
+          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        }}>
+        {/* <p className="mb-0">Get Started</p> */}
+        <button className='btn btn-appBar pr-4 pl-4 badge-pill' style={{
+          fontWeight: 300,
+          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        }} onClick={() => handleNavigation('get-started')} >Join as Artisan</button>
+      </MenuItem>
+
     </Menu>
   );
 
@@ -176,14 +189,19 @@ export default function OpenAppBar() {
                     <svg width="1em" height="1.1em" viewBox="0 0 16 16" className="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                     </svg>
-                    <span className='ml-1'>Sign in</span>
+                    <span className='ml-1'>Sign In</span>
                   </div>
                 </button>
 
-                <button className='btn btn-purple pr-4 pl-4 badge-pill' style={{
+                <button className='btn btn-appBar pr-4 pl-4 badge-pill mr-2' style={{
                   fontWeight: 300,
                   fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
-                }} onClick={() => handleNavigation('/get-started')} >Get Started</button>
+                }} onClick={() => handleNavigation('/get-started')} >Join as User</button>
+
+                <button className='btn btn-warning pr-4 pl-4 badge-pill' style={{
+                  fontWeight: 300,
+                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                }} onClick={() => handleNavigation('/artisan/register')} >Join as Artisan</button>
               </div>
 
               <div className={classes.sectionMobile}>

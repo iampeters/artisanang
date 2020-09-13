@@ -17,16 +17,16 @@ export const logout = () => {
 };
 
 export const login = (state: any) => {
-  const authService = new AuthService();
-
-  const api = authService.login(state);
+  const api = new AuthService().login(state);
 
   return (dispatch: any) => {
     api
       .then((res: any) => {
         const result = res;
         if (result.token) {
+          // Todo - check if the user is an artisan or normal user. Also check if this artisan has complete his profile
           sessionStorage.setItem('auth', 'true');
+          sessionStorage.setItem('userType', JSON.stringify(result.userType));
 
           // set authentication to true
           dispatch({
@@ -122,9 +122,8 @@ export const socialAuth = (state: any) => {
 
 
 export const signUp = (state: any) => {
-  const authService = new AuthService();
+  const api = new AuthService().signUp(state);
 
-  const api = authService.signUp(state);
 
   return (dispatch: any) => {
     api
@@ -170,7 +169,6 @@ export const signUp = (state: any) => {
       });
   };
 };
-
 
 export const getUserDetails = (id: any) => {
   const authService = new AuthService();
@@ -349,6 +347,101 @@ export const updateAccount = (data: any) => {
               message: 'Account updated successfully',
               successful: true,
             }
+          });
+        } else {
+          dispatch({
+            type: 'ALERT',
+            payload: res,
+          });
+        }
+      })
+      .catch(() => {
+        // send err to application
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
+      });
+  };
+};
+
+export const verifyEmail = (data: any) => {
+  const api = new AuthService().verifyEmail(data);
+
+  return (dispatch: any) => {
+    api
+      .then((res: ResponseDetails) => {
+        if (res.successful) {
+          dispatch({
+            type: 'ALERT',
+            payload: {
+              message: res.message,
+              successful: true,
+            }
+          });
+        } else {
+          dispatch({
+            type: 'ALERT',
+            payload: res,
+          });
+        }
+      })
+      .catch(() => {
+        // send err to application
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
+      });
+  };
+};
+
+export const confirmEmail = (data: any) => {
+  const api = new AuthService().confirmEmail(data);
+
+  return (dispatch: any) => {
+    api
+      .then((res: any) => {
+        const result = res;
+        if (result.token) {
+          sessionStorage.setItem('auth', 'true');
+          sessionStorage.setItem('userType', JSON.stringify(result.userType));
+
+          // set authentication to true
+          dispatch({
+            type: 'AUTH_TOKEN',
+            payload: { auth_token: result.token, refresh_token: result.refresh_token },
+          });
+          // set logged in user state
+          dispatch({
+            type: 'USER',
+            payload: result.user,
+          });
+          // send response to login screen
+          dispatch({
+            type: 'ALERT',
+            payload: {
+              successful: true,
+              message: 'Logged in successfully.',
+            },
           });
         } else {
           dispatch({

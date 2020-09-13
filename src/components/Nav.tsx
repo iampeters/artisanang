@@ -43,13 +43,27 @@ export default function Nav() {
       </div>
       <div className="col-md-12 p-2 text-center border-radius">
         <h5 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikBold }}>
-          {`${user.firstname} ${user.lastname}`}
+          <div className="row m-0 justify-content-center align-items-center">
+            {`${user.firstname} ${user.lastname}`}
+
+            {user.rating > 0 && user.userType === 2 ? (
+            <React.Fragment>
+              <svg width=".7em" height=".7em" viewBox="0 0 16 16" className="bi bi-patch-check-fll ml-1" fill={PrimaryTheme.success} xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984a.5.5 0 0 0-.708-.708L7 8.793 5.854 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+              </svg>
+            </React.Fragment>
+            ) : null}
+          </div>
         </h5>
         {/* <h6 className='small' style={{ color: PrimaryTheme.light }}>{user.email}</h6> */}
       </div>
 
       <div className="col-md-12 p-2 text-center">
-        {Routes.map((route, index) => <List key={index} button={false} icon={route.icon} path={route.path} color={location.pathname === route.path && PrimaryTheme.white} name={route.name} className={location.pathname === route.path ? 'Nav-Active' : null} />)}
+        {Routes.map((route, index) => (
+          <React.Fragment key={index}>
+            {route.userType === user.userType && <List button={false} icon={route.icon} path={route.path} color={location.pathname === route.path && PrimaryTheme.white} name={route.name} className={location.pathname === route.path ? 'Nav-Active' : null} />}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   )

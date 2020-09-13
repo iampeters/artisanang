@@ -7,9 +7,7 @@ import Dashboard from '../routes/Dashboard';
 import Jobs from '../routes/Jobs';
 import MyReviews from '../routes/MyReviews';
 import Profile from '../routes/Profile';
-import Settings from '../routes/Settings';
 import ArtisanDetails from '../routes/ArtisanDetails';
-import ErrorPage from '../routes/ErrorPage';
 import Notifications from '../routes/Notifications';
 import NotificationDetails from '../routes/NotificationDetails';
 import MessageDetails from '../routes/MessageDetails';
@@ -24,6 +22,11 @@ import AddReview from '../routes/AddReview';
 import ReviewDetails from '../routes/ReviewDetails';
 import EditProfile from '../routes/EditProfile';
 import Home from '../routes/Home';
+import Category from '../routes/Category';
+import MyArtisans from '../routes/MyArtisans';
+import ErrorPageSecured from '../routes/ErrorPageSecured';
+import JobDetails from '../routes/JobDetails';
+import AddJob from '../routes/AddJob';
 
 export default function SecuredLayout() {
   const classes = useStyles();
@@ -59,17 +62,29 @@ export default function SecuredLayout() {
                   <Home />
                 </Route>
 
-                <Route exact strict path='/artisans'>
+                <Route exact strict path='/category'>
+                  <Category />
+                </Route>
+
+                <Route exact strict path='/category/:category/:id'>
                   <Dashboard />
                 </Route>
 
-                <Route exact strict path='/my-jobs'>
+                <Route exact strict path='/jobs'>
                   <Jobs />
                 </Route>
 
-                {/* <Route exact strict path='/my-artisans'>
+                <Route exact strict path='/jobs/details/:id'>
+                  <JobDetails />
+                </Route>
+
+                <Route exact strict path='/jobs/new'>
+                  <AddJob />
+                </Route>
+
+                <Route exact strict path='/my-artisans'>
                   <MyArtisans />
-                </Route> */}
+                </Route>
 
                 <Route exact strict path='/artisans/details/:id'>
                   <ArtisanDetails />
@@ -99,10 +114,6 @@ export default function SecuredLayout() {
                   <EditProfile />
                 </Route>
 
-                <Route exact strict path='/settings'>
-                  <Settings />
-                </Route>
-
                 <Route exact strict path='/notifications'>
                   <Notifications />
                 </Route>
@@ -124,7 +135,7 @@ export default function SecuredLayout() {
                 </Route>
 
                 <Route exact strict path='*'>
-                  <ErrorPage />
+                  <ErrorPageSecured />
                 </Route>
               </Switch>
             </div>

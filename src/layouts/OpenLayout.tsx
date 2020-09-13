@@ -18,6 +18,14 @@ import { Element } from 'react-scroll';
 // import FloatingActionButtons from '../components/Fab';
 import AboutUs from '../routes/AboutUs';
 import FAQs from '../routes/FAQs';
+import EmailConfirmation from '../routes/EmailConfirmation';
+import Welcome from '../routes/Welcome/Welcome';
+import RegisterArtisan from '../routes/RegisterArtisan';
+import EmailVerification from '../routes/EmailVerification';
+import Confirmation from '../routes/Confirmation';
+import NextOfKin from '../routes/NextOfKin';
+import PersonalInformation from '../routes/PersonalInformation';
+import BusinessInformation from '../routes/BusinessInformation';
 
 
 export default function OpenLayout() {
@@ -43,6 +51,10 @@ export default function OpenLayout() {
       <div className="" style={{ backgroundColor: PrimaryTheme.background }}>
 
         <Switch>
+          {/* <Route exact strict path='/'>
+            <Welcome />
+          </Route> */}
+
           <Route exact strict path='/'>
             <IndexPage />
           </Route>
@@ -53,6 +65,10 @@ export default function OpenLayout() {
 
           <Route exact strict path='/get-started'>
             <SignUp />
+          </Route>
+
+          <Route exact strict path='/artisan/register'>
+            <RegisterArtisan />
           </Route>
 
           <Route exact strict path='/about'>
@@ -69,6 +85,31 @@ export default function OpenLayout() {
 
           <Route exact strict path='/reset-password/:token'>
             <ResetPassword />
+          </Route>
+
+          <Route exact strict path='/onboarding/email-confirmation/:email/:token/:code'>
+            <EmailConfirmation />
+          </Route>
+
+          <Route exact strict path='/onboarding/confirmation/:email/:token/:code'>
+            <Confirmation />
+          </Route>
+
+          <Route exact strict path='/onboarding/next-of-kin'>
+            <NextOfKin />
+          </Route>
+
+          <Route exact strict path='/onboarding/personal-information'>
+            <PersonalInformation />
+          </Route>
+
+          <Route exact strict path='/onboarding/business-information'>
+            <BusinessInformation />
+          </Route>
+
+
+          <Route exact strict path='/onboarding/email/sent'>
+            <EmailVerification />
           </Route>
 
           <Route exact strict path='/unauthorized'>

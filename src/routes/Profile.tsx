@@ -6,14 +6,15 @@ import { Reducers } from '../interfaces/interface';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import PrimaryTheme from '../themes/Primary';
 import Placeholder from '../components/Skeleton';
-import { getUserDetails } from '../redux/Actions/userActions';
-import { getDate } from '../helpers/Functions';
+import { getUserDetails, verifyEmail } from '../redux/Actions/userActions';
+import { getDate, getDateTime } from '../helpers/Functions';
 import { getArtisans } from '../redux/Actions/artisanActions';
 import { getReviews } from '../redux/Actions/reviewAction';
 import { Icon, List } from '@material-ui/core';
 import SwipeableTemporaryDrawer from '../components/Drawer';
 import EditProfile from './EditProfile';
 import ChangePassword from './ChangePassword';
+import { getUserDashboard } from '../redux/Actions/configAction';
 
 
 export default function Profile() {
@@ -23,10 +24,13 @@ export default function Profile() {
   const history = useHistory();
 
   const user = useSelector((state: Reducers) => state.user);
+  const dashboard = useSelector((state: Reducers) => state.dashboard);
+  const artisan = useSelector((state: Reducers) => state.artisan);
   const reviews = useSelector((state: Reducers) => state.reviews);
   const alert = useSelector((state: Reducers) => state.alert);
   const editProfileDrawer = useSelector((state: Reducers) => state.profileEditDrawer);
   const changePasswordDrawer = useSelector((state: Reducers) => state.changePasswordDrawer);
+  const [loading, setLoading] = React.useState(false);
 
   let filter: any = {};
   let paginationConfig = {
@@ -93,14 +97,25 @@ export default function Profile() {
     });
   };
 
+    const handleVerification = () => {
+      setLoading(true)
+
+      let data = {
+        email: user.email
+      }
+
+      dispatch(verifyEmail(data));
+    }
+
 
   React.useEffect(() => {
-    filter.userId = user._id;
+    filter.createdBy = user._id;
     paginationConfig.whereCondition = JSON.stringify(filter);
 
     dispatch(getUserDetails(user._id));
-    dispatch(getArtisans(paginationConfig));
-    dispatch(getReviews(paginationConfig));
+    // dispatch(getArtisans(paginationConfig));
+    // dispatch(getReviews(paginationConfig));
+    dispatch(getUserDashboard());
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch,]);
@@ -115,12 +130,17 @@ export default function Profile() {
           history.push('/networkError');
         }
 
+        setLoading(false);
+
         dispatch({
           type: 'ALERT',
           payload: {}
         });
 
       } else {
+        setLoading(false);
+        enqueueSnackbar(alert.message, { variant: "success" });
+
         dispatch({
           type: 'ALERT',
           payload: {}
@@ -141,21 +161,22 @@ export default function Profile() {
         {user ? (
           <div>
             <div className="row mt-4">
-              {/* <div className="col-md-4 mb-3">
-                <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center pointer"}>
+
+              <div className="col-md-4 mb-3">
+                <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center"}>
                   <div className="row m-0 justify-content-center align-items-center">
                     <div className="col-3">
                       <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>face</Icon>
                     </div>
                     <div className="col">
                       <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Artisans</h6>
-                      <h4 className='mb-0'>{artisan.total ? artisan.total : 0}</h4>
+                      <h4 className='mb-0'>{dashboard.artisans ? dashboard.artisans : 0}</h4>
                     </div>
                   </div>
                 </div>
-              </div> */}
+              </div>
 
-              <div className="col-md-6 mb-3">
+              <div className="col-md-4 mb-3">
                 <div style={{ backgroundColor: PrimaryTheme.purple }} className={classes.card + " p-3 border-radius box-shadow text-center pointer"} onClick={() => navigate(`/reviews`)}>
                   {/* row */}
                   <div className="row m-0 justify-content-center align-items-center">
@@ -164,14 +185,14 @@ export default function Profile() {
                     </div>
                     <div className="col" style={{ color: PrimaryTheme.white }}>
                       <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Reviews</h6>
-                      <h4 className='mb-0'>{reviews.total ? reviews.total : 0}</h4>
+                      <h4 className='mb-0'>{dashboard.reviews ? dashboard.reviews : 0}</h4>
                     </div>
                   </div>
                 </div>
 
               </div>
 
-              <div className="col-md-6 mb-3">
+              <div className="col-md-4 mb-3">
                 <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center pointer border-radius-bottom-left"} onClick={() => navigate(`/my-jobs`)}>
 
                   {/* row */}
@@ -181,7 +202,7 @@ export default function Profile() {
                     </div>
                     <div className="col">
                       <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Jobs</h6>
-                      <h4 className='mb-0'>0</h4>
+                      <h4 className='mb-0'>{dashboard.allJobs ? dashboard.allJobs : 0}</h4>
                     </div>
                   </div>
                 </div>
@@ -215,9 +236,30 @@ export default function Profile() {
 
                     <div className="col-md-6 mb-4">
                       <div className="col-md-12 border border-radius-bottom-right p-3">
-                        <h6 className='display-5 mb-1' style={{
-                          fontFamily: PrimaryTheme.fonts?.RubikMedium
-                        }}>Email</h6>
+                        <div className="row m-0 justify-content-between align-items-center">
+                          <h6 className='display-5 mb-1' style={{
+                            fontFamily: PrimaryTheme.fonts?.RubikMedium
+                          }}>Email</h6>
+                          <React.Fragment>
+                            {user.isEmailVerified ? (
+                              <div className='row m-0 justify-content-between align-items-center'>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-patch-check-fll" fill={PrimaryTheme.success} xmlns="http://www.w3.org/2000/svg">
+                                  <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984a.5.5 0 0 0-.708-.708L7 8.793 5.854 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                                </svg>
+                                <span style={{
+                                  fontSize: 12,
+                                  color: PrimaryTheme.success,
+                                  marginLeft: 2
+                                }}>Verified</span>
+                              </div>
+                            ) : (
+                                <button disabled={loading ? true : false} onClick={handleVerification} type='button' className='btn btn-danger badge-pill btn-sm pl-3 pr-3' style={{
+                                  fontSize: 12,
+                                  // color: PrimaryTheme.danger,
+                                }}>  {loading ? "Please wait..." : "Verify Email"} </button>
+                              )}
+                          </React.Fragment>
+                        </div>
                         <p className='mb-0 text-light' style={{ fontSize: 16 }}>{user.email}</p>
                       </div>
                     </div>
@@ -245,7 +287,7 @@ export default function Profile() {
                         <h6 className='display-5 mb-1' style={{
                           fontFamily: PrimaryTheme.fonts?.RubikMedium
                         }}>Last Login</h6>
-                        <p className='mb-0 text-light' style={{ fontSize: 16 }}>{getDate(user.lastLogin)}</p>
+                        <p className='mb-0 text-light' style={{ fontSize: 16 }}>{getDateTime(user.lastLogin)}</p>
                       </div>
                     </div>
 

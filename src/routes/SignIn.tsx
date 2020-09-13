@@ -26,6 +26,9 @@ export default function Login() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
+
+  const user = useSelector((state: Reducers) => state.user);
+
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const alert = useSelector((state: Reducers) => state.alert);
@@ -161,11 +164,6 @@ export default function Login() {
     };
     dispatch(login(user));
     setSubmitted(true);
-
-    dispatch({
-      type: 'LOADING',
-      payload: true
-    });
   };
 
   useEffect(() => {
@@ -190,10 +188,16 @@ export default function Login() {
             type: 'LOADING',
             payload: false
           })
-          window.location.pathname = '/home';
+
+          if (user.userType === 2) {
+            window.location.pathname = '/dashboard';
+          } else {
+            window.location.pathname = '/home';
+          }
         }, 1000);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, enqueueSnackbar, alert]);
 
   return (

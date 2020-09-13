@@ -48,6 +48,13 @@ export interface Theme {
     RubikItalic?: string;
     RubikBold?: string;
   };
+  fontSizes?: {
+    heading?: number;
+    title?: number;
+    subtitle?: number;
+    body?: number;
+    small?: number;
+  }
 }
 
 export interface CountryType {
@@ -67,7 +74,7 @@ export interface Routes {
 
 export interface Artisans {
   firstname?: string;
-  name?: string;
+  name?: string | any;
   lastname?: string;
   rating?: number | any;
   phoneNumber?: string;
@@ -83,6 +90,8 @@ export interface Artisans {
   businessName?: string;
   RCNumber?: string;
   NIN?: string;
+  categoryId?: any;
+  experience?: number | any;
 }
 
 export interface Reviews {
@@ -109,10 +118,39 @@ export interface Reducers {
   tokens: Tokens;
   login: any;
   alert: any;
+  dashboard: Dashboard;
   artisan: ResponseDetails;
   file: ResponseDetails;
   reviews: ResponseDetails
-  jobs: ResponseDetails
+  jobs: ResponseDetails;
+  requests: ResponseDetails;
+  category: ResponseDetails;
+}
+
+export interface Dashboard {
+  allJobs?: number;
+  artisans?: number;
+  reviews?: number
+  ongoing?: number;
+  newRequest?: number;
+  declinedRequest?: number;
+}
+
+export interface JobProps {
+  title: string;
+  description?: string;
+  categoryId?: any;
+  createdOn?: string;
+  budget?: number;
+  artisanId?: any;
+  status?: "NEW" | "ASSIGNED" | "PENDING" | "ACCEPTED"
+  _id: string;
+}
+
+export interface Category {
+  name: string;
+  imageUrl: string;
+  _id: string;
 }
 
 export interface Tokens {
@@ -121,17 +159,22 @@ export interface Tokens {
 }
 
 export interface User {
-  firstname?: string;
-  lastname?: string;
+  firstname?: string | any;
+  lastname?: string | any;
   lastLogin?: string;
   createdOn?: string;
+  businessName?: string | any;
+  RCNumber?: string;
+  rating?: number | any;
   _id?: string;
-  email?: string;
-  phoneNumber?: string;
-  address?: string;
+  email?: string | any;
+  phoneNumber?: string | any;
+  address?: string | any;
   imageUrl?: string;
-  state?: string;
-  country?: string;
+  state?: string | any;
+  userType?: number;
+  country?: string | any;
+  isEmailVerified?: boolean;
 }
 
 export interface Pagination {
@@ -150,11 +193,13 @@ export interface ResponseDetails {
   result?: any,
   items?: Array<any>;
   total?: any | number;
+  message?: string;
 }
 
 export interface Search {
-  onChange?: any;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
   onClick?: any;
+  onSubmit?: ((event: React.FormEvent<HTMLDivElement>) => void) | undefined;
   value: string;
   placeholder?: string;
 }

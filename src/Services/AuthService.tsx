@@ -136,7 +136,41 @@ export default class AuthService {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.authToken.aut_token}`
+          'Authorization': `Bearer ${this.authToken.auth_token}`
+        },
+        body: JSON.stringify(data),
+      });
+
+      return await response.json();
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async verifyEmail(data: any) {
+    try {
+      let response = await fetch(this.users + 'verify-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.authToken.auth_token}`
+        },
+        body: JSON.stringify(data),
+      });
+
+      return await response.json();
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async confirmEmail(data: any) {
+    try {
+      let response = await fetch(this.users + 'email-confirmation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${data.token}`
         },
         body: JSON.stringify(data),
       });

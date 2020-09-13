@@ -198,7 +198,8 @@ export default function ArtisanDetails() {
                 <div style={{ backgroundColor: PrimaryTheme.white, }} className={classes.smallCard + " p-4 border-radius-bottom-left box-shadow"}>
                   <h4 className='text-dark' >{data.businessName}</h4>
                   <h6 className='text-light'>{data.RCNumber ? data.RCNumber : 'N/A'}</h6>
-                  <h6 className='text-light mb-0'>{data.specialization}</h6>
+                  <h6 className='text-light mb-0'>{data.categoryId && data.categoryId.name}</h6>
+                  <h6 className='text-light mb-0'>{data.experience > 1? data.experience + " years experience": (data.experience === 0? 'N/A': data.experience + 'year experience')}</h6>
                 </div>
               </div>
 
@@ -209,7 +210,7 @@ export default function ArtisanDetails() {
                 <div style={{ backgroundColor: PrimaryTheme.white, }} className={classes.smallCard + " p-4 border-radius-bottom-right box-shadow text-center"}>
                   <h4 className='text-dark'>{data.rating}</h4>
                   <CustomizedRatings rating={data.rating} />
-                  <p className="text-dark mb-1" style={{ color: PrimaryTheme.white }}>Based on {data.reviews} reviews</p>
+                  <p className="text-dark mb-1" style={{ color: PrimaryTheme.white }}>Based on {data.reviews} review(s)</p>
                 </div>
 
               </div>

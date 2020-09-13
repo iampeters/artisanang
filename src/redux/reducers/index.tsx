@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import { themeReducer } from './themeReducer';
 import { loaderReducer, menuReducer, navBarReducer, profileEditReducer, changePasswordReducer } from './loaderReducer';
-import { authReducer, userReducer, tokenReducer, loginReducer } from './userReducer';
+import { authReducer, userReducer, tokenReducer, loginReducer, dashboardReducer } from './userReducer';
 import { artisanReducer } from './artisanReducer';
 import { alertReducer } from './alertReducer';
-import { fileReducer } from './fileReducer';
+import { fileReducer } from './configReducer';
 import { reviewReducer } from './reviewReducer';
+import { categoryReducer } from './categoryReducer';
+import { jobReducer, requestReducer } from './jobReducer';
 
 const rootReducer = combineReducers({
   theme: themeReducer,
@@ -21,7 +23,11 @@ const rootReducer = combineReducers({
   reviews: reviewReducer,
   navBar: navBarReducer,
   profileEditDrawer: profileEditReducer,
-  changePasswordDrawer: changePasswordReducer
+  changePasswordDrawer: changePasswordReducer,
+  category: categoryReducer,
+  dashboard: dashboardReducer,
+  jobs: jobReducer,
+  requests: requestReducer
 });
 
 export default rootReducer;

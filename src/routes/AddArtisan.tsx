@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import PrimaryTheme from '../themes/Primary';
-import { Reducers, CountryType } from '../interfaces/interface';
+import { Reducers, CountryType, Category } from '../interfaces/interface';
 import Avatar from '@material-ui/core/Avatar';
 import { useSelector, useDispatch } from 'react-redux';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -11,21 +11,27 @@ import { Countries } from '../helpers/Countries';
 import { Button, Icon } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
 import { createArtisan } from '../redux/Actions/artisanActions';
-import { fileUpload } from '../redux/Actions/fileAction';
+import { fileUpload } from '../redux/Actions/configAction';
+import { getCategory } from '../redux/Actions/categoryActions';
 
 export default function AddArtisan() {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const user = useSelector((state: Reducers) => state.user);
+  const category = useSelector((state: Reducers) => state.category);
   const file = useSelector((state: Reducers) => state.file);
   const [imageUrl, setImageUrl]: any = React.useState('/add-user.png');
-  const dispatch = useDispatch();
   const alert = useSelector((state: Reducers) => state.alert);
+
+  const dispatch = useDispatch();
+
+  let categoryList: any = category.items ? category.items : [];
+
 
   const [firstname, setFirstname] = React.useState('')
   const [firstnameValid, setFirstnameValid]: any = React.useState(null)
   const [lastname, setLastname] = React.useState('')
-  const [specialization, setSpecialization] = React.useState('')
+  const [categoryId, setCategoryId]: any = React.useState({})
   const [lastnameValid, setLastnameValid]: any = React.useState(null)
   const [email, setEmail] = React.useState('')
   const [phoneNumber, setPhoneNumber] = React.useState('')
@@ -102,7 +108,8 @@ export default function AddArtisan() {
       email: email,
       phoneNumber: phoneNumber,
       address: address,
-      specialization,
+      categoryId: categoryId._id,
+      createdBy: user._id,
       imageUrl: imageUrl,
       businessName: businessName,
       RCNumber: RCNumber,
@@ -112,6 +119,16 @@ export default function AddArtisan() {
 
     dispatch(createArtisan(artisan));
   }
+
+  React.useEffect(() => {
+    let filter: any = {};
+    let paginationConfig = {
+      page: 1,
+      pageSize: 0,
+      whereCondition: JSON.stringify(filter)
+    }
+    dispatch(getCategory(paginationConfig));
+  }, [dispatch]);
 
   React.useEffect(() => {
     if (Object.entries(alert).length !== 0) {
@@ -179,7 +196,7 @@ export default function AddArtisan() {
                 className={classes.large + ' mr-auto ml-auto mb-1'}
                 alt={`${user.firstname} ${user.lastname}`}
                 src={imageUrl} />
-                Upload Photo
+                {imageUrl === '/add-user.png'? "Upload Photo": "Change"}
             </label>
             <input type="file" id='file' name='file' disabled={submitted} onChange={handleFile} className='d-none' />
           </div>
@@ -267,17 +284,22 @@ export default function AddArtisan() {
                 </div>
 
                 <div className="form-group col-12">
-                  <TextField
-                    variant="outlined"
+                  <Autocomplete
+                    id="category"
+                    options={categoryList}
+                    getOptionLabel={(option: any) => option.name}
                     fullWidth
-                    required
-                    id="specialization"
-                    label="Area of Specialization"
-                    name="specialization"
-                    inputMode='text'
-                    value={specialization}
-                    onChange={e => setSpecialization(e.target.value)}
                     disabled={submitted}
+                    onChange={(e, option) => setCategoryId(option)}
+                    renderInput={(params) => <TextField {...params}
+                      label="Choose Category"
+                      variant="outlined"
+                      required
+                      name='category'
+                      value={categoryId}
+                      autoComplete='Category'
+                      onChange={e => setCategoryId(e.target.value)}
+                    />}
                   />
                 </div>
 

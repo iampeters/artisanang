@@ -1,18 +1,18 @@
-import FileService from "../../Services/FileService";
-import { ResponseDetails } from "../../interfaces/interface";
+import CategoryService from "../../Services/CategoryService";
+import { Pagination, ResponseDetails } from "../../interfaces/interface";
+import { Dispatch } from "redux";
 
-export const fileUpload = (state: FormData) => {
-  const api = new FileService().fileUpload(state);
+export const getCategory = (state: Pagination) => {
+  const api = new CategoryService().getCategory(state);
 
-  return (dispatch: any) => {
+  return (dispatch: Dispatch) => {
     api
       .then((res: ResponseDetails) => {
         if (res.successful) {
           dispatch({
-            type: 'FILE_UPLOAD',
+            type: 'GET_CATEGORY',
             payload: res,
           });
-
         } else {
           dispatch({
             type: 'ALERT',

@@ -42,3 +42,14 @@ export const loginReducer = (state: any = {}, action: any) => {
       return state;
   }
 };
+
+export const dashboardReducer = (state: any = {}, action: any) => {
+  switch (action.type) {
+    case 'DASHBOARD': {
+      return action.payload;
+    }
+
+    default:
+      return state;
+  }
+};

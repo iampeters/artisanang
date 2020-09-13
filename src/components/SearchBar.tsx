@@ -46,7 +46,7 @@ export default function SearchBar(props: Search) {
         inputProps={{ 'aria-label': props.placeholder }}
         value={props.value}
         onChange={props.onChange}
-        onSubmit={props.onChange}
+        onSubmit={props.onSubmit}
       />
       <IconButton type="button" onClick={props.onClick} className={classes.iconButton} aria-label="search">
         <SearchIcon />

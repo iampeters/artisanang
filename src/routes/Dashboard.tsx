@@ -2,7 +2,7 @@ import React from 'react'
 import ArtisanList from '../components/ArtisanList';
 import SearchBar from '../components/SearchBar';
 import FloatingActionButtons from '../components/Fab';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Reducers, Artisans } from '../interfaces/interface';
 import { useSnackbar } from 'notistack';
@@ -16,6 +16,7 @@ export default function Dashboard() {
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
+  const params: any = useParams();
 
   const alert = useSelector((state: Reducers) => state.alert);
   const artisans = useSelector((state: Reducers) => state.artisan);
@@ -24,7 +25,7 @@ export default function Dashboard() {
   const [pageSize, setPageSize] = React.useState(25)
   const [search, setSearch] = React.useState('');
 
-  let filter: Artisans = {};
+  let filter: Artisans = { categoryId: params.id };
   let paginationConfig = {
     page: page + 1,
     pageSize,
@@ -46,25 +47,16 @@ export default function Dashboard() {
     history.push(route)
   }
 
-  const handleSearch = () => {
-    if (search.length !== 0) {
-      filter.name = search.trim();
-      paginationConfig.whereCondition = JSON.stringify(filter)
+  // React.useEffect(() => {
+  //   if (search.length >= 4) {
+  //     filter.name = search.trim();
+  //     paginationConfig.whereCondition = JSON.stringify(filter)
 
-      dispatch(getArtisans(paginationConfig));
-    }
-  }
+  //     dispatch(getArtisans(paginationConfig));
+  //   }
 
-  React.useEffect(() => {
-    if (search.length >= 4) {
-      filter.name = search.trim();
-      paginationConfig.whereCondition = JSON.stringify(filter)
-
-      dispatch(getArtisans(paginationConfig));
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, search]);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [dispatch, search]);
 
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -110,8 +102,8 @@ export default function Dashboard() {
       <div className='col-md-12 p-0'>
         <div className="row">
           <div className="col-8">
-            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Artisans</h4>
-            <p className="small text-light">Here is a list of all artisans so far.</p>
+            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>{params.category}</h4>
+            <p className="small text-light">Here is a list of {params.category}s.</p>
           </div>
 
           <div className="col-4 text-right">
@@ -124,16 +116,6 @@ export default function Dashboard() {
             </button>
           </div>
         </div>
-      </div>
-
-      <div className="col-md-9 col-lg-8 ml-auto mr-auto p-0 mb-3 searchBar">
-        {artisans.items ? (
-          <SearchBar onClick={handleSearch} onChange={(e: any) => setSearch(e.target.value)} value={search} placeholder='Search for Artisans' />
-        ) : (
-            <React.Fragment>
-              <Placeholder variant="text" width={'100%'} height={90} animation='pulse' className="display-inline" />
-            </React.Fragment>
-          )}
       </div>
 
       <div className="col-md-9 col-lg-8 ml-auto mr-auto p-0 mb-5">

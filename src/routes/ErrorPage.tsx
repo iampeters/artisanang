@@ -21,10 +21,10 @@ export default function ErrorPage() {
             <h2 className='text-dark display-2'>Oops! 404</h2>
             <h4 className='text-dark display-5'>Page Not Found</h4>
             <p className=''>The page you are looking for could not be found on this server.</p>
-            <button className="btn btn-purple badge-pill btn-md pl-4 pr-4" onClick={() => history.push('home')}>
+            <button className="btn btn-appBar badge-pill btn-md pl-4 pr-4" onClick={() => history.push('/')}>
               <div className="row m-0 justify-content-center align-items-center">
-                <Icon>dashboard</Icon>
-                <span className='ml-3'>Go Home</span>
+                <Icon>home</Icon>
+                <span className='ml-3'>Back to homepage</span>
               </div>
             </button>
           </div>

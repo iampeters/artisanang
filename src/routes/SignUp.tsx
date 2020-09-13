@@ -23,7 +23,7 @@ import { socialAuth, signUp } from '../redux/Actions/userActions';
 import firebase, { FacebookAuth, GoogleAuth } from '../firebase/FirebaseConfig';
 
 
-export default function Register() {
+export default function SignUp() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
@@ -272,7 +272,7 @@ export default function Register() {
           <Typography component="h1" variant="h5" style={{
             fontFamily: PrimaryTheme.fonts?.RubikBold
           }}>
-            Sign up
+            User sign up
         </Typography>
 
           <form className={classes.form} noValidate>
@@ -384,7 +384,7 @@ export default function Register() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="By clicking the Sign Up button, you agree to our terms and conditions."
+                  label="By signing up, you agree to our terms and conditions."
                 />
               </Grid>
             </Grid>
@@ -402,6 +402,7 @@ export default function Register() {
                 !isPasswordValid ||
                 submitted
               }
+              style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
               onClick={handleSubmit}
             >
               Sign Up with email

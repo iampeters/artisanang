@@ -164,7 +164,7 @@ export default function ChangePassword() {
           </div>
 
           <div className="form-group mb-3">
-            <button type='submit' className='btn  btn-md btn-purple border-0 w-100' style={{ ...styles.button, color: PrimaryTheme.white }} onClick={handleSubmit}>Update Password</button>
+            <button type='submit' className='btn  btn-md btn-appBar border-0 w-100' style={{ ...styles.button, color: PrimaryTheme.white }} onClick={handleSubmit}>Update Password</button>
           </div>
 
         </form>

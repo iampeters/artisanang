@@ -3,7 +3,7 @@ import PrimaryTheme from '../themes/Primary'
 import { Avatar, makeStyles, createStyles, Theme, Icon } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { Reducers } from '../interfaces/interface';
-import { fileUpload } from '../redux/Actions/fileAction';
+import { fileUpload } from '../redux/Actions/configAction';
 import { useSnackbar } from 'notistack';
 import { updateAccount } from '../redux/Actions/userActions';
 
@@ -210,7 +210,7 @@ export default function EditProfile() {
           </div>
 
           <div className="form-group mb-3">
-            <button type='submit' className='btn  btn-md btn-purple border-0 w-100' style={{ ...styles.button, color: PrimaryTheme.white }} onClick={handleSubmit}>Update Profile</button>
+            <button type='submit' className='btn  btn-md btn-appBar border-0 w-100' style={{ ...styles.button, color: PrimaryTheme.white }} onClick={handleSubmit}>Update Profile</button>
           </div>
 
         </form>

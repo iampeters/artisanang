@@ -11,7 +11,7 @@ export function TokenValidator() {
 
   if (Object.entries(tokens).length !== 0) {
     const decoded: any = decode(tokens.auth_token);
-    if (Date.now() >= decoded.exp * 1000) {
+    if (decoded && Date.now() >= decoded.exp * 1000) {
 
       const api = refreshToken(tokens);
 

@@ -161,7 +161,7 @@ export default function ReviewDetails() {
               <ListItem alignItems="flex-start" button onClick={() => navigate(`/artisans/details/${review.artisanId._id}`)}>
                 <ListItemAvatar>
                   <Avatar alt={`${review.userId.firstname} ${review.userId.lastname}`}
-                    src={review.userId.imageUrl} />
+                    src={review.userId && review.userId.imageUrl} />
                 </ListItemAvatar>
                 <ListItemText
                   primary={
