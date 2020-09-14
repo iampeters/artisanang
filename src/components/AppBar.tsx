@@ -150,6 +150,8 @@ export default function OpenAppBar() {
                 <MenuIcon style={{ color: PrimaryTheme.appBar }} />
               </IconButton> */}
 
+              <div className="p-2 d-md-none"></div>
+
               <NavLink to='/'>
                 <div className="row m-0 justify-content-center align-items-center">
                   <Avatar src={'/logo.png'} className='mr-1 justify-content-center align-items-center' />

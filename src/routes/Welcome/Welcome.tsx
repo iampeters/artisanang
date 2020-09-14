@@ -27,14 +27,15 @@ import "normalize.css/normalize.css";
 import "./slider-animations.scss";
 import "./styles.scss";
 import PrimaryTheme from "../../themes/Primary";
+import { useHistory } from "react-router-dom";
 
 const content = [
   {
     title: "Welcome to Artisana",
     description:
       "Join Artisana now and be part of a revolution to improve service offerings from millions of artisans to millions of users. Artisana is the brainchild of users of Artisan services like yourself to change things for the better.",
-    firstButton: "Register as User",
-    secondButton: "Register as Artisan",
+    firstButton: "Join as User",
+    secondButton: "Join as Artisan",
     // image: "https://i.imgur.com/ZXBtVw7.jpg",
     image: "/images/tailor.jpg",
     user: "Luan Gjokaj",
@@ -65,6 +66,8 @@ const content = [
 ];
 
 export default function Welcome() {
+  const history = useHistory();
+
   return (
     <div style={{
       // minHeight: 'calc(100vh - 64px)',
@@ -89,7 +92,7 @@ export default function Welcome() {
             className="slider-content"
             style={{ background: `url('${item.image}') no-repeat center center` }}
           >
-            <div className="inner">
+            <div className="inner col-md-8 ml-auto mr-auto">
               <h1 style={{
                 fontFamily: PrimaryTheme.fonts?.RubikBold
               }}>{item.title}</h1>
@@ -97,8 +100,34 @@ export default function Welcome() {
                 fontFamily: PrimaryTheme.fonts?.ProductSansMedium,
                 fontSize: PrimaryTheme.fontSizes?.subtitle
               }}>{item.description}</p>
-              <button className='btn btn-light slider-button p-3 pl-5 pr-5 mr-2'>{item.firstButton}</button>
-              <button className='btn btn-warning slider-button p-3 pl-5 pr-5'>{item.secondButton}</button>
+              <div className="col-md-10 col-lg-8 ml-auto mr-auto">
+                <div className="row justify-content-center align-items-center">
+                  <div className="col-md-6">
+                    <button
+                      onClick={() => history.push('/get-started')}
+                      className='btn btn-light slider-button w-100 p-3'>
+                         <div className="row m-0 justify-content-center align-items-center">
+                        <span className='mr-3 text-uppercase'> {item.firstButton}</span>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                        </svg>
+                      </div></button>
+                  </div>
+                  <div className="col-md-6">
+                    <button
+                      onClick={() => history.push('/artisan/register')}
+                      className='btn btn-warning slider-button w-100 p-3'>
+
+                      <div className="row m-0 justify-content-center align-items-center">
+                        <span className='mr-3 text-uppercase'> {item.secondButton}</span>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             {/* <section>
               <img src={item.userProfile} alt={item.user} />

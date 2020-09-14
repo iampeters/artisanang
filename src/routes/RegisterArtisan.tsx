@@ -159,203 +159,197 @@ export default function RegisterArtisan() {
       backgroundPosition: 'left center',
       backgroundSize: 'cover',
       minHeight: 'calc(100vh - 64px)',
-      padding: 10,
+      // padding: 10,
     }}>
-      <Container component="main" maxWidth="xs" style={{
+      <Container component="main" maxWidth="xl" style={{
         backgroundColor: PrimaryTheme.transparentSurface,
         //  paddingTop: 5,
-        paddingBottom: 10,
+        // paddingBottom: 10,
+        padding: 0,
+        minHeight: 'calc(100vh - 64px)'
       }} >
         <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5" style={{
-            fontFamily: PrimaryTheme.fonts?.RubikBold,
-            marginTop: 5,
-            marginBottom: 5
+        <div className="row m-0" style={{
+          minHeight: 'calc(100vh - 64px)',
+        }}>
+          <div className="col-lg-8 col-md-6 p-5 d-none d-md-block">
+            <h2 style={{
+              fontFamily: PrimaryTheme.fonts?.RubikMedium,
+              marginBottom: 5,
+              marginTop: 35,
+              // color: PrimaryTheme.dark,
+              // textAlign: "center",
+              // fontSize: PrimaryTheme.fontSizes?.small
+            }}>Welcome</h2>
+            <p style={{
+              fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+              marginBottom: 5,
+              marginTop: 5,
+              fontSize: '1.2rem',
+              color: PrimaryTheme.black,
+              // color: PrimaryTheme.dark,
+              // textAlign: "center",
+              // fontSize: PrimaryTheme.fontSizes?.small
+            }}>
+              The Artisana community welcomes you to join us to create a better, more rewarding business relationships.
+              If you are a honest, hardworking and and well trained Artisan, we invite you to join our community and WATCH YOUR BUSINESS GROW
+              As your rating and reviews improve based on your delivery, so does your income. Please always remember to tell your clients to rate/review you on this site.
+              And it's all FREE! <br />
+              Let's hear from you here
+          </p>
+          </div>
+
+          <div className="col" style={{
+            minHeight: "inherit",
+            backgroundColor: PrimaryTheme.white,
+            paddingRight: 30,
+            paddingLeft: 30,
           }}>
-            Artisan sign up
-        </Typography>
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5" style={{
+                fontFamily: PrimaryTheme.fonts?.RubikBold,
+                marginTop: 5,
+                marginBottom: 5
+              }}>
+                Artisan sign up
+              </Typography>
 
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  // autoFocus
-                  value={firstname}
-                  onChange={e => validateName(e.target.value, 'firstname')}
-                  disabled={submitted}
-                  error={!firstnameValid && firstnameValid !== null}
-                  helperText={!firstnameValid && firstnameValid !== null && 'Only alphabets allowed.'}
+              <form className={classes.form} noValidate>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      autoComplete="fname"
+                      name="firstName"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="firstName"
+                      label="First Name"
+                      // autoFocus
+                      value={firstname}
+                      onChange={e => validateName(e.target.value, 'firstname')}
+                      disabled={submitted}
+                      error={!firstnameValid && firstnameValid !== null}
+                      helperText={!firstnameValid && firstnameValid !== null && 'Only alphabets allowed.'}
 
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="lname"
-                  value={lastname}
-                  onChange={e => validateName(e.target.value, 'lastname')}
-                  disabled={submitted}
-                  error={!lastnameValid && lastnameValid !== null}
-                  helperText={!lastnameValid && lastnameValid !== null && 'Only alphabets allowed.'}
-                />
-              </Grid>
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="lastName"
+                      label="Last Name"
+                      name="lastName"
+                      autoComplete="lname"
+                      value={lastname}
+                      onChange={e => validateName(e.target.value, 'lastname')}
+                      disabled={submitted}
+                      error={!lastnameValid && lastnameValid !== null}
+                      helperText={!lastnameValid && lastnameValid !== null && 'Only alphabets allowed.'}
+                    />
+                  </Grid>
 
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={e => validateEmail(e.target.value)}
-                  error={!isEmailValid && isEmailValid !== null}
-                  helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
-                  disabled={submitted}
-                />
-              </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={e => validateEmail(e.target.value)}
+                      error={!isEmailValid && isEmailValid !== null}
+                      helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
+                      disabled={submitted}
+                    />
+                  </Grid>
 
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="phoneNumber"
-                  label="Phone Number"
-                  name="phoneNumber"
-                  autoComplete="phoneNumber"
-                  value={phoneNumber}
-                  onChange={e => validatePhoneNumber(e.target.value)}
-                  error={!phoneNumberValid && phoneNumberValid !== null}
-                  helperText={!phoneNumberValid && phoneNumberValid !== null && 'Invalid Phone Number'}
-                  disabled={submitted}
-                />
-              </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="phoneNumber"
+                      label="Phone Number"
+                      name="phoneNumber"
+                      autoComplete="phoneNumber"
+                      value={phoneNumber}
+                      onChange={e => validatePhoneNumber(e.target.value)}
+                      error={!phoneNumberValid && phoneNumberValid !== null}
+                      helperText={!phoneNumberValid && phoneNumberValid !== null && 'Invalid Phone Number'}
+                      disabled={submitted}
+                    />
+                  </Grid>
 
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  value={password}
-                  onChange={e => validatePassword(e.target.value)}
-                  disabled={submitted}
-                  error={!isPasswordValid && isPasswordValid !== null}
-                  helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
-                />
-              </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      value={password}
+                      onChange={e => validatePassword(e.target.value)}
+                      disabled={submitted}
+                      error={!isPasswordValid && isPasswordValid !== null}
+                      helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormControlLabel
+                      control={<Checkbox value="allowExtraEmails" color="primary" />}
+                      label="By signing up, you agree to our terms and conditions."
+                    />
+                  </Grid>
+                </Grid>
 
-              {/* <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="confirmPassword"
-                label="Confirm Password"
-                type="password"
-                id="confirmPassword"
-                autoComplete="current-password"
-                value={confirmPassword}
-                onChange={e => validateConfirmPassword(e.target.value)}
-                disabled={submitted}
-                error={confirmPassword !== password}
-                helperText={confirmPassword !== password && confirmPassword !== '' && 'Password does not match'}
-              />
-            </Grid> */}
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="By signing up, you agree to our terms and conditions."
-                />
-              </Grid>
-            </Grid>
-
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              disabled={
-                !isEmailValid ||
-                !lastnameValid ||
-                !firstnameValid ||
-                !isPasswordValid ||
-                submitted
-              }
-              style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
-              onClick={handleSubmit}
-            >
-              Sign Up with email
-          </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="/sign-in" variant="body2">
-                  Already an Artisan? Sign in
-              </Link>
-              </Grid>
-            </Grid>
-
-            {/* <div className='text-center pt-4 row justify-content-center align-items-center'>
-              <hr className='w-25' />
-              <h6>Or use social account</h6>
-              <hr className='w-25' />
-            </div> */}
-
-            {/* <div className="row">
-              <div className="col-md-6">
                 <Button
-                  variant="outlined"
-                  size="small"
+                  type="submit"
                   fullWidth
-                  className={classes.button + ' col mt-2'}
-                  onClick={handleGoogleAuth}
-                  style={{ background: PrimaryTheme.google, color: PrimaryTheme.white }}
-                > <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Google
-                </Button>
-              </div>
-
-              <div className="col-md-6">
-                <Button
-                  variant="outlined"
-                  size="small"
-                  className={classes.button + ' col mt-2'}
-                  onClick={handleFacebookAuth}
-                  style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white }}
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  disabled={
+                    !isEmailValid ||
+                    !lastnameValid ||
+                    !firstnameValid ||
+                    !isPasswordValid ||
+                    submitted
+                  }
+                  style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
+                  onClick={handleSubmit}
                 >
-                  <FontAwesomeIcon icon={faFacebook} className='mr-2' />
-                  Facebook</Button>
-              </div>
-            </div> */}
+                  Sign Up with email
+                </Button>
+                <Grid container justify="flex-end">
+                  <Grid item>
+                    <Link href="/sign-in" variant="body2">
+                      Already an Artisan? Sign in
+                    </Link>
+                  </Grid>
+                </Grid>
 
-          </form>
+
+              </form>
+            </div>
+
+            <div className="col-md-12 p-2">
+              <Box mt={3}>
+                <Copyright color='textSecondary' />
+              </Box>
+            </div>
+          </div>
         </div>
-        <Box mt={3}>
-          <Copyright color='textSecondary' />
-        </Box>
       </Container>
     </div>
   );

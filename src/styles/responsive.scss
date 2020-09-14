@@ -6,6 +6,10 @@
   .MuiDrawer-paperAnchorRight {
     width: 417px;
   }
+
+  .slider-content .inner {
+    padding: 0 70px !important;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -16,6 +20,10 @@
 
   .MuiDrawer-paperAnchorRight {
     width: 417px;
+  }
+
+  .slider-content .inner {
+    padding: 0 70px !important;
   }
 }
 
@@ -62,6 +70,14 @@
     width: 85% !important;
     transform: translate(10px);
     // transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+  }
+
+  .slider-content .inner {
+    padding: 0 20px !important;
+  }
+
+  .slider-wrapper, .slide {
+    height: calc(100vh - 64px) !important;
   }
 }
 

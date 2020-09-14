@@ -30,7 +30,7 @@ export default function Jobs() {
   let jobList: any = jobs.items && jobs.items;
 
 
-  let filter: any = { artisanaId: user._id };
+  let filter: any = { artisanId: user._id };
   let paginationConfig = {
     page: page + 1,
     pageSize,
@@ -154,7 +154,7 @@ export default function Jobs() {
                   key={index}
                   title={item.title}
                   status={item.status}
-                  color="warning"
+                  color={item.status === "ASSIGNED"? "success": "warning"}
                   createdOn={getDate(item.createdOn)}
                   onClick={() => handleClick(item._id)} />
 
@@ -190,7 +190,7 @@ export default function Jobs() {
         </div>
       </div>
 
-      <div style={{
+      {/* <div style={{
         bottom: 0,
         right: 20,
         width: "auto",
@@ -206,7 +206,7 @@ export default function Jobs() {
             customColor={PrimaryTheme.warn}
             IconColor={PrimaryTheme.black} />
         </div>
-      </div>
+      </div> */}
     </div >
   )
 }

@@ -257,114 +257,146 @@ export default function SignUp() {
 
       // marginTop: -64,
       minHeight: 'calc(100% - 64px)',
-      padding: 10,
+      // padding: 10,
     }}>
-      <Container component="main" maxWidth="xs" style={{
+      <Container component="main" maxWidth="xl" style={{
         backgroundColor: PrimaryTheme.transparentSurface,
         //  paddingTop: 5,
-        paddingBottom: 10,
+        padding: 0,
       }} >
         <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5" style={{
-            fontFamily: PrimaryTheme.fonts?.RubikBold
+        <div className="row m-0" style={{
+          minHeight: 'calc(100vh - 64px)',
+        }}>
+          <div className="col-md-8 col-md-6 p-5 d-none d-md-block">
+            <h2 style={{
+              fontFamily: PrimaryTheme.fonts?.RubikMedium,
+              marginBottom: 5,
+              marginTop: 35,
+              // color: PrimaryTheme.dark,
+              // textAlign: "center",
+              // fontSize: PrimaryTheme.fontSizes?.small
+            }}>Welcome</h2>
+            <p style={{
+              fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+              marginBottom: 5,
+              marginTop: 5,
+              fontSize: '1.2rem',
+              color: PrimaryTheme.black,
+              // color: PrimaryTheme.dark,
+              // textAlign: "center",
+              // fontSize: PrimaryTheme.fontSizes?.small
+            }}>
+              Artisan users, register your details here and NEVER again contract an artisan till you have registered him/her on this app.
+              All users are stakeholders and co owners of this platform, so feel free here and let's know what you think or what you think we should do in addition here
+          </p>
+          </div>
+          <div className="col" style={{
+            minHeight: "inherit",
+            backgroundColor: PrimaryTheme.white,
+            paddingRight: 30,
+            paddingLeft: 30,
           }}>
-            User sign up
-        </Typography>
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5" style={{
+                fontFamily: PrimaryTheme.fonts?.RubikBold
+              }}>
+                User sign up
+              </Typography>
 
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  // autoFocus
-                  value={firstname}
-                  onChange={e => validateName(e.target.value, 'firstname')}
-                  disabled={submitted}
-                  error={!firstnameValid && firstnameValid !== null}
-                  helperText={!firstnameValid && firstnameValid !== null && 'Only alphabets allowed.'}
+              <form className={classes.form} noValidate>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      autoComplete="fname"
+                      name="firstName"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="firstName"
+                      label="First Name"
+                      // autoFocus
+                      value={firstname}
+                      onChange={e => validateName(e.target.value, 'firstname')}
+                      disabled={submitted}
+                      error={!firstnameValid && firstnameValid !== null}
+                      helperText={!firstnameValid && firstnameValid !== null && 'Only alphabets allowed.'}
 
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="lname"
-                  value={lastname}
-                  onChange={e => validateName(e.target.value, 'lastname')}
-                  disabled={submitted}
-                  error={!lastnameValid && lastnameValid !== null}
-                  helperText={!lastnameValid && lastnameValid !== null && 'Only alphabets allowed.'}
-                />
-              </Grid>
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="lastName"
+                      label="Last Name"
+                      name="lastName"
+                      autoComplete="lname"
+                      value={lastname}
+                      onChange={e => validateName(e.target.value, 'lastname')}
+                      disabled={submitted}
+                      error={!lastnameValid && lastnameValid !== null}
+                      helperText={!lastnameValid && lastnameValid !== null && 'Only alphabets allowed.'}
+                    />
+                  </Grid>
 
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={e => validateEmail(e.target.value)}
-                  error={!isEmailValid && isEmailValid !== null}
-                  helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
-                  disabled={submitted}
-                />
-              </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={e => validateEmail(e.target.value)}
+                      error={!isEmailValid && isEmailValid !== null}
+                      helperText={!isEmailValid && isEmailValid !== null && 'Invalid email'}
+                      disabled={submitted}
+                    />
+                  </Grid>
 
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="phoneNumber"
-                  label="Phone Number"
-                  name="phoneNumber"
-                  autoComplete="phoneNumber"
-                  value={phoneNumber}
-                  onChange={e => validatePhoneNumber(e.target.value)}
-                  error={!phoneNumberValid && phoneNumberValid !== null}
-                  helperText={!phoneNumberValid && phoneNumberValid !== null && 'Invalid Phone Number'}
-                  disabled={submitted}
-                />
-              </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="phoneNumber"
+                      label="Phone Number"
+                      name="phoneNumber"
+                      autoComplete="phoneNumber"
+                      value={phoneNumber}
+                      onChange={e => validatePhoneNumber(e.target.value)}
+                      error={!phoneNumberValid && phoneNumberValid !== null}
+                      helperText={!phoneNumberValid && phoneNumberValid !== null && 'Invalid Phone Number'}
+                      disabled={submitted}
+                    />
+                  </Grid>
 
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  value={password}
-                  onChange={e => validatePassword(e.target.value)}
-                  disabled={submitted}
-                  error={!isPasswordValid && isPasswordValid !== null}
-                  helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
-                />
-              </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      value={password}
+                      onChange={e => validatePassword(e.target.value)}
+                      disabled={submitted}
+                      error={!isPasswordValid && isPasswordValid !== null}
+                      helperText={!isPasswordValid && isPasswordValid !== null && 'Password must contain a minimum of 6 characters, a number and an uppercase letter'}
+                    />
+                  </Grid>
 
-              {/* <Grid item xs={12}>
+                  {/* <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -381,77 +413,82 @@ export default function SignUp() {
                 helperText={confirmPassword !== password && confirmPassword !== '' && 'Password does not match'}
               />
             </Grid> */}
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="By signing up, you agree to our terms and conditions."
-                />
-              </Grid>
-            </Grid>
+                  <Grid item xs={12}>
+                    <FormControlLabel
+                      control={<Checkbox value="allowExtraEmails" color="primary" />}
+                      label="By signing up, you agree to our terms and conditions."
+                    />
+                  </Grid>
+                </Grid>
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              disabled={
-                !isEmailValid ||
-                !lastnameValid ||
-                !firstnameValid ||
-                !isPasswordValid ||
-                submitted
-              }
-              style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
-              onClick={handleSubmit}
-            >
-              Sign Up with email
-          </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="sign-in" variant="body2">
-                  Already a user? Sign in
-              </Link>
-              </Grid>
-            </Grid>
-
-            <div className='text-center pt-4 row justify-content-center align-items-center'>
-              <hr className='w-25' />
-              <h6>Or use social account</h6>
-              <hr className='w-25' />
-            </div>
-
-            <div className="row">
-              <div className="col-md-6">
                 <Button
-                  variant="outlined"
-                  size="small"
+                  type="submit"
                   fullWidth
-                  className={classes.button + ' col mt-2'}
-                  onClick={handleGoogleAuth}
-                  style={{ background: PrimaryTheme.google, color: PrimaryTheme.white }}
-                > <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Google
-                </Button>
-              </div>
-
-              <div className="col-md-6">
-                <Button
-                  variant="outlined"
-                  size="small"
-                  className={classes.button + ' col mt-2'}
-                  onClick={handleFacebookAuth}
-                  style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white }}
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  disabled={
+                    !isEmailValid ||
+                    !lastnameValid ||
+                    !firstnameValid ||
+                    !isPasswordValid ||
+                    submitted
+                  }
+                  style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
+                  onClick={handleSubmit}
                 >
-                  <FontAwesomeIcon icon={faFacebook} className='mr-2' />
-                  Facebook</Button>
-              </div>
-            </div>
+                  Sign Up with email
+          </Button>
+                <Grid container justify="flex-end">
+                  <Grid item>
+                    <Link href="sign-in" variant="body2">
+                      Already a user? Sign in
+              </Link>
+                  </Grid>
+                </Grid>
 
-          </form>
+                <div className='text-center pt-4 row justify-content-center align-items-center'>
+                  <hr className='w-25' />
+                  <h6>Or use social account</h6>
+                  <hr className='w-25' />
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6">
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      fullWidth
+                      className={classes.button + ' col mt-2'}
+                      onClick={handleGoogleAuth}
+                      style={{ background: PrimaryTheme.google, color: PrimaryTheme.white }}
+                    > <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Google
+                </Button>
+                  </div>
+
+                  <div className="col-md-6">
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      className={classes.button + ' col mt-2'}
+                      onClick={handleFacebookAuth}
+                      style={{ background: PrimaryTheme.facebook, color: PrimaryTheme.white }}
+                    >
+                      <FontAwesomeIcon icon={faFacebook} className='mr-2' />
+                  Facebook</Button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+            <div className="col-md-12 p-2">
+              <Box mt={3}>
+                <Copyright color='textSecondary' />
+              </Box>
+            </div>
+          </div>
         </div>
-        <Box mt={3}>
-          <Copyright color='textSecondary' />
-        </Box>
+
       </Container>
     </div>
   );
