@@ -115,7 +115,7 @@ export default function Jobs() {
       <div className='col-md-12 p-0 mb-4'>
         <div className="row">
           <div className="col-8">
-            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Jobs</h4>
+            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Jobs</h4>
           </div>
 
           <div className="col-4 text-right">
@@ -129,7 +129,7 @@ export default function Jobs() {
           </div>
         </div>
       </div>
-
+{/* 
       <div className="col-md-12 ml-auto mr-auto p-4 mb-5 searchBar border-radius-10" style={{
         backgroundColor: PrimaryTheme.appBar,
         backgroundImage: 'url(/bg.png)',
@@ -140,7 +140,7 @@ export default function Jobs() {
 
       }}>
         <SearchBar onClick={handleSearch} onChange={handleSearch} value={search} placeholder='Search for Job title' />
-      </div>
+      </div> */}
 
       {/* job list */}
       <div className="col-md-9 ml-auto mr-auto p-0 mb-3">
@@ -163,7 +163,7 @@ export default function Jobs() {
               {jobList.length === 0 &&
                 <React.Fragment>
                   <img src="/empty.svg" alt="No jobs" className='col-md-5 col-10' />
-                  <p className='text-center mt-3 text-light w-100'>No jobs - Create your first job</p>
+                  <p className='text-center mt-3 text-light w-100'>No jobs</p>
                 </React.Fragment>
 
               }

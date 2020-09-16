@@ -345,7 +345,6 @@ export const updateAccount = (data: any) => {
   };
 };
 
-
 export const resetPassword = (data: any) => {
   const api = new ArtisanService().resetPassword(data);
 

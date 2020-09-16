@@ -172,6 +172,7 @@ export interface User {
   address?: string | any;
   imageUrl?: string;
   state?: string | any;
+  categoryId?: string | any;
   userType?: number;
   country?: string | any;
   isEmailVerified?: boolean;

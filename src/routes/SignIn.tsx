@@ -183,6 +183,7 @@ export default function Login() {
 
         setSubmitted(false);
       } else {
+
         setTimeout(() => {
           dispatch({
             type: 'LOADING',
@@ -190,7 +191,11 @@ export default function Login() {
           })
 
           if (user.userType === 2) {
-            window.location.pathname = '/dashboard';
+            if (alert.message === 'unverified') {
+              window.location.pathname = '/onboarding/personal-information';
+            } else {
+              window.location.pathname = '/dashboard';
+            }
           } else {
             window.location.pathname = '/home';
           }

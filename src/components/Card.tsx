@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Avatar, CardHeader } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { Reducers } from '../interfaces/interface';
 
 const useStyles = makeStyles({
   root: {
@@ -17,6 +19,7 @@ const useStyles = makeStyles({
 
 export default function ImgMediaCard(props: CardProps) {
   const classes = useStyles();
+  const user = useSelector((state: Reducers) => state.user);
 
   return (
     <Card className={classes.root + ' col-md-12 ml-auto mr-auto'}>
@@ -66,7 +69,7 @@ export default function ImgMediaCard(props: CardProps) {
 
         </CardContent>
       </CardActionArea>
-      {props.status === "NEW" && <CardActions className="pt-3 pb-3">
+      {props.status === "NEW" && user.userType !== 2 && <CardActions className="pt-3 pb-3">
         <Button onClick={props.onClick} size="medium" style={{
           color: props.actionButtonColor,
           backgroundColor: props.actionButtonBgColor
@@ -99,7 +102,7 @@ interface CardProps {
   onClick?: any;
   onEdit?: any;
   showActions?: boolean;
-  actionButton: "Assign" | "Accept";
+  actionButton?: "Assign" | "Accept";
   secondActionButton?: "Edit" | "Reject";
   secondActionButtonColor?: string;
   secondActionButtonBgColor?: string;

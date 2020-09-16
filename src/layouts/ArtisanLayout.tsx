@@ -22,6 +22,7 @@ import ArtisanReviews from '../routes/Artisans/Reviews';
 import Requests from '../routes/Artisans/Requests';
 import Portfolio from '../routes/Artisans/Portfolio';
 import RequestDetails from '../routes/Artisans/RequestDetails';
+import JobDetails from '../routes/Artisans/JobDetails';
 
 export default function ArtisanLayout() {
   const classes = useStyles();
@@ -61,6 +62,10 @@ export default function ArtisanLayout() {
                   <Jobs />
                 </Route>
 
+                <Route exact strict path='/jobs/details/:id'>
+                  <JobDetails />
+                </Route>
+
                 <Route exact strict path='/requests'>
                   <Requests />
                 </Route>
@@ -85,9 +90,9 @@ export default function ArtisanLayout() {
                   <EditProfile />
                 </Route>
 
-                <Route exact strict path='/portfolio'>
+                {/* <Route exact strict path='/portfolio'>
                   <Portfolio />
-                </Route>
+                </Route> */}
 
                 <Route exact strict path='/notifications'>
                   <Notifications />

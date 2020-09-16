@@ -1,7 +1,7 @@
 import React from 'react'
 import PrimaryTheme from '../../themes/Primary'
 import { useHistory } from 'react-router-dom'
-import { Icon } from '@material-ui/core';
+import { createStyles, Icon, makeStyles, Theme } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { Reducers, JobProps } from '../../interfaces/interface';
 import { useSnackbar } from 'notistack';
@@ -11,25 +11,25 @@ import { getJobs } from '../../redux/Actions/jobActions';
 import PaginationControlled from '../../components/Pagination';
 import Placeholder from '../../components/Skeleton';
 import { getDate } from '../../helpers/Functions';
+import { getArtisanDashboard } from '../../redux/Actions/configAction';
 
 export default function Dashboard() {
   const history = useHistory();
+  const classes = useStyles();
 
   const alert = useSelector((state: Reducers) => state.alert);
   const jobs = useSelector((state: Reducers) => state.jobs);
   const user = useSelector((state: Reducers) => state.user);
-
+  const dashboard = useSelector((state: Reducers) => state.dashboard);
 
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(0)
   const [pageSize, setPageSize] = React.useState(25);
-  const [search, setSearch] = React.useState('');
 
   let jobList: any = jobs.items && jobs.items;
 
-
-  let filter: any = { artisanId: user._id };
+  let filter: any = { status: 'NEW', categoryId: user.categoryId };
   let paginationConfig = {
     page: page + 1,
     pageSize,
@@ -38,15 +38,6 @@ export default function Dashboard() {
 
   const handleClick = (id: any) => {
     history.push(`/jobs/details/${id}`)
-  }
-
-  const navigate = () => {
-    history.push(`/jobs/new`)
-  }
-
-  const handleSearch = (event: any) => {
-    let text = event.target.value;
-    setSearch(text)
   }
 
   const handleRefresh = () => {
@@ -69,21 +60,11 @@ export default function Dashboard() {
   };
 
   React.useEffect(() => {
-    if (search.length >= 2) {
-      filter.title = search.trim();
-      paginationConfig.whereCondition = JSON.stringify(filter)
 
-      dispatch(getJobs(paginationConfig));
-    } else {
-
-      if (search.length === 0) {
-        delete filter.name;
-        dispatch(getJobs(paginationConfig));
-      }
-    }
-
+    dispatch(getJobs(paginationConfig));
+    dispatch(getArtisanDashboard());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, page, search]);
+  }, [dispatch, page]);
 
   React.useEffect(() => {
     if (Object.entries(alert).length !== 0) {
@@ -111,7 +92,7 @@ export default function Dashboard() {
 
   return (
     <div className='animated fadeIn'>
-      <div className='col-md-12 p-0 mb-4'>
+      <div className='col-md-12 p-0 mb-5'>
         <div className="row">
           <div className="col-8">
             <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Dashboard</h4>
@@ -129,9 +110,68 @@ export default function Dashboard() {
         </div>
       </div>
 
+
+      <div className="col-md-9 ml-auto mr-auto p-0 mb-3">
+        <div className="row mt-4">
+
+          <div className="col-md-4 mb-3">
+            <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center"}>
+              <div className="row m-0 justify-content-center align-items-center">
+                <div className="col-3">
+                  <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>fiber_new</Icon>
+                </div>
+                <div className="col">
+                  <h6 className='' style={{ color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>New Requests</h6>
+                  <h4 className='mb-0' style={{ color: PrimaryTheme.white }}>{dashboard.newRequest ? dashboard.newRequest : 0}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-4 mb-3">
+            <div style={{ backgroundColor: PrimaryTheme.purple }} className={classes.card + " p-3 border-radius box-shadow text-center "}>
+              {/* row */}
+              <div className="row m-0 justify-content-center align-items-center">
+                <div className="col-3">
+                  <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>thumb_down_alt</Icon>
+                </div>
+                <div className="col" style={{ color: PrimaryTheme.white }}>
+                  <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Declined</h6>
+                  <h4 className='mb-0'>{dashboard.declinedRequest ? dashboard.declinedRequest : 0}</h4>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="col-md-4 mb-3">
+            <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center  border-radius-bottom-left"}>
+
+              {/* row */}
+              <div className="row m-0 justify-content-center align-items-center">
+                <div className="col-3">
+                  <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>cached</Icon>
+                </div>
+                <div className="col">
+                  <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Ongoing</h6>
+                  <h4 className='mb-0'>{dashboard.ongoing ? dashboard.ongoing : 0}</h4>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       {/* job list */}
       <div className="col-md-9 ml-auto mr-auto p-0 mb-3">
-        {/* <div className="row m-0 justify-content-center align-items-center">
+
+        <div className="col-md-12">
+          <h5 style={{ color: PrimaryTheme.appBar, 
+            fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Latest Jobs</h5>
+        </div>
+
+        <div className="row m-0 justify-content-center align-items-center">
           {jobList ? (
             <React.Fragment>
 
@@ -141,7 +181,7 @@ export default function Dashboard() {
                   key={index}
                   title={item.title}
                   status={item.status}
-                  color={item.status === "ASSIGNED"? "success": "warning"}
+                  color={item.status === "ASSIGNED" ? "success" : "warning"}
                   createdOn={getDate(item.createdOn)}
                   onClick={() => handleClick(item._id)} />
 
@@ -150,7 +190,7 @@ export default function Dashboard() {
               {jobList.length === 0 &&
                 <React.Fragment>
                   <img src="/empty.svg" alt="No jobs" className='col-md-5 col-10' />
-                  <p className='text-center mt-3 text-light w-100'>No jobs - Create your first job</p>
+                  <p className='text-center mt-3 text-light w-100'>No jobs for you category</p>
                 </React.Fragment>
 
               }
@@ -174,9 +214,22 @@ export default function Dashboard() {
 
               </React.Fragment>
             )}
-        </div> */}
+        </div>
       </div>
 
     </div >
   )
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    card: {
+      backgroundImage: 'url(/bg.png)',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'right center',
+      color: 'white',
+    }
+  }),
+);
+

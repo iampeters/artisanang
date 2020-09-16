@@ -25,27 +25,48 @@ export const login = (state: any) => {
         const result = res;
         if (result.token) {
           // Todo - check if the user is an artisan or normal user. Also check if this artisan has complete his profile
-          sessionStorage.setItem('auth', 'true');
-          sessionStorage.setItem('userType', JSON.stringify(result.userType));
 
-          // set authentication to true
-          dispatch({
-            type: 'AUTH_TOKEN',
-            payload: { auth_token: result.token, refresh_token: result.refresh_token },
-          });
-          // set logged in user state
-          dispatch({
-            type: 'USER',
-            payload: result.user,
-          });
-          // send response to login screen
-          dispatch({
-            type: 'ALERT',
-            payload: {
-              successful: true,
-              message: 'Logged in successfully.',
-            },
-          });
+          if (result.user.userType === 2 && !result.user.hasOnboarded) {
+            // set authentication to true
+            dispatch({
+              type: 'AUTH_TOKEN',
+              payload: { auth_token: result.token, refresh_token: result.refresh_token },
+            });
+            // set logged in user state
+            dispatch({
+              type: 'USER',
+              payload: result.user,
+            });
+            // send response to login screen
+            dispatch({
+              type: 'ALERT',
+              payload: {
+                successful: true,
+                message: 'unverified',
+              },
+            });
+          } else {
+            // set authentication to true
+            sessionStorage.setItem('auth', 'true');
+            dispatch({
+              type: 'AUTH_TOKEN',
+              payload: { auth_token: result.token, refresh_token: result.refresh_token },
+            });
+            // set logged in user state
+            dispatch({
+              type: 'USER',
+              payload: result.user,
+            });
+            // send response to login screen
+            dispatch({
+              type: 'ALERT',
+              payload: {
+                successful: true,
+                message: 'Logged in successfully.',
+              },
+            });
+          }
+
         } else {
           dispatch({
             type: 'ALERT',

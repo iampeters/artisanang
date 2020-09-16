@@ -40,12 +40,12 @@ export const Routes = [
     path: '/profile',
     userType: 1
   },
-  {
-    name: 'Portfolio',
-    icon: 'business_center',
-    path: '/portfolio',
-    userType: 2
-  },
+  // {
+  //   name: 'Portfolio',
+  //   icon: 'business_center',
+  //   path: '/portfolio',
+  //   userType: 2
+  // },
   {
     name: 'Requests',
     icon: 'grading',
@@ -60,7 +60,7 @@ export const Routes = [
     userType: 2
   },
   {
-    name: 'My Reviews',
+    name: 'Reviews',
     icon: 'star-half',
     path: '/reviews',
     userType: 2
