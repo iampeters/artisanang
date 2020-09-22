@@ -18,12 +18,12 @@ export default function NetworkFailed() {
           <h4 style={{
              marginTop: 20,
              color: PrimaryTheme.primary,
-             fontFamily: PrimaryTheme.fonts?.RubikMedium
+             fontFamily: PrimaryTheme.fonts?.mediumFont
           }}>Connection broken</h4>
           <p style={{
              marginBottom: 20,
              color: PrimaryTheme.dark,
-             fontFamily: PrimaryTheme.fonts?.RubikMedium
+             fontFamily: PrimaryTheme.fonts?.mediumFont
           }}>Make sure your have internet connection.</p>
 
         </div>

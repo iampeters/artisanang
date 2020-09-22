@@ -41,7 +41,7 @@ export default function NestedList(props: Routes) {
           <ListItemIcon>
             <Icon style={{ color: props.color }}>{props.icon}</Icon>
           </ListItemIcon>
-          <ListItemText disableTypography primary={props.name} style={{ color: props.color, fontFamily: PrimaryTheme.fonts?.ProductSansBold }} />
+          <ListItemText disableTypography primary={props.name} style={{ color: props.color, fontFamily: PrimaryTheme.fonts?.boldFont }} />
         </ListItem>
       </NavLink>
     </List>

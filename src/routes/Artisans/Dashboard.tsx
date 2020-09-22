@@ -5,7 +5,6 @@ import { createStyles, Icon, makeStyles, Theme } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { Reducers, JobProps } from '../../interfaces/interface';
 import { useSnackbar } from 'notistack';
-import SearchBar from '../../components/SearchBar';
 import FolderList from '../../components/JobList';
 import { getJobs } from '../../redux/Actions/jobActions';
 import PaginationControlled from '../../components/Pagination';
@@ -21,6 +20,7 @@ export default function Dashboard() {
   const jobs = useSelector((state: Reducers) => state.jobs);
   const user = useSelector((state: Reducers) => state.user);
   const dashboard = useSelector((state: Reducers) => state.dashboard);
+
 
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
@@ -95,11 +95,11 @@ export default function Dashboard() {
       <div className='col-md-12 p-0 mb-5'>
         <div className="row">
           <div className="col-8">
-            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Dashboard</h4>
+  <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>{user.categoryId && user.categoryId.name}</h4>
           </div>
 
           <div className="col-4 text-right">
-            <button className='btn btn-color btn-sm' type="reset" onClick={handleRefresh} title="Reload">
+            <button className='btn btn-dark btn-sm' type="reset" onClick={handleRefresh} title="Reload">
               <div className="row m-0 justify-content-between align-items-center">
                 <Icon style={{
                   fontSize: 20
@@ -111,32 +111,32 @@ export default function Dashboard() {
       </div>
 
 
-      <div className="col-md-9 ml-auto mr-auto p-0 mb-3">
+      <div className="col-md-10 ml-auto mr-auto p-0 mb-3">
         <div className="row mt-4">
 
-          <div className="col-md-4 mb-3">
-            <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center"}>
+          <div className="col-md-3 mb-3">
+            <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center pointer"} onClick={() => history.push(`/requests`)}>
               <div className="row m-0 justify-content-center align-items-center">
                 <div className="col-3">
-                  <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>fiber_new</Icon>
+                  <Icon style={{ color: PrimaryTheme.warn }} fontSize='large'>fiber_new</Icon>
                 </div>
                 <div className="col">
-                  <h6 className='' style={{ color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>New Requests</h6>
+                  <h6 className='' style={{ color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.mediumFont }}>New</h6>
                   <h4 className='mb-0' style={{ color: PrimaryTheme.white }}>{dashboard.newRequest ? dashboard.newRequest : 0}</h4>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="col-md-4 mb-3">
-            <div style={{ backgroundColor: PrimaryTheme.purple }} className={classes.card + " p-3 border-radius box-shadow text-center "}>
+          <div className="col-md-3 mb-3">
+            <div style={{ backgroundColor: PrimaryTheme.purple }} className={classes.card + " p-3 border-radius box-shadow text-center pointer"} onClick={() => history.push(`/declined-requests`)}>
               {/* row */}
               <div className="row m-0 justify-content-center align-items-center">
                 <div className="col-3">
                   <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>thumb_down_alt</Icon>
                 </div>
                 <div className="col" style={{ color: PrimaryTheme.white }}>
-                  <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Declined</h6>
+                  <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Declined</h6>
                   <h4 className='mb-0'>{dashboard.declinedRequest ? dashboard.declinedRequest : 0}</h4>
                 </div>
               </div>
@@ -144,8 +144,8 @@ export default function Dashboard() {
 
           </div>
 
-          <div className="col-md-4 mb-3">
-            <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center  border-radius-bottom-left"}>
+          <div className="col-md-3 mb-3">
+            <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center  border-radius-bottom-left pointer"} onClick={() => history.push(`/active-jobs`)}>
 
               {/* row */}
               <div className="row m-0 justify-content-center align-items-center">
@@ -153,8 +153,25 @@ export default function Dashboard() {
                   <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>cached</Icon>
                 </div>
                 <div className="col">
-                  <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Ongoing</h6>
+                  <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Ongoing</h6>
                   <h4 className='mb-0'>{dashboard.ongoing ? dashboard.ongoing : 0}</h4>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="col-md-3 mb-3">
+            <div style={{ backgroundColor: PrimaryTheme.success }} className={classes.card + " p-3 box-shadow text-center  border-radius-bottom-left pointer"} onClick={() => history.push(`/completed-jobs`)}>
+
+              {/* row */}
+              <div className="row m-0 justify-content-center align-items-center">
+                <div className="col-3">
+                  <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>done_all</Icon>
+                </div>
+                <div className="col">
+                  <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Completed</h6>
+                  <h4 className='mb-0'>{dashboard.completed ? dashboard.completed : 0}</h4>
                 </div>
               </div>
             </div>
@@ -168,7 +185,8 @@ export default function Dashboard() {
 
         <div className="col-md-12">
           <h5 style={{ color: PrimaryTheme.appBar, 
-            fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Latest Jobs</h5>
+            fontFamily: PrimaryTheme.fonts?.mediumFont }}>Latest Jobs</h5>
+            <div className="dropdown-divider"></div>
         </div>
 
         <div className="row m-0 justify-content-center align-items-center">

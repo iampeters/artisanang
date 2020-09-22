@@ -85,7 +85,7 @@ export default function EmailConfirmation() {
           <h4 style={{
             marginTop: 20,
             marginBottom: 20,
-            fontFamily: PrimaryTheme.fonts?.RubikMedium,
+            fontFamily: PrimaryTheme.fonts?.mediumFont,
             color: PrimaryTheme.dark,
           }}>Email confirmation failed</h4>
           <button onClick={handleRetry} className='btn btn-success border-radius-20 btn-md pl-3 pr-3'>Retry</button>
@@ -105,7 +105,7 @@ export default function EmailConfirmation() {
             marginTop: 20,
             marginBottom: 20,
             color: PrimaryTheme.primary,
-            fontFamily: PrimaryTheme.fonts?.RubikMedium
+            fontFamily: PrimaryTheme.fonts?.mediumFont
           }}>Processing...</h4>
         </div>
         }

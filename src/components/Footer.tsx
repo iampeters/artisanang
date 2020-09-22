@@ -26,7 +26,7 @@ export default function Footer() {
 
           <div className="col-md-3 mb-3">
             <h6 style={{
-              fontFamily: PrimaryTheme.fonts?.RubikMedium,
+              fontFamily: PrimaryTheme.fonts?.mediumFont,
             }}>Download Now</h6>
             <div className="col-md-12 p-0">
               <a className='mr-1' href='https://artisana.com' target="_blank" rel="noopener noreferrer">
@@ -42,7 +42,7 @@ export default function Footer() {
 
           <div className="col-md-3 mb-3">
             <h6 style={{
-              fontFamily: PrimaryTheme.fonts?.RubikMedium,
+              fontFamily: PrimaryTheme.fonts?.mediumFont,
             }}>Contact Us</h6>
             <h6>Email: <Link href={'mailto:hello@artisana.ng'} style={{ color: PrimaryTheme.white }} target='_blank'>hello@artisana.ng</Link></h6>
 
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
           <div className="col-md-3 mb-3 text-center">
             <h6 style={{
-              fontFamily: PrimaryTheme.fonts?.RubikMedium,
+              fontFamily: PrimaryTheme.fonts?.mediumFont,
             }}>Follow us</h6>
             <a href="https://facebook.com/Artisana" target="_blank" rel="noopener noreferrer">
               <FacebookIcon size={32} round className='pointer mr-2' />

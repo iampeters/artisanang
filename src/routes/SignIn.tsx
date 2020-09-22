@@ -218,8 +218,8 @@ export default function Login() {
                 height: '100vh'
               }}>
                 <div className="col-md-12 pt-5">
-                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.RubikBold }} >Welcome back!</h1>
-                  <h5 className="display-5 mb-3" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}>Sign in to your account to continue... </h5>
+                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.boldFont }} >Welcome back!</h1>
+                  <h5 className="display-5 mb-3" style={{ fontFamily: PrimaryTheme.fonts?.primaryFont }}>Sign in to your account to continue... </h5>
                 </div>
               </div>
             </Grid>
@@ -230,7 +230,7 @@ export default function Login() {
                   <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5" style={{
-                  fontFamily: PrimaryTheme.fonts?.RubikBold
+                  fontFamily: PrimaryTheme.fonts?.boldFont
                 }}>
                   Sign in
                  </Typography>
@@ -279,7 +279,7 @@ export default function Login() {
                     className={classes.submit}
                     onClick={handleSubmit}
                     disabled={!isEmailValid || !isPasswordValid || submitted}
-                    style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
+                    style={{ background: PrimaryTheme.black, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.primaryFont }}
                   >
                     Sign In
             </Button>

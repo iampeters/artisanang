@@ -12,17 +12,17 @@ export default function About() {
         <div className="row">
           <div className="col-md-6 mb-3">
             <h4 className='' style={{
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}>About Artisana</h4>
 
             <h5 className="text-secondary" style={{
-              fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+              fontFamily: PrimaryTheme.fonts?.lightFont,
               lineHeight: 1.5
             }}>
               Artisana is a group consisting of users of artisan services to review and improve the quality of services rendered by artisans in Nigeria and beyond.
             </h5>
 
-            <button className="btn btn-color p-3 pl-5 pr-5" onClick={() => window.location.pathname = 'about'}>
+            <button className="btn btn-dark p-3 pl-5 pr-5" onClick={() => window.location.pathname = 'about'}>
               <div className="row m-0 justify-content-between align-items-center">
                 <span className='mr-3 text-uppercase'>Learn more</span>
                 <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

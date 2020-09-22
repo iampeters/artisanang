@@ -59,5 +59,21 @@ export default class JobService {
       throw err;
     }
   }
+  async completeJob(data: string) {
+    try {
+      let response = await fetch(this.jobs + `complete/${data}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.tokens.auth_token}`
+        },
+        body: JSON.stringify({})
+      });
+
+      return await response.json();
+    } catch (err) {
+      throw err;
+    }
+  }
 
 }

@@ -85,8 +85,8 @@ export default function ForgotPassword() {
                 height: '100vh'
               }}>
                 <div className="col-md-12 pt-5">
-                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Forgot your password?</h1>
-                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Don't worry we got your back...</h5>
+                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.primaryFont }} >Forgot your password?</h1>
+                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.lightFont }}>Don't worry we got your back...</h5>
                 </div>
               </div>
             </Grid>

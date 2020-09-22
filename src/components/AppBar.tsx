@@ -68,21 +68,21 @@ export default function OpenAppBar() {
     // style={{width: 100}}
     >
       <MenuItem style={{
-        fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
+        fontFamily: PrimaryTheme.fonts?.primaryFont, color: PrimaryTheme.primary,
         fontSize: 15,
       }} onClick={() => handleNavigation('/')}>
         <p className="mb-0">Home</p>
       </MenuItem>
 
       <MenuItem style={{
-        fontFamily: PrimaryTheme.fonts?.ProductSansRegular, color: PrimaryTheme.primary,
+        fontFamily: PrimaryTheme.fonts?.primaryFont, color: PrimaryTheme.primary,
         fontSize: 15,
       }} onClick={() => handleNavigation('about')}>
         <p className="mb-0">About</p>
       </MenuItem>
 
       <MenuItem style={{
-        fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+        fontFamily: PrimaryTheme.fonts?.primaryFont,
         color: PrimaryTheme.primary,
         fontSize: 15,
       }} onClick={() => handleNavigation('faqs')}>
@@ -90,14 +90,14 @@ export default function OpenAppBar() {
       </MenuItem>
       <MenuItem onClick={() => handleNavigation('sign-in')}
         style={{
-          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+          fontFamily: PrimaryTheme.fonts?.primaryFont,
           color: PrimaryTheme.primary,
         }}>
         {/* <p className="mb-0">
           Sign In</p> */}
         <button className="btn btn-white p-0 " style={{
           color: PrimaryTheme.primary,
-          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+          fontFamily: PrimaryTheme.fonts?.primaryFont,
         }} onClick={() => handleNavigation('sign-in')}>
           <div className="row m-0 align-items-center">
             <svg width="1em" height="1.1em" viewBox="0 0 16 16" className="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -110,23 +110,23 @@ export default function OpenAppBar() {
 
       <MenuItem onClick={() => handleNavigation('get-started')}
         style={{
-          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+          fontFamily: PrimaryTheme.fonts?.primaryFont,
         }}>
         {/* <p className="mb-0">Get Started</p> */}
         <button className='btn btn-appBar pr-4 pl-4 badge-pill' style={{
           fontWeight: 300,
-          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+          fontFamily: PrimaryTheme.fonts?.primaryFont,
         }} onClick={() => handleNavigation('get-started')} >Join as User</button>
       </MenuItem>
 
       <MenuItem onClick={() => handleNavigation('get-started')}
         style={{
-          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+          fontFamily: PrimaryTheme.fonts?.primaryFont,
         }}>
         {/* <p className="mb-0">Get Started</p> */}
         <button className='btn btn-appBar pr-4 pl-4 badge-pill' style={{
           fontWeight: 300,
-          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+          fontFamily: PrimaryTheme.fonts?.primaryFont,
         }} onClick={() => handleNavigation('get-started')} >Join as Artisan</button>
       </MenuItem>
 
@@ -154,9 +154,9 @@ export default function OpenAppBar() {
 
               <NavLink to='/'>
                 <div className="row m-0 justify-content-center align-items-center">
-                  <Avatar src={'/logo.png'} className='mr-1 justify-content-center align-items-center' />
-                  <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.primary, fontFamily: PrimaryTheme.fonts?.ProductSansRegular, fontWeight: 600 }}>
-                    Artisana</Typography>
+                  <img src={'/logo.png'} alt="logo" className='mr-1' width='60' />
+                  {/* <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.primary, fontFamily: PrimaryTheme.fonts?.primaryFont, fontWeight: 600 }}>
+                    Artisana</Typography> */}
                 </div>
               </NavLink>
 
@@ -164,45 +164,47 @@ export default function OpenAppBar() {
               <div className={classes.sectionDesktop}>
 
                 <button className="btn btn-white" onClick={() => handleNavigation('/')} style={{
-                  color: PrimaryTheme.primary,
-                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                  color: PrimaryTheme.black,
+                  fontFamily: PrimaryTheme.fonts?.primaryFont,
                 }}>Home</button>
 
                 <button className="btn btn-white" onClick={() => handleNavigation('/about')} style={{
-                  color: PrimaryTheme.primary,
-                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                  color: PrimaryTheme.black,
+                  fontFamily: PrimaryTheme.fonts?.primaryFont,
                 }}>About</button>
 
                 <button className="btn btn-white" onClick={() => handleNavigation('/faqs')} style={{
-                  color: PrimaryTheme.primary,
-                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                  color: PrimaryTheme.black,
+                  fontFamily: PrimaryTheme.fonts?.primaryFont,
                 }}>FAQs</button>
 
                 {/* <button className="btn btn-white" style={{
                   color: PrimaryTheme.primary,
-                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                  fontFamily: PrimaryTheme.fonts?.primaryFont,
                 }}>Support</button> */}
 
                 <button className="btn btn-white" style={{
-                  color: PrimaryTheme.primary,
-                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                  color: PrimaryTheme.black,
+                  fontFamily: PrimaryTheme.fonts?.primaryFont,
                 }} onClick={() => handleNavigation('/sign-in')}>
                   <div className="row m-0 align-items-center">
                     <svg width="1em" height="1.1em" viewBox="0 0 16 16" className="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                     </svg>
-                    <span className='ml-1'>Sign In</span>
+                    <span className='ml-1' style={{
+                      fontFamily: PrimaryTheme.fonts?.primaryFont,
+                    }}>Sign In</span>
                   </div>
                 </button>
 
-                <button className='btn btn-appBar pr-4 pl-4 badge-pill mr-2' style={{
+                <button className='btn btn-dark pr-4 pl-4 badge-pill mr-2' style={{
                   fontWeight: 300,
-                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                  fontFamily: PrimaryTheme.fonts?.primaryFont,
                 }} onClick={() => handleNavigation('/get-started')} >Join as User</button>
 
                 <button className='btn btn-warning pr-4 pl-4 badge-pill' style={{
                   fontWeight: 300,
-                  fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                  fontFamily: PrimaryTheme.fonts?.primaryFont,
                 }} onClick={() => handleNavigation('/artisan/register')} >Join as Artisan</button>
               </div>
 
@@ -213,7 +215,7 @@ export default function OpenAppBar() {
                   aria-haspopup="true"
                   onClick={handleMobileMenuOpen}
                   color="inherit"
-                  style={{ color: PrimaryTheme.primary }}
+                  style={{ color: PrimaryTheme.black }}
                 >
                   <MoreIcon />
                 </IconButton>

@@ -97,7 +97,7 @@ export default function AddReview() {
   return (
     <div className='animated fadeIn'>
       <div className='col-md-12'>
-        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Review Artisan</h4>
+        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Review Artisan</h4>
         <p className="small text-light">Have you used this artisan before? Write about your experience.</p>
       </div>
       <div className="col-md-7 ml-auto mr-auto mb-5 border-radius p-0">

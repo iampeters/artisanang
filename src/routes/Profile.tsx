@@ -153,7 +153,7 @@ export default function Profile() {
     <div className='animated fadeIn col-md-11 ml-auto mr-auto p-0'>
       <div className='col-md-12 p-0'>
         <div className="row m-0 justify-content-between">
-          <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Account</h4>
+          <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Account</h4>
         </div>
       </div>
 
@@ -169,7 +169,7 @@ export default function Profile() {
                       <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>face</Icon>
                     </div>
                     <div className="col">
-                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Artisans</h6>
+                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Artisans</h6>
                       <h4 className='mb-0'>{dashboard.artisans ? dashboard.artisans : 0}</h4>
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export default function Profile() {
                       <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>star</Icon>
                     </div>
                     <div className="col" style={{ color: PrimaryTheme.white }}>
-                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Reviews</h6>
+                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Reviews</h6>
                       <h4 className='mb-0'>{dashboard.reviews ? dashboard.reviews : 0}</h4>
                     </div>
                   </div>
@@ -193,7 +193,7 @@ export default function Profile() {
               </div>
 
               <div className="col-md-4 mb-3">
-                <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center pointer border-radius-bottom-left"} onClick={() => navigate(`/my-jobs`)}>
+                <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center pointer border-radius-bottom-left"} onClick={() => navigate(`/jobs`)}>
 
                   {/* row */}
                   <div className="row m-0 justify-content-center align-items-center">
@@ -201,7 +201,7 @@ export default function Profile() {
                       <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>business_center</Icon>
                     </div>
                     <div className="col">
-                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Jobs</h6>
+                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Jobs</h6>
                       <h4 className='mb-0'>{dashboard.allJobs ? dashboard.allJobs : 0}</h4>
                     </div>
                   </div>
@@ -219,7 +219,7 @@ export default function Profile() {
                     <div className="col-md-6 mb-4">
                       <div className="col-md-12 border border-radius-bottom-right p-3">
                         <h6 className='display-5 mb-1' style={{
-                          fontFamily: PrimaryTheme.fonts?.RubikMedium
+                          fontFamily: PrimaryTheme.fonts?.mediumFont
                         }}>First Name</h6>
                         <p className='mb-0 text-light' style={{ fontSize: 16 }}>{user.firstname}</p>
                       </div>
@@ -228,7 +228,7 @@ export default function Profile() {
                     <div className="col-md-6 mb-4">
                       <div className="col-md-12 border border-radius-bottom-left p-3">
                         <h6 className='display-5 mb-1' style={{
-                          fontFamily: PrimaryTheme.fonts?.RubikMedium
+                          fontFamily: PrimaryTheme.fonts?.mediumFont
                         }}>Last Name</h6>
                         <p className='mb-0 text-light' style={{ fontSize: 16 }}>{user.lastname}</p>
                       </div>
@@ -238,7 +238,7 @@ export default function Profile() {
                       <div className="col-md-12 border border-radius-bottom-right p-3">
                         <div className="row m-0 justify-content-between align-items-center">
                           <h6 className='display-5 mb-1' style={{
-                            fontFamily: PrimaryTheme.fonts?.RubikMedium
+                            fontFamily: PrimaryTheme.fonts?.mediumFont
                           }}>Email</h6>
                           <React.Fragment>
                             {user.isEmailVerified ? (
@@ -267,7 +267,7 @@ export default function Profile() {
                     <div className="col-md-6 mb-4">
                       <div className="col-md-12 border border-radius-bottom-left p-3">
                         <h6 className='display-5 mb-1' style={{
-                          fontFamily: PrimaryTheme.fonts?.RubikMedium
+                          fontFamily: PrimaryTheme.fonts?.mediumFont
                         }}>Phone Number</h6>
                         <p className='mb-0 text-light' style={{ fontSize: 16 }}>{user.phoneNumber}</p>
                       </div>
@@ -276,7 +276,7 @@ export default function Profile() {
                     <div className="col-md-6 mb-4">
                       <div className="col-md-12 border border-radius-bottom-right p-3">
                         <h6 className='display-5 mb-1' style={{
-                          fontFamily: PrimaryTheme.fonts?.RubikMedium
+                          fontFamily: PrimaryTheme.fonts?.mediumFont
                         }}>Location</h6>
                         <p className='mb-0 text-light' style={{ fontSize: 16 }}>{user.state} {!user.state || !user.country ? 'N/A' : ','} {user.country}</p>
                       </div>
@@ -285,7 +285,7 @@ export default function Profile() {
                     <div className="col-md-6 mb-4">
                       <div className="col-md-12 border border-radius-bottom-left p-3">
                         <h6 className='display-5 mb-1' style={{
-                          fontFamily: PrimaryTheme.fonts?.RubikMedium
+                          fontFamily: PrimaryTheme.fonts?.mediumFont
                         }}>Last Login</h6>
                         <p className='mb-0 text-light' style={{ fontSize: 16 }}>{getDateTime(user.lastLogin)}</p>
                       </div>
@@ -294,7 +294,7 @@ export default function Profile() {
                     <div className="col-md-6 mb-4">
                       <div className="col-md-12 border border-radius-bottom-right p-3">
                         <h6 className='display-5 mb-1' style={{
-                          fontFamily: PrimaryTheme.fonts?.RubikMedium
+                          fontFamily: PrimaryTheme.fonts?.mediumFont
                         }}>Joined Since</h6>
                         <p className='mb-0 text-light' style={{ fontSize: 16 }}>{getDate(user.createdOn)}</p>
                       </div>
@@ -316,7 +316,7 @@ export default function Profile() {
                   <List onClick={toggleDrawer}>
                     <div className="row m-0 justify-content-start align-items-center">
                       <Icon style={{ color: PrimaryTheme.appBar, marginRight: 5 }}>admin_panel_settings</Icon>
-                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 16 }}>Profile Settings
+                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.lightFont, fontSize: 16 }}>Profile Settings
                       </span>
                     </div>
                   </List>
@@ -326,7 +326,7 @@ export default function Profile() {
                   <List onClick={toggleChangePasswordDrawer}>
                     <div className="row m-0 justify-content-start align-items-center">
                       <Icon style={{ color: PrimaryTheme.appBar, marginRight: 5 }}>lock</Icon>
-                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, fontSize: 16 }}>Change Password
+                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.lightFont, fontSize: 16 }}>Change Password
                       </span>
                     </div>
                   </List>
@@ -336,7 +336,7 @@ export default function Profile() {
                   <List onClick={handleSignOut}>
                     <div className="row m-0 justify-content-start align-items-center">
                       <Icon style={{ color: PrimaryTheme.danger, marginRight: 5 }}>power_settings_new</Icon>
-                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight, color: PrimaryTheme.danger, fontSize: 16 }}>Logout</span>
+                      <span className='' style={{ fontFamily: PrimaryTheme.fonts?.lightFont, color: PrimaryTheme.danger, fontSize: 16 }}>Logout</span>
                     </div>
                   </List>
                 </div>

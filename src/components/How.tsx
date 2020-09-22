@@ -17,7 +17,7 @@ export default function How() {
           <div className="row">
             <div className="col-md-12 text-center">
               <h4 className='mb-3' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 color: PrimaryTheme.white
               }}>How it works</h4>
             </div>
@@ -25,7 +25,7 @@ export default function How() {
             {/* <div className="col-md-6 col-lg-3 text-white text-center mb-3">
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -37,7 +37,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -50,7 +50,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -64,7 +64,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -75,7 +75,7 @@ export default function How() {
              <div className="col-md-6 col-lg-3 text-white text-center mb-3">
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -87,7 +87,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -100,7 +100,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -114,7 +114,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -125,7 +125,7 @@ export default function How() {
             <div className="col-md-6 col-lg-3 text-white text-center mb-3">
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -137,7 +137,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -150,7 +150,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
@@ -164,7 +164,7 @@ export default function How() {
               <Icon>star</Icon>
               <Icon>star</Icon>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>

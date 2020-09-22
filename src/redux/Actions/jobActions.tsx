@@ -115,3 +115,43 @@ export const createJob = (state: any) => {
       });
   };
 };
+
+export const completeJob = (id: any) => {
+  const api = new JobService().completeJob(id);
+
+  return (dispatch: Dispatch) => {
+    api
+      .then((res: ResponseDetails) => {
+        if (res.successful) {
+          dispatch({
+            type: 'ALERT',
+            payload: {
+              message: 'Job created successfully',
+              successful: true,
+            },
+          });
+        } else {
+          dispatch({
+            type: 'ALERT',
+            payload: res,
+          });
+        }
+      })
+      .catch(() => {
+        // send err to application
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
+      });
+  };
+};

@@ -116,7 +116,7 @@ export default function BusinessInformation() {
               justifyContent: 'center',
               alignItems: 'center',
               fontWeight: 'bold',
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}>1</div>
             <div className="box" style={{
               width: 20,
@@ -130,7 +130,7 @@ export default function BusinessInformation() {
               justifyContent: 'center',
               alignItems: 'center',
               fontWeight: 'bold',
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}>2</div>
             <div className="box" style={{
               width: 20,
@@ -144,7 +144,7 @@ export default function BusinessInformation() {
               justifyContent: 'center',
               alignItems: 'center',
               fontWeight: 'bold',
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}>3</div>
           </div>
         </div>
@@ -153,14 +153,14 @@ export default function BusinessInformation() {
           <h4 style={{
             fontSize: PrimaryTheme.fontSizes?.body,
             textAlign: 'center',
-            fontFamily: PrimaryTheme.fonts?.RubikMedium,
+            fontFamily: PrimaryTheme.fonts?.mediumFont,
             color: PrimaryTheme.black,
             marginBottom: 0
           }}>Business Information</h4>
           <p style={{
             fontSize: PrimaryTheme.fontSizes?.small,
             textAlign: 'center',
-            fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+            fontFamily: PrimaryTheme.fonts?.primaryFont,
             color: PrimaryTheme.dark
           }}>Let's know what you do</p>
         </div>
@@ -170,7 +170,7 @@ export default function BusinessInformation() {
           <form>
             <div className="col-md-12 p-0">
               <p className='small' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium
+                fontFamily: PrimaryTheme.fonts?.mediumFont
               }}>Business Name</p>
             </div>
 
@@ -191,7 +191,7 @@ export default function BusinessInformation() {
 
             <div className="col-md-12 p-0">
               <p className='small' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium
+                fontFamily: PrimaryTheme.fonts?.mediumFont
               }}>RC Number</p>
             </div>
 
@@ -211,7 +211,7 @@ export default function BusinessInformation() {
 
             <div className="col-md-12 p-0">
               <p className='small' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium
+                fontFamily: PrimaryTheme.fonts?.mediumFont
               }}>Business Category</p>
             </div>
 
@@ -237,7 +237,7 @@ export default function BusinessInformation() {
 
             <div className="col-md-12 p-0">
               <p className='small' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium
+                fontFamily: PrimaryTheme.fonts?.mediumFont
               }}>Website (Optional)</p>
             </div>
 
@@ -259,7 +259,7 @@ export default function BusinessInformation() {
 
             <div className="col-md-12 p-0">
               <p className='small' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium
+                fontFamily: PrimaryTheme.fonts?.mediumFont
               }}>Years of Experience</p>
             </div>
 
@@ -285,7 +285,7 @@ export default function BusinessInformation() {
 
             <div className="col-md-12 p-0">
               <p className='small' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium
+                fontFamily: PrimaryTheme.fonts?.mediumFont
               }}>Describe what you do</p>
             </div>
 

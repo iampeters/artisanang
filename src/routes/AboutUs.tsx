@@ -23,13 +23,13 @@ export default function AboutUs() {
               <h2 style={{
                 color: PrimaryTheme.white,
                 textAlign: 'center',
-                fontFamily: PrimaryTheme.fonts?.RubikBold
+                fontFamily: PrimaryTheme.fonts?.boldFont
               }}>About us</h2>
 
               <p className="text-center col-md-6 ml-auto mr-auto" style={{
                 color: PrimaryTheme.white,
                 textAlign: 'center',
-                fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+                fontFamily: PrimaryTheme.fonts?.lightFont,
                 fontSize: '1.2rem'
               }}>
                 Artisana is a group consisting of users of artisan services to review and improve the quality of services rendered by artisans in Nigeria and beyond.
@@ -46,7 +46,7 @@ export default function AboutUs() {
             <p className="text-center" style={{
               color: PrimaryTheme.black,
               textAlign: 'center',
-              fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+              fontFamily: PrimaryTheme.fonts?.lightFont,
               fontSize: '1.2rem'
             }}>
               Most times, consumers  of artisan services do not get maximum satisfaction from the services rendered to them.

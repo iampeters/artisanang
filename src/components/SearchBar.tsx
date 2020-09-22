@@ -53,7 +53,7 @@ export default function SearchBar(props: Search) {
       </IconButton>
       <Divider className={classes.divider} orientation="vertical" />
       <IconButton className={classes.iconButton} aria-label="directions">
-        <Icon style={{ color: PrimaryTheme.primary }}>star</Icon>
+        <Icon style={{ color: PrimaryTheme.dark }}>star</Icon>
       </IconButton>
     </Paper>
   );

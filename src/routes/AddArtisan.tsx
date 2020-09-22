@@ -189,7 +189,7 @@ export default function AddArtisan() {
         <div className="row m-0">
           <div className="col-md-12 ml-auto mr-auto mb-3 text-center">
             <h4 className='text-left text-color' style={{
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}> Add Artisan <Icon>star</Icon></h4>
             <label htmlFor="file" className=' pointer'>
               <Avatar
@@ -207,7 +207,7 @@ export default function AddArtisan() {
               <div className="row m-0 w-100">
                 <div className="col-md-12">
                   <p className='small' style={{
-                    fontFamily: PrimaryTheme.fonts?.RubikMedium
+                    fontFamily: PrimaryTheme.fonts?.mediumFont
                   }}>Basic information</p>
                 </div>
 
@@ -305,7 +305,7 @@ export default function AddArtisan() {
 
                 <div className="col-md-12">
                   <p className='small' style={{
-                    fontFamily: PrimaryTheme.fonts?.RubikMedium
+                    fontFamily: PrimaryTheme.fonts?.mediumFont
                   }}>Business Information (Optional)</p>
                 </div>
 
@@ -339,7 +339,7 @@ export default function AddArtisan() {
 
                 <div className="col-md-12">
                   <p className='small' style={{
-                    fontFamily: PrimaryTheme.fonts?.RubikMedium
+                    fontFamily: PrimaryTheme.fonts?.mediumFont
                   }}>Artisan Location</p>
                 </div>
 
@@ -432,7 +432,7 @@ export default function AddArtisan() {
                             address === '' ? true : false ||
                             submitted
                     }
-                    style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white }}
+                    style={{ background: PrimaryTheme.black, color: PrimaryTheme.white }}
                   >Add Artisan</Button>
                 </div>
 

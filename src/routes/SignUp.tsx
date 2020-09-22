@@ -270,7 +270,7 @@ export default function SignUp() {
         }}>
           <div className="col-md-8 col-md-6 p-5 d-none d-md-block">
             <h2 style={{
-              fontFamily: PrimaryTheme.fonts?.RubikMedium,
+              fontFamily: PrimaryTheme.fonts?.mediumFont,
               marginBottom: 5,
               marginTop: 35,
               // color: PrimaryTheme.dark,
@@ -278,7 +278,7 @@ export default function SignUp() {
               // fontSize: PrimaryTheme.fontSizes?.small
             }}>Welcome</h2>
             <p style={{
-              fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+              fontFamily: PrimaryTheme.fonts?.lightFont,
               marginBottom: 5,
               marginTop: 5,
               fontSize: '1.2rem',
@@ -302,7 +302,7 @@ export default function SignUp() {
                 <LockOutlinedIcon />
               </Avatar>
               <Typography component="h1" variant="h5" style={{
-                fontFamily: PrimaryTheme.fonts?.RubikBold
+                fontFamily: PrimaryTheme.fonts?.boldFont
               }}>
                 User sign up
               </Typography>
@@ -434,7 +434,7 @@ export default function SignUp() {
                     !isPasswordValid ||
                     submitted
                   }
-                  style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}
+                  style={{ background: PrimaryTheme.black, color: PrimaryTheme.white, fontFamily: PrimaryTheme.fonts?.primaryFont }}
                   onClick={handleSubmit}
                 >
                   Sign Up with email

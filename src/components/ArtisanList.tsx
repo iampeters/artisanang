@@ -24,7 +24,7 @@ export default function ArtisanList(props: Artisans) {
               <div className="col-9">
                 <h4 className='mb-0' style={{
                   color: PrimaryTheme.appBar,
-                  fontFamily: PrimaryTheme.fonts?.RubikMedium
+                  fontFamily: PrimaryTheme.fonts?.mediumFont
                 }}>
                   <div className="row m-0 justify-content-start align-items-center">
                     <span className="mr-1">{`${props.firstname} ${props.lastname}`} </span>
@@ -47,7 +47,7 @@ export default function ArtisanList(props: Artisans) {
 
             <div className={" pt-2 text-center"}>
               <h4 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium
+                fontFamily: PrimaryTheme.fonts?.mediumFont
               }}>{props.rating}</h4>
               <CustomizedRatings rating={props.rating} />
               <p className="small mb-1">Based on {props.reviews} review(s)</p>

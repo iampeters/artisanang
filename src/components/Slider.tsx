@@ -18,13 +18,13 @@ export default function Slideshow() {
               backgroundColor: PrimaryTheme.transparentSurface
             }}>
               <h5 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 paddingTop: 10,
                 textAlign: 'center',
                 marginBottom: 0,
               }}>Sign Up Easily</h5>
               <p style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 textAlign: 'center',
                 padding: '0 20px',
               }}>Signing up on Artisana is free, easy and fast. Sign up with your Facebook account, G-mail or phone number.</p>
@@ -42,13 +42,13 @@ export default function Slideshow() {
               backgroundColor: PrimaryTheme.transparentSurface
             }}>
               <h5 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 paddingTop: 10,
                 textAlign: 'center',
                 marginBottom: 0,
               }}>Add Artisans</h5>
               <p style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 textAlign: 'center',
                 padding: '0 20px',
               }}>Before giving out that job, take a few seconds to add that artisan on artisana. Let’s collaborate to separate the wheat from the chaff.</p>
@@ -66,13 +66,13 @@ export default function Slideshow() {
               backgroundColor: PrimaryTheme.transparentSurface
             }}>
               <h5 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 paddingTop: 10,
                 textAlign: 'center',
                 marginBottom: 0,
               }}>Review Artisans</h5>
               <p style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                fontFamily: PrimaryTheme.fonts?.primaryFont,
                 textAlign: 'center',
                 padding: '0 20px',
               }}>Get the word out by adding a simple review about their performance on Artisana. Let others know how you feel about the artisan.</p>

@@ -108,17 +108,17 @@
 }
 
 
-.btn-color {
-  color: #fff;
-  background-color: #974578;
-  border-color: #974578;
+// .btn-dark {
+//   color: #fff;
+//   background-color: #974578;
+//   border-color: #974578;
 
-  &:hover {
-    color: #fff;
-    background-color: #974578e8;
-    border-color: #974578e8;
-  }
-}
+//   &:hover {
+//     color: #fff;
+//     background-color: #974578e8;
+//     border-color: #974578e8;
+//   }
+// }
 
 .box {
   height: 130px;
@@ -151,7 +151,7 @@
 
 .Nav-Active {
   transition: .25s !important;
-  background-color: #67164c !important;
+  background-color: #282828 !important;
   border-radius: 1.5rem 1.5rem 1.5rem 0 !important;
   width: 75% !important;
   transform: translate(15px) ;

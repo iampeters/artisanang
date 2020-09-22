@@ -17,11 +17,11 @@ export default function HowItWorks() {
           <div className="row">
             <div className="col-md-12 text-center mb-3">
               <h3 className='' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 color: PrimaryTheme.white,
               }}>Get Started</h3>
               <p style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+                fontFamily: PrimaryTheme.fonts?.lightFont,
                 color: PrimaryTheme.light
               }}>Signing up on Artisana is free and easily accessible. Sign up, add and review artisans.</p>
             </div>
@@ -29,14 +29,14 @@ export default function HowItWorks() {
 
             <div className="col-md-6 col-lg-4 text-white text-center mb-3">
               <h4 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
 
                 color: PrimaryTheme.light,
                 // textAlign: 'left'
               }}>Signup Easily</h4>
 
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+                fontFamily: PrimaryTheme.fonts?.lightFont,
                 color: PrimaryTheme.light,
                 // textAlign: 'left'
               }}>
@@ -46,13 +46,13 @@ export default function HowItWorks() {
 
             <div className="col-md-6 col-lg-4 text-white text-center mb-3">
               <h4 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
 
                 color: PrimaryTheme.light,
                 // textAlign: 'left'
               }}>Add Artisans</h4>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+                fontFamily: PrimaryTheme.fonts?.lightFont,
                 color: PrimaryTheme.light,
                 // textAlign: 'left'
               }}>
@@ -62,12 +62,12 @@ export default function HowItWorks() {
 
             <div className="col-md-6 col-lg-4 text-white text-center mb-3">
               <h4 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 color: PrimaryTheme.light,
                 // textAlign: 'left'
               }}>Review Artisans </h4>
               <h5 className="" style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansLight,
+                fontFamily: PrimaryTheme.fonts?.lightFont,
                 color: PrimaryTheme.light,
                 // textAlign: 'left'
               }}>

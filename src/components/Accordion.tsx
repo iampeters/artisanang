@@ -34,7 +34,7 @@ export default function SimpleAccordion(props: AccordionProps) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography style={{
-            fontFamily: PrimaryTheme.fonts?.ProductSansLight
+            fontFamily: PrimaryTheme.fonts?.lightFont
           }}>
             {props.body}
           </Typography>

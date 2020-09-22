@@ -1,84 +1,131 @@
+// @font-face {
+//   font-family: 'primaryFont';
+//   src: local('ProductSans-Regular'), url('../fonts/ProductSans-Regular.ttf'),
+//     url('../fonts/ProductSans-Regular.woff') format('woff');
+// }
+
+// @font-face {
+//   font-family: 'ProductSansBold';
+//   font-weight: 600;
+//   src: local('ProductSans-Bold'), url('../fonts/ProductSans-Bold.ttf');
+// }
+
+// @font-face {
+//   font-family: 'ProductSansMedium';
+//   font-weight: 500;
+//   src: local('ProductSans-Medium'), url('../fonts/ProductSans-Medium.ttf');
+// }
+// @font-face {
+//   font-family: 'ProductSansLight';
+//   font-weight: 300;
+//   src: local('ProductSans-Light'), url('../fonts/ProductSans-Light.ttf');
+// }
+
+// @font-face {
+//   font-family: 'Roboto';
+//   src: local('Roboto'), url('../fonts/Roboto.ttf');
+// }
+
+// @font-face {
+//   font-family: 'RobotoMedium';
+//   src: local('Roboto_medium'), url('../fonts/Roboto_medium.ttf');
+// }
+
+// @font-face {
+//   font-family: 'LemonadaMedium';
+//   font-weight: 400;
+//   src: local('Lemonada-Medium'), url('../fonts/Lemonada-Medium.ttf');
+// }
+
+// @font-face {
+//   font-family: 'LemonadaRegular';
+//   src: local('Lemonada-Regular'), url('../fonts/Lemonada-Regular.ttf');
+// }
+
+// @font-face {
+//   font-family: 'LemonadaLight';
+//   src: local('Lemonada-Light'), url('../fonts/Lemonada-Light.ttf');
+// }
+
+
+// @font-face {
+//   font-family: 'LemonadaBold';
+//   font-weight: 600;
+//   src: local('Lemonada-Bold'), url('../fonts/Lemonada-Bold.ttf');
+// }
+
+// @font-face {
+//   font-family: 'LemonadaSemiBold';
+//   font-weight: 500;
+//   src: local('Lemonada-SemiBold'), url('../fonts/Lemonada-SemiBold.ttf');
+// }
+
+// @font-face {
+//   font-family: 'RubikMedium';
+//   font-weight: 400;
+//   src: local('Rubik-Medium'), url('../fonts/Rubik-Medium.ttf');
+// }
+
+// @font-face {
+//   font-family: 'RubikRegular';
+//   src: local('Rubik-Regular'), url('../fonts/Rubik-Regular.ttf');
+// }
+
+// @font-face {
+//   font-family: 'RubikLight';
+//   src: local('Rubik-Light'), url('../fonts/Rubik-Light.ttf');
+// }
+
+
+// @font-face {
+//   font-family: 'RubikBold';
+//   font-weight: 600;
+//   src: local('Rubik-Bold'), url('../fonts/Rubik-Bold.ttf');
+// }
+
+
+// futura
 @font-face {
-  font-family: 'ProductSansRegular';
-  src: local('ProductSans-Regular'), url('../fonts/ProductSans-Regular.ttf'),
-    url('../fonts/ProductSans-Regular.woff') format('woff');
+  font-family: 'Futura';
+  src: local('FuturaBook'), url('../fonts/futura/FuturaBook.ttf');
 }
 
 @font-face {
-  font-family: 'ProductSansBold';
+  font-family: 'FuturaBold';
   font-weight: 600;
-  src: local('ProductSans-Bold'), url('../fonts/ProductSans-Bold.ttf');
+  src: local('Futura Bold font'), url('../fonts/futura/Futura Bold font.ttf');
 }
 
 @font-face {
-  font-family: 'ProductSansMedium';
-  font-weight: 500;
-  src: local('ProductSans-Medium'), url('../fonts/ProductSans-Medium.ttf');
-}
-@font-face {
-  font-family: 'ProductSansLight';
-  font-weight: 300;
-  src: local('ProductSans-Light'), url('../fonts/ProductSans-Light.ttf');
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: local('Roboto'), url('../fonts/Roboto.ttf');
-}
-
-@font-face {
-  font-family: 'RobotoMedium';
-  src: local('Roboto_medium'), url('../fonts/Roboto_medium.ttf');
-}
-
-@font-face {
-  font-family: 'LemonadaMedium';
-  font-weight: 400;
-  src: local('Lemonada-Medium'), url('../fonts/Lemonada-Medium.ttf');
-}
-
-@font-face {
-  font-family: 'LemonadaRegular';
-  src: local('Lemonada-Regular'), url('../fonts/Lemonada-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'LemonadaLight';
-  src: local('Lemonada-Light'), url('../fonts/Lemonada-Light.ttf');
-}
-
-
-@font-face {
-  font-family: 'LemonadaBold';
+  font-family: 'FuturaMedium';
   font-weight: 600;
-  src: local('Lemonada-Bold'), url('../fonts/Lemonada-Bold.ttf');
+  src: local('futura medium bt'), url('../fonts/futura/futura medium bt.ttf');
+}
+
+// theme fonts
+
+@font-face {
+  font-family: 'PrimaryFont';
+  src: local('FuturaBook'), url('../fonts/futura/FuturaBook.ttf');
 }
 
 @font-face {
-  font-family: 'LemonadaSemiBold';
-  font-weight: 500;
-  src: local('Lemonada-SemiBold'), url('../fonts/Lemonada-SemiBold.ttf');
-}
-
-@font-face {
-  font-family: 'RubikMedium';
-  font-weight: 400;
-  src: local('Rubik-Medium'), url('../fonts/Rubik-Medium.ttf');
-}
-
-@font-face {
-  font-family: 'RubikRegular';
-  src: local('Rubik-Regular'), url('../fonts/Rubik-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'RubikLight';
-  src: local('Rubik-Light'), url('../fonts/Rubik-Light.ttf');
+  font-family: 'LightFont';
+  // src: local('Futura Light font'), url('../fonts/futura/Futura Light font.ttf');
+  // src: local('ProductSans-Light'), url('../fonts/ProductSans-Light.ttf');
+  src: local('FuturaBook'), url('../fonts/futura/FuturaBook.ttf');
 }
 
 
 @font-face {
-  font-family: 'RubikBold';
-  font-weight: 600;
-  src: local('Rubik-Bold'), url('../fonts/Rubik-Bold.ttf');
+  font-family: 'MediumFont';
+  font-weight: 700;
+  src: local('FuturaMedium'), url('../fonts/futura/FuturaMedium.ttf');
 }
+
+@font-face {
+  font-family: 'BoldFont';
+  font-weight: 900;
+  src: local('Futura Heavy font'), url('../fonts/futura/Futura Heavy font.ttf');
+}
+

@@ -20,7 +20,7 @@ export default function Section() {
               <div className="col-md-6 pt-4">
                 <div className="" style={styles.section}>
                   <h1 className='display-3 mb-1 animated fadeIn' style={{
-                    fontFamily: PrimaryTheme.fonts?.RubikBold,
+                    fontFamily: PrimaryTheme.fonts?.boldFont,
                   }}>Are artisans</h1>
                   <h2 className='display-5 mb-3 animated flipInX' style={{
                     fontFamily: PrimaryTheme.fonts?.RubikRegular,
@@ -31,14 +31,14 @@ export default function Section() {
                       backSpeed={50}
                       loop
                     /></h2>
-                  <h5 className='display-5 mb-1 animated fadeIn' style={{ fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Don't get mad, get started with Artisana</h5>
-                  <p className="animated fadeIn" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }}>Artisana is a group consisting of users of artisan services to review and improve the quality of services rendered by artisans in Nigeria and beyond. </p>
+                  <h5 className='display-5 mb-1 animated fadeIn' style={{ fontFamily: PrimaryTheme.fonts?.mediumFont }}>Don't get mad, get started with Artisana</h5>
+                  <p className="animated fadeIn" style={{ fontFamily: PrimaryTheme.fonts?.primaryFont }}>Artisana is a group consisting of users of artisan services to review and improve the quality of services rendered by artisans in Nigeria and beyond. </p>
 
                   <div className="col-md-12 mt-5">
                     <div className="row justify-content-start mb-3">
                       <div className="col-md-12 col-lg-6 mb-3">
                         <button className='btn btn-appBar border-radius btn-lg w-100' style={{
-                          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                          fontFamily: PrimaryTheme.fonts?.primaryFont,
                         }} onClick={() => history.push('get-started')} >
                           <div className="row m-0 justify-content-center align-items-center">
                             <span className='mr-3'> Get Started</span>
@@ -59,7 +59,7 @@ export default function Section() {
                           duration={500}
                         >
                           <button className='btn btn-light border-radius btn-lg w-100' style={{
-                            fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                            fontFamily: PrimaryTheme.fonts?.primaryFont,
                             color: PrimaryTheme.active
                           }} >
                             <div className="row m-0 justify-content-center align-items-center">
@@ -78,7 +78,7 @@ export default function Section() {
                     <div className="row justify-content-start">
                       <div className="col-md-12 col-lg-6 mb-3">
                         <button className='btn btn-white border-radius p-0' style={{
-                          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                          fontFamily: PrimaryTheme.fonts?.primaryFont,
                         }} >
                           <img src={'/google-play.png'} alt="Google Play store" width='60%' className='img-responsive' />
 
@@ -87,7 +87,7 @@ export default function Section() {
 
                       <div className="col-md-12 col-lg-6 mb-3">
                         <button className='btn btn-white border-radius p-0' style={{
-                          fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                          fontFamily: PrimaryTheme.fonts?.primaryFont,
                         }} >
                           <img src={'/apple-store.png'} alt="Google Play store" width='60%' className='img-responsive' />
 

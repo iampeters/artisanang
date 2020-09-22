@@ -130,8 +130,8 @@ export default function ResetPassword() {
                 height: '100vh'
               }}>
                 <div className="col-md-12 pt-5">
-                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.ProductSansRegular }} >Reset your password</h1>
-                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.ProductSansLight }}>Your online security is our top priority...</h5>
+                  <h1 className='display-5 mt-5' style={{ fontFamily: PrimaryTheme.fonts?.primaryFont }} >Reset your password</h1>
+                  <h5 className="display-5" style={{ fontFamily: PrimaryTheme.fonts?.lightFont }}>Your online security is our top priority...</h5>
                 </div>
               </div>
             </Grid>

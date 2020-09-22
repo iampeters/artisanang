@@ -107,11 +107,11 @@ export default function CategoryComponent() {
       <div className='col-md-12 p-0 mb-4'>
         <div className="row">
           <div className="col-8">
-            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Category</h4>
+            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Category</h4>
           </div>
 
           <div className="col-4 text-right">
-            <button className='btn btn-color btn-sm' type="reset" onClick={handleRefresh} title="Reload">
+            <button className='btn btn-dark btn-sm' type="reset" onClick={handleRefresh} title="Reload">
               <div className="row m-0 justify-content-between align-items-center">
                 <Icon style={{
                   fontSize: 20

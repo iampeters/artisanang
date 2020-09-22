@@ -1,19 +1,20 @@
-$primary: #974578;
+$primary: #ffc107;
+$dark: #282828;
 
 .Mui-focused {
-  color: $primary !important;
+  color: $dark !important;
 }
 
 .MuiOutlinedInput-root .Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: $primary;
+  border-color: $dark;
 }
 
 .MuiOutlinedInput-notchedOutline {
-  border-color: $primary !important;
+  border-color: $dark !important;
 }
 
 button {
-  font-family: ProductSansRegular !important;
+  font-family: primaryFont !important;
   outline: none !important;
 }
 

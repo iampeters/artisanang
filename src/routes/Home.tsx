@@ -30,7 +30,7 @@ export default function Home() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'right center',
                 backgroundColor: PrimaryTheme.purple,
-                fontFamily: PrimaryTheme.fonts?.RubikBold,
+                fontFamily: PrimaryTheme.fonts?.boldFont,
                 textAlign: 'center',
                 color: 'white',
                 borderRadius: '10px 10px 0 0'
@@ -44,7 +44,7 @@ export default function Home() {
               borderBottomRightRadius: 5
             }}>
               <h3 className='display-5 animated fadeInDown' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikBold,
+                fontFamily: PrimaryTheme.fonts?.boldFont,
                 color: PrimaryTheme.appBar
               }}>Before giving out that job</h3>
 
@@ -69,7 +69,7 @@ export default function Home() {
                 >
                   <div className="row m-0 justify-content-around align-items-center">
                     <span style={{
-                      fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+                      fontFamily: PrimaryTheme.fonts?.primaryFont,
                       marginRight: 10,
                     }}>Get Started</span>
                     <Icon className='animated fadeInLeft infinite'>arrow_right_alt</Icon>
@@ -91,7 +91,7 @@ export default function Home() {
                 backgroundPosition: 'right center',
                 backgroundColor: PrimaryTheme.appBar,
                 color: 'white',
-                fontFamily: PrimaryTheme.fonts?.RubikBold,
+                fontFamily: PrimaryTheme.fonts?.boldFont,
                 textAlign: 'center',
                 borderRadius: '10px 10px 0 0'
 
@@ -105,7 +105,7 @@ export default function Home() {
               borderBottomRightRadius: 5
             }}>
               <h3 className='display-5 animated fadeInDown' style={{
-                fontFamily: PrimaryTheme.fonts?.RubikBold,
+                fontFamily: PrimaryTheme.fonts?.boldFont,
                 color: PrimaryTheme.appBar
               }}>Become a</h3>
               <h3 className='display-5 animated fadeIn slow'
@@ -115,7 +115,7 @@ export default function Home() {
                 }}><b>Premium User</b></h3>
               <h3 className='display-5 animated fadeIn slow'
                 style={{
-                  fontFamily: PrimaryTheme.fonts?.RubikBold,
+                  fontFamily: PrimaryTheme.fonts?.boldFont,
                   color: PrimaryTheme.appBar,
                   // backgroundColor: PrimaryTheme.white,
                 }}
@@ -132,7 +132,7 @@ export default function Home() {
               }}></h5> */}
 
               <div className="form-group mt-4 animated fadeInUp text-center">
-                <button className='btn badge-pill btn-color btn-lg pl-5 pr-3'
+                <button className='btn badge-pill btn-dark btn-lg pl-5 pr-3'
                   style={{
                     // backgroundColor: PrimaryTheme.warn
                   }}
@@ -140,7 +140,7 @@ export default function Home() {
                 >
                   <div className="row m-0 justify-content-around align-items-center">
                     <span style={{
-                      fontFamily: PrimaryTheme.fonts?.ProductSansBold,
+                      fontFamily: PrimaryTheme.fonts?.boldFont,
                       marginRight: 10,
                     }}>Get started</span>
                     <Icon className='animated fadeInLeft infinite'>arrow_right_alt</Icon>

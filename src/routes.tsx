@@ -54,9 +54,21 @@ export const Routes = [
   },
 
   {
-    name: 'Jobs',
+    name: 'Active Jobs',
     icon: 'assignment',
-    path: '/jobs',
+    path: '/active-jobs',
+    userType: 2
+  },
+  {
+    name: 'Completed Jobs',
+    icon: 'done_all',
+    path: '/completed-jobs',
+    userType: 2
+  },
+  {
+    name: 'Declined Jobs',
+    icon: 'thumb_down_alt',
+    path: '/declined-requests',
     userType: 2
   },
   {

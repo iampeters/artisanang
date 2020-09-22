@@ -94,10 +94,10 @@ export default function Welcome() {
           >
             <div className="inner col-md-8 ml-auto mr-auto">
               <h1 style={{
-                fontFamily: PrimaryTheme.fonts?.RubikBold
+                fontFamily: PrimaryTheme.fonts?.boldFont
               }}>{item.title}</h1>
               <p style={{
-                fontFamily: PrimaryTheme.fonts?.ProductSansMedium,
+                fontFamily: PrimaryTheme.fonts?.mediumFont,
                 fontSize: PrimaryTheme.fontSizes?.subtitle
               }}>{item.description}</p>
               <div className="col-md-10 col-lg-8 ml-auto mr-auto">

@@ -11,7 +11,7 @@
   box-sizing: border-box;
   outline: none !important;
   // transition: all .25s;
-  // font-family: ProductSansRegular !important;
+  // font-family: primaryFont !important;
 }
 
 a {
@@ -31,7 +31,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  font-family: 'ProductSansRegular', 'ProductSansLight', 'ProductSansMedium', 'Roboto', 'RobotoMedium', 'RubikRegular', 'RubikBold', 'RubikMedium', 'RubikLight', 'LemonadaRegular', 'LemonadaLight', 'LemonadaBold', 'LemonadaMedium' !important;
+  font-family: 'Futura', 'PrimaryFont', 'MediumFont', 'BoldFont', 'LightFont' !important;
   background-color: #f7f7f7 !important;
   background-image: url('/layout_pattern.png'),
     linear-gradient(226deg, #f7f7f7 48%, #f7f7f7 100%) !important;
@@ -44,7 +44,7 @@ code {
 }
 
 .MuiButton-root {
-  font-family: 'ProductSansRegular';
+  font-family: 'primaryFont';
   font-size: 1.01rem !important;
   text-transform: capitalize !important;
 
@@ -57,6 +57,6 @@ code {
 }
 
 .MuiTypography-body1 {
-  font-family: 'ProductSansRegular' !important;
+  font-family: 'primaryFont' !important;
   font-size: 1.05rem !important;
 }

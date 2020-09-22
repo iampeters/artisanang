@@ -102,12 +102,12 @@ export default function Dashboard() {
       <div className='col-md-12 p-0'>
         <div className="row">
           <div className="col-8">
-            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>{params.category}</h4>
+            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>{params.category}</h4>
             <p className="small text-light">Here is a list of {params.category}s.</p>
           </div>
 
           <div className="col-4 text-right">
-            <button className='btn btn-color btn-sm' type="reset" onClick={handleRefresh} title="Reload">
+            <button className='btn btn-dark btn-sm' type="reset" onClick={handleRefresh} title="Reload">
               <div className="row m-0 justify-content-between align-items-center">
                 <Icon style={{
                   fontSize: 20
@@ -142,7 +142,7 @@ export default function Dashboard() {
 
               <div className='col-md-12 text-center'>
                 <p className='text-center mt-3 text-light'>No artisans yet. Be the first to onboard an artisan</p>
-                <button className='btn btn-color' onClick={handleClick}>Get started</button>
+                <button className='btn btn-dark' onClick={handleClick}>Get started</button>
               </div>
             }
 

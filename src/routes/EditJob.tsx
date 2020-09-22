@@ -96,7 +96,7 @@ export default function AddJob() {
   return (
     <div className='animated fadeIn'>
       <div className='col-md-12 mb-5'>
-        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Create Job <Icon>star</Icon></h4>
+        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Create Job <Icon>star</Icon></h4>
       </div>
       <div className="col-md-7 ml-auto mr-auto mb-5 border-radius p-0">
         <React.Fragment>

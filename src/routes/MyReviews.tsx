@@ -75,7 +75,7 @@ export default function MyReviews() {
   return (
     <div className='animated fadeIn'>
       <div className='col-md-12 p-0'>
-        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>My Reviews</h4>
+        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Reviews</h4>
         <p className="small text-light">Here is a list of all your reviews so far.</p>
       </div>
 

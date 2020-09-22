@@ -33,7 +33,7 @@ export interface Theme {
   fonts?: {
     Roboto?: string;
     RobotoMedium?: string;
-    ProductSansRegular?: string;
+    primaryFont?: string;
     ProductSansBold?: string;
     ProductSansLight?: string;
     ProductSansMedium?: string;
@@ -47,6 +47,10 @@ export interface Theme {
     RubikLight?: string;
     RubikItalic?: string;
     RubikBold?: string;
+    ProductSansRegular?: string;
+    boldFont?: string;
+    lightFont?: string;
+    mediumFont?: string;
   };
   fontSizes?: {
     heading?: number;
@@ -132,6 +136,7 @@ export interface Dashboard {
   artisans?: number;
   reviews?: number
   ongoing?: number;
+  completed?: number;
   newRequest?: number;
   declinedRequest?: number;
 }
@@ -141,9 +146,10 @@ export interface JobProps {
   description?: string;
   categoryId?: any;
   createdOn?: string;
+  phoneNumber?: string;
   budget?: number;
   artisanId?: any;
-  status?: "NEW" | "ASSIGNED" | "PENDING" | "ACCEPTED"
+  status?: "NEW" | "ASSIGNED" | "PENDING" | "ACCEPTED" | "COMPLETED"
   _id: string;
 }
 

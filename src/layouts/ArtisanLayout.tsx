@@ -23,6 +23,8 @@ import Requests from '../routes/Artisans/Requests';
 import Portfolio from '../routes/Artisans/Portfolio';
 import RequestDetails from '../routes/Artisans/RequestDetails';
 import JobDetails from '../routes/Artisans/JobDetails';
+import CompletedJobs from '../routes/Artisans/CompletedJobs';
+import DeclinedRequests from '../routes/Artisans/DeclinedRequest';
 
 export default function ArtisanLayout() {
   const classes = useStyles();
@@ -58,8 +60,16 @@ export default function ArtisanLayout() {
                   <Dashboard />
                 </Route>
 
-                <Route exact strict path='/jobs'>
+                <Route exact strict path='/active-jobs'>
                   <Jobs />
+                </Route>
+
+                <Route exact strict path='/completed-jobs'>
+                  <CompletedJobs />
+                </Route>
+
+                <Route exact strict path='/declined-requests'>
+                  <DeclinedRequests />
                 </Route>
 
                 <Route exact strict path='/jobs/details/:id'>

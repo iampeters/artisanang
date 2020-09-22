@@ -83,13 +83,13 @@ export default function EmailVerification() {
             marginTop: 20,
             marginBottom: 5,
             color: PrimaryTheme.success,
-            fontFamily: PrimaryTheme.fonts?.RubikMedium,
+            fontFamily: PrimaryTheme.fonts?.mediumFont,
             fontSize: PrimaryTheme.fontSizes?.body
           }}>Verify your email</h4>
 
           <p style={{
             color: PrimaryTheme.dark,
-            fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+            fontFamily: PrimaryTheme.fonts?.primaryFont,
           }}>We sent a verification email to <b>{user.email}</b>. <br /> Please click the link inside that email to continue.</p>
 
           <div className="col-md-12">

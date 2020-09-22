@@ -42,7 +42,7 @@ export default function Nav() {
           onClick={toggleDrawer} />
       </div>
       <div className="col-md-12 p-2 text-center border-radius">
-        <h5 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikBold }}>
+        <h5 className='mb-0' style={{ color: PrimaryTheme.black, fontFamily: PrimaryTheme.fonts?.boldFont }}>
           <div className="row m-0 justify-content-center align-items-center">
             {`${user.firstname} ${user.lastname}`}
 

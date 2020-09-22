@@ -85,6 +85,12 @@ export default function PersonalInformation() {
   };
 
   const handleSubmit = (e: any) => {
+
+    if (imageUrl === '/add-user.png') {
+      window.alert('Please upload your photo!');
+      return;
+    }
+
     e.preventDefault();
     setSubmitted(true);
 
@@ -183,7 +189,7 @@ export default function PersonalInformation() {
               justifyContent: 'center',
               alignItems: 'center',
               fontWeight: 'bold',
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}>1</div>
             <div className="box" style={{
               width: 20,
@@ -197,7 +203,7 @@ export default function PersonalInformation() {
               justifyContent: 'center',
               alignItems: 'center',
               fontWeight: 'bold',
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}>2</div>
             <div className="box" style={{
               width: 20,
@@ -211,7 +217,7 @@ export default function PersonalInformation() {
               justifyContent: 'center',
               alignItems: 'center',
               fontWeight: 'bold',
-              fontFamily: PrimaryTheme.fonts?.RubikMedium
+              fontFamily: PrimaryTheme.fonts?.mediumFont
             }}>3</div>
           </div>
         </div>
@@ -220,14 +226,14 @@ export default function PersonalInformation() {
           <h4 style={{
             fontSize: PrimaryTheme.fontSizes?.body,
             textAlign: 'center',
-            fontFamily: PrimaryTheme.fonts?.RubikMedium,
+            fontFamily: PrimaryTheme.fonts?.mediumFont,
             color: PrimaryTheme.black,
             marginBottom: 0
           }}>Personal Information</h4>
           <p style={{
             fontSize: PrimaryTheme.fontSizes?.small,
             textAlign: 'center',
-            fontFamily: PrimaryTheme.fonts?.ProductSansRegular,
+            fontFamily: PrimaryTheme.fonts?.primaryFont,
             color: PrimaryTheme.dark
           }}>Update your information</p>
         </div>
@@ -405,8 +411,7 @@ export default function PersonalInformation() {
                     state === '' ? true : false ||
                       country === '' ? true : false ||
                         address === '' ? true : false ||
-                          submitted ||
-                          imageUrl === '/add-user.png' ? true : false
+                          submitted
                 }
                 style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white }}
               >Update Profile</Button>

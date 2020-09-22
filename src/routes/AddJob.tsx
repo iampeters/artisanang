@@ -9,6 +9,7 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { getCategory } from '../redux/Actions/categoryActions';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { createJob } from '../redux/Actions/jobActions';
+import { Phone } from '@material-ui/icons';
 
 export default function AddJob() {
   const classes = useStyles();
@@ -22,6 +23,8 @@ export default function AddJob() {
   const [title, setTitle]: any = React.useState('');
   const [description, setDescription]: any = React.useState('');
   const [submitted, setSubmitted]: any = React.useState(null);
+  const [phoneNumberValid, setPhoneNumberValid]: any = React.useState(null);
+  const [phoneNumber, setPhoneNumber]: any = React.useState('');
   const [categoryId, setCategoryId]: any = React.useState({})
 
   let categoryList: any = category.items && category.items;
@@ -39,12 +42,24 @@ export default function AddJob() {
       title,
       description,
       categoryId: categoryId._id,
+      phoneNumber,
       userId: user._id
     };
 
     dispatch(createJob(data));
 
   }
+
+  const validatePhoneNumber = (text: any) => {
+    let reg = /^[0-9]{11,11}$/;
+    if (!reg.test(text)) {
+      setPhoneNumber(text);
+      setPhoneNumberValid(false);
+    } else {
+      setPhoneNumber(text);
+      setPhoneNumberValid(true);
+    }
+  };
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -95,7 +110,7 @@ export default function AddJob() {
   return (
     <div className='animated fadeIn'>
       <div className='col-md-12 mb-5'>
-        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Create Job <Icon>star</Icon></h4>
+        <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Create Job <Icon>star</Icon></h4>
       </div>
       <div className="col-md-7 ml-auto mr-auto mb-5 border-radius p-0">
         <React.Fragment>
@@ -142,6 +157,23 @@ export default function AddJob() {
                 </div>
 
                 <div className="form-group col-md-12">
+                  <TextField
+                    name="contact"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="contact"
+                    label="Contact Phone Number"
+                    inputMode='tel'
+                    value={phoneNumber}
+                    onChange={e => validatePhoneNumber(e.target.value)}
+                    disabled={submitted}
+                    error={!phoneNumberValid && phoneNumberValid !== null}
+                    helperText={!phoneNumberValid && phoneNumberValid !== null && 'Invalid phone number'}
+                  />
+                </div>
+
+                <div className="form-group col-md-12">
                   <TextareaAutosize
                     name="Enter description"
                     placeholder="Enter job description"
@@ -149,7 +181,7 @@ export default function AddJob() {
                     id="description"
                     value={description}
                     className="w-100 border-radius p-2"
-                    style={{ minHeight: 200, borderColor: PrimaryTheme.primary }}
+                    style={{ minHeight: 200, borderColor: PrimaryTheme.black }}
                     onChange={e => setDescription(e.target.value)}
                     disabled={
                       submitted ||
@@ -170,7 +202,7 @@ export default function AddJob() {
                         description === '' ? true : false ||
                         submitted
                     }
-                    style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white }}
+                    style={{ background: PrimaryTheme.black, color: PrimaryTheme.white }}
                   >Create Job</Button>
                 </div>
               </div>

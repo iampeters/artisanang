@@ -5,8 +5,6 @@ import { Icon } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { Reducers, JobProps } from '../../interfaces/interface';
 import { useSnackbar } from 'notistack';
-import SearchBar from '../../components/SearchBar';
-import FloatingActionButtons from '../../components/Fab';
 import FolderList from '../../components/JobList';
 import { getJobs } from '../../redux/Actions/jobActions';
 import PaginationControlled from '../../components/Pagination';
@@ -25,12 +23,11 @@ export default function Jobs() {
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(0)
   const [pageSize, setPageSize] = React.useState(25);
-  const [search, setSearch] = React.useState('');
 
   let jobList: any = jobs.items && jobs.items;
 
 
-  let filter: any = { artisanId: user._id };
+  let filter: any = { artisanId: user._id, status: 'ASSIGNED' };
   let paginationConfig = {
     page: page + 1,
     pageSize,
@@ -39,15 +36,6 @@ export default function Jobs() {
 
   const handleClick = (id: any) => {
     history.push(`/jobs/details/${id}`)
-  }
-
-  const navigate = () => {
-    history.push(`/jobs/new`)
-  }
-
-  const handleSearch = (event: any) => {
-    let text = event.target.value;
-    setSearch(text)
   }
 
   const handleRefresh = () => {
@@ -70,21 +58,9 @@ export default function Jobs() {
   };
 
   React.useEffect(() => {
-    if (search.length >= 2) {
-      filter.title = search.trim();
-      paginationConfig.whereCondition = JSON.stringify(filter)
-
-      dispatch(getJobs(paginationConfig));
-    } else {
-
-      if (search.length === 0) {
-        delete filter.name;
-        dispatch(getJobs(paginationConfig));
-      }
-    }
-
+    dispatch(getJobs(paginationConfig));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, page, search]);
+  }, [dispatch, page]);
 
   React.useEffect(() => {
     if (Object.entries(alert).length !== 0) {
@@ -115,11 +91,11 @@ export default function Jobs() {
       <div className='col-md-12 p-0 mb-4'>
         <div className="row">
           <div className="col-8">
-            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.RubikMedium }}>Jobs</h4>
+            <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>Active Jobs</h4>
           </div>
 
           <div className="col-4 text-right">
-            <button className='btn btn-color btn-sm' type="reset" onClick={handleRefresh} title="Reload">
+            <button className='btn btn-dark btn-sm' type="reset" onClick={handleRefresh} title="Reload">
               <div className="row m-0 justify-content-between align-items-center">
                 <Icon style={{
                   fontSize: 20
@@ -154,7 +130,7 @@ export default function Jobs() {
                   key={index}
                   title={item.title}
                   status={item.status}
-                  color={item.status === "ASSIGNED"? "success": "warning"}
+                  color={item.status === "ASSIGNED"? "success": (item.status === "COMPLETED"? "success" :"warning")}
                   createdOn={getDate(item.createdOn)}
                   onClick={() => handleClick(item._id)} />
 

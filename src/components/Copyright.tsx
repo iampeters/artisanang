@@ -7,7 +7,7 @@ import PrimaryTheme from '../themes/Primary';
 export default function Copyright(props: CopyrightProps) {
   return (
     <Typography variant="body2" color={props.color} align="center" style={{
-      fontFamily: PrimaryTheme.fonts?.ProductSansRegular
+      fontFamily: PrimaryTheme.fonts?.primaryFont
     }}>
       {'Copyright © '}
       <Link color="inherit" href="https://artisana.ng/" target="_blank" rel='noopener noreferer'>

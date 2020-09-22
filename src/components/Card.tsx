@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { Avatar, CardHeader } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { Reducers } from '../interfaces/interface';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -20,16 +21,17 @@ const useStyles = makeStyles({
 export default function ImgMediaCard(props: CardProps) {
   const classes = useStyles();
   const user = useSelector((state: Reducers) => state.user);
+  const history = useHistory();
 
   return (
     <Card className={classes.root + ' col-md-12 ml-auto mr-auto'}>
       <div className="row m-0 justify-content-between align-items-center pt-3 pb-3">
-       {props.artisanImage &&  <div>
-          <CardHeader className="btn btn-link"
+        {props.artisanImage && <div>
+          <CardHeader className="btn text-dark"
             avatar={
               <Avatar src={props.artisanImage} alt={props.artisan} />
             }
-            subheader={props.artisan} />
+            subheader={props.artisan} onClick={() => history.push(`/artisans/details/${props.artisanId && props.artisanId._id}`)} />
         </div>}
         <div>
           <span className={"badge badge-pill p-2 pl-3 pr-3 badge-" + props.color}>{props.status}</span>
@@ -66,6 +68,23 @@ export default function ImgMediaCard(props: CardProps) {
           <Typography variant="body2" color="textSecondary" component="p">
             {props.date}
           </Typography>
+          {props.status !== "PENDING" && props.status !== "NEW" && user.userType === 2 && <React.Fragment>
+            <Typography gutterBottom variant="h6" component="h2" className="mt-3">
+              {"Contact"}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.phoneNumber}
+            </Typography>
+          </React.Fragment>}
+
+          {user.userType === 1 && <React.Fragment>
+            <Typography gutterBottom variant="h6" component="h2" className="mt-3">
+              {"Contact"}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.phoneNumber}
+            </Typography>
+          </React.Fragment>}
 
         </CardContent>
       </CardActionArea>
@@ -76,11 +95,20 @@ export default function ImgMediaCard(props: CardProps) {
         }} variant="contained">
           {props.actionButton}
         </Button>
-        <Button onClick={props.onEdit} size="medium" style={{
+        {/* <Button onClick={props.onEdit} size="medium" style={{
           color: props.secondActionButtonColor,
           backgroundColor: props.secondActionButtonBgColor
         }}>
           {props.secondActionButton}
+        </Button> */}
+      </CardActions>}
+
+      {props.status === "ASSIGNED" && user.userType !== 2 && <CardActions className="pt-3 pb-3">
+        <Button onClick={props.onComplete} size="medium" style={{
+          color: props.completeActionButtonColor,
+          backgroundColor: props.completeActionButtonBgColor
+        }} variant="contained">
+          {props.completeAction}
         </Button>
       </CardActions>}
     </Card>
@@ -92,12 +120,13 @@ interface CardProps {
   title: string;
   image?: string;
   description?: string;
-  status?: "NEW" | "PENDING" | "ASSIGNED" | "ACCEPTED";
+  status?: "NEW" | "PENDING" | "ASSIGNED" | "ACCEPTED" | "COMPLETED";
   category?: string;
   date?: string;
   artisan?: string;
+  phoneNumber?: string;
   artisanImage?: string;
-  artisanId?: string;
+  artisanId?: any;
   color?: "warning" | "success" | "danger" | "info" | "light" | "primary";
   onClick?: any;
   onEdit?: any;
@@ -108,5 +137,8 @@ interface CardProps {
   secondActionButtonBgColor?: string;
   actionButtonColor?: string;
   actionButtonBgColor?: string;
-
+  completeAction?: "Complete";
+  completeActionButtonColor?: string;
+  completeActionButtonBgColor?: string;
+  onComplete?: any;
 }

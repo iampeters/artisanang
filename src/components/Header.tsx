@@ -129,7 +129,7 @@ export default function SecuredAppBar() {
             aria-label="open drawer"
             onClick={() => handleMenuToggle(menu)}
           >
-            <MenuIcon style={{ color: PrimaryTheme.appBar }} />
+            <MenuIcon style={{ color: PrimaryTheme.black }} />
           </IconButton>
 
           <IconButton
@@ -139,10 +139,10 @@ export default function SecuredAppBar() {
             aria-label="open drawer"
             onClick={toggleDrawer}
           >
-            <MenuIcon style={{ color: PrimaryTheme.appBar }} />
+            <MenuIcon style={{ color: PrimaryTheme.black }} />
           </IconButton>
 
-          <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.appBar }}>
+          <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.black }}>
             Artisana
           </Typography>
           {/* <div className={classes.search}>
