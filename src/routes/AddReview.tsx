@@ -10,6 +10,7 @@ import Placeholder from '../components/Skeleton';
 import { createReviews } from '../redux/Actions/reviewAction';
 import Ratings from '../components/HoverRating';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 export default function AddReview() {
   const classes = useStyles();
@@ -28,6 +29,14 @@ export default function AddReview() {
   const [ratingSet, setRatingSet]: any = React.useState(null);
 
   let data: Artisans = artisan.result && artisan.result;
+
+  const titles: any[] = [
+    { name: 'Poor', value: "Poor" },
+    { name: 'Very poor', value: "Very poor" },
+    { name: "Good", value: "Good" },
+    { name: "Very good", value: "Very good" },
+    { name: "Excellent", value: "Excellent" }
+  ];
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -53,7 +62,7 @@ export default function AddReview() {
       setRatingSet(false)
     }
   }
-  
+
   React.useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getArtisanDetails(params.id))
@@ -128,7 +137,7 @@ export default function AddReview() {
 
                 <div className="row m-0 w-100">
                   <div className="form-group col-md-12">
-                    <TextField
+                    {/* <TextField
                       name="title"
                       variant="outlined"
                       required
@@ -141,7 +150,26 @@ export default function AddReview() {
                       disabled={submitted}
                       error={title.length <= 4 && title !== ''}
                       helperText={title.length <= 4 && title !== '' && 'Title should be more than 4 characters'}
-                    />
+                    /> */}
+
+                  <Autocomplete
+                    id="title"
+                    options={titles}
+                    getOptionLabel={(option: any) => option.name}
+                    fullWidth
+                    disabled={submitted}
+                    onChange={(e, option) => setTitle(option.value)}
+                    renderInput={(params) => <TextField {...params}
+                      label="Select Title"
+                      variant="outlined"
+                      required
+                      name='title'
+                      value={title}
+                      autoComplete='Title'
+                      onChange={e => setTitle(e.target.value)}
+                    />}
+                  />
+
                   </div>
 
                   <div className="form-group col-md-12">
@@ -151,7 +179,7 @@ export default function AddReview() {
                       id="description"
                       value={description}
                       className="w-100 border-radius p-2"
-                      style={{ minHeight: 200, borderColor: PrimaryTheme.primary }}
+                      style={{ minHeight: 200, borderColor: PrimaryTheme.black }}
                       onChange={e => setDescription(e.target.value)}
                       disabled={
                         submitted ||
@@ -172,7 +200,7 @@ export default function AddReview() {
                           description === '' ? true : false ||
                           submitted
                       }
-                      style={{ background: PrimaryTheme.primary, color: PrimaryTheme.white }}
+                      style={{ background: PrimaryTheme.black, color: PrimaryTheme.warn }}
                     >Add Review</Button>
                   </div>
                 </div>

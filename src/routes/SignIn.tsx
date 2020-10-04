@@ -133,7 +133,7 @@ export default function Login() {
         // The firebase.auth.AuthCredential type that was used.
         const credential = error.credential;
 
-        console.log(errorCode, errorMessage, email, credential);
+        console.log(errorCode, errorMessage);
         dispatch({
           type: 'ALERT',
           payload: {

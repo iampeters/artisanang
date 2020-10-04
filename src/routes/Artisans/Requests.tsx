@@ -119,7 +119,7 @@ export default function Requests() {
                   key={index}
                   title={item.jobId && item.jobId.title}
                   status={item.status}
-                  color={item.status === "ACCEPTED" ? "success": "warning"}
+                  color={item.status === "ACCEPTED" ? "success": (item.status === "DECLINED"? "danger": 'warning')}
                   createdOn={getDate(item.createdOn)}
                   onClick={() => handleClick(item._id)} />
 

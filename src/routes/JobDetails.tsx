@@ -186,6 +186,11 @@ export default function JobDetails() {
             completeActionButtonColor={PrimaryTheme.white}
             onComplete={handleComplete}
             phoneNumber={jobs.phoneNumber}
+            navigationText="Rate Artisan"
+            address={jobs.address}
+            state={jobs.state}
+            lga={jobs.lga}
+            goto={() => history.push(`/reviews/add/${jobs.artisanId && jobs.artisanId?._id}`)}
           />
           : (
             <React.Fragment>
@@ -217,6 +222,8 @@ export default function JobDetails() {
                 rating={item.rating}
                 image={item.imageUrl}
                 status="Assign"
+                state={item.state}
+                country={item.country}
                 onAssign={() => assignJob(item._id)} />
             )
           })}
@@ -228,8 +235,8 @@ export default function JobDetails() {
                 <p className='text-center mt-3 text-light w-100'>No artisan in this category.</p>
                 <div className="col-md-12 text-center mb-3">
                   <button className="btn" style={{
-                    backgroundColor: PrimaryTheme.active,
-                    color: PrimaryTheme.white
+                    backgroundColor: PrimaryTheme.black,
+                    color: PrimaryTheme.warn
                   }} onClick={() => history.push('/artisans/add')}>Add Artisan</button>
                 </div>
               </div>

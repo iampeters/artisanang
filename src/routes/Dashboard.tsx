@@ -1,6 +1,5 @@
 import React from 'react'
 import ArtisanList from '../components/ArtisanList';
-import SearchBar from '../components/SearchBar';
 import FloatingActionButtons from '../components/Fab';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +10,11 @@ import PaginationControlled from '../components/Pagination';
 import Placeholder from '../components/Skeleton';
 import PrimaryTheme from '../themes/Primary';
 import { Icon } from '@material-ui/core';
+import { States } from '../helpers/States';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField/TextField';
+import Tooltip from '@material-ui/core/Tooltip/Tooltip';
+
 
 export default function Dashboard() {
   const history = useHistory();
@@ -23,7 +27,8 @@ export default function Dashboard() {
 
   const [page, setPage] = React.useState(0)
   const [pageSize, setPageSize] = React.useState(25)
-  const [search, setSearch] = React.useState('');
+  const [canFilter, showFilter] = React.useState(false);
+  const [state, setState]: any = React.useState('');
 
   let filter: Artisans = { categoryId: params.id };
   let paginationConfig = {
@@ -47,16 +52,15 @@ export default function Dashboard() {
     history.push(route)
   }
 
-  // React.useEffect(() => {
-  //   if (search.length >= 4) {
-  //     filter.name = search.trim();
-  //     paginationConfig.whereCondition = JSON.stringify(filter)
+  React.useEffect(() => {
+    if (state !== '') {
+      filter.state = state;
+      paginationConfig.whereCondition = JSON.stringify(filter)
+      dispatch(getArtisans(paginationConfig));
+    }
 
-  //     dispatch(getArtisans(paginationConfig));
-  //   }
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [dispatch, search]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, state]);
 
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -101,22 +105,62 @@ export default function Dashboard() {
     <div className='animated fadeIn'>
       <div className='col-md-12 p-0'>
         <div className="row">
-          <div className="col-8">
+          <div className="col-md-8">
             <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}>{params.category}</h4>
             <p className="small text-light">Here is a list of {params.category}s.</p>
           </div>
 
-          <div className="col-4 text-right">
-            <button className='btn btn-dark btn-sm' type="reset" onClick={handleRefresh} title="Reload">
-              <div className="row m-0 justify-content-between align-items-center">
-                <Icon style={{
-                  fontSize: 20
-                }}>refresh</Icon>
-              </div>
-            </button>
+          <div className="col-md-4 text-right">
+            <Tooltip title="Go back">
+              <button className='btn btn-dark btn-sm mr-1' type="button" onClick={() => showFilter(!canFilter)} title="Filter">
+                <div className="row m-0 justify-content-between align-items-center">
+                  <Icon style={{
+                    fontSize: 20
+                  }}>filter_list</Icon>
+                </div>
+              </button>
+            </Tooltip>
+
+            <Tooltip title="Reload">
+              <button className='btn btn-dark btn-sm' type="reset" onClick={handleRefresh}>
+                <div className="row m-0 justify-content-between align-items-center">
+                  <Icon style={{
+                    fontSize: 20
+                  }}>refresh</Icon>
+                </div>
+              </button>
+            </Tooltip>
           </div>
         </div>
       </div>
+
+      {canFilter && <div className="col-md-9 col-lg-8 ml-auto mr-auto p-0 mb-5 mt-3">
+        <div className="p-2 bg-white animated fadeIn border-radius">
+          <h5 style={{
+            color: PrimaryTheme.black,
+            fontFamily: PrimaryTheme.fonts?.primaryFont
+          }}>Filter</h5>
+          <div className="form-group col-sm-6">
+            <Autocomplete
+              id="state"
+              options={States}
+              getOptionLabel={(option) => option.name}
+              fullWidth
+              onChange={(e, option) => setState(option?.name)}
+              renderInput={(params) => <TextField {...params}
+                label="State"
+                variant="outlined"
+                required
+                name='state'
+                value={state}
+                autoComplete='state'
+              // onChange={e => setState(e.target.value)}
+              // disabled={submitted}
+              />}
+            />
+          </div>
+        </div>
+      </div>}
 
       <div className="col-md-9 col-lg-8 ml-auto mr-auto p-0 mb-5">
         {artisans.items ? (

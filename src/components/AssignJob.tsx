@@ -59,14 +59,17 @@ export default function AssignJob(props: ListProps) {
                   <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984a.5.5 0 0 0-.708-.708L7 8.793 5.854 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
                 </svg>}
             </p>
-            <p className='col-md-12 mb-0 small text-secondary'>
+
+            <p className='col-md-12 mb-0 small text-secondary'>{props.state}{props.state && ", "} {props.country}</p>
+            
+            <div className='col-md-12 mb-0 small text-secondary'>
              <div className="row m-0 justify-content-start align-items-center">
             <span className="mr-1"> {props.rating}</span>
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-star-fill" fill={PrimaryTheme.rating} xmlns="http://www.w3.org/2000/svg">
                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
               </svg>
              </div>
-            </p>
+            </div>
           </div>
         </React.Fragment>
 
@@ -92,9 +95,11 @@ export default function AssignJob(props: ListProps) {
 interface ListProps {
   color?: "success" | "warning" | "info" | "danger";
   status?: string;
-  title: string;
+  title?: string;
   rating?: number | any;
   image?: string;
+  state?: string;
+  country?: string;
   onView?: ((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void) | any;
   onAssign?: ((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void) | any;
 }

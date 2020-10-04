@@ -166,26 +166,32 @@ export default function Profile() {
                 <div style={{ backgroundColor: PrimaryTheme.appBar, }} className={classes.card + " p-3 border-radius-bottom-right box-shadow text-center"}>
                   <div className="row m-0 justify-content-center align-items-center">
                     <div className="col-3">
-                      <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>face</Icon>
+                      <Icon style={{ color: PrimaryTheme.light }} fontSize='large'>face</Icon>
                     </div>
                     <div className="col">
-                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Artisans</h6>
-                      <h4 className='mb-0'>{dashboard.artisans ? dashboard.artisans : 0}</h4>
+                      <h6 className='' style={{ color: PrimaryTheme.warn, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Artisans</h6>
+                      <h4 className='mb-0' style={{
+                        fontWeight: "bolder",
+                        color: PrimaryTheme.warn
+                      }}>{dashboard.artisans ? dashboard.artisans : 0}</h4>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="col-md-4 mb-3">
-                <div style={{ backgroundColor: PrimaryTheme.purple }} className={classes.card + " p-3 border-radius box-shadow text-center pointer"} onClick={() => navigate(`/reviews`)}>
+                <div style={{ backgroundColor: PrimaryTheme.appBar }} className={classes.card + " p-3 border-radius box-shadow text-center pointer"} onClick={() => navigate(`/reviews`)}>
                   {/* row */}
                   <div className="row m-0 justify-content-center align-items-center">
                     <div className="col-3">
-                      <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>star</Icon>
+                      <Icon style={{ color: PrimaryTheme.light }} fontSize='large'>star</Icon>
                     </div>
                     <div className="col" style={{ color: PrimaryTheme.white }}>
-                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Reviews</h6>
-                      <h4 className='mb-0'>{dashboard.reviews ? dashboard.reviews : 0}</h4>
+                      <h6 className='' style={{ color: PrimaryTheme.warn, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Reviews</h6>
+                      <h4 className='mb-0' style={{
+                        fontWeight: "bolder",
+                        color: PrimaryTheme.warn
+                      }}>{dashboard.reviews ? dashboard.reviews : 0}</h4>
                     </div>
                   </div>
                 </div>
@@ -193,16 +199,19 @@ export default function Profile() {
               </div>
 
               <div className="col-md-4 mb-3">
-                <div style={{ backgroundColor: PrimaryTheme.black }} className={classes.card + " p-3 box-shadow text-center pointer border-radius-bottom-left"} onClick={() => navigate(`/jobs`)}>
+                <div style={{ backgroundColor: PrimaryTheme.appBar }} className={classes.card + " p-3 box-shadow text-center pointer border-radius-bottom-left"} onClick={() => navigate(`/jobs`)}>
 
                   {/* row */}
                   <div className="row m-0 justify-content-center align-items-center">
                     <div className="col-3">
-                      <Icon style={{ color: PrimaryTheme.white }} fontSize='large'>business_center</Icon>
+                      <Icon style={{ color: PrimaryTheme.light }} fontSize='large'>business_center</Icon>
                     </div>
                     <div className="col">
-                      <h6 className='' style={{ color: PrimaryTheme.light, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Jobs</h6>
-                      <h4 className='mb-0'>{dashboard.allJobs ? dashboard.allJobs : 0}</h4>
+                      <h6 className='' style={{ color: PrimaryTheme.warn, fontFamily: PrimaryTheme.fonts?.mediumFont }}>My Jobs</h6>
+                      <h4 className='mb-0' style={{
+                        fontWeight: "bolder",
+                        color: PrimaryTheme.warn
+                      }}>{dashboard.allJobs ? dashboard.allJobs : 0}</h4>
                     </div>
                   </div>
                 </div>

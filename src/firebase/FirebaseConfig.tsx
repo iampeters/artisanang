@@ -3,7 +3,7 @@ import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyClnDnkXUII3wrEWaRb2WwSIFTasitToQY",
-  authDomain: "artisana-cce6a.firebaseapp.com", //"app.artisana.ng" //artisana-cce6a.firebaseapp.com,
+  authDomain: "auth.artisana.ng", //"artisana-cce6a.firebaseapp.com", //"app.artisana.ng" //artisana-cce6a.firebaseapp.com,
   databaseURL: "https://artisana-cce6a.firebaseio.com",
   projectId: "artisana-cce6a",
   storageBucket: "artisana-cce6a.appspot.com",

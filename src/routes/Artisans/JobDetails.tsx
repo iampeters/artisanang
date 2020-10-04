@@ -163,6 +163,10 @@ export default function JobDetails() {
             date={getDate(jobs.createdOn)}
             category={jobs.categoryId && jobs.categoryId.name}
             color={jobs.status === "NEW" || jobs.status === "PENDING" ? "warning" : "success"}
+            phoneNumber={jobs.phoneNumber}
+            address={jobs.address}
+            state={jobs.state}
+            lga={jobs.lga}
           />
           : (
             <React.Fragment>
@@ -193,6 +197,8 @@ export default function JobDetails() {
                 color="success"
                 rating={item.rating}
                 image={item.imageUrl}
+                state={item.state}
+                country={item.country}
                 status="Assign"
                 onAssign={() => assignJob(item._id)} />
             )

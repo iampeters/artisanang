@@ -257,7 +257,6 @@ export default function RegisterArtisan() {
                   <Grid item xs={12}>
                     <TextField
                       variant="outlined"
-                      required
                       fullWidth
                       id="email"
                       label="Email Address"
@@ -320,7 +319,6 @@ export default function RegisterArtisan() {
                   color="primary"
                   className={classes.submit}
                   disabled={
-                    !isEmailValid ||
                     !lastnameValid ||
                     !firstnameValid ||
                     !isPasswordValid ||

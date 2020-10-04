@@ -9,7 +9,8 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { getCategory } from '../redux/Actions/categoryActions';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { createJob } from '../redux/Actions/jobActions';
-import { Phone } from '@material-ui/icons';
+import { States } from '../helpers/States';
+
 
 export default function AddJob() {
   const classes = useStyles();
@@ -26,6 +27,9 @@ export default function AddJob() {
   const [phoneNumberValid, setPhoneNumberValid]: any = React.useState(null);
   const [phoneNumber, setPhoneNumber]: any = React.useState('');
   const [categoryId, setCategoryId]: any = React.useState({})
+  const [state, setState]: any = React.useState('');
+  const [lga, setLga]: any = React.useState('');
+  const [address, setAddress]: any = React.useState('');
 
   let categoryList: any = category.items && category.items;
 
@@ -43,7 +47,10 @@ export default function AddJob() {
       description,
       categoryId: categoryId._id,
       phoneNumber,
-      userId: user._id
+      userId: user._id,
+      state,
+      address,
+      lga
     };
 
     dispatch(createJob(data));
@@ -174,6 +181,60 @@ export default function AddJob() {
                 </div>
 
                 <div className="form-group col-md-12">
+                  <Autocomplete
+                    id="state"
+                    options={States}
+                    getOptionLabel={(option) => option.name}
+                    fullWidth
+                    disabled={submitted}
+                    onChange={(e, option) => setState(option?.name)}
+                    renderInput={(params) => <TextField {...params}
+                      label="State"
+                      variant="outlined"
+                      required
+                      name='state'
+                      value={state}
+                      autoComplete='state'
+                      onChange={e => setState(e.target.value)}
+                    // disabled={submitted}
+                    />}
+                  />
+                </div>
+
+                <div className="form-group col-md-12">
+                  <TextField
+                    name="lga"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="lga"
+                    label="Enter LGA of job"
+                    inputMode='text'
+                    value={lga}
+                    onChange={e => setLga(e.target.value)}
+                    disabled={submitted}
+                    error={lga.length <= 4 && lga !== ''}
+                    helperText={lga.length <= 4 && lga !== '' && 'Title should be more than 4 characters'}
+                  />
+                </div>
+
+                <div className="form-group col-md-12">
+                  <TextField
+                    name="address"
+                    variant="outlined"
+                    fullWidth
+                    id="address"
+                    label="Enter job address"
+                    inputMode="text"
+                    value={address}
+                    onChange={e => setAddress(e.target.value)}
+                    disabled={submitted}
+                    error={address.length <= 4 && address !== ''}
+                    helperText={address.length <= 4 && address !== '' && 'Title should be more than 4 characters'}
+                  />
+                </div>
+
+                <div className="form-group col-md-12">
                   <TextareaAutosize
                     name="Enter description"
                     placeholder="Enter job description"
@@ -181,7 +242,7 @@ export default function AddJob() {
                     id="description"
                     value={description}
                     className="w-100 border-radius p-2"
-                    style={{ minHeight: 200, borderColor: PrimaryTheme.black }}
+                    style={{ minHeight: 100, borderColor: PrimaryTheme.black }}
                     onChange={e => setDescription(e.target.value)}
                     disabled={
                       submitted ||
@@ -200,9 +261,11 @@ export default function AddJob() {
                     disabled={
                       title === '' ? true : false ||
                         description === '' ? true : false ||
+                        state === '' ? true : false ||
+                        lga === '' ? true : false ||
                         submitted
                     }
-                    style={{ background: PrimaryTheme.black, color: PrimaryTheme.white }}
+                    style={{ background: PrimaryTheme.black, color: PrimaryTheme.warn }}
                   >Create Job</Button>
                 </div>
               </div>

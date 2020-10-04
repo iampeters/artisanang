@@ -11,6 +11,7 @@ import { Avatar, CardHeader } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { Reducers } from '../interfaces/interface';
 import { useHistory } from 'react-router-dom';
+import PrimaryTheme from '../themes/Primary';
 
 const useStyles = makeStyles({
   root: {
@@ -68,6 +69,7 @@ export default function ImgMediaCard(props: CardProps) {
           <Typography variant="body2" color="textSecondary" component="p">
             {props.date}
           </Typography>
+
           {props.status !== "PENDING" && props.status !== "NEW" && user.userType === 2 && <React.Fragment>
             <Typography gutterBottom variant="h6" component="h2" className="mt-3">
               {"Contact"}
@@ -75,7 +77,15 @@ export default function ImgMediaCard(props: CardProps) {
             <Typography variant="body2" color="textSecondary" component="p">
               {props.phoneNumber}
             </Typography>
+
+            <Typography gutterBottom variant="h6" component="h2" className="mt-3">
+              {"Address"}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.address}
+            </Typography>
           </React.Fragment>}
+
 
           {user.userType === 1 && <React.Fragment>
             <Typography gutterBottom variant="h6" component="h2" className="mt-3">
@@ -84,9 +94,31 @@ export default function ImgMediaCard(props: CardProps) {
             <Typography variant="body2" color="textSecondary" component="p">
               {props.phoneNumber}
             </Typography>
+
+            <Typography gutterBottom variant="h6" component="h2" className="mt-3">
+              {"Address"}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.address}
+            </Typography>
           </React.Fragment>}
 
+          <Typography gutterBottom variant="h6" component="h2" className="mt-3">
+            {"LGA"}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.lga}
+          </Typography>
+
+          <Typography gutterBottom variant="h6" component="h2" className="mt-3">
+            {"State"}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.state}
+          </Typography>
+
         </CardContent>
+
       </CardActionArea>
       {props.status === "NEW" && user.userType !== 2 && <CardActions className="pt-3 pb-3">
         <Button onClick={props.onClick} size="medium" style={{
@@ -103,12 +135,36 @@ export default function ImgMediaCard(props: CardProps) {
         </Button> */}
       </CardActions>}
 
+      {props.status === "NEW" && user.userType === 2 && props.type === "request" && <CardActions className="pt-3 pb-3">
+        <Button onClick={props.onAccept} size="medium" style={{
+          color: props.actionButtonColor,
+          backgroundColor: props.actionButtonBgColor
+        }} variant="contained">
+          {props.actionButton}
+        </Button>
+        <Button onClick={props.onEdit} size="medium" style={{
+          color: props.secondActionButtonColor,
+          backgroundColor: props.secondActionButtonBgColor
+        }}>
+          {props.secondActionButton}
+        </Button>
+      </CardActions>}
+
       {props.status === "ASSIGNED" && user.userType !== 2 && <CardActions className="pt-3 pb-3">
         <Button onClick={props.onComplete} size="medium" style={{
           color: props.completeActionButtonColor,
           backgroundColor: props.completeActionButtonBgColor
         }} variant="contained">
           {props.completeAction}
+        </Button>
+      </CardActions>}
+
+      {props.status === "COMPLETED" && user.userType !== 2 && <CardActions className="pt-3 pb-3">
+        <Button onClick={props.goto} size="medium" style={{
+          color: props.completeActionButtonColor,
+          backgroundColor: PrimaryTheme.success
+        }} variant="contained">
+          {props.navigationText}
         </Button>
       </CardActions>}
     </Card>
@@ -141,4 +197,12 @@ interface CardProps {
   completeActionButtonColor?: string;
   completeActionButtonBgColor?: string;
   onComplete?: any;
+  onAccept?: any;
+  goto?: any;
+  navigationText?: string;
+  type?: "request" | "job";
+  address?: string;
+  state?: string;
+  country?: string;
+  lga?: string;
 }

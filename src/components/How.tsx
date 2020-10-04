@@ -154,7 +154,7 @@ export default function How() {
                 color: PrimaryTheme.white,
                 // textAlign: 'left'
               }}>
-                Work together to create a verified and authenlist list of high flying and reliable artisans front he common pool
+                Work together to create a verified and authentic list of high flying and reliable artisans from the common pool
               </h5>
             </div>
 

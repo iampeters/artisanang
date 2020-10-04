@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import PrimaryTheme from '../themes/Primary';
-import { Reducers, CountryType, Category } from '../interfaces/interface';
+import { Reducers, CountryType } from '../interfaces/interface';
 import Avatar from '@material-ui/core/Avatar';
 import { useSelector, useDispatch } from 'react-redux';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -188,15 +188,15 @@ export default function AddArtisan() {
       <div className="col-md-12 ml-auto mr-auto mb-5 border-radius">
         <div className="row m-0">
           <div className="col-md-12 ml-auto mr-auto mb-3 text-center">
-            <h4 className='text-left text-color' style={{
-              fontFamily: PrimaryTheme.fonts?.mediumFont
+            <h4 className='text-left' style={{
+              fontFamily: PrimaryTheme.fonts?.mediumFont, color: PrimaryTheme.black
             }}> Add Artisan <Icon>star</Icon></h4>
             <label htmlFor="file" className=' pointer'>
               <Avatar
                 className={classes.large + ' mr-auto ml-auto mb-1'}
                 alt={`${user.firstname} ${user.lastname}`}
                 src={imageUrl} />
-                {imageUrl === '/add-user.png'? "Upload Photo": "Change"}
+              {imageUrl === '/add-user.png' ? "Upload Photo" : "Change"}
             </label>
             <input type="file" id='file' name='file' disabled={submitted} onChange={handleFile} className='d-none' />
           </div>
@@ -250,7 +250,6 @@ export default function AddArtisan() {
                 <div className="form-group col-sm-6">
                   <TextField
                     variant="outlined"
-                    required
                     fullWidth
                     id="email"
                     label="Email Address"
@@ -423,8 +422,7 @@ export default function AddArtisan() {
                     className={classes.button + ' col mt-2'}
                     onClick={handleSubmit}
                     disabled={
-                      !isEmailValid ||
-                        !lastnameValid ||
+                      !lastnameValid ||
                         !firstnameValid ||
                         !phoneNumberValid ||
                         state === '' ? true : false ||
@@ -432,7 +430,7 @@ export default function AddArtisan() {
                             address === '' ? true : false ||
                             submitted
                     }
-                    style={{ background: PrimaryTheme.black, color: PrimaryTheme.white }}
+                    style={{ background: PrimaryTheme.black, color: PrimaryTheme.warn }}
                   >Add Artisan</Button>
                 </div>
 

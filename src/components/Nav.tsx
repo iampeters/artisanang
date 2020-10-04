@@ -61,7 +61,7 @@ export default function Nav() {
       <div className="col-md-12 p-2 text-center">
         {Routes.map((route, index) => (
           <React.Fragment key={index}>
-            {route.userType === user.userType && <List button={false} icon={route.icon} path={route.path} color={location.pathname === route.path && PrimaryTheme.white} name={route.name} className={location.pathname === route.path ? 'Nav-Active' : null} />}
+            {route.userType === user.userType && <List button={false} icon={route.icon} path={route.path} color={location.pathname === route.path && PrimaryTheme.warn} name={route.name} className={location.pathname === route.path ? 'Nav-Active' : null} />}
           </React.Fragment>
         ))}
       </div>

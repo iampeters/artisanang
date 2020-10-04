@@ -181,7 +181,7 @@ export default function Dashboard() {
       </div>
 
       {/* job list */}
-      <div className="col-md-9 ml-auto mr-auto p-0 mb-3">
+      <div className="col-md-10 ml-auto mr-auto p-0 mb-3">
 
         <div className="col-md-12">
           <h5 style={{ color: PrimaryTheme.appBar, 

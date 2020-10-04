@@ -151,6 +151,10 @@ export interface JobProps {
   artisanId?: any;
   status?: "NEW" | "ASSIGNED" | "PENDING" | "ACCEPTED" | "COMPLETED"
   _id: string;
+  address?: string;
+  lga?: string;
+  country?: string;
+  state?: string;
 }
 
 export interface Category {

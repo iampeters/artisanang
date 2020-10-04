@@ -134,14 +134,19 @@ export default function RequestDetails() {
             status={request.status}
             date={getDate(request.createdOn)}
             category={request.categoryId && request.categoryId.name}
-            color={request.status === "NEW" || request.status === "PENDING" ? "warning" : "success"}
+            color={request.status === "ACCEPTED" ? "success": (request.status === "DECLINED"? "danger": 'warning')}
             actionButton="Accept"
             actionButtonColor={PrimaryTheme.white}
             actionButtonBgColor={PrimaryTheme.success}
             secondActionButton="Reject"
             secondActionButtonColor={PrimaryTheme.danger}
-            onClick={acceptJob}
+            onAccept={acceptJob}
             onEdit={rejectJob}
+            type="request"
+            address={request.jobId && request.jobId.address}
+            state={request.jobId && request.jobId.state}
+            lga={request.jobId && request.jobId.lga}
+            phoneNumber={request.jobId && request.jobId.phoneNumber}
           />
           : (
             <React.Fragment>
