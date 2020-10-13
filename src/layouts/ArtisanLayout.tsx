@@ -20,7 +20,6 @@ import ReviewDetails from '../routes/ReviewDetails';
 import EditProfile from '../routes/EditProfile';
 import ArtisanReviews from '../routes/Artisans/Reviews';
 import Requests from '../routes/Artisans/Requests';
-import Portfolio from '../routes/Artisans/Portfolio';
 import RequestDetails from '../routes/Artisans/RequestDetails';
 import JobDetails from '../routes/Artisans/JobDetails';
 import CompletedJobs from '../routes/Artisans/CompletedJobs';

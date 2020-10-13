@@ -1,15 +1,12 @@
 import React from 'react'
 import PrimaryTheme from '../themes/Primary'
 import { useSelector, useDispatch } from 'react-redux'
-import { Reducers, CountryType } from '../interfaces/interface'
+import { Reducers } from '../interfaces/interface'
 import { useSnackbar } from 'notistack';
 import { getCategory } from '../redux/Actions/categoryActions';
-import { fileUpload } from '../redux/Actions/configAction';
-import { makeStyles, createStyles, Theme, Icon, Avatar, TextField, Button } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, TextField, Button } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Countries } from '../helpers/Countries';
-import { States } from '../helpers/States';
-import { updateAccount, updateBusiness } from '../redux/Actions/artisanActions';
+import { updateBusiness } from '../redux/Actions/artisanActions';
 
 export default function BusinessInformation() {
   const user = useSelector((state: Reducers) => state.user);

@@ -3,13 +3,11 @@ import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import PrimaryTheme from '../themes/Primary';
 import { useHistory, NavLink } from 'react-router-dom';
-import { Avatar } from '@material-ui/core';
 
 
 export default function OpenAppBar() {

@@ -196,6 +196,46 @@ export const acceptRequest = (state: any) => {
   };
 };
 
+export const timeoutRequest = (state: any) => {
+  const api = new RequestService().timeoutRequest(state);
+
+  return (dispatch: Dispatch) => {
+    api
+      .then((res: ResponseDetails) => {
+        if (res.successful) {
+          dispatch({
+            type: 'ALERT',
+            payload: {
+              message: 'Job request timed out',
+              successful: true,
+            },
+          });
+        } else {
+          dispatch({
+            type: 'ALERT',
+            payload: res,
+          });
+        }
+      })
+      .catch(() => {
+        // send err to application
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
+      });
+  };
+};
+
 export const rejectRequest = (state: any) => {
   const api = new RequestService().rejectRequest(state);
 

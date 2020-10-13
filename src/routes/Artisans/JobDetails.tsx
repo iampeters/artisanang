@@ -11,7 +11,6 @@ import { getDate } from '../../helpers/Functions';
 import Placeholder from '../../components/Skeleton';
 import AlertDialog from '../../components/Dialog';
 import AssignJob from '../../components/AssignJob';
-import { getArtisans } from '../../redux/Actions/artisanActions';
 import { assignRequest } from '../../redux/Actions/requestActions';
 
 export default function JobDetails() {
@@ -34,14 +33,6 @@ export default function JobDetails() {
     setOpen(false);
   };
 
-  const handleOpen = () => {
-
-    if (jobs.status === "NEW") {
-      setOpen(true);
-
-      getArtisansByCategory();
-    }
-  }
 
   const handleRefresh = () => {
     dispatch({
@@ -67,18 +58,18 @@ export default function JobDetails() {
     dispatch(assignRequest(data))
   }
 
-  const getArtisansByCategory = () => {
-    let id = jobs.categoryId._id
-    let filter: any = { categoryId: id };
-    let paginationConfig = {
-      page: 1,
-      pageSize: 0,
-      whereCondition: JSON.stringify(filter)
-    }
+  // const getArtisansByCategory = () => {
+  //   let id = jobs.categoryId._id
+  //   let filter: any = { categoryId: id };
+  //   let paginationConfig = {
+  //     page: 1,
+  //     pageSize: 0,
+  //     whereCondition: JSON.stringify(filter)
+  //   }
 
-    dispatch(getArtisans(paginationConfig));
+  //   dispatch(getArtisans(paginationConfig));
 
-  }
+  // }
 
   React.useEffect(() => {
     dispatch(getJobDetails(params.id));

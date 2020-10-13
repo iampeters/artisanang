@@ -149,8 +149,10 @@ export interface JobProps {
   phoneNumber?: string;
   budget?: number;
   artisanId?: any;
-  status?: "NEW" | "ASSIGNED" | "PENDING" | "ACCEPTED" | "COMPLETED"
+  status?: "NEW" | "ASSIGNED" | "PENDING" | "ACCEPTED" | "COMPLETED" | "TIMEOUT"
   _id: string;
+  requestId: string;
+  duration: any;
   address?: string;
   lga?: string;
   country?: string;

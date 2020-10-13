@@ -70,7 +70,7 @@ export default function ImgMediaCard(props: CardProps) {
             {props.date}
           </Typography>
 
-          {props.status !== "PENDING" && props.status !== "NEW" && user.userType === 2 && <React.Fragment>
+          {props.status !== "PENDING" && props.status !== "NEW" && props.status !== "TIMEOUT" && user.userType === 2 && <React.Fragment>
             <Typography gutterBottom variant="h6" component="h2" className="mt-3">
               {"Contact"}
             </Typography>
@@ -176,7 +176,7 @@ interface CardProps {
   title: string;
   image?: string;
   description?: string;
-  status?: "NEW" | "PENDING" | "ASSIGNED" | "ACCEPTED" | "COMPLETED";
+  status?: "NEW" | "PENDING" | "ASSIGNED" | "ACCEPTED" | "COMPLETED" | "TIMEOUT";
   category?: string;
   date?: string;
   artisan?: string;

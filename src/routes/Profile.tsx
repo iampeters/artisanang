@@ -8,8 +8,6 @@ import PrimaryTheme from '../themes/Primary';
 import Placeholder from '../components/Skeleton';
 import { getUserDetails, verifyEmail } from '../redux/Actions/userActions';
 import { getDate, getDateTime } from '../helpers/Functions';
-import { getArtisans } from '../redux/Actions/artisanActions';
-import { getReviews } from '../redux/Actions/reviewAction';
 import { Icon, List } from '@material-ui/core';
 import SwipeableTemporaryDrawer from '../components/Drawer';
 import EditProfile from './EditProfile';
@@ -25,8 +23,6 @@ export default function Profile() {
 
   const user = useSelector((state: Reducers) => state.user);
   const dashboard = useSelector((state: Reducers) => state.dashboard);
-  const artisan = useSelector((state: Reducers) => state.artisan);
-  const reviews = useSelector((state: Reducers) => state.reviews);
   const alert = useSelector((state: Reducers) => state.alert);
   const editProfileDrawer = useSelector((state: Reducers) => state.profileEditDrawer);
   const changePasswordDrawer = useSelector((state: Reducers) => state.changePasswordDrawer);

@@ -2,12 +2,9 @@ import React from 'react'
 import { useHistory } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Icon, List } from '@material-ui/core';
 import { Reducers } from '../../interfaces/interface';
 import { verifyEmail, getUserDetails } from '../../redux/Actions/userActions';
-import { getArtisans } from '../../redux/Actions/artisanActions';
-import { getReviews } from '../../redux/Actions/reviewAction';
 import PrimaryTheme from '../../themes/Primary';
 import { getDateTime, getDate } from '../../helpers/Functions';
 import SwipeableTemporaryDrawer from '../../components/Drawer';

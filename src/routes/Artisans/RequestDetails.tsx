@@ -134,7 +134,7 @@ export default function RequestDetails() {
             status={request.status}
             date={getDate(request.createdOn)}
             category={request.categoryId && request.categoryId.name}
-            color={request.status === "ACCEPTED" ? "success": (request.status === "DECLINED"? "danger": 'warning')}
+            color={request.status === "ACCEPTED" ? "success": ((request.status === "DECLINED" || request.status === "TIMEOUT")? "danger": 'warning')}
             actionButton="Accept"
             actionButtonColor={PrimaryTheme.white}
             actionButtonBgColor={PrimaryTheme.success}

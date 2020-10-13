@@ -6,7 +6,6 @@ import GetStarted from '../components/GetStarted';
 import HowItWorks from '../components/HowItWorks';
 import { Element } from 'react-scroll';
 import Welcome from './Welcome/Welcome';
-import Section from '../components/Section';
 
 
 export default function IndexPage() {

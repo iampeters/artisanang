@@ -12,7 +12,7 @@ import Placeholder from '../components/Skeleton';
 import AlertDialog from '../components/Dialog';
 import AssignJob from '../components/AssignJob';
 import { getArtisans } from '../redux/Actions/artisanActions';
-import { assignRequest } from '../redux/Actions/requestActions';
+import { assignRequest, timeoutRequest } from '../redux/Actions/requestActions';
 
 export default function JobDetails() {
   const { enqueueSnackbar } = useSnackbar();
@@ -33,6 +33,7 @@ export default function JobDetails() {
   const handleClose = () => {
     setOpen(false);
   };
+
 
   const handleOpen = () => {
 
@@ -94,6 +95,20 @@ export default function JobDetails() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
+
+
+
+  React.useEffect(() => {
+    let now = new Date();
+
+    if (jobs.duration) {
+      console.log(now > jobs.duration);
+      if (now > jobs.duration) {
+        dispatch(timeoutRequest(jobs.requestId));
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, jobs])
 
   React.useEffect(() => {
     if (Object.entries(alert).length !== 0) {

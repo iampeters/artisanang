@@ -94,6 +94,23 @@ export default class JobService {
     }
   }
 
+  async timeoutRequest(id: any) {
+    try {
+      let response = await fetch(this.requests + `timeout/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.tokens.auth_token}`
+        },
+        body: JSON.stringify({})
+      });
+
+      return await response.json();
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async rejectRequest(id: any) {
     try {
       let response = await fetch(this.requests + `reject/${id}`, {

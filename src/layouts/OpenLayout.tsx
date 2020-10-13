@@ -19,7 +19,6 @@ import { Element } from 'react-scroll';
 import AboutUs from '../routes/AboutUs';
 import FAQs from '../routes/FAQs';
 import EmailConfirmation from '../routes/EmailConfirmation';
-import Welcome from '../routes/Welcome/Welcome';
 import RegisterArtisan from '../routes/RegisterArtisan';
 import EmailVerification from '../routes/EmailVerification';
 import Confirmation from '../routes/Confirmation';
