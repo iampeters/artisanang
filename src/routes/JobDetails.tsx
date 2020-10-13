@@ -27,8 +27,8 @@ export default function JobDetails() {
 
   let artisanList = artisans.items && artisans.items;
 
-
   const [open, setOpen] = React.useState(false);
+  const [timeout, setTimeout] = React.useState(1);
 
   const handleClose = () => {
     setOpen(false);
@@ -60,13 +60,15 @@ export default function JobDetails() {
     });
 
     dispatch(getJobDetails(params.id));
+    dispatch(timeoutRequest(params.id));
   }
 
   const assignJob = (id: any) => {
     let data = {
       jobId: params.id,
       userId: user._id,
-      artisanId: id
+      artisanId: id,
+      timeout
     };
 
     dispatch({
@@ -75,6 +77,16 @@ export default function JobDetails() {
     })
 
     dispatch(assignRequest(data))
+    
+  }
+
+  const handleTimeout = (value: any) => {
+   if (value <= 0) {
+     setTimeout(1);
+   } else {
+     setTimeout(Number(value))
+   }
+    
   }
 
   const getArtisansByCategory = () => {
@@ -91,24 +103,13 @@ export default function JobDetails() {
   }
 
   React.useEffect(() => {
+    dispatch(timeoutRequest(params.id));
+
     dispatch(getJobDetails(params.id));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
-
-
-  React.useEffect(() => {
-    let now = new Date();
-
-    if (jobs.duration) {
-      console.log(now > jobs.duration);
-      if (now > jobs.duration) {
-        dispatch(timeoutRequest(jobs.requestId));
-      }
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, jobs])
 
   React.useEffect(() => {
     if (Object.entries(alert).length !== 0) {
@@ -133,6 +134,8 @@ export default function JobDetails() {
       } else {
 
         setOpen(false);
+
+        enqueueSnackbar(alert.message, { variant: "success" });
 
         handleRefresh();
 
@@ -225,7 +228,12 @@ export default function JobDetails() {
 
       </div>
 
-      <AlertDialog categoryName={jobs.categoryId && jobs.categoryId.name + "s"} open={open} onClose={handleClose} >
+      <AlertDialog
+        categoryName={jobs.categoryId && jobs.categoryId.name + "s"}
+        open={open} onClose={handleClose}
+        inputValue={timeout}
+        onSetInput={(e: any) => handleTimeout(e.target.value)}
+      >
         <React.Fragment>
           {artisanList && artisanList?.length !== 0 && artisanList.map((item: Artisans, index) => {
             return (
@@ -239,7 +247,9 @@ export default function JobDetails() {
                 status="Assign"
                 state={item.state}
                 country={item.country}
-                onAssign={() => assignJob(item._id)} />
+                onAssign={() => assignJob(item._id)}
+
+              />
             )
           })}
 

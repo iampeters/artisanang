@@ -32,6 +32,11 @@ export default function AlertDialog(props: DialogProps) {
             }}>List of {props.categoryName}</h5>
           </div>
 
+          <div className="form-group  mr-auto ml-auto pl-5 pr-5">
+            <label htmlFor="duration">Set request timeout duration in hours</label>
+            <input type="number" className="form-control" onChange={props.onSetInput} value={props.inputValue} id="duration" placeholder="Timeout Duration" />
+          </div>
+
           <div onClick={props.onClose} style={{
             width: 50,
             height: 50,
@@ -68,4 +73,7 @@ interface DialogProps {
   open: boolean;
   categoryName: string;
   onClose: any;
+  hasInput?:boolean;
+  onSetInput?: any;
+  inputValue?: any;
 }
