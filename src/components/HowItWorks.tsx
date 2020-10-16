@@ -20,10 +20,10 @@ export default function HowItWorks() {
                 fontFamily: PrimaryTheme.fonts?.mediumFont,
                 color: PrimaryTheme.white,
               }}>Get Started</h3>
-              <p style={{
+              <h5 style={{
                 fontFamily: PrimaryTheme.fonts?.lightFont,
                 color: PrimaryTheme.light
-              }}>Signing up on Artisana is free and easily accessible. Sign up, add and review artisans.</p>
+              }}>Signing up on Artisana is free and easily accessible. Sign up, add and review artisans.</h5>
             </div>
             <hr />
 

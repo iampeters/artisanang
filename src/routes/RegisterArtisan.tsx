@@ -180,7 +180,8 @@ export default function RegisterArtisan() {
               // color: PrimaryTheme.dark,
               // textAlign: "center",
               // fontSize: PrimaryTheme.fontSizes?.small
-            }}>Welcome</h2>
+            }}>Register FREE as an artisan
+            </h2>
             <p style={{
               fontFamily: PrimaryTheme.fonts?.lightFont,
               marginBottom: 5,
@@ -191,11 +192,12 @@ export default function RegisterArtisan() {
               // textAlign: "center",
               // fontSize: PrimaryTheme.fontSizes?.small
             }}>
-              The Artisana community welcomes you to join us to create a better, more rewarding business relationships.
+              {/* The Artisana community welcomes you to join us to create a better, more rewarding business relationships.
               If you are a honest, hardworking and and well trained Artisan, we invite you to join our community and WATCH YOUR BUSINESS GROW
               As your rating and reviews improve based on your delivery, so does your income. Please always remember to tell your clients to rate/review you on this site.
               And it's all FREE! <br />
-              Let's hear from you here
+              Let's hear from you here */}
+              Welcome home good artisans. Artisana works to help you grow your client list and business size. Register here or encourage your customers to register/list you as artisans. Always remind people you work for, to give you a honest rating on Artisana as this would boost your rating till you get to our elite A list artisans, if you are really good and honest. The better your ratings, the more business you get, making it possible to charge even better rates from happy customers who are encouraged by your rating. Artisana can only help hardworking, truly professional artisans get rich faster. Join here for FREE
           </p>
           </div>
 

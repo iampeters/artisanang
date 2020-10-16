@@ -19,7 +19,7 @@ export default function About() {
               fontFamily: PrimaryTheme.fonts?.lightFont,
               lineHeight: 1.5
             }}>
-              Artisana is a group consisting of users of artisan services to review and improve the quality of services rendered by artisans in Nigeria and beyond.
+              Artisana is the open platform for users of artisan services and professional artisans. This platform helps customers protect themselves against unprofessional and dishonest artisans...
             </h5>
 
             <button className="btn btn-dark p-3 pl-5 pr-5" onClick={() => window.location.pathname = 'about'}>

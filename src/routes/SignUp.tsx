@@ -276,7 +276,8 @@ export default function SignUp() {
               // color: PrimaryTheme.dark,
               // textAlign: "center",
               // fontSize: PrimaryTheme.fontSizes?.small
-            }}>Welcome</h2>
+            }}>Register FREE as a user
+            </h2>
             <p style={{
               fontFamily: PrimaryTheme.fonts?.lightFont,
               marginBottom: 5,
@@ -287,8 +288,10 @@ export default function SignUp() {
               // textAlign: "center",
               // fontSize: PrimaryTheme.fontSizes?.small
             }}>
-              Artisan users, register your details here and NEVER again contract an artisan till you have registered him/her on this app.
-              All users are stakeholders and co owners of this platform, so feel free here and let's know what you think or what you think we should do in addition here
+              {/* Artisan users, register your details here and NEVER again contract an artisan till you have registered him/her on this app.
+              All users are stakeholders and co owners of this platform, so feel free here and let's know what you think or what you think we should do in addition here */}
+
+When you register as a user, you can now list every single artisan you meet before you give them any jobs. This way you have their full details and they know this. Good artisans can only benefit from this listing but unscrupulous ones may protest. Dont use them! Whats more, on completion or none completion of the job(s), you return here to rate him/her on a score of 0-5, and if you like, write a review. The rating remains there for all to see. We encourage you to share good and bad ratings on your social media handles. Good artisans deserve all the encouragement, the bad ones deserve to be exposed to the unwary.
           </p>
           </div>
           <div className="col" style={{

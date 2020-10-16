@@ -52,10 +52,10 @@ export default function Footer() {
             <h6 style={{
               fontFamily: PrimaryTheme.fonts?.mediumFont,
             }}>Follow us</h6>
-            <a href="https://facebook.com/Artisana" target="_blank" rel="noopener noreferrer">
+            <a href="https://facebook.com/excommunity" target="_blank" rel="noopener noreferrer">
               <FacebookIcon size={32} round className='pointer mr-2' />
             </a>
-            <a href="https://instagram.com/artisana_ng" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com/artisana.ng" target="_blank" rel="noopener noreferrer">
             <img src="/instagram.png" alt="Instagram" className='pointer' style={{
                 width: 32,
                 borderRadius: 20

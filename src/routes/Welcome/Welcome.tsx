@@ -33,7 +33,7 @@ const content = [
   {
     title: "Welcome to Artisana",
     description:
-      "Join Artisana now and be part of a revolution to improve service offerings from millions of artisans to millions of users. Artisana is the brainchild of users of Artisan services like yourself to change things for the better.",
+      "Join thousands of regular artisan users like yourself on Artisana. List every artisan before you use them and protect yourself from fraud, serious crimes and poor quality jobs. Let's work together to create a reliable list of reliable and honest artisans by rating and reviewing every single artisan we have listed and worked with. Artisana was created by people like you who desire to protect themselves against unscrupulous artisans while in search of good ones to work with, always. Become a stakeholder of this initiative by registering on this platform now. Join here FOR FREE.",
     firstButton: "Join as User",
     secondButton: "Join as Artisan",
     // image: "https://i.imgur.com/ZXBtVw7.jpg",
