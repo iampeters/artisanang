@@ -28,7 +28,7 @@ export function getDate(createdOn: any) {
 }
 
 export function getDateTime(createdOn: any) {
-  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let months = ["January", "February", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   let day: any = new Date(createdOn).getDate();
   day = day < 10 ? '0' + day : day;
   let month = months[new Date(createdOn).getMonth()];
@@ -42,7 +42,7 @@ export function getDateTime(createdOn: any) {
   minutes = minutes < 10 ? '0' + minutes : minutes;
   let strTime = hours + ':' + minutes + ' ' + ampm;
 
-  return `${day}, ${month} ${year} ${strTime}`;
+  return `${day} ${month}, ${year} ${strTime}`;
 }
 
 const Functions = {

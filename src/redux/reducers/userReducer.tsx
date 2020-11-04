@@ -32,6 +32,17 @@ export const userReducer = (state: any = {}, action: any) => {
   }
 };
 
+export const chatUserReducer = (state: any = {}, action: any) => {
+  switch (action.type) {
+    case 'CHAT_USER': {
+      return action.payload;
+    }
+    default:
+      return state;
+  }
+};
+
+
 export const loginReducer = (state: any = {}, action: any) => {
   switch (action.type) {
     case 'AUTHENTICATE': {

@@ -152,23 +152,23 @@ export default function AddReview() {
                       helperText={title.length <= 4 && title !== '' && 'Title should be more than 4 characters'}
                     /> */}
 
-                  <Autocomplete
-                    id="title"
-                    options={titles}
-                    getOptionLabel={(option: any) => option.name}
-                    fullWidth
-                    disabled={submitted}
-                    onChange={(e, option) => setTitle(option.value)}
-                    renderInput={(params) => <TextField {...params}
-                      label="Select Title"
-                      variant="outlined"
-                      required
-                      name='title'
-                      value={title}
-                      autoComplete='Title'
-                      onChange={e => setTitle(e.target.value)}
-                    />}
-                  />
+                    <Autocomplete
+                      id="title"
+                      options={titles}
+                      getOptionLabel={(option: any) => option.name}
+                      fullWidth
+                      disabled={submitted}
+                      onChange={(e, option) => setTitle(option.value)}
+                      renderInput={(params) => <TextField {...params}
+                        label="Select Title"
+                        variant="outlined"
+                        required
+                        name='title'
+                        value={title}
+                        autoComplete='Title'
+                        onChange={e => setTitle(e.target.value)}
+                      />}
+                    />
 
                   </div>
 
@@ -183,7 +183,7 @@ export default function AddReview() {
                       onChange={e => setDescription(e.target.value)}
                       disabled={
                         submitted ||
-                        (title.length <= 4 && title !== '')
+                        (title.length <= 3 && title !== '')
                       }
                     />
                   </div>

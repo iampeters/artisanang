@@ -232,6 +232,47 @@ export const getUserDetails = (id: any) => {
   };
 };
 
+export const getChatUserDetails = (id: any) => {
+  const authService = new AuthService();
+
+  const api = authService.getUser(id);
+
+  return (dispatch: any) => {
+    api
+      .then((res: ResponseDetails) => {
+        if (res.successful) {
+
+          // set logged in user state
+          dispatch({
+            type: 'CHAT_USER',
+            payload: res.result,
+          });
+        } else {
+          dispatch({
+            type: 'ALERT',
+            payload: res,
+          });
+        }
+      })
+      .catch(() => {
+        // send err to application
+        dispatch({
+          type: 'ALERT',
+          payload: {
+            message: 'Network request failed',
+            successful: false,
+          },
+        });
+      }).finally(() => {
+        dispatch({
+          type: 'LOADING',
+          payload: false,
+        });
+
+      });
+  };
+};
+
 
 export const forgotPassword = (data: any) => {
   const api = new AuthService().forgotPassword(data);

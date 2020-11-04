@@ -119,6 +119,7 @@ export interface Reducers {
   changePasswordDrawer: boolean;
   navBar: boolean;
   user: User;
+  chatUser: User;
   tokens: Tokens;
   login: any;
   alert: any;
@@ -129,6 +130,8 @@ export interface Reducers {
   jobs: ResponseDetails;
   requests: ResponseDetails;
   category: ResponseDetails;
+  chats: ResponseDetails;
+  activeChats: ResponseDetails;
 }
 
 export interface Dashboard {
@@ -173,6 +176,7 @@ export interface Tokens {
 export interface User {
   firstname?: string | any;
   lastname?: string | any;
+  name?: string | any;
   lastLogin?: string;
   createdOn?: string;
   businessName?: string | any;
@@ -219,4 +223,13 @@ export interface Search {
 
 export interface Ratings {
   rating: any;
+}
+
+export interface Chats {
+  _id: string;
+  sender: User;
+  userId: User;
+  receiver: User;
+  message: string;
+  createdOn: string;
 }

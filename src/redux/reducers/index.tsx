@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
 import { themeReducer } from './themeReducer';
 import { loaderReducer, menuReducer, navBarReducer, profileEditReducer, changePasswordReducer } from './loaderReducer';
-import { authReducer, userReducer, tokenReducer, loginReducer, dashboardReducer } from './userReducer';
+import { authReducer, userReducer, tokenReducer, loginReducer, dashboardReducer, chatUserReducer } from './userReducer';
 import { artisanReducer } from './artisanReducer';
 import { alertReducer } from './alertReducer';
 import { fileReducer } from './configReducer';
 import { reviewReducer } from './reviewReducer';
 import { categoryReducer } from './categoryReducer';
 import { jobReducer, requestReducer } from './jobReducer';
+import { activeChatReducer, chatReducer } from './chatReducer';
 
 const rootReducer = combineReducers({
   theme: themeReducer,
@@ -27,7 +28,10 @@ const rootReducer = combineReducers({
   category: categoryReducer,
   dashboard: dashboardReducer,
   jobs: jobReducer,
-  requests: requestReducer
+  requests: requestReducer,
+  chats: chatReducer,
+  activeChats: activeChatReducer,
+  chatUser: chatUserReducer,
 });
 
 export default rootReducer;

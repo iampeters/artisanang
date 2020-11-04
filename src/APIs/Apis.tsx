@@ -10,6 +10,7 @@ const API_URL = {
 	users: `${process.env.REACT_APP_HOST}api/users/`,
 	social: `${process.env.REACT_APP_HOST}api/social/`,
 	category: `${process.env.REACT_APP_HOST}api/category/`,
+	chats: `${process.env.REACT_APP_HOST}api/chats/`
 };
 
 export default API_URL;

@@ -72,7 +72,14 @@ export default function Dashboard() {
   };
 
   React.useEffect(() => {
-    dispatch(getArtisans(paginationConfig))
+    dispatch(getArtisans(paginationConfig));
+
+    return () => {
+      dispatch({
+        type: 'GET_ARTISANS',
+        payload: {}
+      })
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, page]);
@@ -112,7 +119,7 @@ export default function Dashboard() {
 
           <div className="col-md-4 text-right">
             <Tooltip title="Go back">
-              <button className='btn btn-dark btn-sm mr-1' type="button" onClick={() => showFilter(!canFilter)} title="Filter">
+              <button className='btn btn-dark btn-sm mr-1' type="button" onClick={() => showFilter(!canFilter)}>
                 <div className="row m-0 justify-content-between align-items-center">
                   <Icon style={{
                     fontSize: 20

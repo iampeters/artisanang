@@ -150,7 +150,7 @@ export default function CategoryComponent() {
                   <div className=" col-md-3 col-6 col-sm-3 mb-3 pointer" key={index} onClick={() => handleClick(item.name, item._id)}>
                     <ListItem button className='p-0 border-radius-10'>
                       <div className="box w-100 p-3 bg-white box-shadow border-radius-10 text-center">
-                        <img src={item.imageUrl} alt="Instagram" width='60' className='mb-3' />
+                        <img src={item.imageUrl} alt={item.name} width='60' className='mb-3' />
                         <h6 style={{
                           fontFamily: PrimaryTheme.fonts?.RubikRegular,
                           color: PrimaryTheme.appBar
