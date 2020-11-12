@@ -3,12 +3,13 @@ import { useSnackbar } from 'notistack';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import PaginationControlled from '../components/Pagination';
+import { setInterval } from 'timers';
+// import PaginationControlled from '../components/Pagination';
 import Placeholder from '../components/Skeleton';
 import Functions from '../helpers/Functions';
 import { Chats, Reducers } from '../interfaces/interface';
 import { getChats, sendMessage } from '../redux/Actions/chatActions';
-import { getChatUserDetails, getUserDetails } from '../redux/Actions/userActions';
+import { getChatUserDetails } from '../redux/Actions/userActions';
 import PrimaryTheme from '../themes/Primary'
 
 export default function MessageDetails() {
@@ -64,11 +65,33 @@ export default function MessageDetails() {
   };
 
   React.useEffect(() => {
-    dispatch(getChats(paginationConfig, params.id));
+    // dispatch(getChats(paginationConfig, params.id));
     dispatch(getChatUserDetails(params.id));
+
+    let objDiv: any = document.getElementsByClassName("region");
+    objDiv.scrollTop = objDiv.scrollHeight;
 
 
     return () => {
+      dispatch({
+        type: 'GET_CHATS',
+        payload: {}
+      });
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, page,]);
+
+  React.useEffect(() => {
+
+    let interval = setInterval(() => {
+      dispatch(getChats(paginationConfig, params.id));
+    }, 2000)
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(interval);
+
       dispatch({
         type: 'GET_CHATS',
         payload: {}
@@ -120,7 +143,7 @@ export default function MessageDetails() {
 
       } else {
 
-        enqueueSnackbar(alert.message, { variant: "success" });
+        // enqueueSnackbar(alert.message, { variant: "success" });
 
         if (alert.message === 'Message sent') {
           dispatch(getChats(paginationConfig, params.id));
@@ -195,7 +218,7 @@ export default function MessageDetails() {
 
                 {chatList.length !== 0 && chatList?.map((item: Chats, index: number) => {
                   return (
-                    <div className="col-md-12 mb-3" key={index} style={{
+                    <div className="col-md-12 mb-3 pl-5 pr-5" key={index} style={{
                       textAlign: item.sender._id === user._id ? "right" : "left",
                     }}>
                       {item.sender._id === user._id ? (
@@ -206,7 +229,7 @@ export default function MessageDetails() {
                           maxWidth: '70%',
                         }}>
                           <p className="mb-0">{item.message}</p>
-                          <p style={{
+                          <p className="mb-0" style={{
                             color: PrimaryTheme.light,
                             fontSize: 12,
                             textAlign: 'right',
@@ -219,11 +242,9 @@ export default function MessageDetails() {
                             width: 'auto',
                             maxWidth: '70%',
                             wordWrap: "normal",
-                            // display: 'block'
-
                           }}>
                             <p className="mb-0">{item.message}</p>
-                            <p style={{
+                            <p className="mb-0" style={{
                               color: PrimaryTheme.light,
                               fontSize: 12,
                               textAlign: 'right',
@@ -244,9 +265,9 @@ export default function MessageDetails() {
                 }
 
 
-                <div className='col-md-12 p-0 mt-3'>
+                {/* <div className='col-md-12 p-0 mt-3'>
                   {chats.total > pageSize && <PaginationControlled onPageSizeChange={handlePageSizeChange} onChange={handleChange} page={page} total={chats.total && chats.total} pageSize={pageSize} />}
-                </div>
+                </div> */}
               </React.Fragment>
             ) : (
                 <React.Fragment>
@@ -265,7 +286,7 @@ export default function MessageDetails() {
         </div>
 
 
-        {chatList && chatList.length !== 0 &&
+        {chatList &&
           <React.Fragment>
             <div className="col-md-12 p-0 bg-light" style={{
               // position: 'absolute',

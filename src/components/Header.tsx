@@ -17,22 +17,35 @@ import PrimaryTheme from '../themes/Primary';
 import { useHistory } from 'react-router-dom';
 import SwipeableTemporaryDrawer from './Drawer';
 import Nav from './Nav';
-import { Reducers } from '../interfaces/interface';
+import { Reducers, ResponseDetails } from '../interfaces/interface';
+import Notifications from '../Services/Notifications';
+import { io } from 'socket.io-client';
 
+const socket = io({
+  host: 'http://localhost:5000/',
+  hostname: 'http://localhost',
+  autoConnect: true,
+  // transports: ['websocket', 'polling'],
+  port: process.env.PORT || '5000',
+  upgrade: true
+})
 
 export default function SecuredAppBar() {
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
   const menu = useSelector((state: any) => state.menu);
   const dispatch = useDispatch();
   const history = useHistory();
+  // const socket = new Notifications().socket;
 
   const nav = useSelector((state: Reducers) => state.navBar);
+  const user = useSelector((state: Reducers) => state.user);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const messageCount = React.useState(0)[0];
+  const [messageCount, setMessageCount] = React.useState(4);
   const notificationCount = React.useState(0)[0];
 
   const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -71,6 +84,53 @@ export default function SecuredAppBar() {
   const handleNavigation = (route: string) => {
     history.push(route)
   }
+
+  const setupSocket = () => {
+    socket.on('connection', (data: any) => {
+      console.log(`Connected: ${data}`);
+    });
+  }
+
+  const getNotifications = () => {
+    const data = {
+      userId: user._id
+    };
+
+    // socket.getNotifications(data);
+
+    // socket.on('connection', () => socket.emit('getNotifications', data))
+
+    socket.emit('getNotifications', data);
+  }
+
+  // const handleMessageNotification = (data: any) => {
+  //   console.log('====================================');
+  //   console.log(data);
+  //   console.log('====================================');
+  // }
+
+  React.useEffect(() => {
+    setupSocket();
+    // getNotifications();
+
+    // return () => {
+    //   socket.off('getNotifications')
+    // }
+  })
+
+  // React.useEffect(() => {
+
+  //   socket.on('Notifications', (data: ResponseDetails) => {
+  //     console.log('====================================');
+  //     console.log(data);
+  //     console.log('====================================');
+  //   });
+
+  //   return () => {
+  //     socket.off('Notifications')
+  //   }
+  // })
+
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -143,7 +203,7 @@ export default function SecuredAppBar() {
           </IconButton>
 
           <Typography className={classes.title} variant="h6" noWrap style={{ color: PrimaryTheme.black }}>
-            Artisana
+            Artisana <button className='btn btn-success' onClick={() => getNotifications()}>Fire</button>
           </Typography>
           {/* <div className={classes.search}>
             <div className={classes.searchIcon}>

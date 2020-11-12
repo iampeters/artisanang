@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { Reducers, Reviews } from '../interfaces/interface';
 import CustomizedRatings from './Ratings';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function ReviewItemsList(props: Reviews) {
   const classes = useStyles();
   const user = useSelector((state: Reducers) => state.user)
+  const history = useHistory();
 
   return (
     <List className={classes.root}>
@@ -45,7 +47,7 @@ export default function ReviewItemsList(props: Reviews) {
                   <div className="row flex-column m-0 justify-content-center align-items-center">
                     <CustomizedRatings rating={props.rating} />
                     <div>
-                    {props.userId && props.userId._id !== user._id && <button className="btn mb-1 btn-success badge-pill pl-3 pr-3 mr-3">Chat user</button>}
+                    {props.userId && props.userId._id !== user._id && <button className="btn mb-1 btn-success badge-pill pl-3 pr-3 mr-3" onClick={() => history.push(`/messages/${props.userId._id}`)}>Send Message</button>}
                     {/* <button className="btn  btn-warning badge-pill pl-3 pr-3" onClick={props.onClick}>View</button> */}
                     </div>
                   </div>

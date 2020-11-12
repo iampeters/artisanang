@@ -99,11 +99,11 @@ export default function Messages() {
       <div className='col-md-12'>
 
         <div className="row">
-          <div className="col-8">
+          <div className="col-7">
             <h4 className='mb-0' style={{ color: PrimaryTheme.appBar, fontFamily: PrimaryTheme.fonts?.mediumFont }}> Messages</h4>
           </div>
 
-          <div className="col-4 text-right">
+          <div className="col-5 text-right">
             <button className='btn btn-dark btn-sm mr-3' type="reset" onClick={() => history.goBack()} title="Go back">
               <div className="row m-0 justify-content-between align-items-center">
                 <Icon style={{
@@ -131,7 +131,7 @@ export default function Messages() {
 
               {chatList.length !== 0 && chatList?.map((item: Chats, index: number) => {
                 return (
-                  <div className=" col-md-10 col-6 col-sm-3 mb-3 pointer"
+                  <div className=" col-md-10 mb-3 pointer"
                     key={index}
                     onClick={() => handleClick(item.userId._id === user._id ? item.sender._id : item.userId._id)}>
                     <ListItem button className='p-0 border-radius-10'>
@@ -143,8 +143,8 @@ export default function Messages() {
                                 src={item.userId._id === user._id ? item.sender.imageUrl : item.userId.imageUrl}
                                 alt={item.userId._id === user._id ? item.sender.name : item.userId.name}
                                 style={{
-                                  width: 60,
-                                  height: 60,
+                                  width: 50,
+                                  height: 50,
                                 }} />
 
                               <div style={{ marginLeft: 10 }}>
@@ -161,7 +161,7 @@ export default function Messages() {
                               </div>
                             </div>
                           </div>
-                          <div className="col-8">
+                          <div className="col-md-5">
                             <h6 style={{
                               fontFamily: PrimaryTheme.fonts?.primaryFont,
                               color: PrimaryTheme.appBar,
